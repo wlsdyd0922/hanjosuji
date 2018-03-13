@@ -1,6 +1,6 @@
-package work.company.bean;
+package job.bean;
 
-public class CompanyDto {
+public class CompanyMDto {
 	private String email; 
 	private String password; 
 	private String company; 
