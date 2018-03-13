@@ -76,18 +76,4 @@ public class CompanyMDaoImpl implements CompanyMDao{
 		String sql = "select * from CompanyM order by company";
 		return jdbcTemplate.query(sql, mapper);
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }
