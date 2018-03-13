@@ -30,8 +30,8 @@
 <body>
     <div class="empty-row"></div>
     <div class="in-align-right">
-        <a href="/member/memberlogin.html">로그인</a>
-        <a href="/member/memberregister_personal.html">회원가입</a>
+        <a href="/member/login">로그인</a>
+        <a href="/member/register_personal">회원가입</a>
     </div>
     <form action="#" method="post">
         <div class="container-60 out-align-center">
