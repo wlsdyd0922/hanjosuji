@@ -334,7 +334,11 @@
 }
 
 .content-size{
-    width: 60%;
+    width: 50%;
+}
+
+.height-250{
+    height: 250px;
 }
 
 /* Member-list*/
