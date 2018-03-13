@@ -33,13 +33,12 @@ public class LogInController {
 		return "member/login";
 	}
 
-	@RequestMapping(value = "login", method = RequestMethod.POST)
+	@RequestMapping(value = "member/login", method = RequestMethod.POST)
 	public String LogIn(NormalMDto NMdto, HttpServletRequest request, HttpServletResponse response) {
 		HttpSession session = request.getSession();
 		String id = NMdto.getId();
 		String pw = NMdto.getPassword();
 		boolean chkid = NMdto.isRememberId();
-		boolean result = NMdao.login(id, pw);
 		// DB연결
 		log.debug("id = {}", id);
 		log.debug("pw = {}", pw);
@@ -53,11 +52,11 @@ public class LogInController {
 		}
 
 		response.addCookie(ck);
+		boolean result = NMdao.login(id, pw);
 		if(result == true)
 		{
 			session.setAttribute("accept",id);//accept라는 이름으로 세션에 id를 저장한다.
 			return "redirect:login_ok";
-			
 		}
 		else
 		{

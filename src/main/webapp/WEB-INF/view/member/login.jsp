@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <jsp:include page="/WEB-INF/view/template/header.jsp"></jsp:include>
-
-<form action="login" method="post">
+<form action="${pageContext.request.contextPath }/member/login" method="post">
     <div class="empty-row"></div>
     <div class="container-30 out-align-center">
        <div class="myrow input-group input-group-lg">
@@ -36,5 +35,5 @@
     </div>
     <div class="empty-row"></div>
     <div class="empty-row"></div>
-    </form>
+</form>
 <jsp:include page="/WEB-INF/view/template/footer.jsp"></jsp:include>

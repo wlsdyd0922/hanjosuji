@@ -1,26 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <jsp:include page="/WEB-INF/view/template/header.jsp"></jsp:include>
-<html>
-<head>
-    <title>Register</title>  
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/common.css">
-    <!-- bootstrap을 사용하기 위한 링크 설정 -->
-
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
- 
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-latest.js"></script>
-        
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-</head>
-<body>
-    <div class="empty-row"></div>
+<form action="${pageContext.request.contextPath }/member/register_personal" method="post">
+<div class="empty-row"></div>
     <div class="container-30 out-align-center">
         <div class="myrow input-group input-group-lg">
             <span class="input-group-addon" id="sizing-addon1"><i class="glyphicon glyphicon-envelope"></i></span>
@@ -50,7 +32,6 @@
             <input class="btn btn-primary btn-lg form-btn-full" type="submit" value="다음단계">
             <input class="btn btn-primary btn-lg form-btn-full" type="button" value="돌아가기">
         </div>
-    </div>      
-</body>
-</html>
+    </div>
+</form>    
 <jsp:include page="/WEB-INF/view/template/footer.jsp"></jsp:include>
