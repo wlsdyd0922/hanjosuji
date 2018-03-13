@@ -1,4 +1,4 @@
-package job.controller;
+package job.controller.member;
 
 public class NormalMJoinController {
 

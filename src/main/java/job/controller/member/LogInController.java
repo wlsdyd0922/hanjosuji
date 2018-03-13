@@ -1,4 +1,4 @@
-package job.controller;
+package job.controller.member;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
