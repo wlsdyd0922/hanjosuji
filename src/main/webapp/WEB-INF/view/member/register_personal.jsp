@@ -22,9 +22,6 @@
 <body>
     <div class="empty-row"></div>
     <div class="container-30 out-align-center">
-        <div class="myrow in-align-center">
-            <img src="${pageContext.request.contextPath}/img/logo.png" width="70%">
-        </div>
         <div class="myrow">
             <div class="form-group">
                 <select name="favCom" class="form-control input-lg" >

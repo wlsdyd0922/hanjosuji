@@ -25,10 +25,7 @@
 <body>
     <div class="empty-row"></div>
     <div class="container-30 out-align-center">
-        <div class="myrow in-align-center">
-            <img src="${pageContext.request.contextPath}/img/logo.png" width="70%">
-        </div>
-        <div class="myrow input-group input-group-lg">
+       <div class="myrow input-group input-group-lg">
             <span class="input-group-addon" id="sizing-addon1"></span>
         <input type="text" class="form-control font-medium" name="id" placeholder="아이디를 입력하세요">
         </div>
