@@ -23,6 +23,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </head>
 <body>
+
+<form action="login" method="post">
     <div class="empty-row"></div>
     <div class="container-30 out-align-center">
        <div class="myrow input-group input-group-lg">
@@ -56,6 +58,7 @@
     </div>
     <div class="empty-row"></div>
     <div class="empty-row"></div>
+    </form>
 </body>
 </html>
 <jsp:include page="/WEB-INF/view/template/footer.jsp"></jsp:include>
