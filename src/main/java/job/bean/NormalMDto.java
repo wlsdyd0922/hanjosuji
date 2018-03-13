@@ -1,6 +1,6 @@
 package job.bean;
 
 public class NormalMDto {
-private String name;
-private String pw;
+	private String name;
+	private String password;
 }
