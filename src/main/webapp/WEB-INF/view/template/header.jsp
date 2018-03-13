@@ -26,7 +26,7 @@
     <main>
         <!-- 상단 영역 -->
         <header class="font-big in-align-center">
-            <img src="/img/logo.png">
+            <img src="${pageContext.request.contextPath }/img/logo.png">
         </header>
         <!-- 메뉴 영역 -->
         <nav class="menu input-lg">
