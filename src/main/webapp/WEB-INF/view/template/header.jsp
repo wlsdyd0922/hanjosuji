@@ -30,25 +30,10 @@
         </header>
         <!-- 메뉴 영역 -->
         <nav class="menu input-lg">
-            <a href="${pageContext.request.contextPath }" class = "left"><i class="glyphicon glyphicon-home"></i></a>
-            <c:choose>
-            <c:when test="${loginFlag }">
-            <a href="$/member/information" class = "left"><i class="glyphicon glyphicon-user"></i></a>
-            <a href="$/member/edit" class = "left"><i class="glyphicon glyphicon-cog"></i></a>
-            <a href="$/member/exit" class = "left">회원탈퇴</a>
-            <a href="$/board/list" class = "left"><a class="glyphicon glyphicon-th-list"></a></a>
-            <a href="$/member/logout" class = "right">LOGOUT</a>
-            </c:when>
-            <c:otherwise>
-            <a href = "$/board/list" class="left"><a class="glyphicon glyphicon-th-list"></a></a>
-            <a href = "$/login" class="right">로그인</a>
-            <a href = "$/register" class="rright">회원가입</a>
-            </c:otherwise>
-            </c:choose>
-            <c:if test="${accept eq 'admin' }">
-            [<a href = "$/admin/memberlist" class="left"><i class="glyphicon glyphicon-list-alt"></i></a>
-            <a href = "$/admin/membersearch" class="left"><i class="glyphicon glyphicon-search"></i></a>]
-            </c:if>
+            <a href = "${pageContext.request.contextPath }" class = "left"><i class="glyphicon glyphicon-home">MAIN</i></a>
+            <a href = "${pageContext.request.contextPath }/member/information" class = "left"><i class="glyphicon glyphicon-user">INFO</i></a>
+            <a href = "${pageContext.request.contextPath }/member/login" class="right">로그인</a>
+            <a href = "${pageContext.request.contextPath }/member/register_personal" class="rright">회원가입</a>
         </nav>
         <!-- 컨테이너 영역 -->
         <section>
