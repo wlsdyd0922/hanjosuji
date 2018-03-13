@@ -38,6 +38,9 @@ public class LogInController {
 			ck.setMaxAge(4*7*24*60*60);
 			response.addCookie(ck);
 		} else {
+			Cookie ck = new Cookie("rememberId", id);
+			ck.setMaxAge(0);
+			response.addCookie(ck);
 		}
 
 		return "redirect:login";

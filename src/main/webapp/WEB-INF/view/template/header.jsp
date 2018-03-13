@@ -2,8 +2,8 @@
     pageEncoding="UTF-8"%>
 <html>
 <head>
-    <title>MemberInformation</title>  
-    <link rel="stylesheet" type="text/css" href="/css/common.css">
+    <title>workspace</title> 
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/common.css"> 
     <!-- bootstrap을 사용하기 위한 링크 설정 -->
 
     <!-- Latest compiled and minified CSS -->

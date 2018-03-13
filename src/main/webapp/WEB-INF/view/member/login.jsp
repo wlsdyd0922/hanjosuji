@@ -1,28 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <jsp:include page="/WEB-INF/view/template/header.jsp"></jsp:include>
-<html>
-<head>
-    <title>Login</title>  
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/common.css">
-    <!-- bootstrap을 사용하기 위한 링크 설정 -->
-
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
- 
-    <!--<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
-    
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-latest.js"></script>
-        
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-</head>
-<body>
 
 <form action="login" method="post">
     <div class="empty-row"></div>
@@ -37,7 +15,7 @@
         </div>
         <div class="myrow div-2">
             <div class="form-check div-ratio2">
-                <input type="checkbox" class="form-check-input" id="rememberId">
+                <input type="checkbox" class="form-check-input" id="rememberId" name = "rememberId">
                 <label class="form-check-label font-medium" for="rememberId">아이디 기억하기</label>
             </div>
             <div class="in-align-right container-100">
@@ -59,6 +37,4 @@
     <div class="empty-row"></div>
     <div class="empty-row"></div>
     </form>
-</body>
-</html>
 <jsp:include page="/WEB-INF/view/template/footer.jsp"></jsp:include>
