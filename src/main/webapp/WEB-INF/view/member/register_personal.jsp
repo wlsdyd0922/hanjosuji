@@ -3,7 +3,7 @@
 <html>
 <head>
     <title>Register</title>  
-    <link rel="stylesheet" type="text/css" href="/css/common.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/common.css">
     <!-- bootstrap을 사용하기 위한 링크 설정 -->
 
     <!-- Latest compiled and minified CSS -->
@@ -22,7 +22,7 @@
     <div class="empty-row"></div>
     <div class="container-30 out-align-center">
         <div class="myrow in-align-center">
-            <img src="/img/logo.png" width="70%">
+            <img src="${pageContext.request.contextPath}/img/logo.png" width="70%">
         </div>
         <div class="myrow">
             <div class="form-group">
