@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>WorkSpace</title>  
-    <link rel="stylesheet" type="text/css" href="/css/common.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/common.css">
     <!-- bootstrap을 사용하기 위한 링크 설정 -->
 
     <!-- Latest compiled and minified CSS -->
@@ -37,7 +37,7 @@
         <div class="container-60 out-align-center">
             <div class="myrow in-align-center out-align-center" style="height: 200px;">
                 <a href="/">
-                    <img src="/img/logo.png" class="container-70">
+                    <img src="${pageContext.request.contextPath}/img/logo.png" class="container-70">
                 </a>
             </div>
             <div class="myrow in-align-center" style="height: 200px;">
