@@ -10,4 +10,3 @@ public class Edit_personalController {
 		return "member/edit_personal";
 	} 
 }
-
