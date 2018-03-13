@@ -14,7 +14,6 @@
 	<mvc:resources mapping="/font/**" location="/font/" />
 	<mvc:annotation-driven />
 
-
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<!-- Example: a logical view name of 'showMessage' is mapped to '/WEB-INF/jsp/showMessage.jsp' -->
