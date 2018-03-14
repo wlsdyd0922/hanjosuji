@@ -74,8 +74,16 @@
         .rright{
             margin-left: 50px;
         }
-
-
+        .correct{
+            border-color: deepskyblue;
+        }
+        .incorrect{
+            border-color: deeppink;
+        }
+        .emptyinput{
+            border-color: #ccc;
+        }
+        
 /* 입력창 */
         .form-input, .form-btn{
             /* 인라인 입력창 */
@@ -109,6 +117,7 @@
         .container-40{width: 40%;}
         .container-50{width: 50%;}
         .container-60{width: 60%;}
+        .container-600{width: 600px;}
         .container-70{width: 70%;}
         .container-80{width: 80%;}
         .container-90{width: 90%;}

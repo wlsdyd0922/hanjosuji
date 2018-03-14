@@ -21,12 +21,12 @@ public class NormalMDaoImpl implements NormalMDao{
 	@Override
 	//EMAIL	PASSWORD GENDER	BIRTH	CAREER	EDU	PRIZE	CERTIFICATE	PORTFOLIO	REG	PHONE	PWQUIZ	PWANS
 	public void insert(NormalMDto nmdto) {
-		String sql = "insert into NormalM values(?,?,?,?,?,?,?,?,?,sysdate,?,?,?)";
+		String sql = "insert into NormalM values(?,?,?,?,?,?,?,?,?,sysdate,?,?,?,?)";
 		Object[] args= new Object[] {
 				nmdto.getEmail(),nmdto.getPassword(),nmdto.getGender(),nmdto.getBirth(),
 				nmdto.getCareer(),nmdto.getEdu(),nmdto.getPrize(),
 				nmdto.getCertificate(),nmdto.getPortfolio(),nmdto.getReg(),nmdto.getPhone(),
-				nmdto.getPwQuiz(),nmdto.getPwAns()};
+				nmdto.getPwQuiz(),nmdto.getPwAns(),nmdto.getName()};
 			jdbcTemplate.update(sql,args);
 	}
 	@Override
