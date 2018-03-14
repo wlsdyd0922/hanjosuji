@@ -12,6 +12,8 @@ public class RegisterController {
 		return "member/register_personal";
 	}
 	
+	
+	
 	@RequestMapping("member/register_detail")
 	public String RegisterDetail() {
 

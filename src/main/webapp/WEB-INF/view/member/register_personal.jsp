@@ -1,6 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <jsp:include page="/WEB-INF/view/template/header.jsp"></jsp:include>
+<script>
+$(document).ready(function() {
+	$("input[name=id]").on("input",function(){
+		var regex = /^\w{6,15}$/;
+		regex.test();
+	});
+});
+</script>
+
 <form action="${pageContext.request.contextPath }/member/register_personal" method="post">
 <div class="empty-row"></div>
     <div class="container-30 out-align-center">
