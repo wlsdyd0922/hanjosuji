@@ -19,7 +19,7 @@ public class CompanyInfoParSer {
 		Connection.Response response = Jsoup.connect("https://www.jobplanet.co.kr/search/companies/"+search).method(Connection.Method.GET).execute();
 		Document document = response.parse();
 		
-		Elements btnK = document.select("section>a");
+		Elements btnK = document.select("section");
 		List<Element> list = btnK;
 
 		log.debug(list.toString());
