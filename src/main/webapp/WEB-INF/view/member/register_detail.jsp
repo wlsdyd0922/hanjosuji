@@ -4,6 +4,10 @@
 <form action="${pageContext.request.contextPath }/member/register_detail" method="post">
     <div class="empty-row"></div>
     <div class="container-30 out-align-center">
+        <div class="myrow input-group input-group-lg">
+            <span class="input-group-addon" id="sizing-addon1"><i class="glyphicon glyphicon-text-size"></i></span>
+        <input type="text" class="form-control" name="school" placeholder="졸업한 학교를 입력하세요">
+        </div>
         <div class="myrow">
             <div class="form-group">
                 <select name="favCom" class="form-control input-lg" >
@@ -56,6 +60,24 @@
                 <label class="radio-inline">
                   <input type="radio" name="workingstatus" value="experienced"> 경력
                 </label>
+            </div>
+        </div>
+        <div class="myrow">
+            <div class="form-group">
+              <label for="comment"><h4>수상경력</h4></label>
+              <textarea class="form-control" rows="2" id="prize"></textarea>
+            </div>
+        </div>
+        <div class="myrow">
+            <div class="form-group">
+              <label for="comment"><h4>자격증</h4></label>
+              <textarea class="form-control" rows="2" id="certification"></textarea>
+            </div>
+        </div>
+        <div class="myrow">
+            <div class="form-group">
+              <label for="comment"><h4>포트폴리오</h4></label>
+              <textarea class="form-control" rows="2" id="portfolio"></textarea>
             </div>
         </div>
         <div class="myrow div-2">
