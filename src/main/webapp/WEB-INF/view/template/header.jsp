@@ -33,7 +33,7 @@
             <a href = "${pageContext.request.contextPath }" class = "left"><i class="glyphicon glyphicon-home">MAIN</i></a>
             <a href = "${pageContext.request.contextPath }/member/information" class = "left"><i class="glyphicon glyphicon-user">INFO</i></a>
             <a href = "${pageContext.request.contextPath }/member/login" class="right">로그인</a>
-            <a href = "${pageContext.request.contextPath }/member/register_personal" class="rright">회원가입</a>
+            <a href = "${pageContext.request.contextPath }/member/register_choose" class="rright">회원가입</a>
         </nav>
         <!-- 컨테이너 영역 -->
         <section>
