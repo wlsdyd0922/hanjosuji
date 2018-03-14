@@ -11,9 +11,6 @@ import job.controller.member.CompanyInfoParSer;
 public class HomeController {
 	@RequestMapping("home")
 	public String home() throws IOException {
-		CompanyInfoParSer cip = new CompanyInfoParSer();
-		cip.CompanyInfo();
-		
 		return "home";
 	}
 }

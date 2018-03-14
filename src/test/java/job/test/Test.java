@@ -1,7 +1,4 @@
-package job.controller.member;
-
-import java.io.IOException;
-import java.util.List;
+package job.test;
 
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
@@ -11,10 +8,11 @@ import org.jsoup.select.Elements;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class CompanyInfoParSer {
+public class Test {
+	
 	private Logger log = LoggerFactory.getLogger(getClass());
-
-	public void CompanyInfo() throws IOException {
+	@org.junit.Test
+	public void test() throws Exception{
 		String search = "아이티뱅크";
 		String url = "https://www.jobplanet.co.kr";
 		Connection.Response response = Jsoup.connect(url+"/search/companies/"+search).method(Connection.Method.GET).execute();
