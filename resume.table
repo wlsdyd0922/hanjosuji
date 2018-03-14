@@ -1,0 +1,7 @@
+Table Owner	Table Name	Column Name		Data Type
+SW3			RESUME		SAVENAME		VARCHAR2
+				 	 	FILENAME		VARCHAR2
+				 	 	FILETYPE		VARCHAR2
+				 	 	FILELEN			NUMBER
+				 	 	REG				DATE
+				 	 	AUTHOR			VARCHAR2	//외래키
