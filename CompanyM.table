@@ -1,0 +1,12 @@
+Table Owner		Table Name		Column Name		Data Type
+SW3				COMPANYM		EMAIL			VARCHAR2
+							 	PASSWORD		VARCHAR2
+							 	COMPANY			VARCHAR2
+								CEO				VARCHAR2
+								BIRTH			VARCHAR2
+							 	SALES			VARCHAR2
+							 	TYPE			VARCHAR2
+							 	LOCATION		VARCHAR2
+							 	INDUSTRY		VARCHAR2
+							 	EMPLOYEE		NUMBER
+							 	REG				DATE

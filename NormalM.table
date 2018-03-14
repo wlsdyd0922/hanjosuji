@@ -1,0 +1,15 @@
+Table Owner		Table Name		Column Name		Data Type
+SW3				NORMALM			EMAIL			VARCHAR2
+					 	 		PASSWORD		VARCHAR2
+					 	 		GENDER			VARCHAR2
+					 	 		BIRTH			VARCHAR2
+					 	 		CAREER			VARCHAR2
+					 	 		EDU				VARCHAR2	학력
+					 	 		PRIZE			VARCHAR2	수상
+					 	 		CERTIFICATE		VARCHAR2	자격증
+					 	 		PORTFOLIO		VARCHAR2	포폴
+					 	 		REG				DATE		
+					 	 		PHONE			VARCHAR2
+					 	 		PWQUIZ			VARCHAR2
+					 	 		PWANS			VARCHAR2
+					 	 		NAME			VARCHAR2
