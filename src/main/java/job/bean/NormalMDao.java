@@ -11,4 +11,5 @@ public interface NormalMDao {
 	NormalMDto1 info(String email);
 	List<NormalMDto1> list();
 	boolean login(String email, String password);
+	List<NormalMDto1> adminList();
 }

@@ -68,12 +68,16 @@ public class NormalMDaoImpl implements NormalMDao{
 	}
 	@Override
 	public List<NormalMDto1> list() {
-		String sql = "select * from NormalM order by email";
+		String sql = "select * from NormalM where admin!='admin'order by email";
 		return jdbcTemplate.query(sql, mapper);
 	}
 	@Override
 	public boolean login(String email, String password) {
 		String sql = "select * from NormalM where email=? and password=?";
 		return jdbcTemplate.query(sql, extractor, email, password) != null;
+	}@Override
+	public List<NormalMDto1> adminList() {
+		String sql = "select * from NormalM where admin='admin' order by email";
+		return jdbcTemplate.query(sql, mapper);
 	}
 }

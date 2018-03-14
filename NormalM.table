@@ -13,3 +13,5 @@ SW3				NORMALM			EMAIL			VARCHAR2
 					 	 		PWQUIZ			VARCHAR2
 					 	 		PWANS			VARCHAR2
 					 	 		NAME			VARCHAR2
+								ADMIN			VARCHAR2	관리자 여부
+					 	 		
