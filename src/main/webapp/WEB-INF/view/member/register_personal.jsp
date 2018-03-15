@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <jsp:include page="/WEB-INF/view/template/header.jsp"></jsp:include>
 <!-- 입력값에 따른 css 변화.js -->
-            <script src="${pageContext.request.contextPath}/js/sha256.js"></script>
             <script src="${pageContext.request.contextPath}/js/register_personal.js"></script>
             <form action="${pageContext.request.contextPath }/member/register_personal" method="post">
                 <div class="empty-row"></div>
@@ -20,9 +19,9 @@
                     <div class="myrow input-group input-group-lg">
                         <span class="input-group-addon" id="sizing-addon1"><i class="glyphicon glyphicon-user"></i></span>
                         <div class="form-control">
-                            <input type="radio" name="gender" id="male" value="남자" required>
+                            <input type="radio" name="gender" id="male" value="남" required>
                             <label for="male">남자</label>
-                            <input type="radio" name="gender" id="female" value="여자" required>
+                            <input type="radio" name="gender" id="female" value="여" required>
                             <label for="female">여자</label>
                         </div>
                     </div>

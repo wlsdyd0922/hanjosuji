@@ -66,8 +66,6 @@ $(document).ready(function() {
 	$("input[type=submit]").on("click",function(){
 		if(id===true&&pw===true&&pwa===true&&phone===true&&ans===true){
 			console.log("모두 통과");
-            var pwField = $("input[type=password]");
-            pwField.val(SHA256(pwField.val()));
 			return true;
 		}else{
 			console.log("불가능");

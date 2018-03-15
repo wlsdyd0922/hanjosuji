@@ -3,16 +3,22 @@ package job.controller.member;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import job.bean.NormalMDaoImpl;
 import job.bean.NormalMDto;
+import job.manager.SHA256;
 
 @Controller
 public class RegisterController {
 	private Logger log = LoggerFactory.getLogger(getClass());
+	
+	@Autowired
+	private NormalMDaoImpl nmdao;
+	
 	@RequestMapping("member/register_personal")
 	public String RegisterPersonal() {
 
@@ -20,18 +26,18 @@ public class RegisterController {
 	}
 	@RequestMapping(value="member/register_personal",method=RequestMethod.POST)
 	public String RegisterPersonal(NormalMDto mdto) {
+		SHA256 sha256 = new SHA256();
+		mdto.setPassword(sha256.On(mdto.getPassword()));
 		log.debug(mdto.getEmail());
 		log.debug(mdto.getName());
 		log.debug(mdto.getGender());
-		log.debug(mdto.getPassword());
 		log.debug(mdto.getPhone());
 		log.debug(mdto.getBirth());
 		log.debug(mdto.getPwQuiz());
 		log.debug(mdto.getPwAns());
-		
-		NormalMDaoImpl nmdao = new NormalMDaoImpl();
+		log.debug(mdto.getPassword());
 		//DB연결..
-//		nmdao.insert(mdto);
+		nmdao.insert(mdto);
 		
 		return "redirect:/member/login";
 	}

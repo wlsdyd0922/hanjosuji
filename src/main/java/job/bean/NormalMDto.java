@@ -25,8 +25,7 @@ public class NormalMDto {
 		super();
 	}
 	
-	public NormalMDto(ResultSet rs) throws SQLException
-	{
+	public NormalMDto(ResultSet rs) throws SQLException{
 		setEmail(rs.getString("email"));
 		setPassword(rs.getString("password"));
 		setGender(rs.getString("gender"));

@@ -10,7 +10,7 @@
 				</div>
 				<div class="rest-area in-align-right">
 					<h3 class="myrow">
-						<a href="#">편집</a>
+						<a href="${pageContext.request.contextPath }/member/personal">편집</a>
 					</h3>
 				</div>
 			</div>
@@ -41,7 +41,7 @@
 					<h3 class="myrow">상세정보</h3>
 					<div class="rest-area in-align-right">
 						<h3 class="myrow">
-							<a href="#">편집</a>
+							<a href="${pageContext.request.contextPath }/member/edit_detail">편집</a>
 						</h3>
 					</div>
 				</div>
