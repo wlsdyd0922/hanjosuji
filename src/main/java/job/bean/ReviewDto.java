@@ -3,21 +3,23 @@ package job.bean;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class ReviewDto {
-	private String company;
-	private String enddate;
-	private String type;
-	private String typedetail;
-	private String part;
-	private String career;
-	private String location;
-	private int grade;
-	private String onecomment;
-	private String hopecomment;
+public class ReviewDto {	//15개
+	private int no;				//일련번호
+	private String company;		//회사이름
+	private String enddate;		//퇴사일
+	private String type;		//직군
+	private String typedetail;	//세부직종
+	private String part;		//인턴/경력
+	private String career;		//경력 몇년인지
+	private String location;	//근무지역
+	private int grade;			//기업평점
+	private String onecomment;	//한줄평
+	private String hopecomment;	//바라는점
 	private int welfare;
 	private int balance;
 	private int executive;
 	private int recommend;
+	private String reg;
 	public ReviewDto(ResultSet rs) throws SQLException{
 		setCompany(rs.getString("company"));
 		setEnddate(rs.getString("enddate"));
@@ -33,6 +35,13 @@ public class ReviewDto {
 		setBalance(rs.getInt("balance"));
 		setExecutive(rs.getInt(executive));
 		setRecommend(rs.getInt("recommend"));
+		setReg(rs.getString("reg"));
+	}
+	public int getNo() {
+		return no;
+	}
+	public void setNo(int no) {
+		this.no = no;
 	}
 	public ReviewDto() {
 		super();
@@ -120,5 +129,11 @@ public class ReviewDto {
 	}
 	public void setRecommend(int recommend) {
 		this.recommend = recommend;
+	}
+	public String getReg() {
+		return reg;
+	}
+	public void setReg(String reg) {
+		this.reg = reg;
 	}
 }
