@@ -32,16 +32,6 @@ public class NormalMDaoImpl implements NormalMDao{
 				nmdto.getBirth(),
 				nmdto.getPwQuiz(),
 				nmdto.getPwAns(),
-				nmdto.getIndustry(),
-				nmdto.getCompany(),
-				nmdto.getCareer(),
-				nmdto.getEdu(),
-				nmdto.getPrize(),
-				nmdto.getResume(),
-				nmdto.getPortfolio(),
-				nmdto.getCertification(),
-				nmdto.getAdmin(),
-				nmdto.getReg()
 				};
 			jdbcTemplate.update(sql,args);
 	}
