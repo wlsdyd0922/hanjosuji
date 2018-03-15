@@ -1,19 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <jsp:include page="/WEB-INF/view/template/header.jsp"></jsp:include>
-<form action="#" method="post">
+<form action="${pageContext.request.contextPath }/company/review" method="post">
                     <div class="out-align-center" style="width: 650px;">
                         <h1>기업리뷰작성</h1>
                         <hr class="style-one">
                         <div class="myrow div-2" style="height: 48px;">
                             <div class="input-lg" style="width: 150px;">기업명</div>
                             <div class="rest-area">
-                                <input type="text" name="companyname" class="container-70 height-100 image-center" placeholder="기업명을 입력해주세요">
+                                <input type="text" name="company" class="container-70 height-100 image-center" placeholder="기업명을 입력해주세요">
                             </div>
                         </div>
                         <div class="myrow div-2" style="height: 48px;">
                             <div class="input-lg" style="width: 150px;">현상태</div>
-                            <select name="area" class="rest-area input-lg">
+                            <select name="status" class="rest-area input-lg">
                             <option>근무</option>
                             <option>퇴사</option>
                         </select>
@@ -21,7 +21,7 @@
                         <div class="myrow div-2" style="height: 48px;">
                             <div class="input-lg" style="width: 150px;">직종</div>
                             <div class="rest-area">
-                                <select name="sort" class="container-100 height-100 shape-circle">
+                                <select name="type" class="container-100 height-100 shape-circle">
                                 <option class="input-lg">경영/사무</option>
                                 <option class="input-lg">영업/고객상담</option>
                                 <option class="input-lg">IT/인터넷</option>
@@ -40,7 +40,7 @@
                             <div class="rest-area">
                                 <!-- 위의 메뉴를 선택하면 추가적으로 발생. -->
                                 <c:if test="">
-                                    <select name="sort-detail" class="container-100 height-100 shape-circle">
+                                    <select name="typedetail" class="container-100 height-100 shape-circle">
                                     <option class="input-lg">경영/사무</option>
                                     <option class="input-lg">영업/고객상담</option>
                                     <option class="input-lg">IT/인터넷</option>
@@ -61,13 +61,13 @@
                         <div class="myrow div-2" style="height: 48px;">
                             <div class="input-lg" style="width: 150px;">총경력</div>
                             <div class="rest-area">
-                                <input type="text" name="companyname" class="container-70 height-100 image-center" placeholder="**년차형태">
+                                <input type="text" name="career" class="container-70 height-100 image-center" placeholder="**년차형태">
                             </div>
                         </div>
                         <div class="myrow div-2" style="height: 48px;">
                             <div class="input-lg" style="width: 150px;">근무지역</div>
                             <div class="rest-area">
-                                <select name="area" class="container-100 height-100 shape-circle">
+                                <select name="location" class="container-100 height-100 shape-circle">
                                 <option class="input-lg">서울</option>
                                 <option class="input-lg">경기</option>
                                 <option class="input-lg">인천</option>
