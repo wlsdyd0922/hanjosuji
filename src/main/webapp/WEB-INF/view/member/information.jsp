@@ -4,21 +4,20 @@
 <div class="container-50 out-align-center">
 	<div class="div-2">
 		<div class="myrow content-size height-250 border-white menu-color">
-			<div class="div-2">
+			<div class="div-2 border-white">
 				<div class="rest-area">
 					<h3 class="myrow">기본정보</h3>
 				</div>
 				<div class="rest-area in-align-right">
 					<h3 class="myrow">
-						<a href="${pageContext.request.contextPath }/member/edit_personal">편집</a>
+						<a href="#">편집</a>
 					</h3>
 				</div>
 			</div>
 			<div class="div-2 rest-area" style="height: 81%">
 				<div class="myrow content-size">
 					<div style="height: 63%">
-						<img src="${pageContext.request.contextPath }/img/noone.jpg"
-							class="image-center height-100">;
+						<img src="/img/noone.jpg" class="image-center height-100">;
 					</div>
 					<div>
 						<input type="file" name="file">
@@ -38,11 +37,11 @@
 		</div>
 		<div class="myrow content-size height-250 border-white menu-color">
 			<div>
-				<div class="div-2">
+				<div class="div-2 border-white">
 					<h3 class="myrow">상세정보</h3>
 					<div class="rest-area in-align-right">
 						<h3 class="myrow">
-							<a href="${pageContext.request.contextPath }/member/edit_detail">편집</a>
+							<a href="#">편집</a>
 						</h3>
 					</div>
 				</div>
@@ -65,43 +64,45 @@
 	</div>
 </div>
 <div class="container-50 out-align-center">
-	<div class="myrow content-size height-250 border-white menu-color">
-		<div>
-			<div class="div-2 border-white">
-				<h3 class="myrow">이력서등록</h3>
-				<div class="rest-area in-align-right">
-					<h3 class="myrow">
-						<a href="location.href='${pageContext.request.contextPath }/member/resume">편집</a>
-					</h3>
+	<div class="div-2">
+		<div class="myrow content-size height-250 border-white menu-color">
+			<div>
+				<div class="div-2 border-white">
+					<h3 class="myrow">이력서등록</h3>
+					<div class="rest-area in-align-right">
+						<h3 class="myrow">
+							<a href="${pageContext.request.contextPath }/member/resume">편집</a>
+						</h3>
+					</div>
 				</div>
 			</div>
-		</div>
-		<div class="div-2 rest-area" style="height: 29%;">
-			<div class="myrow rest-area input-lg">등록완료</div>
-		</div>
-		<div>
-			<div class="div-2 border-white">
-				<h3 class="myrow">자기소개서등록</h3>
-				<div class="rest-area in-align-right">
-					<h3 class="myrow">
-						<a href="location.href='${pageContext.request.contextPath }/member/introduction_paper">편집</a>
-					</h3>
+			<div class="div-2 rest-area" style="height: 29%;">
+				<div class="myrow rest-area input-lg">등록완료</div>
+			</div>
+			<div>
+				<div class="div-2 border-white">
+					<h3 class="myrow">자기소개서등록</h3>
+					<div class="rest-area in-align-right">
+						<h3 class="myrow">
+							<a
+								href="${pageContext.request.contextPath }/member/introduction_paper">편집</a>
+						</h3>
+					</div>
 				</div>
 			</div>
+			<div class="div-2 rest-area" style="height: 29%;">
+				<div class="myrow rest-area input-lg">등록완료</div>
+			</div>
 		</div>
-		<div class="div-2 rest-area" style="height: 29%;">
-			<div class="myrow rest-area input-lg">등록완료</div>
+		<div class="myrow content-size height-250 menu-color">
+			<div>
+				<h3 class="myrow">회원탈퇴</h3>
+			</div>
+			<div class="div-2 rest-area" style="height: 81%">
+				<div class="myrow rest-area">asdas</div>
+				<div class="myrow rest-area">asdasda</div>
+			</div>
 		</div>
 	</div>
-	<div class="myrow content-size height-250 border-white menu-color">
-		<div>
-			<h3 class="myrow">회원탈퇴</h3>
-		</div>
-		<div class="div-2 rest-area" style="height: 81%">
-			<div class="myrow rest-area">asdas</div>
-			<div class="myrow rest-area">asdasda</div>
-		</div>
-	</div>
-</div>
 </div>
 <jsp:include page="/WEB-INF/view/template/footer.jsp"></jsp:include>
