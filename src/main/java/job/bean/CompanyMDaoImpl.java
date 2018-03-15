@@ -2,15 +2,16 @@ package job.bean;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
-
+import org.springframework.stereotype.Repository;
+@Repository
 public class CompanyMDaoImpl implements CompanyMDao{
+	@Autowired
 	private JdbcTemplate jdbcTemplate;
-	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
-		this.jdbcTemplate = jdbcTemplate;
-	}
+	
 	private RowMapper<CompanyMDto> mapper = (rs, index)->{
 		return new CompanyMDto(rs);
 	};
@@ -22,10 +23,20 @@ public class CompanyMDaoImpl implements CompanyMDao{
 	public void register(CompanyMDto cmdto) {
 		String sql = "insert into CompanyM values(?,?,?,?,?,?,?,?,?,?,?,?,?,sysdate)";
 		Object[] args= new Object[] {
-				cmdto.getEmail(),cmdto.getPassword(),cmdto.getCompany(),cmdto.getCeo(),
-				cmdto.getPhone(),cmdto.getPwquiz(),cmdto.getPwans(),
-				cmdto.getBirth(),cmdto.getSales(),cmdto.getType(),cmdto.getLocation(),
-				cmdto.getIndustry(),cmdto.getEmployee(),cmdto.getReg()};
+				cmdto.getEmail(),
+				cmdto.getPassword(),
+				cmdto.getCompany(),
+				cmdto.getCeo(),
+				cmdto.getPhone(),
+				cmdto.getPwquiz(),
+				cmdto.getPwans(),
+				cmdto.getBirth(),
+				cmdto.getSales(),
+				cmdto.getType(),
+				cmdto.getLocation(),
+				cmdto.getIndustry(),
+				cmdto.getEmployee(),
+				};
 			jdbcTemplate.update(sql,args);
 	}
 	//로그인

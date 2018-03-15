@@ -21,7 +21,7 @@ public class NormalMDaoImpl implements NormalMDao{
 	};
 	@Override
 	
-	public void insert(NormalMDto nmdto) {
+	public boolean insert(NormalMDto nmdto) {
 		String sql = "insert into NormalM values(?,?,?,?,?,?,?,?,'-','-','-','-','-','-','-','-','-',sysdate)";
 		Object[] args= new Object[] {
 				nmdto.getEmail(),
@@ -31,9 +31,9 @@ public class NormalMDaoImpl implements NormalMDao{
 				nmdto.getPhone(),
 				nmdto.getBirth(),
 				nmdto.getPwQuiz(),
-				nmdto.getPwAns(),
+				nmdto.getPwAns()
 				};
-			jdbcTemplate.update(sql,args);
+			return jdbcTemplate.update(sql,args)>0;
 	}
 	@Override 
 	public boolean edit(NormalMDto nmdto) {

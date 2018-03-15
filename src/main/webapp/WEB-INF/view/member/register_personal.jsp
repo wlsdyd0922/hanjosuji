@@ -5,7 +5,7 @@
             <script src="${pageContext.request.contextPath}/js/register_personal.js"></script>
             <form action="${pageContext.request.contextPath }/member/register_personal" method="post">
                 <div class="empty-row"></div>
-                <div class="container-40 out-align-center">
+                <div class="container-600 out-align-center">
                     <div class="myrow input-group input-group-lg">
                         <span class="input-group-addon" id="sizing-addon1"><i class="glyphicon glyphicon-envelope"></i></span>
                         <input type="text" class="form-control" name="email" placeholder="아이디를 입력하세요" required>

@@ -21,8 +21,6 @@ public class LogInController {
 	@Autowired
 	private NormalMDaoImpl NMdao = new NormalMDaoImpl();
 
-	Logger log = LoggerFactory.getLogger(getClass());
-
 	@RequestMapping("member/login")
 	public String LogIn() {
 		return "member/login";
@@ -40,36 +38,18 @@ public class LogInController {
 
 	@RequestMapping(value = "member/login", method = RequestMethod.POST)
 	public String LogIn(NormalMDto NMdto, HttpServletRequest request, HttpServletResponse response) {
-		HttpSession session = request.getSession();
-
-		// 디버깅용-----------------------------------
-		String id = NMdto.getEmail();
-		String pw = NMdto.getPassword();
-		boolean chkid = NMdto.isRememberId();
-
-		log.debug("id = {}", id);
-		log.debug("pw = {}", pw);
-		log.debug("chk = {}", chkid);
-		// ----------------------------------------
 		//비번 암호화
-		SHA256 sha256 = new SHA256();
-		pw = sha256.On(NMdto.getPassword());
-		NMdto.setPassword(pw);
-		
-		Cookie ck = new Cookie("rememberId", id);
-		if (chkid) {
+		NMdto.setPassword(new SHA256().On(NMdto.getPassword()));
+		Cookie ck = new Cookie("rememberId", NMdto.getEmail());
+		if (NMdto.isRememberId()) {
 			// 쿠키 생성
 			ck.setMaxAge(4 * 7 * 24 * 60 * 60);
 		} else {
 			ck.setMaxAge(0);
 		}
-
 		response.addCookie(ck);
-
-		 boolean result = NMdao.login(NMdto.getEmail(),NMdto.getPassword());
-//		boolean result = true;
-		if (result == true) {
-			session.setAttribute("accept", id);// accept라는 이름으로 세션에 id를 저장한다.
+		if (NMdao.login(NMdto.getEmail(),NMdto.getPassword())) {
+			request.getSession().setAttribute("accept", NMdto.getEmail());// accept라는 이름으로 세션에 id를 저장한다.
 			return "redirect:/";
 		} else {
 			return "redirect:login_nok";

@@ -14,8 +14,7 @@ import org.slf4j.LoggerFactory;
 public class CompanyInfoParSer {
 	private Logger log = LoggerFactory.getLogger(getClass());
 
-	public void CompanyInfo() throws IOException {
-		String search = "아이티뱅크";
+	public void CompanyInfo(String search) throws IOException {
 		String url = "https://www.jobplanet.co.kr";
 		Connection.Response response = Jsoup.connect(url+"/search/companies/"+search).method(Connection.Method.GET).execute();
 		Document document = response.parse();
