@@ -21,6 +21,7 @@ public class ReviewDto {	//15개
 	private int recommend;
 	private String reg;
 	public ReviewDto(ResultSet rs) throws SQLException{
+		setNo(rs.getInt("no"));
 		setCompany(rs.getString("company"));
 		setEnddate(rs.getString("enddate"));
 		setType(rs.getString("type"));
