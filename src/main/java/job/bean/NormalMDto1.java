@@ -23,6 +23,12 @@ public class NormalMDto1 {
 		super();
 	}
 	
+	public NormalMDto1(String email,String password)
+	{
+		this.email=email;
+		this.password=password;
+	}
+	
 	public NormalMDto1(ResultSet rs) throws SQLException
 	{
 		setEmail(rs.getString("email"));
