@@ -12,7 +12,6 @@ import org.springframework.stereotype.Repository;
 public class NormalMDaoImpl implements NormalMDao{
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
-	
 	private RowMapper<NormalMDto> mapper = (rs, index)->{
 		return new NormalMDto(rs);
 	};
