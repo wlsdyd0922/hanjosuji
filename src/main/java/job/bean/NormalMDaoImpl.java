@@ -44,7 +44,7 @@ public class NormalMDaoImpl implements NormalMDao{
 				};
 			jdbcTemplate.update(sql,args);
 	}
-	@Override
+	@Override 
 	public boolean edit(NormalMDto1 nmdto) {
 		String sql = "update NormalM set password=?,phone=?,pwquiz=?,pwans=?,industry=?,company=?,career=?,edu=?,prize=?,resume=?,portfolio=?,certification=? where email=?";
 		Object[] args = new Object[] {

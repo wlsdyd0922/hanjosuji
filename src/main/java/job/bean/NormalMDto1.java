@@ -3,7 +3,7 @@ package job.bean;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class NormalMDto1 {
+public class NormalMDto1 { 
 	private String email;		//이메일
 	private String name;		//이름
 	private String gender;		//성별
