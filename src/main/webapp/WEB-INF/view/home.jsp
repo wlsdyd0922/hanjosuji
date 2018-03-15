@@ -2,9 +2,6 @@
 	pageEncoding="UTF-8"%>
 <jsp:include page="/WEB-INF/view/template/header.jsp"></jsp:include>
 	<div class="empty-row"></div>
-	<div class="in-align-right">
-		<a href="member/login">로그인</a> <a href="member/register_choose">회원가입</a>
-	</div>
 	<form action="#" method="post">
 		<div class="container-60 out-align-center">
 			<div class="myrow in-align-center" style="height: 200px;">검색 정보
