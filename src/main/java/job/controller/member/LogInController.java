@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,15 +17,8 @@ import job.bean.NormalMDto;
 
 @Controller()
 public class LogInController {
+	@Autowired
 	private NormalMDaoImpl NMdao = new NormalMDaoImpl();
-
-	public NormalMDaoImpl getNMdao() {
-		return NMdao;
-	}
-
-	public void setNMdao(NormalMDaoImpl nMdao) {
-		NMdao = nMdao;
-	}
 
 	Logger log = LoggerFactory.getLogger(getClass());
 
@@ -48,8 +42,6 @@ public class LogInController {
 		HttpSession session = request.getSession();
 
 		// DB연결
-
-		
 		
 		// 디버깅용-----------------------------------
 		String id = NMdto.getEmail();
@@ -70,8 +62,8 @@ public class LogInController {
 
 		response.addCookie(ck);
 
-		// boolean result = NMdao.login(id, pw);
-		boolean result = true;
+		 boolean result = NMdao.login(id, pw);
+//		boolean result = true;
 		if (result == true) {
 			session.setAttribute("accept", id);// accept라는 이름으로 세션에 id를 저장한다.
 			return "redirect:login_ok";
