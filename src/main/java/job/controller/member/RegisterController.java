@@ -1,9 +1,6 @@
 package job.controller.member;
 
 
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import job.bean.NormalMDaoImpl;
 import job.bean.NormalMDto;
+import job.manager.SHA256;
 
 @Controller
 public class RegisterController {
@@ -28,7 +26,8 @@ public class RegisterController {
 	}
 	@RequestMapping(value="member/register_personal",method=RequestMethod.POST)
 	public String RegisterPersonal(NormalMDto mdto) {
-		mdto.setPassword(SHA256(mdto.getPassword()));
+		SHA256 sha256 = new SHA256();
+		mdto.setPassword(sha256.On(mdto.getPassword()));
 		log.debug(mdto.getEmail());
 		log.debug(mdto.getName());
 		log.debug(mdto.getGender());
@@ -59,22 +58,5 @@ public class RegisterController {
 	public String RegisterChoose() {
 
 		return "member/register_choose";
-	}
-	private String SHA256(String str){
-		String SHA = ""; 
-		try{
-			MessageDigest sh = MessageDigest.getInstance("SHA-256"); 
-			sh.update(str.getBytes()); 
-			byte byteData[] = sh.digest();
-			StringBuffer sb = new StringBuffer(); 
-			for(int i = 0 ; i < byteData.length ; i++){
-				sb.append(Integer.toString((byteData[i]&0xff) + 0x100, 16).substring(1));
-			}
-			SHA = sb.toString();
-		}catch(NoSuchAlgorithmException e){
-			e.printStackTrace(); 
-			SHA = null; 
-		}
-		return SHA;
 	}
 }
