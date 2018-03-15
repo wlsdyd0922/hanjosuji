@@ -2,15 +2,16 @@ package job.bean;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
-
+import org.springframework.stereotype.Repository;
+@Repository
 public class NormalMDaoImpl implements NormalMDao{
+	@Autowired
 	private JdbcTemplate jdbcTemplate;
-	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
-		this.jdbcTemplate = jdbcTemplate;
-	}
+	
 	private RowMapper<NormalMDto> mapper = (rs, index)->{
 		return new NormalMDto(rs);
 	};
@@ -21,12 +22,13 @@ public class NormalMDaoImpl implements NormalMDao{
 	@Override
 	//EMAIL	PASSWORD GENDER	BIRTH	CAREER	EDU	PRIZE	CERTIFICATE	PORTFOLIO	REG	PHONE	PWQUIZ	PWANS
 	public void insert(NormalMDto nmdto) {
-		String sql = "insert into NormalM values(?,?,?,?,?,?,?,?,?,sysdate,?,?,?,?)";
+		System.out.println(nmdto.getEmail() + "/ "+nmdto.getPassword() + "/ "+nmdto.getGender() + "/ "+nmdto.getBirth() + "/ "+nmdto.getPhone() + "/ "+nmdto.getPwQuiz() + "/ "+nmdto.getPwAns() + "/ "+nmdto.getName());
+		String sql = "insert into NormalM values(?,?,?,?,'-','-','-','-',sysdate,?,?,?,?,'-')";
 		Object[] args= new Object[] {
-				nmdto.getEmail(),nmdto.getPassword(),nmdto.getGender(),nmdto.getBirth(),
-				nmdto.getCareer(),nmdto.getEdu(),nmdto.getPrize(),
-				nmdto.getCertificate(),nmdto.getPortfolio(),nmdto.getReg(),nmdto.getPhone(),
-				nmdto.getPwQuiz(),nmdto.getPwAns(),nmdto.getName()};
+				nmdto.getEmail(),nmdto.getPassword(),
+				nmdto.getGender(),
+				nmdto.getBirth()
+				,nmdto.getPhone(),nmdto.getPwQuiz(),nmdto.getPwAns(),nmdto.getName()};
 			jdbcTemplate.update(sql,args);
 	}
 	@Override
