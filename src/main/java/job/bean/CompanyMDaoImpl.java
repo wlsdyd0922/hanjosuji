@@ -1,7 +1,5 @@
 package job.bean;
 
-
-
 import java.util.List;
 
 import org.springframework.jdbc.core.JdbcTemplate;
