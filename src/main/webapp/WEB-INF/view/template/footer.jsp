@@ -2,9 +2,11 @@
     pageEncoding="UTF-8"%>
 </section>
         <!-- 하단 영역 -->
+        <hr class="style-one">
         <footer class="font-small in-align-center">
             &copy;WorkSpace
         </footer>
     </main>
 </body>
+
 </html>
