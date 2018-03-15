@@ -19,6 +19,13 @@ public class NormalMDaoImpl implements NormalMDao{
 		else return null;
 	};
 	@Override
+	public void register(NormalMDto1 nmdto) {
+		String sql = "insert into NormalM values(?,?)";
+		Object[] args= new Object[] {
+				nmdto.getEmail(),nmdto.getPassword()};
+			jdbcTemplate.update(sql,args);
+	}
+	@Override
 	//EMAIL	PASSWORD GENDER	BIRTH	CAREER	EDU	PRIZE	CERTIFICATE	PORTFOLIO	REG	PHONE	PWQUIZ	PWANS
 	public void insert(NormalMDto1 nmdto) {
 		String sql = "insert into NormalM values(?,?,?,?,?,?,?,?,?,sysdate,?,?,?)";
@@ -80,4 +87,5 @@ public class NormalMDaoImpl implements NormalMDao{
 		String sql = "select * from NormalM where admin='admin' order by email";
 		return jdbcTemplate.query(sql, mapper);
 	}
+	
 }

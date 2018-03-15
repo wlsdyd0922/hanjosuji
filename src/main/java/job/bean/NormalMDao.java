@@ -4,6 +4,7 @@ import java.util.List;
 
 public interface NormalMDao {
 	void insert(NormalMDto1 nmdto);
+	void register(NormalMDto1 nmdto);
 	boolean edit(NormalMDto1 nmdto);
 	boolean drop(NormalMDto1 nmdto);
 	String getEmail(NormalMDto1 nmdto);
