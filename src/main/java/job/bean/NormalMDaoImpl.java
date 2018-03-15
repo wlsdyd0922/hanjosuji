@@ -7,6 +7,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
+
 @Repository
 public class NormalMDaoImpl implements NormalMDao{
 	@Autowired
@@ -20,25 +21,47 @@ public class NormalMDaoImpl implements NormalMDao{
 		else return null;
 	};
 	@Override
-	//EMAIL	PASSWORD GENDER	BIRTH	CAREER	EDU	PRIZE	CERTIFICATE	PORTFOLIO	REG	PHONE	PWQUIZ	PWANS
+	
 	public void insert(NormalMDto nmdto) {
-		System.out.println(nmdto.getEmail() + "/ "+nmdto.getPassword() + "/ "+nmdto.getGender() + "/ "+nmdto.getBirth() + "/ "+nmdto.getPhone() + "/ "+nmdto.getPwQuiz() + "/ "+nmdto.getPwAns() + "/ "+nmdto.getName());
-		String sql = "insert into NormalM values(?,?,?,?,'-','-','-','-',sysdate,?,?,?,?,'-')";
+		String sql = "insert into NormalM values(?,?,?,?,?,?,?,?,'-','-','-','-','-','-','-','-','-',sysdate)";
 		Object[] args= new Object[] {
-				nmdto.getEmail(),nmdto.getPassword(),
+				nmdto.getEmail(),
+				nmdto.getName(),
 				nmdto.getGender(),
-				nmdto.getBirth()
-				,nmdto.getPhone(),nmdto.getPwQuiz(),nmdto.getPwAns(),nmdto.getName()};
+				nmdto.getPassword(),
+				nmdto.getPhone(),
+				nmdto.getBirth(),
+				nmdto.getPwQuiz(),
+				nmdto.getPwAns(),
+				nmdto.getIndustry(),
+				nmdto.getCompany(),
+				nmdto.getCareer(),
+				nmdto.getEdu(),
+				nmdto.getPrize(),
+				nmdto.getResume(),
+				nmdto.getPortfolio(),
+				nmdto.getCertification(),
+				nmdto.getAdmin(),
+				nmdto.getReg()
+				};
 			jdbcTemplate.update(sql,args);
 	}
-	@Override
+	@Override 
 	public boolean edit(NormalMDto nmdto) {
-		String sql = "update NormalM set password=?, birth=?, career=?, "
-				+ "edu=?, prize=?, certificate=?,portfolio=?,phone=?,pwQuiz=?,"
-				+ "pwAns=? where email=?";
+		String sql = "update NormalM set password=?,phone=?,pwquiz=?,pwans=?,industry=?,company=?,career=?,edu=?,prize=?,resume=?,portfolio=?,certification=? where email=?";
 		Object[] args = new Object[] {
-			nmdto.getPassword(),nmdto.getBirth(),nmdto.getCareer(),nmdto.getEdu(),nmdto.getPrize(),
-			nmdto.getCertificate(),nmdto.getPortfolio(),nmdto.getPhone(),nmdto.getPwQuiz(),nmdto.getPwAns(),
+			nmdto.getPassword(),
+			nmdto.getPhone(),
+			nmdto.getPwQuiz(),
+			nmdto.getPwAns(),
+			nmdto.getIndustry(),
+			nmdto.getCompany(),
+			nmdto.getCareer(),
+			nmdto.getEdu(),
+			nmdto.getPrize(),
+			nmdto.getResume(),
+			nmdto.getPortfolio(),
+			nmdto.getCertification(),
 			nmdto.getEmail()
 		};
 		return jdbcTemplate.update(sql, args) > 0;
@@ -65,7 +88,7 @@ public class NormalMDaoImpl implements NormalMDao{
 	}
 	@Override
 	public NormalMDto info(String email) {
-		String sql = "select * from NormalM where=?";
+		String sql = "select * from NormalM where email=?";
 		return jdbcTemplate.query(sql,extractor,email);
 	}
 	@Override
