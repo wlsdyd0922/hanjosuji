@@ -6,10 +6,9 @@ import java.sql.SQLException;
 public class ReviewDto {	//15개
 	private int no;				//일련번호
 	private String company;		//회사이름
-	private String enddate;		//퇴사일
+	private String status;		//퇴사 상태
 	private String type;		//직군
 	private String typedetail;	//세부직종
-	private String part;		//인턴/경력
 	private String career;		//경력 몇년인지
 	private String location;	//근무지역
 	private int grade;			//기업평점
@@ -23,10 +22,9 @@ public class ReviewDto {	//15개
 	public ReviewDto(ResultSet rs) throws SQLException{
 		setNo(rs.getInt("no"));
 		setCompany(rs.getString("company"));
-		setEnddate(rs.getString("enddate"));
+		setStatus(rs.getString("status"));
 		setType(rs.getString("type"));
 		setTypedetail(rs.getString("typedetail"));
-		setPart(rs.getString("part"));
 		setCareer(rs.getString("career"));
 		setLocation(rs.getString("location"));
 		setGrade(rs.getInt("grade"));
@@ -53,11 +51,11 @@ public class ReviewDto {	//15개
 	public void setCompany(String company) {
 		this.company = company;
 	}
-	public String getEnddate() {
-		return enddate;
+	public String getStatus() {
+		return status;
 	}
-	public void setEnddate(String enddate) {
-		this.enddate = enddate;
+	public void setStatus(String status) {
+		this.status = status;
 	}
 	public String getType() {
 		return type;
@@ -70,12 +68,6 @@ public class ReviewDto {	//15개
 	}
 	public void setTypedetail(String typedetail) {
 		this.typedetail = typedetail;
-	}
-	public String getPart() {
-		return part;
-	}
-	public void setPart(String part) {
-		this.part = part;
 	}
 	public String getCareer() {
 		return career;

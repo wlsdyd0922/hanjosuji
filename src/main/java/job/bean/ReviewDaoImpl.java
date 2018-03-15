@@ -4,7 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class ReviewDaoImpl {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
@@ -18,10 +20,10 @@ public class ReviewDaoImpl {
 	};
 	//리뷰 등록
 	public void register(ReviewDto rdto) {
-		String sql = "insert into review values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,sysdate)";
+		String sql = "insert into review values(review_seq.nextval,?,?,?,?,?,?,?,?,?,?,?,?,?,sysdate)";
 		Object[] args = {
-				rdto.getNo(),rdto.getCompany(),rdto.getEnddate(),rdto.getType(),rdto.getTypedetail(),
-				rdto.getPart(),rdto.getCareer(),rdto.getLocation(),rdto.getGrade(),
+				rdto.getCompany(),rdto.getStatus(),rdto.getType(),rdto.getTypedetail(),
+				rdto.getCareer(),rdto.getLocation(),rdto.getGrade(),
 				rdto.getOnecomment(),rdto.getHopecomment(),rdto.getWelfare(),
 				rdto.getBalance(),rdto.getExecutive(),rdto.getRecommend()
 		};
