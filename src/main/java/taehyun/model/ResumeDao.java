@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import taehyun.bean.ResumeDto;
 
-@Repository
+@Repository 
 public interface ResumeDao {
 	void insert(ResumeDto idto);
 	List<ResumeDto> getList();
