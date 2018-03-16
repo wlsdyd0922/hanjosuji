@@ -1,6 +1,7 @@
 package job.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,16 +21,8 @@ public class ReviewController {
 		return "company/review";
 	}
 	@RequestMapping(value="company/review",method = RequestMethod.POST)
-	public String review(ReviewDto rdto, HttpServletRequest request) {
-		rdto.setCompany(request.getParameter("company"));
-		rdto.setStatus(request.getParameter("type"));
-		rdto.setType(request.getParameter("type"));
-		rdto.setTypedetail(request.getParameter("typedetail"));
-		rdto.setCareer(request.getParameter("career"));
-		rdto.setLocation(request.getParameter("location"));
-	
-		System.out.println("회사명 : "+rdto.getCompany());
-		
+	public String review(ReviewDto rdto, HttpSession session) {
+		session.setAttribute("review", rdto);
 		return "company/review_detail";
 	}
 	@RequestMapping("company/review_detail")
@@ -37,17 +30,36 @@ public class ReviewController {
 		return "company/review_detail";
 	}
 	@RequestMapping(value="company/review_detail",method=RequestMethod.POST)
-	public String review_detail(ReviewDto rdto, HttpServletRequest request) {
-		rdto.setGrade(Integer.parseInt(request.getParameter("grade")));
-		rdto.setOnecomment(request.getParameter("onecomment"));
-		rdto.setHopecomment(request.getParameter("hopecomment"));
-		rdto.setWelfare(Integer.parseInt(request.getParameter("welfare")));
-		rdto.setBalance(Integer.parseInt(request.getParameter("balance")));
-		rdto.setExecutive(Integer.parseInt(request.getParameter("executive")));
-		rdto.setRecommend(Integer.parseInt(request.getParameter("recommend")));
+	public String review_detail(ReviewDto rdto, HttpSession session) {
+		ReviewDto rdto2 = (ReviewDto)session.getAttribute("review");
+		rdto.setCompany(rdto2.getCompany());
+		rdto.setStatus(rdto2.getStatus());
+		rdto.setType(rdto2.getType());
+		rdto.setTypedetail(rdto2.getTypedetail());
+		rdto.setCareer(rdto2.getCareer());
+		rdto.setLocation(rdto2.getLocation());
+		session.invalidate();
 		reviewDao.register(rdto);
-		System.out.println("회사 총점수:"+rdto.getGrade());
 		return "redirect:/";
+	}
+	@RequestMapping("company/information")
+	public String information() {
+		return "company/information";
+	}
+	@RequestMapping("company/review_list")
+	public String reviewList(HttpServletRequest request) {
+		int no = 24;
+		if(request.getParameter("no")!=null && request.getParameter("no")!="") {
+			no = Integer.parseInt(request.getParameter("no"));
+		}
+		System.out.println("no:"+no);
+		ReviewDto rdto = reviewDao.loadReview(no);
+		request.setAttribute("rdto", rdto);
+		System.out.println("company:"+rdto.getCompany());
+		System.out.println("recommend:"+rdto.getRecommend());
+		System.out.println("가입일:"+rdto.getReg());
+		System.out.println("no:"+rdto.getNo());
+		return "company/review_list";
 	}
 	
 }
