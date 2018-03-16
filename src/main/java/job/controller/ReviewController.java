@@ -13,9 +13,9 @@ import job.bean.ReviewDto;
 
 @Controller
 public class ReviewController {
+
 	@Autowired
 	private ReviewDaoImpl reviewDao;
-	
 	@RequestMapping("company/review")
 	public String review() {
 		return "company/review";
