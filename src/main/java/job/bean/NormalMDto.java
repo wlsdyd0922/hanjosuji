@@ -20,8 +20,8 @@ public class NormalMDto {
 	private String resume;		//이력서
 	private String portfolio;	//포트폴리오
 	private String certification;//자격증
-	private String admin;		//관리자여부
 	private int reg;			//가입일
+	private String grade;		//등급
 	private boolean rememberId;
 	
 	public NormalMDto()
@@ -46,13 +46,13 @@ public class NormalMDto {
 		setResume(rs.getString("resume"));
 		setPortfolio(rs.getString("portfolio"));
 		setCertification(rs.getString("certificaation"));
-		setAdmin(rs.getString("admin"));
+		setGrade(rs.getString("grade"));
 		setReg(rs.getInt("reg"));
 	}
 	
 	public NormalMDto(String email, String name, String gender, String password, String phone, String birth,
 			String pwquiz, String pwans, String industry, String company, String career, String edu, String prize,
-			String resume, String portfolio, String certification, String admin, int reg, boolean rememberId) {
+			String resume, String portfolio, String certification, String grade, int reg, boolean rememberId) {
 		super();
 		this.email = email;
 		this.name = name;
@@ -70,7 +70,7 @@ public class NormalMDto {
 		this.resume = resume;
 		this.portfolio = portfolio;
 		this.certification = certification;
-		this.admin = admin;
+		this.grade = grade;
 		this.reg = reg;
 		this.rememberId = rememberId;
 	}
@@ -170,11 +170,11 @@ public class NormalMDto {
 	public void setPortfolio(String portfolio) {
 		this.portfolio = portfolio;
 	}
-	public String getAdmin() {
-		return admin;
+	public String getGrade() {
+		return grade;
 	}
-	public void setAdmin(String admin) {
-		this.admin = admin;
+	public void setGrade(String grade) {
+		this.grade = grade;
 	}
 	public int getReg() {
 		return reg;

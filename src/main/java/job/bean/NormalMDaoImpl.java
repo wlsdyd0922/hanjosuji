@@ -64,6 +64,12 @@ public class NormalMDaoImpl implements NormalMDao{
 		};
 		return jdbcTemplate.update(sql, args) > 0;
 	}
+	
+	public boolean face(String savename, String email) {
+		String sql = "update NormalM set face=? where email=?";
+		return jdbcTemplate.update(sql, savename, email) > 0;
+	}
+	
 	@Override
 	public boolean drop(NormalMDto nmdto) {
 		String sql = "delete NormalM where email=? and password=?";

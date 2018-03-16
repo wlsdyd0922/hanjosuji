@@ -5,6 +5,7 @@ import java.util.List;
 public interface NormalMDao {
 	void insert(NormalMDto nmdto);
 	boolean edit(NormalMDto nmdto);
+	public boolean face(String savename, String email);
 	boolean drop(NormalMDto nmdto);
 	String getEmail(NormalMDto nmdto);
 	String getPw(NormalMDto nmdto);
