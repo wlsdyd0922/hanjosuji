@@ -48,6 +48,9 @@ public class FileUploadController{
 				!f.getOriginalFilename().endsWith(".hwp")
 				&& !f.getOriginalFilename().endsWith(".docx")
 				&& !f.getOriginalFilename().endsWith(".xls")
+				&& !f.getOriginalFilename().endsWith(".pdf")
+				&& !f.getOriginalFilename().endsWith(".pptx")
+				&& !f.getOriginalFilename().endsWith(".ppt")
 				) {
 			throw new Exception("확장자 확인");
 		}
