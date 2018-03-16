@@ -3,16 +3,31 @@
 <jsp:include page="/WEB-INF/view/template/header.jsp"></jsp:include>
 <script src="/job/js/jquery-1.11.3.min.js"></script>
 <script src="/job/js/star.js"></script>
-
+<<<<<<< HEAD
 <form action="${pageContext.request.contextPath }/company/review_detail" method="post">
+=======
+<div class="container-1000 out-align-center">
+<form action="${pageContext.request.contextPath }/company/review_detail"
+	method="post">
+	<div class="in-align-left">
+        <h1>기업리뷰 작성</h1>
+    </div>
+    <div class="empty-row"></div>
+	<ul class="nav nav-tabs">
+		<li><a
+			href="${pageContext.request.contextPath}/company/review_info">기업정보</a></li>
+		<li><a
+			href="${pageContext.request.contextPath}/company/review_list">기업리뷰</a></li>
+		<li class="active"><a
+			href="${pageContext.request.contextPath}/company/review">기업리뷰작성</a></li>
+	</ul>
+>>>>>>> refs/remotes/origin/suji
 	<div class="out-align-center" style="width: 650px;">
 		<div class="div-2">
-			<div class="container-100 input-lg font-big">
+			<div class="container-600 input-lg font-big">
 				<div class="in-align-center">기업평점</div>
 			</div>
-
 			<div class="container-100">
-
 				<span class="star-input"> 
 				<span class="input"> 
 				<input type="radio" name="grade" value="1" id="p1"> <label for="p1">1</label> 
@@ -20,19 +35,13 @@
 				<input type="radio" name="grade" value="3" id="p3"> <label for="p3">3</label> 
 				<input type="radio" name="grade" value="4" id="p4"> <label for="p4">4</label> 
 				<input type="radio" name="grade" value="5" id="p5"> <label for="p5">5</label>
-
 				</span> <output for="star-input">
 						<b>0</b>점
 					</output>
-
 				</span>
-
 			</div>
-
 		</div>
-
 	</div>
-
 	<div class="out-align-center" style="width: 850px;">
 		<div class="div-2 height-200 padding">
 			<div class="container-20 input-lg">
@@ -110,13 +119,11 @@
 				<div class="in-align-center">이 기업을 친구에게 추천하겠습니까?</div>
 			</div>
 			<div class="container-60 input-lg">
-
 				<div class="in-align-center">
 <!-- 추천 1:예 , 2:아니오 -->
 					<input type="radio" name="recommend" id="answer1" value="1"
 						required> <label for="answer1">예</label> <input
 						type="radio" name="recommend" id="answer2" value="2" required>
-
 					<label for="answer2">아니요</label>
 				</div>
 			</div>
@@ -125,7 +132,7 @@
 		<div class="div-2">
 			<div class="container-100">
 				<input type="button" class="button shape-circle" value="뒤로가기"
-					onclick="">
+					onclick="location.href='${pageContext.request.contextPath }/company/review'">
 			</div>
 			<div class="container-100">
 				<div class="in-align-right">
@@ -135,4 +142,5 @@
 		</div>
 	</div>
 </form>
+</div>
 <jsp:include page="/WEB-INF/view/template/footer.jsp"></jsp:include>
