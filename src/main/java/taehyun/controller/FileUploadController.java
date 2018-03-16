@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import job.bean.NormalMDaoImpl;
 import taehyun.bean.ResumeDto;
 import taehyun.model.ResumeDao;
 import taehyun.model.ResumeDaoImpl;
@@ -38,11 +39,17 @@ public class FileUploadController{
 		return "upload";
 	}
 	
+	@RequestMapping("/face")
+	public String face()
+	{
+		return "face";
+	}
+	
 	@Autowired
 	private ServletContext servletContext;
 	
 	@RequestMapping("/upload")
-	public String upload1(MultipartFile f) throws Exception {
+	public String upload(MultipartFile f) throws Exception {
 		//log.debug("file = {}", f);
 		if(
 				!f.getOriginalFilename().endsWith(".hwp")
@@ -79,6 +86,40 @@ public class FileUploadController{
 		idto.setFilelen(f.getSize());
 		idto.setSavename(savename);
 		dao.insert(idto);
+		
+		return "redirect:/";
+	}
+	
+	@RequestMapping("/face")
+	public String face(MultipartFile f) throws Exception {
+		//log.debug("file = {}", f);
+		if(
+				!f.getOriginalFilename().endsWith(".jpg")
+				&& !f.getOriginalFilename().endsWith(".png")
+				&& !f.getOriginalFilename().endsWith(".gif")
+				) {
+			throw new Exception("확장자 확인");
+		}
+		
+		String savename = UUID.randomUUID().toString();
+		
+		//업로드된 파일에서 알아내야할 정보들 : 이름, 유형, 크기
+		log.debug("이름 = {}", f.getOriginalFilename());
+		log.debug("유형 = {}", f.getContentType());
+		log.debug("크기 = {}", f.getSize());
+		
+		//실제로 저장하는 작업
+		String path = servletContext.getRealPath("/face");
+		log.debug("path = {}", path);
+		File dir = new File(path);
+		if(!dir.exists()) dir.mkdirs();
+		
+		File target = new File(dir, savename);
+		f.transferTo(target);
+		//dao,dto 생성은 임시방편
+		NormalMDaoImpl dao = new NormalMDaoImpl();
+		//db에 추가하는 작업
+		dao.face(savename,);
 		
 		return "redirect:/";
 	}

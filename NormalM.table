@@ -12,9 +12,10 @@ INDUSTRY                                           VARCHAR2(20)		//분야
 COMPANY                                            VARCHAR2(20)		//기업
 CAREER                                             VARCHAR2(20)		//경력
 EDU                                                VARCHAR2(20)		//학력
-PRIZE                                              VARCHAR2(1000)	//수상경력
-RESUME                                             VARCHAR2(200)	//이력서
-PORTFOLIO                                          VARCHAR2(200)	//포트폴리오
-CERTIFICATION                                      VARCHAR2(200)	//자격증
-ADMIN                                              VARCHAR2(10)		//관리자 여부
+PRIZE                                              VARCHAR2(1000)
+RESUME                                             VARCHAR2(200)
+PORTFOLIO                                          VARCHAR2(200)
+CERTIFICATION                                      VARCHAR2(200)
 REG                                                DATE
+FACE                                               VARCHAR2(100)	//얼굴 파일명
+GRADE                                              VARCHAR2(20)		//회원등급

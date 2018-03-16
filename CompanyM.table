@@ -1,15 +1,18 @@
-Table Owner	Table Name		Column Name		Data Type
-SW3			COMPANYM		EMAIL			VARCHAR2
- 	 						PASSWORD		VARCHAR2
-					 	 	COMPANY			VARCHAR2
-					 	 	CEO				VARCHAR2
-					 	 	PHONE			VARCHAR2
-					 	 	PWQUIZ			VARCHAR2
-					 	 	PWANS			VARCHAR2
-					 	 	BIRTH			VARCHAR2
-					 	 	SALES			VARCHAR2
-					 	 	TYPE			VARCHAR2
-					 	 	LOCATION		VARCHAR2
-					 	 	INDUSTRY		VARCHAR2
-					 	 	EMPLOYEE		NUMBER
-					 	 	REG				DATE
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ EMAIL                                     NOT NULL VARCHAR2(30)
+ PASSWORD                                  NOT NULL VARCHAR2(64)
+ COMPANY                                   NOT NULL VARCHAR2(20)
+ CEO                                       NOT NULL VARCHAR2(15)
+ PHONE                                              VARCHAR2(15)
+ PWQUIZ                                             VARCHAR2(500)
+ PWANS                                              VARCHAR2(500)
+ BIRTH                                              VARCHAR2(10)
+ SALES                                              VARCHAR2(20)
+ TYPE                                               VARCHAR2(15)
+ LOCATION                                           VARCHAR2(50)
+ INDUSTRY                                           VARCHAR2(40)
+ EMPLOYEE                                           NUMBER
+ REG                                                DATE
+					 	 	
+select (select count(*) from NormalM where email=?) + (select count(*) from CompanyM where email=?) from dual
