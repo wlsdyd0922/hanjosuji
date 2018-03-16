@@ -119,7 +119,7 @@ public class FileUploadController{
 		//dao,dto 생성은 임시방편
 		NormalMDaoImpl dao = new NormalMDaoImpl();
 		//db에 추가하는 작업
-		dao.face(savename,);
+//		dao.face(savename,);
 		
 		return "redirect:/";
 	}
