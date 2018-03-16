@@ -124,7 +124,7 @@ public class ReviewDto {	//15개
 		this.recommend = recommend;
 	}
 	public String getReg() {
-		return reg;
+		return reg.substring(0,10).replace("-", "/");
 	}
 	public void setReg(String reg) {
 		this.reg = reg;
