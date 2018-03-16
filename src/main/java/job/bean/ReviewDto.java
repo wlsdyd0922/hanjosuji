@@ -20,21 +20,21 @@ public class ReviewDto {	//15개
 	private int recommend;
 	private String reg;
 	public ReviewDto(ResultSet rs) throws SQLException{
-		setNo(rs.getInt("no"));
-		setCompany(rs.getString("company"));
-		setStatus(rs.getString("status"));
-		setType(rs.getString("type"));
-		setTypedetail(rs.getString("typedetail"));
-		setCareer(rs.getString("career"));
-		setLocation(rs.getString("location"));
-		setGrade(rs.getInt("grade"));
-		setOnecomment(rs.getString("onecomment"));
-		setHopecomment(rs.getString("hopecomment"));
-		setWelfare(rs.getInt("welfare"));
-		setBalance(rs.getInt("balance"));
-		setExecutive(rs.getInt(executive));
-		setRecommend(rs.getInt("recommend"));
-		setReg(rs.getString("reg"));
+		this.setNo(rs.getInt("no"));
+		this.setCompany(rs.getString("company"));
+		this.setStatus(rs.getString("status"));
+		this.setType(rs.getString("type"));
+		this.setTypedetail(rs.getString("typedetail"));
+		this.setCareer(rs.getString("career"));
+		this.setLocation(rs.getString("location"));
+		this.setGrade(rs.getInt("grade"));
+		this.setOnecomment(rs.getString("onecomment"));
+		this.setHopecomment(rs.getString("hopecomment"));
+		this.setWelfare(rs.getInt("welfare"));
+		this.setBalance(rs.getInt("balance"));
+		this.setExecutive(rs.getInt("executive"));
+		this.setRecommend(rs.getInt("recommend"));
+		this.setReg(rs.getString("reg"));
 	}
 	public int getNo() {
 		return no;
