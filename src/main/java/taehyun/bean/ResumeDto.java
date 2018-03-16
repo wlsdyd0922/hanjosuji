@@ -2,7 +2,7 @@ package taehyun.bean;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
+   
 public class ResumeDto {
 	private String savename;
 	private String filename;
