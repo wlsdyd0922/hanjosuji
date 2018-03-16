@@ -111,12 +111,12 @@
 		<div class="div-2">
 			<div class="container-100">
 				<div>
-					<input type="button" class="btn btn-primary " value="이전으로">
+					<input type="button" class="button shape-circle" value="이전으로">
 				</div>
 			</div>
 			<div class="container-100">
 				<div class="in-align-right">
-					<input type="submit" class="btn btn-primary" value="다음으로">
+					<input type="submit" class="button shape-circle" value="다음으로">
 				</div>
 			</div>
 		</div>

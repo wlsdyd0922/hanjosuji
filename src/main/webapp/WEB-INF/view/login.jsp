@@ -18,8 +18,7 @@
 				<label class="form-check-label font-medium" for="rememberId">아이디기억하기</label>
 			</div>
 			<div class="in-align-right container-100">
-				<a href="" class="font-medium">아이디 찾기</a> 
-				<a href="" class="font-medium">비밀번호 찾기</a>
+				<a href="${pageContext.request.contextPath }/member/find_information" class="font-medium">아이디,비밀번호  찾기</a>
 			</div>
 		</div>
 		<div class="myrow">

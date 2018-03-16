@@ -21,7 +21,7 @@ public class LogInController {
 	private NormalMDaoImpl NMdao = new NormalMDaoImpl();
 	//로그인 페이지
 	@RequestMapping("login")
-	public String LogIn() {
+	public String LogIn(HttpServletRequest request) {
 		return "login";
 	}
 	//로그인 판정

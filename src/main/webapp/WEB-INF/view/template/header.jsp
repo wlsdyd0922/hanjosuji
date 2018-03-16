@@ -40,30 +40,51 @@
 <body>
 	<!-- 1페이지 영역-->
 	<main> <!-- 상단 영역 --> <header class="font-big in-align-center">
-		<a href="${pageContext.request.contextPath}/"><img src="${pageContext.request.contextPath}/img/logo.png"></a>
+		<a href="${pageContext.request.contextPath}/"><img
+			src="${pageContext.request.contextPath}/img/logo.png"></a>
 	</header> <!-- 메뉴 영역 -->
 	<nav class="menu input-lg border">
-		<a href="${pageContext.request.contextPath }" class="left"><i
-			class="glyphicon glyphicon-home">MAIN</i></a>
-		<c:choose>
-			<c:when test="${loginFlag }">
-				<a href="${pageContext.request.contextPath }/member/information"
-					class="left"><i class="glyphicon glyphicon-user">INFO</i></a>
-				<a href="${pageContext.request.contextPath }/company/review"
-					class="left"><i class="glyphicon glyphicon-calendar">기업리뷰정보</i></a>
-				<a href="${pageContext.request.contextPath }/member/logout"
-					class="rright">로그아웃</a>
-			</c:when>
-			<c:otherwise>
-				<a href="${pageContext.request.contextPath }/login"
-					class="right">로그인</a>
-				<a href="${pageContext.request.contextPath }/register_choose"
-					class="rright">회원가입</a>
-			</c:otherwise>
-		</c:choose>
-		<c:if test="${accept eq 'admin' }">
+		<div class="div-2 container-100">
+			<div class="container-70">
+				<a href="${pageContext.request.contextPath }" class="left"><i
+					class="glyphicon glyphicon-home">MAIN</i></a>
+				<c:choose>
+					<c:when test="${loginFlag }">
+						<a href="${pageContext.request.contextPath }/member/information"
+							class="left"><i class="glyphicon glyphicon-user">INFO</i></a>
+						<a href="${pageContext.request.contextPath }/company/companylist"
+							class="left"><i class="glyphicon glyphicon-search">기업채용정보</i></a>
+						<a href="${pageContext.request.contextPath }/company/review"
+							class="left"><i class="glyphicon glyphicon-calendar">기업리뷰정보</i></a>
+					</c:when>
+					<c:otherwise>
+					</c:otherwise>
+				</c:choose>
+				<c:if test="${accept eq 'admin' }">
 
-		</c:if>
+				</c:if>
+			</div>
+			<div class="container-30 in-align-right">
+				<c:choose>
+					<c:when test="${loginFlag }">
+						<img src="${pageContext.request.contextPath }/img/noone.jpg"
+							class="height-100"> 유저 : ${sessionScope.accept}
+                                <a
+							href="${pageContext.request.contextPath }/member/logout"
+							class="rright">로그아웃</a>
+					</c:when>
+					<c:otherwise>
+						<a href="${pageContext.request.contextPath }/login" class="right">로그인</a>
+						<a
+							href="${pageContext.request.contextPath }/member/register_choose"
+							class="rright">회원가입</a>
+					</c:otherwise>
+				</c:choose>
+				<c:if test="${accept eq 'admin' }">
+
+				</c:if>
+			</div>
+		</div>
 	</nav>
 	<!-- 컨테이너 영역 -->
 	<section>
