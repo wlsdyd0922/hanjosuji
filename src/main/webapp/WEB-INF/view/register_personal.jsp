@@ -3,7 +3,7 @@
 <jsp:include page="/WEB-INF/view/template/header.jsp"></jsp:include>
 <!-- 입력값에 따른 css 변화.js -->
 <script src="${pageContext.request.contextPath}/js/register_personal.js"></script>
-<form action="${pageContext.request.contextPath }/member/register_personal" method="post">
+<form action="${pageContext.request.contextPath }/register_personal" method="post">
 	<div class="empty-row"></div>
 	<div class="container-600 out-align-center">
 		<div class="myrow input-group input-group-lg">

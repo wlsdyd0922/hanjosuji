@@ -40,7 +40,7 @@
 <body>
 	<!-- 1페이지 영역-->
 	<main> <!-- 상단 영역 --> <header class="font-big in-align-center">
-		<img src="${pageContext.request.contextPath}/img/logo.png">
+		<a href="${pageContext.request.contextPath}/"><img src="${pageContext.request.contextPath}/img/logo.png"></a>
 	</header> <!-- 메뉴 영역 -->
 	<nav class="menu input-lg border">
 		<a href="${pageContext.request.contextPath }" class="left"><i
@@ -55,9 +55,9 @@
 					class="rright">로그아웃</a>
 			</c:when>
 			<c:otherwise>
-				<a href="${pageContext.request.contextPath }/member/login"
+				<a href="${pageContext.request.contextPath }/login"
 					class="right">로그인</a>
-				<a href="${pageContext.request.contextPath }/member/register_choose"
+				<a href="${pageContext.request.contextPath }/register_choose"
 					class="rright">회원가입</a>
 			</c:otherwise>
 		</c:choose>

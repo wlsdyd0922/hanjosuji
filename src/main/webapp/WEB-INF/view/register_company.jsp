@@ -1,10 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
-
 <jsp:include page="/WEB-INF/view/template/header.jsp"></jsp:include>
+
 <script src="${pageContext.request.contextPath}/js/register_company.js"></script>
-<form action="${pageContext.request.contextPath }/member/register_company" method="post">
+<form action="${pageContext.request.contextPath }/register_company" method="post">
 	<div class="container-30 out-align-center">
                 <div class="myrow input-group input-group-lg">
                     <span class="input-group-addon" id="sizing-addon1"><i class="glyphicon glyphicon-envelope"></i></span>

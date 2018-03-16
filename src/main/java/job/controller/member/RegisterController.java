@@ -27,13 +27,13 @@ public class RegisterController {
 	
 	
 	//일반 멤버 회원가입 페이지
-	@RequestMapping("member/register_personal")
+	@RequestMapping("register_personal")
 	public String RegisterPersonal() {
 
-		return "member/register_personal";
+		return "register_personal";
 	}
 	//일반 멤버 회원가입 처리
-	@RequestMapping(value="member/register_personal",method=RequestMethod.POST)
+	@RequestMapping(value="register_personal",method=RequestMethod.POST)
 	
 	public String RegisterPersonal(NormalMDto mdto) throws Exception {
 		mdto.setPassword(new SHA256().On(mdto.getPassword()));
@@ -41,16 +41,16 @@ public class RegisterController {
 		if(!nmdao.insert(mdto)) {
 			throw new Exception("회원가입 실패");
 		};
-		return "redirect:/member/login";
+		return "redirect:login";
 	}
 	
 	//기업멤버 회원가입 페이지	
-	@RequestMapping("member/register_company")
+	@RequestMapping("register_company")
 	public String RegisterCompany() {
-		return "member/register_company";
+		return "register_company";
 	}
 	
-	@RequestMapping(value = "member/register_company",method = RequestMethod.POST)
+	@RequestMapping(value = "register_company",method = RequestMethod.POST)
 	public String RegisterCompany(CompanyMDto cmdto) {
 		log.debug(cmdto.getEmail());
 		log.debug(cmdto.getPassword());
@@ -65,7 +65,7 @@ public class RegisterController {
 		log.debug(""+cmdto.getEmployee());
 		log.debug(cmdto.getSales());
 		cmdao.register(cmdto);
-		return "member/register_company";
+		return "register_company";
 	}
 	@RequestMapping("member/compsearch")
 	@ResponseBody      
@@ -82,9 +82,9 @@ public class RegisterController {
 	
 
 	
-	@RequestMapping("member/register_choose")
+	@RequestMapping("register_choose")
 	public String RegisterChoose() {
 
-		return "member/register_choose";
+		return "register_choose";
 	}
 }
