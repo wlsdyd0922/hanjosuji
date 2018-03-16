@@ -29,7 +29,7 @@
 			</div>
 		</div>
 		<div class="myrow">
-			<input class="btn btn-primary btn-lg form-btn-full" type="submit"
+			<input name="login" class="btn btn-primary btn-lg form-btn-full" type="submit"
 				value="로그인">
 		</div>
 		<hr>
