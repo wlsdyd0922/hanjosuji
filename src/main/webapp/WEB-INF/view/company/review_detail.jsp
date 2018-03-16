@@ -3,8 +3,21 @@
 <jsp:include page="/WEB-INF/view/template/header.jsp"></jsp:include>
 <script src="/job/js/jquery-1.11.3.min.js"></script>
 <script src="/job/js/star.js"></script>
-
-<form action="${pageContext.request.contextPath }/company/review_detail" method="post">
+<div class="container-1000 out-align-center">
+<form action="${pageContext.request.contextPath }/company/review_detail"
+	method="post">
+	<div class="in-align-left">
+        <h1>기업리뷰 작성</h1>
+    </div>
+    <div class="empty-row"></div>
+	<ul class="nav nav-tabs">
+		<li><a
+			href="${pageContext.request.contextPath}/company/review_info">기업정보</a></li>
+		<li><a
+			href="${pageContext.request.contextPath}/company/review_list">기업리뷰</a></li>
+		<li class="active"><a
+			href="${pageContext.request.contextPath}/company/review">기업리뷰작성</a></li>
+	</ul>
 	<div class="out-align-center" style="width: 650px;">
 		<div class="div-2">
 			<div class="container-100 input-lg font-big">
@@ -24,15 +37,10 @@
 				</span> <output for="star-input">
 						<b>0</b>점
 					</output>
-
 				</span>
-
 			</div>
-
 		</div>
-
 	</div>
-
 	<div class="out-align-center" style="width: 850px;">
 		<div class="div-2 height-200 padding">
 			<div class="container-20 input-lg">
@@ -135,4 +143,5 @@
 		</div>
 	</div>
 </form>
+</div>
 <jsp:include page="/WEB-INF/view/template/footer.jsp"></jsp:include>

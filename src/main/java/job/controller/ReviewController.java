@@ -42,13 +42,13 @@ public class ReviewController {
 		reviewDao.register(rdto);
 		return "redirect:/";
 	}
-	@RequestMapping("company/information")
-	public String information() {
-		return "company/information";
+	@RequestMapping("company/review_info")
+	public String information(ReviewDto rdto) {
+		return "company/review_info";
 	}
 	@RequestMapping("company/review_list")
 	public String reviewList(HttpServletRequest request) {
-		int no = 24;
+		int no = 26;
 		if(request.getParameter("no")!=null && request.getParameter("no")!="") {
 			no = Integer.parseInt(request.getParameter("no"));
 		}
