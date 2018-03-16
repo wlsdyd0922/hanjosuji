@@ -20,11 +20,12 @@ import job.manager.SHA256;
 public class LogInController {
 	@Autowired
 	private NormalMDaoImpl NMdao = new NormalMDaoImpl();
-
+	//로그인 페이지
 	@RequestMapping("login")
 	public String LogIn() {
 		return "login";
 	}
+	//로그인 판정
 	@RequestMapping(value = "login", method = RequestMethod.POST)
 	public String LogIn(NormalMDto NMdto, HttpServletRequest request, HttpServletResponse response) {
 		//로그인 기존값이 남아있다면 제거
@@ -51,12 +52,20 @@ public class LogInController {
 			return "redirect:login";
 		}
 	}
-
+	//로그아웃..
 	@RequestMapping("member/logout")
 	public String LogOut(HttpServletRequest request ) {
 		if (request.getSession().getAttribute("accept") != null) {
 			request.getSession().removeAttribute("accept"); // 기존값을 제거해 준다.
 		}
 		return "redirect:/";
+	}
+	@RequestMapping("아이디 찾기")
+	public String FindId() {
+		return "";
+	}
+	@RequestMapping("비번 찾기")
+	public String FindPw() {
+		return "";
 	}
 }

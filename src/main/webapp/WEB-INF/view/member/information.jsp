@@ -30,8 +30,8 @@
 					</div>
 				</div>
 				<div class="myrow content-size in-align-center">
-					<div class="input-lg text-primary">아이디</div>
-					<div class="input-lg">123456</div>
+					<div class="input-lg text-primary">아이디 </div>
+					<div class="input-lg"> ${sessionScope.accept}</div>
 					<div class="input-lg text-primary">생년월일</div>
 					<div class="input-lg">89.01.20</div>
 				</div>
