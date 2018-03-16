@@ -19,8 +19,11 @@ public class ResumeDaoImpl implements ResumeDao{
 	public void insert(ResumeDto idto) {
 		String sql = "insert into resume values(?, ?, ?, ?, ?, sysdate,?)";
 		Object[] args = {
-			idto.getSavename(), idto.getFilename(),
-			idto.getFiletype(), idto.getFilelen(), idto.getAuthor()
+			idto.getSavename(),
+			idto.getFilename(),
+			idto.getFiletype(),
+			idto.getFilelen(),
+			idto.getAuthor()
 		};
 		jdbcTemplate.update(sql, args);
 	}
@@ -30,9 +33,9 @@ public class ResumeDaoImpl implements ResumeDao{
 	};
 	
 	@Override
-	public List<ResumeDto> getList() {
-		String sql = "select * from resume order by reg desc";
-		return jdbcTemplate.query(sql, mapper);
+	public List<ResumeDto> getList(String author) {
+		String sql = "select * from resume order by filename asc";
+		return jdbcTemplate.query(sql, mapper, author);
 	}
 }
 
