@@ -24,12 +24,10 @@ public class NormalMDto {
 	private int reg;			//가입일
 	private boolean rememberId;
 	
-	public NormalMDto()
-	{
+	public NormalMDto(){
 		super();
 	}
-	public NormalMDto(ResultSet rs) throws SQLException
-	{
+	public NormalMDto(ResultSet rs) throws SQLException	{
 		setEmail(rs.getString("email"));
 		setName(rs.getString("name"));
 		setGender(rs.getString("gender"));

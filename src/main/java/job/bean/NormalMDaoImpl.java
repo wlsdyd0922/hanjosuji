@@ -15,12 +15,17 @@ public class NormalMDaoImpl implements NormalMDao{
 	private RowMapper<NormalMDto> mapper = (rs, index)->{
 		return new NormalMDto(rs);
 	};
+	
 	private ResultSetExtractor<NormalMDto> extractor = (rs)->{
 		if(rs.next()) return new NormalMDto(rs);
 		else return null;
 	};
-	@Override
 	
+	private ResultSetExtractor<Integer> extractorNumber = (rs)->{
+		if(rs.next()) return rs.getInt(1);
+		else return null;
+	};
+	@Override
 	public boolean insert(NormalMDto nmdto) {
 		String sql = "insert into NormalM values(?,?,?,?,?,?,?,?,'-','-','-','-','-','-','-','-','-',sysdate)";
 		Object[] args= new Object[] {
@@ -95,5 +100,11 @@ public class NormalMDaoImpl implements NormalMDao{
 	public List<NormalMDto> adminList() {
 		String sql = "select * from NormalM where admin='admin' order by email";
 		return jdbcTemplate.query(sql, mapper);
+	}
+	@Override
+	public Integer ChkSameId(String email) {
+		String sql = "select (select count(*) from NormalM where email=?) + (select count(*) from CompanyM where email=?) from dual";
+		Object[] args= new Object[] {email,email};
+		return jdbcTemplate.query(sql,extractorNumber,args);
 	}
 }

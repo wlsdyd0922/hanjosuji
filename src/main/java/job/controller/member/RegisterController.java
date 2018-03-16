@@ -5,7 +5,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -25,16 +24,13 @@ public class RegisterController {
 	@Autowired
 	private CompanyMDaoImpl cmdao;
 	
-	
 	//일반 멤버 회원가입 페이지
 	@RequestMapping("register_personal")
 	public String RegisterPersonal() {
-
 		return "register_personal";
 	}
 	//일반 멤버 회원가입 처리
 	@RequestMapping(value="register_personal",method=RequestMethod.POST)
-	
 	public String RegisterPersonal(NormalMDto mdto) throws Exception {
 		mdto.setPassword(new SHA256().On(mdto.getPassword()));
 		//DB연결..
@@ -67,24 +63,26 @@ public class RegisterController {
 		cmdao.register(cmdto);
 		return "register_company";
 	}
-	@RequestMapping("member/compsearch")
+	@RequestMapping("compsearch")
 	@ResponseBody      
 	public String CompSearch(String compname) {
 		log.debug("CompSearch({})", compname);
-		return "member/register_company";
+		return "register_company";
+	}
+	
+	@RequestMapping("chksameid")
+	@ResponseBody      
+	public String ChkIdSame(String email) {
+		return String.valueOf(nmdao.ChkSameId(email));
 	}
 	
 	@RequestMapping("member/register_detail")
 	public String RegisterDetail() {
-
 		return "member/register_detail";
 	}
 	
-
-	
 	@RequestMapping("register_choose")
 	public String RegisterChoose() {
-
 		return "register_choose";
 	}
 }

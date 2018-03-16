@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <jsp:include page="/WEB-INF/view/template/header.jsp"></jsp:include>
-<!-- 입력값에 따른 css 변화.js -->
 <script src="${pageContext.request.contextPath}/js/register_personal.js"></script>
 <form action="${pageContext.request.contextPath }/register_personal" method="post">
 	<div class="empty-row"></div>
@@ -12,6 +11,8 @@
 			</span> 
 			<input type="text" class="form-control" name="email" placeholder="아이디를 입력하세요" required>
 		</div>
+		
+		<div id = "checkMsg"></div>
 
 		<div class="myrow input-group input-group-lg">
 			<span class="input-group-addon" id="sizing-addon1">
