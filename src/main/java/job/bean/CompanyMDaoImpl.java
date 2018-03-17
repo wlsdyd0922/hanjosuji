@@ -51,16 +51,16 @@ public class CompanyMDaoImpl implements CompanyMDao{
 	}
 	//계정 찾기(회사이름과 번호로 찾기)
 	public String findEmail(CompanyMDto cmdto) {
-		String sql = "select email from CompanyM where company=? and phone=?";
-		Object[] args = new Object[] {cmdto.getCompany(),cmdto.getPhone()};
+		String sql = "select email from CompanyM where company=? and ceo=? and phone=?";
+		Object[] args = new Object[] {cmdto.getCompany(),cmdto.getCeo(),cmdto.getPhone()};
 		return jdbcTemplate.queryForObject(sql,args,String.class);	
 	}
 	//회사이름,이메일,전화번호,비밀번호 질문,비밀번호 답변으로 찾기
 	public String findPassword(CompanyMDto cmdto) {
-		String sql = "select password from CompanyM where company=? and email=? and phone=? and pwquiz=? and pwans=?";
+		String sql = "select password from CompanyM where email=? and phone=? and company=? and ceo=? and pwquiz=? and pwans=?";
 		Object[] args = new Object[] {
-			cmdto.getCompany(),cmdto.getEmail(),cmdto.getPhone(),
-			cmdto.getPwquiz(),cmdto.getPwans()	
+			cmdto.getEmail(),cmdto.getPhone(),cmdto.getCompany(),
+			cmdto.getCeo(),cmdto.getPwquiz(),cmdto.getPwans()	
 		};
 		return jdbcTemplate.queryForObject(sql, args,String.class);
 	}
@@ -84,5 +84,10 @@ public class CompanyMDaoImpl implements CompanyMDao{
 	public List<CompanyMDto> list(){
 		String sql = "select * from CompanyM order by company";
 		return jdbcTemplate.query(sql, mapper);
+	}
+	public boolean pwupdate(String password, String email) {
+		String sql = "update CompanyM set password =? where email=?";
+		Object[] args= new Object[] {password,email};
+		return jdbcTemplate.update(sql,args) > 0;
 	}
 }

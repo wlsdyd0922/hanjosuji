@@ -8,12 +8,12 @@
 		<div class="myrow input-group input-group-lg">
 			<span class="input-group-addon glyphicons-tent" id="sizing-addon1"><i
 				class="glyphicon glyphicon-tent"></i></span> <input type="text"
-				class="form-control" name="companyname" placeholder="회사명을 입력해주세요">
+				class="form-control" name="company" placeholder="회사명을 입력해주세요">
 		</div>
 		<div class="myrow input-group input-group-lg">
 			<span class="input-group-addon" id="sizing-addon1"><i
 				class="glyphicon glyphicon-user"></i></span> <input type="text"
-				class="form-control" name="ceoname" placeholder="관리자 성함을 입력해주세요">
+				class="form-control" name="ceo" placeholder="관리자 성함을 입력해주세요">
 		</div>
 		<div class="myrow input-group input-group-lg">
 			<span class="input-group-addon glyphicons-iphone-shake"

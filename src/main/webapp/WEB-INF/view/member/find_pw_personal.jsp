@@ -3,7 +3,6 @@
 <jsp:include page="/WEB-INF/view/template/header.jsp"></jsp:include>
 <!-- 입력값에 따른 css 변화.js -->
 <script src="${pageContext.request.contextPath}/js/sha256.js"></script>
-<script src="${pageContext.request.contextPath}/js/register_personal.js"></script>
 <form
 	action="${pageContext.request.contextPath }/member/find_pw_personal"
 	method="post">

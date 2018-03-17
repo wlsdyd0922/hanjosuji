@@ -8,7 +8,7 @@
 		<div class="myrow input-group input-group-lg">
 			<span class="input-group-addon" id="sizing-addon1"><i
 				class="glyphicon glyphicon-envelope"></i></span> <input type="text"
-				class="form-control" name="id" placeholder="아이디를 입력하세요">
+				class="form-control" name="email" placeholder="아이디를 입력하세요">
 		</div>
 
 		<div class="myrow input-group input-group-lg">
@@ -20,17 +20,17 @@
 		<div class="myrow input-group input-group-lg">
 			<span class="input-group-addon glyphicons-tent" id="sizing-addon1"><i
 				class="glyphicon glyphicon-tent"></i></span> <input type="text"
-				class="form-control" name="companyname" placeholder="회사명을 입력해주세요">
+				class="form-control" name="company" placeholder="회사명을 입력해주세요">
 		</div>
 		<div class="myrow input-group input-group-lg">
 			<span class="input-group-addon" id="sizing-addon1"><i
 				class="glyphicon glyphicon-user"></i></span> <input type="text"
-				class="form-control" name="ceoname" placeholder="관리자 성함을 입력해주세요">
+				class="form-control" name="ceo" placeholder="관리자 성함을 입력해주세요">
 		</div>
 		<div class="myrow">
 			<h4>비밀번호 확인 질문을 선택하세요.</h4>
 			<div class="form-group">
-				<select name="check_PW" class="form-control input-lg">
+				<select name="pwquiz" class="form-control input-lg">
 					<option>당신이 졸업한 초등학교는?</option>
 					<option>어머니 성함은?</option>
 					<option>당신의 애완동물 이름은?</option>
@@ -40,7 +40,7 @@
 		<div class="myrow input-group input-group-lg">
 			<span class="input-group-addon" id="sizing-addon1"><i
 				class="glyphicon glyphicon-lock"></i></span> <input type="text"
-				class="form-control" name="answer_PW"
+				class="form-control" name="pwans"
 				placeholder="비밀번호 확인 답을 입력해 주세요">
 		</div>
 		<div class="myrow div-2">
