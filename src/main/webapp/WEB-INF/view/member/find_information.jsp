@@ -11,7 +11,7 @@
 				<div class="in-align-center">
 					<span class="glyphicon glyphicon-user" style="font-size: 150px;"></span>
 				</div>
-				<h1 class="in-align-center">개인회원</h1>
+				<h1 class="in-align-center">일반회원</h1>
 			</div>
 			<div class="myrow rest-area div-2">
 				<div class="myrow rest-area">
@@ -34,7 +34,7 @@
 					<span class="glyphicon glyphicon-calendar"
 						style="font-size: 150px;"></span>
 				</div>
-				<h1 class="in-align-center">개인회원</h1>
+				<h1 class="in-align-center">기업회원</h1>
 			</div>
 			<div class="myrow rest-area div-2">
 				<div class="myrow rest-area">

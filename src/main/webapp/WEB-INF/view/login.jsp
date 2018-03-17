@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <jsp:include page="/WEB-INF/view/template/header.jsp"></jsp:include>
+<script src="${pageContext.request.contextPath}/js/login.js"></script>
+
 <form action="${pageContext.request.contextPath }/login" method="post">
 	<div class="empty-row"></div>
 	<div class="container-500 out-align-center">
@@ -14,9 +17,13 @@
 				type="password" class="form-control font-medium" name="password"
 				placeholder="비밀번호를 입력하세요">
 		</div>
-		<div id="message" class="myrow">
-			<div class="in-align-center" style="color: red">로그인에 실패하였습니다.</div>
-		</div>
+		
+		<c:if test="${param.error}">
+			<div id="message" class="myrow">
+				<div class="in-align-center" style = "color: red">로그인에 실패하였습니다.</div>
+			</div>
+		</c:if>
+		
 		<div class="myrow div-2">
 			<div class="form-check div-ratio2">
 				<input type="checkbox" class="form-check-input" id="rememberId">

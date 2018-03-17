@@ -24,6 +24,11 @@ public class RegisterController {
 	@Autowired
 	private CompanyMDaoImpl cmdao;
 	
+	@RequestMapping("register_choose")
+	public String RegisterChoose() {
+		return "register_choose";
+	}
+	
 	//일반 멤버 회원가입 페이지
 	@RequestMapping("register_personal")
 	public String RegisterPersonal() {
@@ -81,8 +86,5 @@ public class RegisterController {
 		return "member/register_detail";
 	}
 	
-	@RequestMapping("register_choose")
-	public String RegisterChoose() {
-		return "register_choose";
-	}
+
 }

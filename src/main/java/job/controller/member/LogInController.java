@@ -1,5 +1,8 @@
 package job.controller.member;
 
+import java.io.IOException;
+
+import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -8,8 +11,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import job.bean.NormalMDaoImpl;
 import job.bean.NormalMDto;
@@ -19,14 +24,16 @@ import job.manager.SHA256;
 public class LogInController {
 	@Autowired
 	private NormalMDaoImpl NMdao = new NormalMDaoImpl();
-	//로그인 페이지
+
+	// 로그인 페이지
 	@RequestMapping("login")
 	public String LogIn(HttpServletRequest request) {
 		return "login";
 	}
-	//로그인 판정
+
+	// 로그인 판정
 	@RequestMapping(value = "login", method = RequestMethod.POST)
-	public String LogIn(NormalMDto NMdto, HttpServletRequest request, HttpServletResponse response) {
+	public String LogIn(NormalMDto NMdto, HttpServletRequest request, HttpServletResponse response,Model model) {
 		//로그인 기존값이 남아있다면 제거
 		if (request.getSession().getAttribute("accept") != null) {
 			request.getSession().removeAttribute("accept"); // 기존값을 제거해 준다.
@@ -42,25 +49,30 @@ public class LogInController {
 		}
 		response.addCookie(ck);
 		//로그인 판정에 따른 페이지 이동
+		
 		if (NMdao.login(NMdto.getEmail(), NMdto.getPassword())) {
 			request.getSession().setAttribute("accept", NMdto.getEmail());// accept라는 이름으로 세션에 id를 저장한다.
 			return "redirect:/";
 		} else {
-			return "redirect:login";
+			model.addAttribute("error", true);
+			return "redirect:/login";
 		}
 	}
-	//로그아웃..
+
+	// 로그아웃..
 	@RequestMapping("member/logout")
-	public String LogOut(HttpServletRequest request ) {
+	public String LogOut(HttpServletRequest request) {
 		if (request.getSession().getAttribute("accept") != null) {
 			request.getSession().removeAttribute("accept"); // 기존값을 제거해 준다.
 		}
 		return "redirect:/";
 	}
+
 	@RequestMapping("아이디 찾기")
 	public String FindId() {
 		return "";
 	}
+
 	@RequestMapping("비번 찾기")
 	public String FindPw() {
 		return "";
