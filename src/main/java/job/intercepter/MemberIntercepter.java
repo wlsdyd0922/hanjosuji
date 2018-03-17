@@ -7,7 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
-public class Intercepter extends HandlerInterceptorAdapter{
+public class MemberIntercepter extends HandlerInterceptorAdapter{
 	private Logger log = LoggerFactory.getLogger(getClass());
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)

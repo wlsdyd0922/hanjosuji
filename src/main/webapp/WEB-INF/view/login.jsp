@@ -17,13 +17,11 @@
 				type="password" class="form-control font-medium" name="password"
 				placeholder="비밀번호를 입력하세요">
 		</div>
-		
 		<c:if test="${param.error}">
 			<div id="message" class="myrow">
 				<div class="in-align-center" style = "color: red">로그인에 실패하였습니다.</div>
 			</div>
 		</c:if>
-		
 		<div class="myrow div-2">
 			<div class="form-check div-ratio2">
 				<input type="checkbox" class="form-check-input" id="rememberId">
