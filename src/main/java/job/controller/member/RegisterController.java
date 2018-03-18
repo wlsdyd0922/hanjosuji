@@ -16,6 +16,7 @@ import job.bean.NormalMDto;
 import job.manager.SHA256;
 
 @Controller
+@RequestMapping("register")
 public class RegisterController {
 	private Logger log = LoggerFactory.getLogger(getClass());
 	
@@ -26,13 +27,13 @@ public class RegisterController {
 	
 	@RequestMapping("register_choose")
 	public String RegisterChoose() {
-		return "register_choose";
+		return "register/register_choose";
 	}
 	
 	//일반 멤버 회원가입 페이지
 	@RequestMapping("register_personal")
 	public String RegisterPersonal() {
-		return "register_personal";
+		return "register/register_personal";
 	}
 	//일반 멤버 회원가입 처리
 	@RequestMapping(value="register_personal",method=RequestMethod.POST)
@@ -48,7 +49,7 @@ public class RegisterController {
 	//기업멤버 회원가입 페이지	
 	@RequestMapping("register_company")
 	public String RegisterCompany() {
-		return "register_company";
+		return "register/register_company";
 	}
 	
 	@RequestMapping(value = "register_company",method = RequestMethod.POST)
@@ -66,13 +67,13 @@ public class RegisterController {
 		log.debug(""+cmdto.getEmployee());
 		log.debug(cmdto.getSales());
 		cmdao.register(cmdto);
-		return "register_company";
+		return "register/register_company";
 	}
 	@RequestMapping("compsearch")
 	@ResponseBody      
 	public String CompSearch(String compname) {
 		log.debug("CompSearch({})", compname);
-		return "register_company";
+		return "register/register_company";
 	}
 	
 	@RequestMapping("chksameid")
@@ -85,6 +86,5 @@ public class RegisterController {
 	public String RegisterDetail() {
 		return "member/register_detail";
 	}
-	
 
 }

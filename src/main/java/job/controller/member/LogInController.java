@@ -1,20 +1,14 @@
 package job.controller.member;
 
-import java.io.IOException;
-
-import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import job.bean.NormalMDaoImpl;
 import job.bean.NormalMDto;
@@ -66,15 +60,5 @@ public class LogInController {
 			request.getSession().removeAttribute("accept"); // 기존값을 제거해 준다.
 		}
 		return "redirect:/";
-	}
-
-	@RequestMapping("아이디 찾기")
-	public String FindId() {
-		return "";
-	}
-
-	@RequestMapping("비번 찾기")
-	public String FindPw() {
-		return "";
 	}
 }

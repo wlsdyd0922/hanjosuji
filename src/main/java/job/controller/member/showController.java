@@ -4,24 +4,25 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
+@RequestMapping("member")
 public class showController {
 
-	@RequestMapping("/member/introduction_paper")
+	@RequestMapping("introduction_paper")
 	public String introduction_paper() {
 		return "member/introduction_paper";
 	}
 
-	@RequestMapping("/member/resume")
+	@RequestMapping("resume")
 	public String resume() {
 		return "member/resume";
 	}
 	
-	@RequestMapping("/member/show_detail")
+	@RequestMapping("show_detail")
 	public String show_detail() {
 		return "member/show_detail";
 	}
 	
-	@RequestMapping("/member/show_personal")
+	@RequestMapping("show_personal")
 	public String show_personal() {
 		return "member/show_personal";
 	}

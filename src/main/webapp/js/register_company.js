@@ -57,7 +57,7 @@ $(document).ready(function() {
 	$("input[name=company]").on("blur", function() {
 		var comp = $(this).val();
 		$.ajax({
-			url : 'compsearch',
+			url : 'register/compsearch',
 			data : {
 				"compname" : comp
 			},

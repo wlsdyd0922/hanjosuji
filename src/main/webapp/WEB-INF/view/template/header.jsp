@@ -76,7 +76,7 @@
 					<c:otherwise>
 						<a href="${pageContext.request.contextPath }/login" class="right">로그인</a>
 						<a
-							href="${pageContext.request.contextPath }/register_choose"
+							href="${pageContext.request.contextPath }/register/register_choose"
 							class="rright">회원가입</a>
 					</c:otherwise>
 				</c:choose>

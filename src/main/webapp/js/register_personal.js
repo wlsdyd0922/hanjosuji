@@ -8,7 +8,7 @@ $(document).ready(function() {
 	$("input[name=email]").on("blur", function() {
 		var email = $(this).val();
 		$.ajax({
-			url : 'chksameid',
+			url : 'register/chksameid',
 			data : {"email" : email},
 			dataType : 'json',
 			success : function(data) {
