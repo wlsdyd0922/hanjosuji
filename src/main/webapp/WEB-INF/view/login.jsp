@@ -29,7 +29,7 @@
 			</div>
 			<div class="in-align-right container-100">
 				<a
-					href="${pageContext.request.contextPath }/member/find_information"
+					href="${pageContext.request.contextPath }/findmember/find_information"
 					class="font-medium">아이디,비밀번호 찾기</a>
 			</div>
 		</div>

@@ -32,7 +32,7 @@
 		<div class="myrow in-align-center">
 			<input type="submit" class="button shape-circle" value="등록하기">
 			<input type="button" class="button shape-circle" value="뒤로가기"
-			onclick="location.href='${pageContext.request.contextPath }/member/information'">
+			onclick="location.href='javascript:history.back()'">
 		</div>
 	</div>
 </form>

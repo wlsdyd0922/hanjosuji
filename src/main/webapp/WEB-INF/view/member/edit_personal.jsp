@@ -43,7 +43,7 @@
 				value="정보수정">
 			<input class="btn btn-primary btn-lg form-btn-full" type="button"
 				value="돌아가기"
-				onclick="location.href='${pageContext.request.contextPath }/member/show_personal'">
+				onclick="location.href='javascript:history.back()'">
 		</div>
 	</div>
 </form>

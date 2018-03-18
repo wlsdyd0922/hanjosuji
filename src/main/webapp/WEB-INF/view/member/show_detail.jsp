@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <jsp:include page="/WEB-INF/view/template/header.jsp"></jsp:include>
-<div class="container-600 out-align-center">
+<div class="container-500 out-align-center">
 	<div class="myrow input-group input-group-lg">
 		<span class="input-group-addon" id="sizing-addon1"><i
 			class="glyphicon glyphicon-text-size"></i></span> <input type="text"
@@ -81,10 +81,10 @@
 	<div class="myrow div-2">
 		<input class="btn btn-primary btn-lg form-btn-full" type="button"
 			value="정보등록"
-			onclick="location.href='${pageContext.request.contextPath }/member/register_detail'">
+			onclick="location.href='${pageContext.request.contextPath }/register/register_detail'">
 		<input class="btn btn-primary btn-lg form-btn-full" type="button"
 			value="돌아가기"
-			onclick="location.href = '${pageContext.request.contextPath }/member/information'">
+			onclick="location.href='javascript:history.back()'">
 	</div>
 </div>
 

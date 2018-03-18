@@ -82,9 +82,9 @@ public class RegisterController {
 		return String.valueOf(nmdao.ChkSameId(email));
 	}
 	
-	@RequestMapping("member/register_detail")
+	@RequestMapping("register_detail")
 	public String RegisterDetail() {
-		return "member/register_detail";
+		return "/register/register_detail";
 	}
 
 }

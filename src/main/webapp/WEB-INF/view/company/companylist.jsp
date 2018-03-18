@@ -101,7 +101,7 @@
 		<!-- 해당 부분부터 for문 적용-->
 
 		<div class="container-70 div-main">
-			<div class="myrow div-2 border" style="height: 200px;">
+			<div class="myrow div-2 background-white" style="height: 200px;">
 				<div class="myrow container-20" style="height: 100px;">
 					<img class="container-100 height-100"
 						src="${pageContext.request.contextPath }/img/logo.png">
@@ -143,7 +143,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="myrow div-2 border" style="height: 200px;">
+			<div class="myrow div-2 background-white" style="height: 200px;">
 				<div class="myrow container-20" style="height: 100px;">
 					<img class="container-100 height-100"
 						src="${pageContext.request.contextPath }/img/logo.png">
@@ -191,7 +191,7 @@
 		<!-- 해당 부분까지 -->
 
 		<div class="container-30">
-			<div class="myrow container-100 border">
+			<div class="myrow container-100 background-white">
 				<div class="myrow" style="height: 10%">
 					<img src="${pageContext.request.contextPath }/img/noone.jpg"
 						class="image-center height-100">;

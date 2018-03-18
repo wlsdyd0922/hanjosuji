@@ -17,13 +17,13 @@
 				<div class="myrow rest-area">
 					<div class="in-align-center">
 						<input type="button" class="button shape-circle" value="아이디찾기"
-							onclick="location.href = '${pageContext.request.contextPath }/member/find_id_personal'">
+							onclick="location.href = '${pageContext.request.contextPath }/findmember/find_id_personal'">
 					</div>
 				</div>
 				<div class="myrow rest-area">
 					<div class="in-align-center">
 						<input type="button" class="button shape-circle" value="비밀번호찾기"
-							onclick="location.href = '${pageContext.request.contextPath }/member/find_pw_personal'">
+							onclick="location.href = '${pageContext.request.contextPath }/findmember/find_pw_personal'">
 					</div>
 				</div>
 			</div>
@@ -40,13 +40,13 @@
 				<div class="myrow rest-area">
 					<div class="in-align-center">
 						<input type="button" class="button shape-circle" value="아이디찾기"
-							onclick="location.href = '${pageContext.request.contextPath }/member/find_id_company'">
+							onclick="location.href = '${pageContext.request.contextPath }/findmember/find_id_company'">
 					</div>
 				</div>
 				<div class="myrow rest-area">
 					<div class="in-align-center">
 						<input type="button" class="button shape-circle" value="비밀번호찾기"
-							onclick="location.href = '${pageContext.request.contextPath }/member/find_pw_company'">
+							onclick="location.href = '${pageContext.request.contextPath }/findmember/find_pw_company'">
 					</div>
 				</div>
 			</div>

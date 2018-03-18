@@ -4,7 +4,7 @@
 <script src="${pageContext.request.contextPath}/js/register_personal.js"></script>
 <form action="${pageContext.request.contextPath }/register/register_personal" method="post">
 	<div class="empty-row"></div>
-	<div class="container-600 out-align-center">
+	<div class="container-500 out-align-center">
 		<div class="myrow input-group input-group-lg">
 			<span class="input-group-addon" id="sizing-addon1">
 				<i class="glyphicon glyphicon-envelope"></i>
@@ -87,7 +87,7 @@
 			<input class="btn btn-primary btn-lg form-btn-full" type="submit"
 				value="가입완료"> 
 			<input class="btn btn-primary btn-lg form-btn-full" type="button"
-				value="돌아가기">
+				value="돌아가기" onclick="location.href = '${pageContext.request.contextPath }/register/register_choose'">
 		</div>
 	</div>
 </form>
