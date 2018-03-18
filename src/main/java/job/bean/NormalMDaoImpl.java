@@ -2,26 +2,32 @@ package job.bean;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class NormalMDaoImpl implements NormalMDao{
+	@Autowired
 	private JdbcTemplate jdbcTemplate;
-	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
-		this.jdbcTemplate = jdbcTemplate;
-	}
 	private RowMapper<NormalMDto> mapper = (rs, index)->{
 		return new NormalMDto(rs);
 	};
+	
 	private ResultSetExtractor<NormalMDto> extractor = (rs)->{
 		if(rs.next()) return new NormalMDto(rs);
 		else return null;
 	};
-	@Override
 	
-	public void insert(NormalMDto nmdto) {
-		String sql = "insert into NormalM values(?,?,?,?,?,?,?,?,'-','-','-','-','-','-','-',sysdate)";
+	private ResultSetExtractor<Integer> extractorNumber = (rs)->{
+		if(rs.next()) return rs.getInt(1);
+		else return null;
+	};
+	@Override
+	public boolean insert(NormalMDto nmdto) {
+		String sql = "insert into NormalM values(?,?,?,?,?,?,?,?,'-','-','-','-','-','-','-','-',sysdate,'-','-')";
 		Object[] args= new Object[] {
 				nmdto.getEmail(),
 				nmdto.getName(),
@@ -29,20 +35,18 @@ public class NormalMDaoImpl implements NormalMDao{
 				nmdto.getPassword(),
 				nmdto.getPhone(),
 				nmdto.getBirth(),
-				nmdto.getPwquiz(),
-				nmdto.getPwans(),
-//				nmdto.getIndustry(),
-//				nmdto.getCompany(),
-//				nmdto.getCareer(),
-//				nmdto.getEdu(),
-//				nmdto.getPrize(),
-//				nmdto.getResume(),
-//				nmdto.getPortfolio(),
-//				nmdto.getCertification(),
-//				nmdto.getAdmin(),
-				nmdto.getReg()
+				nmdto.getPwQuiz(),
+				nmdto.getPwAns()
 				};
-			jdbcTemplate.update(sql,args);
+		System.out.println("1:"+nmdto.getEmail());
+		System.out.println("2:"+nmdto.getName());
+		System.out.println("3:"+nmdto.getGender());
+		System.out.println("5:"+nmdto.getPassword());
+		System.out.println("4:"+nmdto.getPhone());
+		System.out.println("6:"+nmdto.getBirth());
+		System.out.println("7:"+nmdto.getPwQuiz());
+		System.out.println("8:"+nmdto.getPwAns());
+			return jdbcTemplate.update(sql,args)>0;
 	}
 	@Override 
 	public boolean edit(NormalMDto nmdto) {
@@ -50,8 +54,8 @@ public class NormalMDaoImpl implements NormalMDao{
 		Object[] args = new Object[] {
 			nmdto.getPassword(),
 			nmdto.getPhone(),
-			nmdto.getPwquiz(),
-			nmdto.getPwans(),
+			nmdto.getPwQuiz(),
+			nmdto.getPwAns(),
 			nmdto.getIndustry(),
 			nmdto.getCompany(),
 			nmdto.getCareer(),
@@ -67,6 +71,7 @@ public class NormalMDaoImpl implements NormalMDao{
 	
 	public boolean face(String savename, String email) {
 		String sql = "update NormalM set face=? where email=?";
+		
 		return jdbcTemplate.update(sql, savename, email) > 0;
 	}
 	
@@ -83,10 +88,10 @@ public class NormalMDaoImpl implements NormalMDao{
 	}
 	@Override
 	public String getPw(NormalMDto nmdto) {
-		String sql = "select password from NormalM where email=? and phone=? and pwquiz=? and pwans=?";
+		String sql = "select password from NormalM where email=? and name=? and phone=? and pwquiz=? and pwans=?";
 		Object[] args = new Object[] {
-			nmdto.getEmail(),nmdto.getPhone(),
-			nmdto.getPwquiz(),nmdto.getPwans()	
+			nmdto.getEmail(),nmdto.getName(),nmdto.getPhone(),
+			nmdto.getPwQuiz(),nmdto.getPwAns()	
 		};
 		return jdbcTemplate.queryForObject(sql, args,String.class);
 	}
@@ -101,13 +106,31 @@ public class NormalMDaoImpl implements NormalMDao{
 		return jdbcTemplate.query(sql, mapper);
 	}
 	@Override
-	public boolean login(String email, String password) {
-		String sql = "select * from NormalM where email=? and password=?";
-		return jdbcTemplate.query(sql, extractor, email, password) != null;
-	}@Override
+	public boolean login(String email,String pw) {
+		System.out.println(email+"/"+pw);
+		String sql = "select count(*) from NormalM where email=? and password=?";
+		return jdbcTemplate.queryForObject(sql, Integer.class, email, pw) > 0;
+	}
+	@Override
 	public List<NormalMDto> adminList() {
 		String sql = "select * from NormalM where admin='admin' order by email";
 		return jdbcTemplate.query(sql, mapper);
 	}
-	
+	@Override
+	public Integer ChkSameId(String email) {
+		String sql = "select (select count(*) from NormalM where email=?) + (select count(*) from CompanyM where email=?) from dual";
+		Object[] args= new Object[] {email,email};
+		return jdbcTemplate.query(sql,extractorNumber,args);
+	}
+	public boolean pwupdate(String password, String email) {
+		String sql = "update NormalM set password =? where email=?";
+		Object[] args= new Object[] {password,email};
+		return jdbcTemplate.update(sql,args) > 0;
+	}
+	public boolean setGrade(String grade,String email)
+	{
+		String sql = "update NormalM set grade=? where email=?";
+		Object[] args= new Object[] {grade,email};
+		return jdbcTemplate.update(sql,args) > 0;
+	} 
 }
