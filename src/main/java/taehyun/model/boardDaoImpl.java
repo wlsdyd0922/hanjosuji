@@ -39,5 +39,4 @@ public class boardDaoImpl implements boardDao{
 		String sql = "delete from hireboard where no=?";
 		return jdbcTemplate.update(sql,bdto.getNo())>0;
 	}
-	
 }

@@ -79,5 +79,5 @@ public class boardDto {
 	public void setReg(String reg) {
 		this.reg = reg;
 	}
-	
+
 }
