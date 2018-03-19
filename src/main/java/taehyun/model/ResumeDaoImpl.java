@@ -16,14 +16,20 @@ public class ResumeDaoImpl implements ResumeDao{
 	private JdbcTemplate jdbcTemplate;
 	
 	@Override
-	public void insert(ResumeDto idto) {
-		String sql = "insert into resume values(?, ?, ?, ?, ?, sysdate,?)";
+	public void insert(ResumeDto rdto) {
+		String sql = "insert into resume values(?,?,?,?,?,?,?,?,?,?,?)";
 		Object[] args = {
-			idto.getSavename(),
-			idto.getFilename(),
-			idto.getFiletype(),
-			idto.getFilelen(),
-			idto.getAuthor()
+			rdto.getTitle(),
+			rdto.getCareer(),
+			rdto.getEdu(),
+			rdto.getSalary(),
+			rdto.getPr(),
+			rdto.getPortfolio(),
+			rdto.getCerti(),
+			rdto.getPrize(),
+			rdto.getEmail(),
+			rdto.getBoardno(),
+			rdto.getFace()
 		};
 		jdbcTemplate.update(sql, args);
 	}
@@ -34,8 +40,14 @@ public class ResumeDaoImpl implements ResumeDao{
 	
 	@Override
 	public List<ResumeDto> getList(String author) {
-		String sql = "select * from resume order by filename asc";
+		String sql = "select * from resume order by title asc";
 		return jdbcTemplate.query(sql, mapper, author);
+	}
+
+	@Override
+	public boolean delete(ResumeDto rdto) {
+		String sql = "delete from resume where email=? and title=?";
+		return jdbcTemplate.update(sql,rdto.getEmail(),rdto.getTitle())>0;
 	}
 }
 

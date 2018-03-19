@@ -8,6 +8,7 @@ import taehyun.bean.ResumeDto;
 
 @Repository 
 public interface ResumeDao {
-	void insert(ResumeDto idto);
+	void insert(ResumeDto rdto);
 	List<ResumeDto> getList(String author);
+	boolean delete(ResumeDto rdto);
 }
