@@ -2,27 +2,26 @@ package job.controller.member;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import job.bean.NormalMDto;
 import job.model.NormalMDaoImpl;
 
 @Controller
 public class InformationController {
 	@Autowired
 	private NormalMDaoImpl nmdao = new NormalMDaoImpl();
+	private Logger log = LoggerFactory.getLogger(getClass());
 	
 	@RequestMapping("/member/information")
 	public String information(HttpServletRequest request) {
 		String email = (String) request.getSession().getAttribute("accept");
-//		NormalMDto nmdto = nmdao.info(email);
-//		nmdto.getBirth();
-//		nmdto.getCareer();
-//		nmdto.getCertification();
-//		nmdto.getCompany();
-//		nmdto.getEdu();
-//		nmdto.getGender();
+		
+		request.setAttribute("nmdto", nmdao.info(email));
 		
 		//세션에 들어있는 아이디 이용 DB에서 정보 추출..
 		//기업회원 / 일반회원에 따라 다르게 .. 일반회원중 관리자라면..? / ADMIN
@@ -38,8 +37,6 @@ public class InformationController {
 		 * 전화번호?
 		 * 포트폴리오는 어디서?
 		 */
-		
-		
 		return "member/information";
 	} 
 }

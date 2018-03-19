@@ -43,12 +43,12 @@ public class CompanyMDaoImpl implements CompanyMDao{
 	}
 	//로그인
 	public boolean login(String email, String password) {
-		String sql = "select * from CompanyM where email=? and password=?";
+		String sql = "select * from CompanyM where email=? and pw=?";
 		return jdbcTemplate.query(sql, extractor, email, password) != null;
 	}
 	//탈퇴
 	public boolean exit(CompanyMDto cmdto) {
-		String sql = "delete CompanyM where email=? and password=?";
+		String sql = "delete CompanyM where email=? and pw=?";
 		return jdbcTemplate.update(sql,cmdto.getEmail(),cmdto.getPassword())>0;
 	}
 	//계정 찾기(회사이름과 번호로 찾기)

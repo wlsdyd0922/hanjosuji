@@ -170,12 +170,6 @@ public class NormalMDto {
 	public void setReg(String reg) {
 		this.reg = reg;
 	}
-	public String getPwquiz() {
-		return pwquiz;
-	}
-	public void setPwquiz(String pwquiz) {
-		this.pwquiz = pwquiz;
-	}
 	public String getPwans() {
 		return pwans;
 	}
