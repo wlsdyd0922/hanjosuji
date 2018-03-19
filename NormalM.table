@@ -1,21 +1,41 @@
-Name                                      Null?    Type
------------------------------------------------------------------------------
-EMAIL                                     NOT NULL VARCHAR2(40)
-NAME                                      NOT NULL VARCHAR2(15)
-GENDER                                    NOT NULL VARCHAR2(10)
-PASSWORD                                  NOT NULL VARCHAR2(64)
-PHONE                                     NOT NULL VARCHAR2(20)
-BIRTH                                     NOT NULL VARCHAR2(10)
-PWQUIZ                                    NOT NULL VARCHAR2(100)
-PWANS                                     NOT NULL VARCHAR2(100)
-INDUSTRY                                           VARCHAR2(20)		//분야
-COMPANY                                            VARCHAR2(20)		//기업
-CAREER                                             VARCHAR2(20)		//경력
-EDU                                                VARCHAR2(20)		//학력
-PRIZE                                              VARCHAR2(1000)
-RESUME                                             VARCHAR2(200)
-PORTFOLIO                                          VARCHAR2(200)
-CERTIFICATION                                      VARCHAR2(200)
-REG                                                DATE
-FACE                                               VARCHAR2(100)	//얼굴 파일명
-GRADE                                              VARCHAR2(20)		//회원등급
+create table NormalM(
+email varchar2(50) primary key,
+name varchar2(15) not null,
+gender varchar2(5) not null,
+pw varchar2(64) not null,
+phone varchar2(20),
+birth varchar2(15),
+pwquiz varchar2(50) not null,
+pwans varchar2(50) not null,
+grade varchar2(10),
+resume varchar2(50),
+company varchar2(30));
+
+alter table NormalM add constraint grades check(grade in('기업','일반','관리자'));
+alter table NormalM add reg date;
+
+이력서db
+title		//제목
+career		//경력
+edu		//학력
+salary		//희망연봉
+pr		//자기소개
+portfolio		//포폴
+certificate		//자격증
+prize		//수상경력
+//외래키
+email		//이메일	
+boardno		//게시글 번호
+
+create table resume(
+title varchar2(100) not null,
+career varchar2(100) not null,
+edu varchar2(100) not null,
+salary varchar2(50) not null,
+pr varchar2(1000) not null,
+portfolio varchar2(100),
+certi varchar2(1000),
+prize varchar2(1000),
+email varchar2(50),
+boardno number);
+alter table resume add foreign key (email) references NormalM(email);
