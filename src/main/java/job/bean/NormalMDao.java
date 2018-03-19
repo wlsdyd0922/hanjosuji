@@ -3,7 +3,7 @@ package job.bean;
 import java.util.List;
 
 public interface NormalMDao {
-	void insert(NormalMDto nmdto);
+	boolean insert(NormalMDto nmdto);
 	boolean edit(NormalMDto nmdto);
 	public boolean face(String savename, String email);
 	boolean drop(NormalMDto nmdto);
@@ -13,4 +13,5 @@ public interface NormalMDao {
 	List<NormalMDto> list();
 	boolean login(String email, String password);
 	List<NormalMDto> adminList();
+	Integer ChkSameId(String email);
 }
