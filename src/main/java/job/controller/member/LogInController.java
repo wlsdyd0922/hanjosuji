@@ -10,11 +10,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import job.bean.NormalMDaoImpl;
 import job.bean.NormalMDto;
 import job.manager.SHA256;
+import job.model.NormalMDaoImpl;
 
-@Controller()
+@Controller
 public class LogInController {
 	@Autowired
 	private NormalMDaoImpl NMdao = new NormalMDaoImpl();

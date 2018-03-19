@@ -8,8 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import job.bean.ReviewDaoImpl;
 import job.bean.ReviewDto;
+import job.model.ReviewDaoImpl;
 
 @Controller
 public class ReviewController {

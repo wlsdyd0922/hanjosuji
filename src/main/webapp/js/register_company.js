@@ -66,9 +66,11 @@ $(document).ready(function() {
 						$("#checkMsg").html('<p style="color:blue">이 아이디는 사용이 가능합니다.</p>');
 					}else{
 						$("#checkMsg").html('<p style="color:red">이 아이디는 사용중 입니다.</p>');
+						$("input[name=email]").css("border-color", "deeppink");
+						id = false;
 					}
 				}else{
-					$("#checkMsg").html('<p style="color:red">아이디는 6~15글자</p>');
+					$("#checkMsg").html('<p style="color:red">아이디는 6~15글자 및 영문</p>');
 				}
 				
 			},

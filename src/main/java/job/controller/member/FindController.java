@@ -8,11 +8,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import job.bean.CompanyMDaoImpl;
 import job.bean.CompanyMDto;
-import job.bean.NormalMDaoImpl;
 import job.bean.NormalMDto;
 import job.manager.SHA256;
+import job.model.CompanyMDaoImpl;
+import job.model.NormalMDaoImpl;
 
 @Controller
 @RequestMapping("findmember")

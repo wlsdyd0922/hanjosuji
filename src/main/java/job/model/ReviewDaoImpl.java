@@ -1,4 +1,4 @@
-package job.bean;
+package job.model;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -6,7 +6,9 @@ import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
-@Repository
+import job.bean.ReviewDto;
+
+@Repository("reviewDao")
 public class ReviewDaoImpl {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;

@@ -1,4 +1,4 @@
-package job.bean;
+package job.model;
 
 import java.util.List;
 
@@ -7,7 +7,9 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
-@Repository
+
+import job.bean.CompanyMDto;
+@Repository("companyMDao")
 public class CompanyMDaoImpl implements CompanyMDao{
 	@Autowired
 	private JdbcTemplate jdbcTemplate;

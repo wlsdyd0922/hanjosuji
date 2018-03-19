@@ -1,4 +1,4 @@
-package job.bean;
+package job.model;
 
 import java.util.List;
 
@@ -8,7 +8,9 @@ import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
-@Repository
+import job.bean.NormalMDto;
+
+@Repository("normalMdao")
 public class NormalMDaoImpl implements NormalMDao{
 	@Autowired
 	private JdbcTemplate jdbcTemplate;

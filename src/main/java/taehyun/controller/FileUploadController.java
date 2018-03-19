@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
-import job.bean.NormalMDaoImpl;
+import job.model.NormalMDaoImpl;
 import taehyun.bean.ResumeDto;
 import taehyun.model.ResumeDao;
 import taehyun.model.ResumeDaoImpl;

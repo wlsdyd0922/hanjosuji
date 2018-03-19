@@ -1,7 +1,11 @@
-package job.bean;
+package job.model;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
+import job.bean.NormalMDto;
+@Repository
 public interface NormalMDao {
 	boolean register(NormalMDto nmdto);
 	boolean edit(NormalMDto nmdto);
