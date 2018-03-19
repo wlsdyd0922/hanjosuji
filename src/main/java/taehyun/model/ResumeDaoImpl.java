@@ -11,7 +11,6 @@ import taehyun.bean.ResumeDto;
 
 @Repository("resumeDao")
 public class ResumeDaoImpl implements ResumeDao{
-	
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 	

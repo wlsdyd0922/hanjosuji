@@ -11,7 +11,6 @@ import taehyun.bean.boardDto;
 public class boardDaoImpl implements boardDao{
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
-	
 	@Override
 	public void insert(boardDto bdto) {
 		String sql = "insert into resume values(?,?,?,?,?,sysdate)";
