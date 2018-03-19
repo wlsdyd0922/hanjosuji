@@ -42,8 +42,9 @@ alter table resume add foreign key (email) references NormalM(email);
 
 create table hireboard(
 no number primary key,
-location varchar2(20) not null,
-title varchar2(100) not null,
+count number not null,
+title varchar(100) not null,
 salary number not null,
-working varchar2(10) not null,
+working varchar2(20) not null,
+company varchar2(50) not null,
 reg date);
