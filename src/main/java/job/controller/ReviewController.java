@@ -16,9 +16,26 @@ public class ReviewController {
 
 	@Autowired
 	private ReviewDaoImpl reviewDao;
+	
 	@RequestMapping("company/review")
 	public String review() {
 		return "company/review";
+	}
+	@RequestMapping("company/companyreview")
+	public String review(HttpServletRequest request) {
+		int no = 26;
+		if(request.getParameter("no")!=null && request.getParameter("no")!="") {
+			no = Integer.parseInt(request.getParameter("no"));
+		}
+		System.out.println("no:"+no);
+		ReviewDto rdto = reviewDao.loadReview(no);
+		request.setAttribute("rdto", rdto);
+		System.out.println("company:"+rdto.getCompany());
+		System.out.println("recommend:"+rdto.getRecommend());
+		System.out.println("가입일:"+rdto.getReg());
+		System.out.println("no:"+rdto.getNo());
+		request.setAttribute("rdto", rdto);
+		return "company/companyreview";
 	}
 	@RequestMapping(value="company/review",method = RequestMethod.POST)
 	public String review(ReviewDto rdto, HttpSession session) {
