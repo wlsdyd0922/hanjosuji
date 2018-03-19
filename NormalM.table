@@ -1,21 +1,22 @@
-Name                                      Null?    Type
------------------------------------------------------------------------------
-EMAIL                                     NOT NULL VARCHAR2(40)
-NAME                                      NOT NULL VARCHAR2(15)
-GENDER                                    NOT NULL VARCHAR2(10)
-PASSWORD                                  NOT NULL VARCHAR2(64)
-PHONE                                     NOT NULL VARCHAR2(20)
-BIRTH                                     NOT NULL VARCHAR2(10)
-PWQUIZ                                    NOT NULL VARCHAR2(100)
-PWANS                                     NOT NULL VARCHAR2(100)
-INDUSTRY                                           VARCHAR2(20)		//분야
-COMPANY                                            VARCHAR2(20)		//기업
-CAREER                                             VARCHAR2(20)		//경력
-EDU                                                VARCHAR2(20)		//학력
-PRIZE                                              VARCHAR2(1000)
-RESUME                                             VARCHAR2(200)
-PORTFOLIO                                          VARCHAR2(200)
-CERTIFICATION                                      VARCHAR2(200)
-REG                                                DATE
-FACE                                               VARCHAR2(100)	//얼굴 파일명
-GRADE                                              VARCHAR2(20)		//회원등급
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ EMAIL                                     NOT NULL VARCHAR2(40)
+ NAME                                      NOT NULL VARCHAR2(15)
+ GENDER                                    NOT NULL VARCHAR2(10)
+ PASSWORD                                  NOT NULL VARCHAR2(64)
+ PHONE                                     NOT NULL VARCHAR2(20)
+ BIRTH                                     NOT NULL VARCHAR2(10)
+ PWQUIZ                                    NOT NULL VARCHAR2(100)
+ PWANS                                     NOT NULL VARCHAR2(100)
+ INDUSTRY                                           VARCHAR2(20)	//선호 분야
+ HOPE                                               VARCHAR2(20)	//선호 기업
+ CAREER                                             VARCHAR2(20)	//경력
+ EDU                                                VARCHAR2(20)	//학력
+ PRIZE                                              VARCHAR2(1000)	//수상경력
+ RESUME                                             VARCHAR2(200)	//이력서
+ PORTFOLIO                                          VARCHAR2(200)	//포트폴리오
+ CERTIFICATION                                      VARCHAR2(200)	//자격증
+ REG                                                DATE
+ FACE                                               VARCHAR2(100)	//프로필 이미지
+ GRADE                                              VARCHAR2(20)	//등급
+ COMPANY                                            VARCHAR2(30)	//회사 정보 외래키용 공간

@@ -1,0 +1,11 @@
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ NAME                                      NOT NULL VARCHAR2(30)	//사명
+ INDUSTRY                                  NOT NULL VARCHAR2(20)	//분야
+ CEO                                                VARCHAR2(10)	//대표명
+ BIRTH                                              VARCHAR2(15)	//설립일
+ WEBSITE                                            VARCHAR2(50)	//웹사이트 주소
+ EMPLOYEE                                           NUMBER			//사원수
+ TYPE                                               VARCHAR2(20)	//기업형태
+ SALES                                              NUMBER			//매출
+ LOCATION                                           VARCHAR2(100)	//주소
