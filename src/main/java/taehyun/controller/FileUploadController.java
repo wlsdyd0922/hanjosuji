@@ -78,14 +78,14 @@ public class FileUploadController{
 		File target = new File(dir, savename);
 		f.transferTo(target);
 		//dao,dto 생성은 임시방편
-		ResumeDto idto = new ResumeDto();
-		ResumeDaoImpl dao = new ResumeDaoImpl();
-		//db에 추가하는 작업
-		idto.setFilename(f.getOriginalFilename());
-		idto.setFiletype(f.getContentType());
-		idto.setFilelen(f.getSize());
-		idto.setSavename(savename);
-		dao.insert(idto);
+//		ResumeDto idto = new ResumeDto();
+//		ResumeDaoImpl dao = new ResumeDaoImpl();
+//		//db에 추가하는 작업
+//		idto.setFilename(f.getOriginalFilename());
+//		idto.setFiletype(f.getContentType());
+//		idto.setFilelen(f.getSize());
+//		idto.setSavename(savename);
+//		dao.insert(idto);
 		
 		return "redirect:/";
 	}
