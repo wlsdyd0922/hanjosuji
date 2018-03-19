@@ -10,4 +10,3 @@ public class CompanylistController {
 		return "/company/companylist";
 	}
 }
-

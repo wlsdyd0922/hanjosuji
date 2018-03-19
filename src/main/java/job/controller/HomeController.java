@@ -12,8 +12,7 @@ import job.manager.CompanyInfoParSer;
 @Controller
 public class HomeController {
 	@RequestMapping("home")
-	public String home(HttpServletRequest request) throws IOException {
-		request.getSession().setAttribute("accept", "1234");
+	public String home() throws IOException {
 		return "home";
 	}
 }

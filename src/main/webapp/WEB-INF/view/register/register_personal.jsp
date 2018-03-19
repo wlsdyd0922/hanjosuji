@@ -81,6 +81,7 @@
 			<i class="glyphicon glyphicon-lock"></i>
 			</span> 
 			<input type="text" class="form-control" name="pwAns" placeholder="비밀번호 확인 답을 입력해 주세요" required>
+			<input type="hidden" name = "grade" value = "일반">
 		</div>
 
 		<div class="myrow div-2">

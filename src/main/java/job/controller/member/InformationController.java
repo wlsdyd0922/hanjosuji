@@ -2,14 +2,28 @@ package job.controller.member;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import job.bean.NormalMDaoImpl;
+
 @Controller
 public class InformationController {
+	@Autowired
+	private NormalMDaoImpl nmdao = new NormalMDaoImpl();
+	
 	@RequestMapping("/member/information")
 	public String information(HttpServletRequest request) {
-		request.getSession();
+		String email = (String) request.getSession().getAttribute("accept");
+//		NormalMDto nmdto = nmdao.info(email);
+//		nmdto.getBirth();
+//		nmdto.getCareer();
+//		nmdto.getCertification();
+//		nmdto.getCompany();
+//		nmdto.getEdu();
+//		nmdto.getGender();
+		
 		//세션에 들어있는 아이디 이용 DB에서 정보 추출..
 		//기업회원 / 일반회원에 따라 다르게 .. 일반회원중 관리자라면..? / ADMIN
 		/*

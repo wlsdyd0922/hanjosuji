@@ -13,7 +13,6 @@ public class MemberIntercepter extends HandlerInterceptorAdapter{
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
 		String login = (String) request.getSession().getAttribute("accept");
-		log.debug("로그인 아이디 = {}",login);
 		if(login==null) {
 			response.sendRedirect(request.getContextPath()+"/login");
 			return false;

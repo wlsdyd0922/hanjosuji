@@ -54,15 +54,24 @@ $(document).ready(function() {
 		}
 	});
 
-	$("input[name=company]").on("blur", function() {
-		var comp = $(this).val();
+	$("input[name=email]").on("blur", function() {
+		var email = $(this).val();
 		$.ajax({
-			url : 'register/compsearch',
-			data : {
-				"compname" : comp
-			},
+			url : 'chksameid',
+			data : {"email" : email},
 			dataType : 'json',
-			success : function(data) {},
+			success : function(data) {
+				if(id){
+					if($.trim(data) == 0){
+						$("#checkMsg").html('<p style="color:blue">이 아이디는 사용이 가능합니다.</p>');
+					}else{
+						$("#checkMsg").html('<p style="color:red">이 아이디는 사용중 입니다.</p>');
+					}
+				}else{
+					$("#checkMsg").html('<p style="color:red">아이디는 6~15글자</p>');
+				}
+				
+			},
 			error : function(request, status, error) {}
 		});
 	});

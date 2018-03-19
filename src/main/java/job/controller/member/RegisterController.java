@@ -1,6 +1,8 @@
 package job.controller.member;
 
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,13 +39,13 @@ public class RegisterController {
 	}
 	//일반 멤버 회원가입 처리
 	@RequestMapping(value="register_personal",method=RequestMethod.POST)
-	public String RegisterPersonal(NormalMDto mdto) throws Exception {
+	public String RegisterPersonal(NormalMDto mdto, HttpServletRequest request) throws Exception {
 		mdto.setPassword(new SHA256().On(mdto.getPassword()));
 		//DB연결..
-		if(!nmdao.insert(mdto)) {
+		if(!nmdao.register(mdto)) {
 			throw new Exception("회원가입 실패");
 		};
-		return "redirect:login";
+		return "redirect:/login";
 	}
 	
 	//기업멤버 회원가입 페이지	

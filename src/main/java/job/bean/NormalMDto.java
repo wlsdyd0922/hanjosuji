@@ -28,24 +28,22 @@ public class NormalMDto {
 		super();
 	}
 	public NormalMDto(ResultSet rs) throws SQLException	{
-		setEmail(rs.getString("email"));
-		setName(rs.getString("name"));
-		setGender(rs.getString("gender"));
-		setPassword(rs.getString("password"));
-		setPhone(rs.getString("phone"));
-		setBirth(rs.getString("birth"));
-		setPwQuiz(rs.getString("pwquiz"));
-		setPwAns(rs.getString("pwans"));
-		setIndustry(rs.getString("industry"));
-		setCompany(rs.getString("company"));
-		setCareer(rs.getString("career"));
-		setEdu(rs.getString("edu"));
+		setEmail(rs.getString("email"));		//이메일
+		setName(rs.getString("name"));			//이름
+		setGender(rs.getString("gender"));		//성별
+		setPhone(rs.getString("phone"));		//전화번호
+		setBirth(rs.getString("birth"));		//생년월일
+		setPwQuiz(rs.getString("pwquiz"));		//질문
+		
+		setIndustry(rs.getString("industry"));	//분야
+		setCompany(rs.getString("hope"));		//선호기업
+		setCareer(rs.getString("career"));		//경력
+		setEdu(rs.getString("edu"));			
 		setPrize(rs.getString("prize"));
-		setResume(rs.getString("resume"));
+		setResume(rs.getString("resume"));		
 		setPortfolio(rs.getString("portfolio"));
 		setCertification(rs.getString("certificaation"));
 		setGrade(rs.getString("grade"));
-		setReg(rs.getInt("reg"));
 	}
 	
 	public NormalMDto(String email, String name, String gender, String password, String phone, String birth,
