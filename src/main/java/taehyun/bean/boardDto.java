@@ -6,30 +6,34 @@ import java.sql.SQLException;
 public class boardDto {
 	
 	private int no;
-	private String location;
+	private int count;
 	private String title;
 	private int salary;
 	private String working;
+	private String company;
 	private String reg;
 	
 	public boardDto() {
 		super();
 	}
-	public boardDto(int no, String location, String title, int salary, String working, String reg) {
+	public boardDto(int no, int count, String title, int salary, String working, String company, String reg) {
 		super();
 		this.no = no;
-		this.location = location;
+		this.count = count;
 		this.title = title;
 		this.salary = salary;
 		this.working = working;
+		this.company = company;
 		this.reg = reg;
 	}
+
 	public boardDto(ResultSet rs) throws SQLException {
 		setNo(rs.getInt("no"));
-		setLocation(rs.getString("location"));
+		setCount(rs.getInt("count"));
 		setTitle(rs.getString("title"));
 		setSalary(rs.getInt("salary"));
 		setWorking(rs.getString("working"));
+		setCompany(rs.getString("company"));
 		setReg(rs.getString("reg"));
 	}
 	public int getNo() {
@@ -38,11 +42,18 @@ public class boardDto {
 	public void setNo(int no) {
 		this.no = no;
 	}
-	public String getLocation() {
-		return location;
+	
+	public int getCount() {
+		return count;
 	}
-	public void setLocation(String location) {
-		this.location = location;
+	public void setCount(int count) {
+		this.count = count;
+	}
+	public String getCompany() {
+		return company;
+	}
+	public void setCompany(String company) {
+		this.company = company;
 	}
 	public String getTitle() {
 		return title;
