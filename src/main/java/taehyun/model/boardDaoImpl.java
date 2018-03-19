@@ -17,10 +17,11 @@ public class boardDaoImpl implements boardDao{
 		String sql = "insert into resume values(?,?,?,?,?,sysdate)";
 		Object[] args = {
 			bdto.getNo(),
-			bdto.getLocation(),
+			bdto.getCount(),
 			bdto.getTitle(),
 			bdto.getSalary(),
 			bdto.getWorking(),
+			bdto.getCompany(),
 			bdto.getReg()
 		};
 		jdbcTemplate.update(sql, args);
