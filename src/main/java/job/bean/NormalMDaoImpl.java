@@ -119,4 +119,11 @@ public class NormalMDaoImpl implements NormalMDao{
 		Object[] args= new Object[] {password,email};
 		return jdbcTemplate.update(sql,args) > 0;
 	}
+	
+	public boolean setGrade(String grade,String email)
+	{
+		String sql = "update NormalM set grade=? where email=?";
+		Object[] args= new Object[] {grade,email};
+		return jdbcTemplate.update(sql,args) > 0;
+	} 
 }

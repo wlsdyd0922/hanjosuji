@@ -20,7 +20,8 @@ public class NormalMDto {
 	private String resume;		//이력서
 	private String portfolio;	//포트폴리오
 	private String certification;//자격증
-	private int reg;			//가입일
+	private String reg;			//가입일
+	private String face;		//프로필 이미지
 	private String grade;		//등급
 	private boolean rememberId;
 	
@@ -34,21 +35,11 @@ public class NormalMDto {
 		setPhone(rs.getString("phone"));		//전화번호
 		setBirth(rs.getString("birth"));		//생년월일
 		setPwQuiz(rs.getString("pwquiz"));		//질문
-		
-		setIndustry(rs.getString("industry"));	//분야
-		setCompany(rs.getString("hope"));		//선호기업
-		setCareer(rs.getString("career"));		//경력
-		setEdu(rs.getString("edu"));			
-		setPrize(rs.getString("prize"));
-		setResume(rs.getString("resume"));		
-		setPortfolio(rs.getString("portfolio"));
-		setCertification(rs.getString("certificaation"));
-		setGrade(rs.getString("grade"));
 	}
 	
 	public NormalMDto(String email, String name, String gender, String password, String phone, String birth,
 			String pwquiz, String pwans, String industry, String company, String career, String edu, String prize,
-			String resume, String portfolio, String certification, String grade, int reg, boolean rememberId) {
+			String resume, String portfolio, String certification, String grade, String face, String reg, boolean rememberId) {
 		super();
 		this.email = email;
 		this.name = name;
@@ -67,6 +58,7 @@ public class NormalMDto {
 		this.portfolio = portfolio;
 		this.certification = certification;
 		this.grade = grade;
+		this.face = face;
 		this.reg = reg;
 		this.rememberId = rememberId;
 	}
@@ -172,11 +164,29 @@ public class NormalMDto {
 	public void setGrade(String grade) {
 		this.grade = grade;
 	}
-	public int getReg() {
+	public String getReg() {
 		return reg;
 	}
-	public void setReg(int reg) {
+	public void setReg(String reg) {
 		this.reg = reg;
+	}
+	public String getPwquiz() {
+		return pwquiz;
+	}
+	public void setPwquiz(String pwquiz) {
+		this.pwquiz = pwquiz;
+	}
+	public String getPwans() {
+		return pwans;
+	}
+	public void setPwans(String pwans) {
+		this.pwans = pwans;
+	}
+	public String getFace() {
+		return face;
+	}
+	public void setFace(String face) {
+		this.face = face;
 	}
 	public boolean isRememberId() {
 		return rememberId;
