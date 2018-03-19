@@ -39,3 +39,11 @@ prize varchar2(1000),
 email varchar2(50),
 boardno number);
 alter table resume add foreign key (email) references NormalM(email);
+
+create table hireboard(
+no number primary key,
+location varchar2(20) not null,
+title varchar2(100) not null,
+salary number not null,
+working varchar2(10) not null,
+reg date);
