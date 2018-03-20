@@ -42,7 +42,7 @@ $(document).ready(function() {
 	});
 	
 	//비밀번호 확인
-	$("input[name=password]").on("input",function(){
+	$("input[name=pw]").on("input",function(){
 		var regex = /^\w{6,15}$/;
 		if(!$(this).val()){
 			$(this).css("border-color","#ccc");
@@ -56,8 +56,8 @@ $(document).ready(function() {
 	});
 	
 	//비번확인 이벤트
-	$("input[name=password_again]").on("input",function(){
-		var pw = $("input[name=password]").val();
+	$("input[name=pw_again]").on("input",function(){
+		var pw = $("input[name=pw]").val();
 		
 		if(pw === $(this).val()){
 			$(this).css("border-color","deepskyblue");
@@ -83,7 +83,7 @@ $(document).ready(function() {
 	});
 	
 	//비번 응답 작성여부 확인
-	$("input[name=pwAns]").on("input",function(){
+	$("input[name=pwans]").on("input",function(){
 		if(!$(this).val()){
 			$(this).css("border-color","#ccc");
 			ans=false;

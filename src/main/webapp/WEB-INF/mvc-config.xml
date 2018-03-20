@@ -22,6 +22,13 @@
 		</mvc:interceptor>
 	</mvc:interceptors>
 
+
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<!-- 업로드 옵션 -->
+		<property name="defaultEncoding" value="UTF-8"/>
+		<property name="maxUploadSize" value="10000000"/>
+	</bean>
+
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<!-- Example: a logical view name of 'showMessage' is mapped to '/WEB-INF/jsp/showMessage.jsp' -->

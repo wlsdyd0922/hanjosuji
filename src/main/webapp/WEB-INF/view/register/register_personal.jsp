@@ -78,7 +78,7 @@
 		<div class="myrow">
 			<h4>비밀번호 확인 질문을 선택하세요.</h4>
 			<div class="form-group">
-				<select name="pwQuiz" class="form-control input-lg">
+				<select name="pwquiz" class="form-control input-lg">
 					<option>당신이 졸업한 초등학교는?</option>
 					<option>어머니 성함은?</option>
 					<option>당신의 애완동물 이름은?</option>
@@ -90,7 +90,7 @@
 			<span class="input-group-addon" id="sizing-addon1">
 			<i class="glyphicon glyphicon-lock"></i>
 			</span> 
-			<input type="text" class="form-control" name="pwAns" placeholder="비밀번호 확인 답을 입력해 주세요" required>
+			<input type="text" class="form-control" name="pwans" placeholder="비밀번호 확인 답을 입력해 주세요" required>
 			<input type="hidden" name = "grade" value = "일반">
 		</div>
 

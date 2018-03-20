@@ -45,4 +45,18 @@ public class boardDaoImpl implements boardDao{
 		String sql = "select * from hireboard where company=? order by reg desc";
 		return jdbcTemplate.query(sql, mapper, company);
 	}
+	@Override
+	public boolean edit(boardDto bdto) {
+		String sql = "update hireboard set count=?,title=?,"
+				+ "salary=?,working=?"
+				+ " where company=?";
+		Object[] args = {
+				bdto.getCount(),
+				bdto.getTitle(),
+				bdto.getSalary(),
+				bdto.getWorking(),
+				bdto.getCompany()
+			};
+			return jdbcTemplate.update(sql, args)>0;
+	}
 }

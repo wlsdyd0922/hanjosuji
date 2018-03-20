@@ -2,8 +2,6 @@
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <jsp:include page="/WEB-INF/view/template/header.jsp"></jsp:include>
-<script src="${pageContext.request.contextPath}/js/login.js"></script>
-
 <form action="${pageContext.request.contextPath }/login" method="post">
 	<div class="empty-row"></div>
 	<div class="container-500 out-align-center">

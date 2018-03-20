@@ -11,9 +11,10 @@ birth varchar2(15),
 pwquiz varchar2(50) not null,
 pwans varchar2(50) not null,
 grade varchar2(10),
-image varchar2(100),
 resume varchar2(50),
-company varchar2(30));
+company varchar2(30),
+imgname varchar2(1000),
+imgencoding varchar2(10));
 alter table NormalM add constraint grades check(grade in('기업','일반','관리자'));
 
 이력서db

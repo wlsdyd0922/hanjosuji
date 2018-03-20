@@ -17,7 +17,6 @@ public class NormalMDto {
 	private String pwans;
 	private String grade;
 	private String image;
-	private String resume;
 	private String company;
 	private boolean rememberId;
 	
@@ -30,6 +29,9 @@ public class NormalMDto {
 		setGender(rs.getString("gender"));		//성별
 		setPhone(rs.getString("phone"));		//전화번호
 		setBirth(rs.getString("birth"));		//생년월일
+		setAddr(rs.getString("addr"));
+		setAddr2(rs.getString("addr2"));
+		setImage(rs.getString("image"));
 		setPwquiz(rs.getString("pwquiz"));		//질문
 	}
 	public String getEmail() {
@@ -103,12 +105,6 @@ public class NormalMDto {
 	}
 	public void setImage(String image) {
 		this.image = image;
-	}
-	public String getResume() {
-		return resume;
-	}
-	public void setResume(String resume) {
-		this.resume = resume;
 	}
 	public String getCompany() {
 		return company;
