@@ -29,7 +29,7 @@ public class NormalMDaoImpl implements NormalMDao{
 	};
 	@Override
 	public boolean register(NormalMDto nmdto) {
-		String sql = "insert into NormalM values(?,?,?,?,?,?,?,sysdate,?,?,?,?,?,?)";
+		String sql = "insert into NormalM values(?,?,?,?,?,?,?,sysdate,?,?,?,?,?,?,?)";
 		Object[] args= new Object[] {
 				nmdto.getEmail(),
 				nmdto.getName(),
@@ -38,13 +38,13 @@ public class NormalMDaoImpl implements NormalMDao{
 				nmdto.getPhone(),
 				nmdto.getAddr(),
 				nmdto.getAddr2(),
-				
 				nmdto.getBirth(),
 				nmdto.getPwquiz(),
 				nmdto.getPwans(),
 				nmdto.getGrade(),
-				nmdto.getImage(),
-				nmdto.getCompany()
+				nmdto.getCompany(),
+				nmdto.getImgname(),
+				nmdto.getImgencoding()
 				};
 			return jdbcTemplate.update(sql,args)>0;
 	}
@@ -115,16 +115,21 @@ public class NormalMDaoImpl implements NormalMDao{
 		String sql = "select count(*) from NormalM where email=?";
 		return jdbcTemplate.query(sql,extractorNumber,email);
 	}
+	
 	public boolean pwupdate(String password, String email) {
 		String sql = "update NormalM set pw =? where email=?";
 		Object[] args= new Object[] {password,email};
 		return jdbcTemplate.update(sql,args) > 0;
 	}
 	
-	public boolean setGrade(String grade,String email)
-	{
+	public boolean setGrade(String grade,String email){
 		String sql = "update NormalM set grade=? where email=?";
 		Object[] args= new Object[] {grade,email};
 		return jdbcTemplate.update(sql,args) > 0;
-	} 
+	}
+	
+	public boolean setImg(String savename, String enctype, String email) {
+		String sql = "update NormalM set imgname=?,imgencoding=? where email=?";
+		return jdbcTemplate.update(sql,savename,enctype,email)>0;
+	}
 }

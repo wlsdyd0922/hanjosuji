@@ -14,10 +14,23 @@ public class NormalMDto {
 	private String reg;
 	private String birth;
 	private String pwquiz;
+	public String getImgname() {
+		return imgname;
+	}
+	public void setImgname(String imgname) {
+		this.imgname = imgname;
+	}
+	public String getImgencoding() {
+		return imgencoding;
+	}
+	public void setImgencoding(String imgencoding) {
+		this.imgencoding = imgencoding;
+	}
 	private String pwans;
 	private String grade;
-	private String image;
 	private String company;
+	private String imgname;
+	private String imgencoding;
 	private boolean rememberId;
 	
 	public NormalMDto(){
@@ -31,8 +44,9 @@ public class NormalMDto {
 		setBirth(rs.getString("birth"));		//생년월일
 		setAddr(rs.getString("addr"));
 		setAddr2(rs.getString("addr2"));
-		setImage(rs.getString("image"));
 		setPwquiz(rs.getString("pwquiz"));		//질문
+		setImgname(rs.getString("imgname"));
+		setImgencoding(rs.getString("imgencoding"));
 	}
 	public String getEmail() {
 		return email;
@@ -99,12 +113,6 @@ public class NormalMDto {
 	}
 	public void setGrade(String grade) {
 		this.grade = grade;
-	}
-	public String getImage() {
-		return image;
-	}
-	public void setImage(String image) {
-		this.image = image;
 	}
 	public String getCompany() {
 		return company;
