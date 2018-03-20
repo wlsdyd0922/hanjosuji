@@ -47,7 +47,7 @@ public class ResumeDaoImpl implements ResumeDao{
 	@Override
 	public boolean delete(ResumeDto rdto) {
 		String sql = "delete from resume where email=? and title=?";
-		return jdbcTemplate.update(sql,rdto.getEmail())>0;
+		return jdbcTemplate.update(sql,rdto.getEmail(),rdto.getTitle())>0;
 	}
 	@Override
 	public boolean edit(ResumeDto rdto) {
