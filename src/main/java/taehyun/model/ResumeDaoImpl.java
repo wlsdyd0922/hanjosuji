@@ -48,13 +48,28 @@ public class ResumeDaoImpl implements ResumeDao{
 	@Override
 	public boolean delete(ResumeDto rdto) {
 		String sql = "delete from resume where email=? and title=?";
-		return jdbcTemplate.update(sql,rdto.getEmail(),rdto.getTitle())>0;
+		return jdbcTemplate.update(sql,rdto.getEmail())>0;
 	}
 	@Override
-	public boolean drop(ResumeDto rdto) {
-		String sql = "delete resume where email=? and title=?";
-		return jdbcTemplate.update(sql,rdto.getEmail(),rdto.getTitle())>0;
-	}
+	public boolean edit(ResumeDto rdto) {
+		String sql = "update resume set title=?,career=?,edu=?,"
+				+ "salary=?,pr=?,portfolio=?,certi=?,prize=?,email=?,face=?"
+				+ " where email=?";
+		Object[] args = {
+				rdto.getTitle(),
+				rdto.getCareer(),
+				rdto.getEdu(),
+				rdto.getSalary(),
+				rdto.getPr(),
+				rdto.getPortfolio(),
+				rdto.getCerti(),
+				rdto.getPrize(),
+				rdto.getEmail(),
+				rdto.getFace(),
+				rdto.getEmail()
+			};
+			return jdbcTemplate.update(sql, args)>0;
+		}
 }
 
 
