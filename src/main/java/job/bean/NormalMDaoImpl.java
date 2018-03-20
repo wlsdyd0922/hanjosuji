@@ -29,7 +29,7 @@ public class NormalMDaoImpl implements NormalMDao{
 	};
 	@Override
 	public boolean register(NormalMDto nmdto) {
-		String sql = "insert into NormalM values(?,?,?,?,?,sysdate,?,?,?,?,?,?)";
+		String sql = "insert into NormalM values(?,?,?,?,?,?,?,sysdate,?,?,?,?,?)";
 		Object[] args= new Object[] {
 				nmdto.getEmail(),
 				nmdto.getName(),
@@ -37,6 +37,7 @@ public class NormalMDaoImpl implements NormalMDao{
 				nmdto.getPw(),
 				nmdto.getPhone(),
 				nmdto.getAddr(),
+				nmdto.getAddr2(),
 				nmdto.getBirth(),
 				nmdto.getPwquiz(),
 				nmdto.getPwans(),

@@ -10,6 +10,7 @@ public class NormalMDto {
 	private String pw;
 	private String phone;
 	private String addr;
+	private String addr2;
 	private String reg;
 	private String birth;
 	private String pwquiz;
@@ -121,6 +122,12 @@ public class NormalMDto {
 	}
 	public void setRememberId(boolean rememberId) {
 		this.rememberId = rememberId;
+	}
+	public String getAddr2() {
+		return addr2;
+	}
+	public void setAddr2(String addr2) {
+		this.addr2 = addr2;
 	}
 	
 }
