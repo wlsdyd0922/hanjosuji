@@ -12,5 +12,5 @@ public interface boardDao {
 	List<boardDto> getList();
 	List<boardDto> searchList(String company);
 	boolean delete(boardDto bdto);
-	
+	boolean edit(boardDto bdto);
 }

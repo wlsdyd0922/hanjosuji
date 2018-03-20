@@ -68,6 +68,12 @@ public class ResumeDaoImpl implements ResumeDao{
 			};
 			return jdbcTemplate.update(sql, args)>0;
 		}
+
+	@Override
+	public boolean connResume(String email,String title) {
+		String sql = "update resume set email=? where title=?";
+		return jdbcTemplate.update(sql, email, title)>0;
+	}
 }
 
 
