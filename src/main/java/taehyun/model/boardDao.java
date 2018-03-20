@@ -9,7 +9,8 @@ import taehyun.bean.boardDto;
 @Repository
 public interface boardDao {
 	void insert(boardDto bdto);
-	List<boardDto> getList(String company);
+	List<boardDto> getList();
+	List<boardDto> searchList(String company);
 	boolean delete(boardDto bdto);
 	
 }

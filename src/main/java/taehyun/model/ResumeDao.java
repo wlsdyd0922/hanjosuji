@@ -11,5 +11,5 @@ public interface ResumeDao {
 	void insert(ResumeDto rdto);
 	List<ResumeDto> getList(String author);
 	boolean delete(ResumeDto rdto);
-	
+	boolean edit(ResumeDto rdto);
 }
