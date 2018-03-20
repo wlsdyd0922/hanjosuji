@@ -1,9 +1,13 @@
-package job.bean;
+package job.model;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
+import job.bean.NormalMDto;
+@Repository
 public interface NormalMDao {
-	boolean insert(NormalMDto nmdto);
+	boolean register(NormalMDto nmdto);
 	boolean edit(NormalMDto nmdto);
 	public boolean face(String savename, String email);
 	boolean drop(NormalMDto nmdto);
