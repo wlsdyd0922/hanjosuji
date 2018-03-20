@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <jsp:include page="/WEB-INF/view/template/header.jsp"></jsp:include>
+<script src="${pageContext.request.contextPath}/js/info.js"></script>
 <div class="container-800 out-align-center">
 	
 	<h3>name : ${nmdto.name}</h3>
@@ -12,7 +13,6 @@
     <h3>birth : ${nmdto.birth}</h3>
     <h3>image:${nmdto.imgname}</h3>
     <h3>image:${nmdto.imgencoding}</h3>
-
 
 	<div class="div-2">
 		<div class="myrow content-size height-250 background-white">
@@ -35,10 +35,10 @@
 					</div>
 					
 					<div>
-					<form action="${pageContext.request.contextPath }/member/upload" method="post" enctype="multipart/form-data">
+					<form action="${pageContext.request.contextPath }/member/information" method="post" enctype="multipart/form-data">
 						<input type="file" name="file" >
 						<div class="in-align-center">
-							<input type="submit" value="업로드"> 
+							<input type="submit" id="upload" value="업로드"> 
 							<input type="button" value="사진삭제">
 						</div>
 					</form>

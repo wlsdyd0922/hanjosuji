@@ -36,6 +36,6 @@ public class InformationController {
 	public String imgUpload(MultipartFile file,HttpServletRequest request) throws ImageException, IllegalStateException, IOException {
 		String email = (String) request.getSession().getAttribute("accept");
 		imginput.input(file,email);
-		return "redirect:/member/information";
+		return "redirect:/member/infomation";
 	}
 }
