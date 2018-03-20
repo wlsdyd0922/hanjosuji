@@ -11,7 +11,6 @@ import taehyun.bean.boardDto;
 public class boardDaoImpl implements boardDao{
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
-	
 	@Override
 	public void insert(boardDto bdto) {
 		String sql = "insert into resume values(?,?,?,?,?,sysdate)";
@@ -30,9 +29,9 @@ public class boardDaoImpl implements boardDao{
 		return new boardDto(rs);
 	};
 	@Override
-	public List<boardDto> getList() {
+	public List<boardDto> getList(String company) {
 		String sql = "select * from hireboard order by reg desc";
-		return jdbcTemplate.query(sql, mapper);
+		return jdbcTemplate.query(sql, mapper, company);
 	}
 
 	@Override
@@ -40,11 +39,4 @@ public class boardDaoImpl implements boardDao{
 		String sql = "delete from hireboard where no=?";
 		return jdbcTemplate.update(sql,bdto.getNo())>0;
 	}
-
-	@Override
-	public List<boardDto> searchList(String company) {
-		String sql = "select * from hireboard where company=? order by reg desc";
-		return jdbcTemplate.query(sql, mapper, company);
-	}
-	
 }

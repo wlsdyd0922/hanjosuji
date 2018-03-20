@@ -4,6 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class boardDto {
+	
 	private int no;
 	private int count;
 	private String title;
@@ -78,5 +79,5 @@ public class boardDto {
 	public void setReg(String reg) {
 		this.reg = reg;
 	}
-	
+
 }

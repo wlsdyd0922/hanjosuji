@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
-import job.bean.NormalMDaoImpl;
+import job.model.NormalMDaoImpl;
 import taehyun.bean.ResumeDto;
 import taehyun.model.ResumeDao;
 import taehyun.model.ResumeDaoImpl;
@@ -78,14 +78,14 @@ public class FileUploadController{
 		File target = new File(dir, savename);
 		f.transferTo(target);
 		//dao,dto 생성은 임시방편
-		ResumeDto idto = new ResumeDto();
-		ResumeDaoImpl dao = new ResumeDaoImpl();
-		//db에 추가하는 작업
-		idto.setFilename(f.getOriginalFilename());
-		idto.setFiletype(f.getContentType());
-		idto.setFilelen(f.getSize());
-		idto.setSavename(savename);
-		dao.insert(idto);
+//		ResumeDto idto = new ResumeDto();
+//		ResumeDaoImpl dao = new ResumeDaoImpl();
+//		//db에 추가하는 작업
+//		idto.setFilename(f.getOriginalFilename());
+//		idto.setFiletype(f.getContentType());
+//		idto.setFilelen(f.getSize());
+//		idto.setSavename(savename);
+//		dao.insert(idto);
 		
 		return "redirect:/";
 	}
@@ -119,7 +119,7 @@ public class FileUploadController{
 		//dao,dto 생성은 임시방편
 		NormalMDaoImpl dao = new NormalMDaoImpl();
 		//db에 추가하는 작업
-		dao.face(savename,);
+//		dao.face(savename,);
 		
 		return "redirect:/";
 	}
