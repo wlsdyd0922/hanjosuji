@@ -18,23 +18,17 @@ import job.model.NormalMDaoImpl;
 public class LogInController {
 	@Autowired
 	private NormalMDaoImpl NMdao = new NormalMDaoImpl();
-
-	// 로그인 페이지
 	@RequestMapping("login")
 	public String LogIn(HttpServletRequest request) {
 		return "login";
 	}
-
-	// 로그인 판정
 	@RequestMapping(value = "login", method = RequestMethod.POST)
-	public String LogIn(NormalMDto NMdto, HttpServletRequest request, HttpServletResponse response,Model model) {
-		//로그인 기존값이 남아있다면 제거
+	public String LogIn(NormalMDto NMdto, HttpServletRequest request, HttpServletResponse response, Model model) {
 		if (request.getSession().getAttribute("accept") != null) {
 			request.getSession().removeAttribute("accept"); // 기존값을 제거해 준다.
 		}
-		// 비번 암호화
-		NMdto.setPassword(new SHA256().On(NMdto.getPassword()));
-		// 쿠키 생성
+		NMdto.setPw(new SHA256().On(NMdto.getPw()));
+
 		Cookie ck = new Cookie("rememberId", NMdto.getEmail());
 		if (NMdto.isRememberId()) {
 			ck.setMaxAge(4 * 7 * 24 * 60 * 60);
@@ -42,9 +36,8 @@ public class LogInController {
 			ck.setMaxAge(0);
 		}
 		response.addCookie(ck);
-		//로그인 판정에 따른 페이지 이동
-		
-		if (NMdao.login(NMdto.getEmail(), NMdto.getPassword())) {
+
+		if (NMdao.login(NMdto.getEmail(), NMdto.getPw())) {
 			request.getSession().setAttribute("accept", NMdto.getEmail());// accept라는 이름으로 세션에 id를 저장한다.
 			return "redirect:/";
 		} else {
@@ -52,13 +45,9 @@ public class LogInController {
 			return "redirect:/login";
 		}
 	}
-
-	// 로그아웃..
 	@RequestMapping("member/logout")
 	public String LogOut(HttpServletRequest request) {
-		if (request.getSession().getAttribute("accept") != null) {
-			request.getSession().removeAttribute("accept"); // 기존값을 제거해 준다.
-		}
+		request.getSession().invalidate();
 		return "redirect:/";
 	}
 }

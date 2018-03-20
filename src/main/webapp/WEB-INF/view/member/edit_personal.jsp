@@ -7,7 +7,7 @@
 		<div class="myrow input-group input-group-lg">
 			<span class="input-group-addon" id="sizing-addon1"><i
 				class="glyphicon glyphicon-envelope"></i></span> <input type="text"
-				class="form-control" name="id" value="1234@1234.com" readonly>
+				class="form-control" name="id" value="${nmdto.email}" readonly>
 		</div>
 		<div class="myrow input-group input-group-lg">
 			<span class="input-group-addon glyphicons glyphicons-lock"

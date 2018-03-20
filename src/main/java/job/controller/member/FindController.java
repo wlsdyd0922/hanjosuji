@@ -51,7 +51,7 @@ public class FindController {
 	}
 	@RequestMapping(value = "find_pw_ok",method=RequestMethod.POST)
 	public String find_pw_ok(NormalMDto nmdto, HttpServletRequest request) {
-		String password = new SHA256().On(nmdto.getPassword());
+		String password = new SHA256().On(nmdto.getPw());
 		String email = nmdto.getEmail();
 		
 		if(nmdao.pwupdate(password,email)) {

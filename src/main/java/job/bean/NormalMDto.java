@@ -4,25 +4,21 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class NormalMDto { 
-	private String email;		//이메일
-	private String name;		//이름
-	private String gender;		//성별
-	private String password;	//비번
-	private String phone;		//전번
-	private String birth;		//생일
-	private String pwquiz;		//비번질문
-	private String pwans;		//답변
-	private String industry;	//분야
-	private String company;		//기업
-	private String career;		//경력
-	private String edu;			//학력
-	private String prize;		//수상경력
-	private String resume;		//이력서
-	private String portfolio;	//포트폴리오
-	private String certification;//자격증
-	private String reg;			//가입일
-	private String face;		//프로필 이미지
-	private String grade;		//등급
+	private String email;
+	private String name;
+	private String gender;
+	private String pw;
+	private String phone;
+	private String addr;
+	private String addr2;
+	private String reg;
+	private String birth;
+	private String pwquiz;
+	private String pwans;
+	private String grade;
+	private String image;
+	private String resume;
+	private String company;
 	private boolean rememberId;
 	
 	public NormalMDto(){
@@ -34,39 +30,7 @@ public class NormalMDto {
 		setGender(rs.getString("gender"));		//성별
 		setPhone(rs.getString("phone"));		//전화번호
 		setBirth(rs.getString("birth"));		//생년월일
-		setPwQuiz(rs.getString("pwquiz"));		//질문
-	}
-	
-	public NormalMDto(String email, String name, String gender, String password, String phone, String birth,
-			String pwquiz, String pwans, String industry, String company, String career, String edu, String prize,
-			String resume, String portfolio, String certification, String grade, String face, String reg, boolean rememberId) {
-		super();
-		this.email = email;
-		this.name = name;
-		this.gender = gender;
-		this.password = password;
-		this.phone = phone;
-		this.birth = birth;
-		this.pwquiz = pwquiz;
-		this.pwans = pwans;
-		this.industry = industry;
-		this.company = company;
-		this.career = career;
-		this.edu = edu;
-		this.prize = prize;
-		this.resume = resume;
-		this.portfolio = portfolio;
-		this.certification = certification;
-		this.grade = grade;
-		this.face = face;
-		this.reg = reg;
-		this.rememberId = rememberId;
-	}
-	public String getCertification() {
-		return certification;
-	}
-	public void setCertification(String certification) {
-		this.certification = certification;
+		setPwquiz(rs.getString("pwquiz"));		//질문
 	}
 	public String getEmail() {
 		return email;
@@ -86,11 +50,11 @@ public class NormalMDto {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	public String getPassword() {
-		return password;
+	public String getPw() {
+		return pw;
 	}
-	public void setPassword(String password) {
-		this.password = password;
+	public void setPw(String pw) {
+		this.pw = pw;
 	}
 	public String getPhone() {
 		return phone;
@@ -98,71 +62,11 @@ public class NormalMDto {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	public String getBirth() {
-		return birth;
+	public String getAddr() {
+		return addr;
 	}
-	public void setBirth(String birth) {
-		this.birth = birth;
-	}
-	public String getPwQuiz() {
-		return pwquiz;
-	}
-	public void setPwQuiz(String pwquiz) {
-		this.pwquiz = pwquiz;
-	}
-	public String getPwAns() {
-		return pwans;
-	}
-	public void setPwAns(String pwans) {
-		this.pwans = pwans;
-	}
-	public String getIndustry() {
-		return industry;
-	}
-	public void setIndustry(String industry) {
-		this.industry = industry;
-	}
-	public String getCompany() {
-		return company;
-	}
-	public void setCompany(String company) {
-		this.company = company;
-	}
-	public String getCareer() {
-		return career;
-	}
-	public void setCareer(String career) {
-		this.career = career;
-	}
-	public String getEdu() {
-		return edu;
-	}
-	public void setEdu(String edu) {
-		this.edu = edu;
-	}
-	public String getPrize() {
-		return prize;
-	}
-	public void setPrize(String prize) {
-		this.prize = prize;
-	}
-	public String getResume() {
-		return resume;
-	}
-	public void setResume(String resume) {
-		this.resume = resume;
-	}
-	public String getPortfolio() {
-		return portfolio;
-	}
-	public void setPortfolio(String portfolio) {
-		this.portfolio = portfolio;
-	}
-	public String getGrade() {
-		return grade;
-	}
-	public void setGrade(String grade) {
-		this.grade = grade;
+	public void setAddr(String addr) {
+		this.addr = addr;
 	}
 	public String getReg() {
 		return reg;
@@ -170,17 +74,47 @@ public class NormalMDto {
 	public void setReg(String reg) {
 		this.reg = reg;
 	}
+	public String getBirth() {
+		return birth;
+	}
+	public void setBirth(String birth) {
+		this.birth = birth;
+	}
+	public String getPwquiz() {
+		return pwquiz;
+	}
+	public void setPwquiz(String pwquiz) {
+		this.pwquiz = pwquiz;
+	}
 	public String getPwans() {
 		return pwans;
 	}
 	public void setPwans(String pwans) {
 		this.pwans = pwans;
 	}
-	public String getFace() {
-		return face;
+	public String getGrade() {
+		return grade;
 	}
-	public void setFace(String face) {
-		this.face = face;
+	public void setGrade(String grade) {
+		this.grade = grade;
+	}
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
+	}
+	public String getResume() {
+		return resume;
+	}
+	public void setResume(String resume) {
+		this.resume = resume;
+	}
+	public String getCompany() {
+		return company;
+	}
+	public void setCompany(String company) {
+		this.company = company;
 	}
 	public boolean isRememberId() {
 		return rememberId;
@@ -188,4 +122,11 @@ public class NormalMDto {
 	public void setRememberId(boolean rememberId) {
 		this.rememberId = rememberId;
 	}
+	public String getAddr2() {
+		return addr2;
+	}
+	public void setAddr2(String addr2) {
+		this.addr2 = addr2;
+	}
+	
 }

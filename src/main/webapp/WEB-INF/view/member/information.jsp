@@ -6,7 +6,7 @@
 		<div class="myrow content-size height-250 background-white">
 			<div class="div-2 border-white">
 				<div class="rest-area">
-					<h3 class="myrow">기본정보</h3>
+					<h3 class="myrow">${nmdto.name}</h3>
 				</div>
 				<div class="rest-area in-align-right">
 					<h3 class="myrow">
@@ -30,9 +30,9 @@
 				</div>
 				<div class="myrow content-size in-align-center">
 					<div class="input-lg text-primary border-circle">아이디</div>
-					<div class="input-lg">123456</div>
+					<div class="input-lg">${nmdto.email}</div>
 					<div class="input-lg text-primary border-circle">생년월일</div>
-					<div class="input-lg">89.01.20</div>
+					<div class="input-lg">${nmdto.birth}</div>
 				</div>
 			</div>
 		</div>

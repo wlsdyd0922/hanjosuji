@@ -40,7 +40,7 @@ public class RegisterController {
 	//일반 멤버 회원가입 처리
 	@RequestMapping(value="register_personal",method=RequestMethod.POST)
 	public String RegisterPersonal(NormalMDto mdto, HttpServletRequest request) throws Exception {
-		mdto.setPassword(new SHA256().On(mdto.getPassword()));
+		mdto.setPw(new SHA256().On(mdto.getPw()));
 		//DB연결..
 		if(!nmdao.register(mdto)) {
 			throw new Exception("회원가입 실패");

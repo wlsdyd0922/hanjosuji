@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <jsp:include page="/WEB-INF/view/template/header.jsp"></jsp:include>
+<script src="https://ssl.daumcdn.net/dmaps/map_js_init/postcode.v2.js"></script>
 <script src="${pageContext.request.contextPath}/js/register_personal.js"></script>
 <form action="${pageContext.request.contextPath }/register/register_personal" method="post">
 	<div class="empty-row"></div>
@@ -52,6 +53,15 @@
 				<i class="glyphicon glyphicon-phone-alt"></i>
 			</span>
 			<input type="text" class="form-control" name="phone" placeholder="- 없이 입력하세요" required>
+		</div>
+		
+		<div class="myrow input-group input-group-lg">
+			<span class="input-group-addon glyphicons-iphone-shake" id="sizing-addon1">
+				<i class="glyphicon glyphicon-phone-alt"></i>
+			</span>
+			<input type="button" id="post" value = "주소찾기">
+			<input type="text" class="form-control" name="addr" placeholder="주소" required>
+			<input type="text" class="form-control" name="addr2" placeholder="상세주소" required>
 		</div>
 
 		<div class="myrow input-group input-group-lg">

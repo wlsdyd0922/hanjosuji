@@ -4,15 +4,17 @@ name varchar2(15) not null,
 gender varchar2(5) not null,
 pw varchar2(64) not null,
 phone varchar2(20),
+addr varchar2(100),
+addr2 varchar2(100),
+reg date,
 birth varchar2(15),
 pwquiz varchar2(50) not null,
 pwans varchar2(50) not null,
 grade varchar2(10),
+image varchar2(100),
 resume varchar2(50),
 company varchar2(30));
-
 alter table NormalM add constraint grades check(grade in('기업','일반','관리자'));
-alter table NormalM add reg date;
 
 이력서db
 title		//제목
@@ -49,7 +51,7 @@ working varchar2(20) not null,
 company varchar2(50) not null,
 reg date);
 
-
+--company table
 Name                                      Null?    Type
  ----------------------------------------- -------- ----------------------------
  NAME                                      NOT NULL VARCHAR2(30)
