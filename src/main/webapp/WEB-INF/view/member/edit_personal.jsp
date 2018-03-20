@@ -12,13 +12,13 @@
 		<div class="myrow input-group input-group-lg">
 			<span class="input-group-addon glyphicons glyphicons-lock"
 				id="sizing-addon1"><i class="glyphicon glyphicon-lock"></i></span> <input
-				type="password" class="form-control" name="password"
+				type="password" class="form-control" name="pw"
 				placeholder="비밀번호를 입력하세요">
 		</div>
 		<div class="myrow input-group input-group-lg">
 			<span class="input-group-addon glyphicons glyphicons-lock"
 				id="sizing-addon1"><i class="glyphicon glyphicon-lock"></i></span> <input
-				type="password" class="form-control" name="password_again"
+				type="password" class="form-control" name="pw_again"
 				placeholder="비밀번호를 다시 입력해주세요">
 		</div>
 		<div class="myrow input-group input-group-lg">

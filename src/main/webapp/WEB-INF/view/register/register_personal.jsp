@@ -38,14 +38,14 @@
 			<span class="input-group-addon glyphicons glyphicons-lock" id="sizing-addon1">
 				<i class="glyphicon glyphicon-lock"></i>
 			</span>
-			<input type="password" class="form-control" name="password" placeholder="비밀번호를 입력하세요" required>
+			<input type="password" class="form-control" name="pw" placeholder="비밀번호를 입력하세요" required>
 		</div>
 
 		<div class="myrow input-group input-group-lg">
 			<span class="input-group-addon glyphicons glyphicons-lock" id="sizing-addon1">
 			<i class="glyphicon glyphicon-lock"></i>
 			</span> 
-			<input type="password" class="form-control" name="password_again" placeholder="비밀번호를 다시 입력해주세요" required>
+			<input type="password" class="form-control" name="pw_again" placeholder="비밀번호를 다시 입력해주세요" required>
 		</div>
 
 		<div class="myrow input-group input-group-lg">
@@ -60,8 +60,8 @@
 				<i class="glyphicon glyphicon-phone-alt"></i>
 			</span>
 			<input type="button" id="post" value = "주소찾기">
-			<input type="text" class="form-control" name="addr" placeholder="주소" required>
-			<input type="text" class="form-control" name="addr2" placeholder="상세주소" required>
+			<input type="text" class="form-control" id="addr" name="addr" placeholder="주소" required readonly>
+			<input type="text" class="form-control" id="addr2" name="addr2" placeholder="상세주소">
 		</div>
 
 		<div class="myrow input-group input-group-lg">

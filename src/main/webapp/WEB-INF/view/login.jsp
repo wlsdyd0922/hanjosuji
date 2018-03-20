@@ -14,7 +14,7 @@
 		</div>
 		<div class="myrow input-group input-group-lg">
 			<span class="input-group-addon" id="sizing-addon1"></span> <input
-				type="password" class="form-control font-medium" name="password"
+				type="password" class="form-control font-medium" name="pw"
 				placeholder="비밀번호를 입력하세요">
 		</div>
 		<c:if test="${param.error}">

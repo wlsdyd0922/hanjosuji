@@ -8,13 +8,13 @@
 				<i class="glyphicon glyphicon-lock"></i>
 			</span>
 			<input type="hidden" name="email" value="${email}">
-			<input type="password" class="form-control" name="password" placeholder="비밀번호를 입력하세요" required>
+			<input type="password" class="form-control" name="pw" placeholder="비밀번호를 입력하세요" required>
 		</div>
 		<div class="myrow input-group input-group-lg">
 			<span class="input-group-addon glyphicons glyphicons-lock" id="sizing-addon1">
 			<i class="glyphicon glyphicon-lock"></i>
 			</span> 
-			<input type="password" class="form-control" name="password_again" placeholder="비밀번호를 다시 입력해주세요" required>
+			<input type="password" class="form-control" name="pw_again" placeholder="비밀번호를 다시 입력해주세요" required>
 		</div>
 		<div class="myrow div-2">
 			<input class="btn btn-primary btn-lg form-btn-full" type="submit"
