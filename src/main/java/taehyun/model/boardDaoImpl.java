@@ -30,15 +30,21 @@ public class boardDaoImpl implements boardDao{
 		return new boardDto(rs);
 	};
 	@Override
-	public List<boardDto> getList(String company) {
+	public List<boardDto> getList() {
 		String sql = "select * from hireboard order by reg desc";
-		return jdbcTemplate.query(sql, mapper, company);
+		return jdbcTemplate.query(sql, mapper);
 	}
 
 	@Override
 	public boolean delete(boardDto bdto) {
 		String sql = "delete from hireboard where no=?";
 		return jdbcTemplate.update(sql,bdto.getNo())>0;
+	}
+
+	@Override
+	public List<boardDto> searchList(String company) {
+		String sql = "select * from hireboard where company=? order by reg desc";
+		return jdbcTemplate.query(sql, mapper, company);
 	}
 	
 }
