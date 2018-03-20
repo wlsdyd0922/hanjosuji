@@ -7,6 +7,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
+import job.bean.NormalMDto;
 import taehyun.bean.ResumeDto;
 
 @Repository("resumeDao")
@@ -47,6 +48,11 @@ public class ResumeDaoImpl implements ResumeDao{
 	@Override
 	public boolean delete(ResumeDto rdto) {
 		String sql = "delete from resume where email=? and title=?";
+		return jdbcTemplate.update(sql,rdto.getEmail(),rdto.getTitle())>0;
+	}
+	@Override
+	public boolean drop(ResumeDto rdto) {
+		String sql = "delete resume where email=? and title=?";
 		return jdbcTemplate.update(sql,rdto.getEmail(),rdto.getTitle())>0;
 	}
 }
