@@ -53,7 +53,7 @@ public class ResumeDaoImpl implements ResumeDao{
 	@Override
 	public boolean edit(ResumeDto rdto) {
 		String sql = "update resume set title=?,career=?,edu=?,"
-				+ "salary=?,pr=?,portfolio=?,certi=?,prize=?,email=?,face=?"
+				+ "salary=?,pr=?,portfolio=?,certi=?,prize=?,face=?"
 				+ " where email=?";
 		Object[] args = {
 				rdto.getTitle(),
@@ -64,7 +64,6 @@ public class ResumeDaoImpl implements ResumeDao{
 				rdto.getPortfolio(),
 				rdto.getCerti(),
 				rdto.getPrize(),
-				rdto.getEmail(),
 				rdto.getFace(),
 				rdto.getEmail()
 			};
