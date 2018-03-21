@@ -17,11 +17,11 @@ public class ReviewController {
 	@Autowired
 	private ReviewDaoImpl reviewDao;
 	
-	@RequestMapping("company/review")
-	public String review() {
-		return "company/review";
-	}
 	@RequestMapping("company/companyreview")
+	public String review() {
+		return "company/companyreview";
+	}
+	/*@RequestMapping("company/companyreview")
 	public String review(HttpServletRequest request) {
 		int no = 26;
 		if(request.getParameter("no")!=null && request.getParameter("no")!="") {
@@ -77,6 +77,6 @@ public class ReviewController {
 		System.out.println("가입일:"+rdto.getReg());
 		System.out.println("no:"+rdto.getNo());
 		return "company/review_list";
-	}
+	}*/
 	
 }

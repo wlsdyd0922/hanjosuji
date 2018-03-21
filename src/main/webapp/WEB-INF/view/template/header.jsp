@@ -44,18 +44,28 @@
 			src="${pageContext.request.contextPath}/img/logo.png"></a>
 	</header> <!-- 메뉴 영역 -->
 	<nav class="menu input-lg border">
-		<div class="div-2 container-100">
+		<div class="div-2 container-1000 out-align-center">
 			<div class="container-70">
 				<a href="${pageContext.request.contextPath }" class="left"><i
 					class="glyphicon glyphicon-home">MAIN</i></a>
 				<c:choose>
 					<c:when test="${loginFlag }">
-						<a href="${pageContext.request.contextPath }/member/information"
-							class="left"><i class="glyphicon glyphicon-user">INFO</i></a>
+						
+						<!-- 일반 사용자 information -->
+						<c:if test="">
+							<a href="${pageContext.request.contextPath }/member/information" class="left">
+								<i class="glyphicon glyphicon-user">INFO</i>
+							</a>
+						</c:if>
+						<!-- 기업 사용자 information -->
+						<c:if test="">
+							<a href="${pageContext.request.contextPath }/member/company_information" class="left">
+								<i class="glyphicon glyphicon-user">INFO</i>
+							</a>
+						</c:if>
+						
 						<a href="${pageContext.request.contextPath }/company/companylist"
 							class="left"><i class="glyphicon glyphicon-search">기업채용정보</i></a>
-						<a href="${pageContext.request.contextPath }/company/review"
-							class="left"><i class="glyphicon glyphicon-calendar">기업리뷰정보</i></a>
 					</c:when>
 					<c:otherwise>
 					</c:otherwise>

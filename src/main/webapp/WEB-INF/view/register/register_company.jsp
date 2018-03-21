@@ -3,18 +3,16 @@
 <jsp:include page="/WEB-INF/view/template/header.jsp"></jsp:include>
 
 <script src="${pageContext.request.contextPath}/js/register_company.js"></script>
-<form
-	action="${pageContext.request.contextPath }/register/register_company"
-	method="post">
+<script src="${pageContext.request.contextPath}/js/search_company.js"></script>
+<form action="${pageContext.request.contextPath }/register/register_company" method="post">
 	<div class="container-500 out-align-center">
 		<div class="myrow input-group input-group-lg">
-			<span class="input-group-addon" id="sizing-addon1"><i
-				class="glyphicon glyphicon-envelope"></i></span> <input type="text"
-				class="form-control" name="email" placeholder="아이디를 입력하세요">
+			<span class="input-group-addon" id="sizing-addon1">
+				<i class="glyphicon glyphicon-envelope"></i>
+			</span> 
+			<input type="text" class="form-control" name="email" placeholder="아이디를 입력하세요">
 		</div>
-		
-		<div id = "checkMsg"></div>
-		
+		<div id="checkMsg"></div>
 		<div class="myrow input-group input-group-lg">
 			<span class="input-group-addon glyphicons glyphicons-lock"
 				id="sizing-addon1"><i class="glyphicon glyphicon-lock"></i></span> <input
@@ -33,10 +31,17 @@
 			<input type="text" class="form-control" name="phone"
 				placeholder="- 없이 입력하세요">
 		</div>
-		<div class="myrow input-group input-group-lg">
-			<span class="input-group-addon glyphicons-tent" id="sizing-addon1"><i
-				class="glyphicon glyphicon-tent"></i></span> <input type="text"
-				class="form-control" name="company" placeholder="회사명을 입력해주세요">
+		<div class="div-2">
+			<div class="container-90 myrow input-group input-group-lg">
+				<span class="input-group-addon glyphicons-tent" id="sizing-addon1"><i
+					class="glyphicon glyphicon-tent"></i></span> <input type="text"
+					class="form-control" name="company_name" placeholder="회사명을 입력해주세요">
+			</div>
+			<div class="rest-area padding">
+				<button class="btn btn-primary input-lg" id="search_button">
+					<i class="glyphicon glyphicon-search"></i>
+				</button>
+			</div>
 		</div>
 		<div class="myrow input-group input-group-lg">
 			<span class="input-group-addon" id="sizing-addon1"><i

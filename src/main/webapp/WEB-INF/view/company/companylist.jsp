@@ -131,7 +131,7 @@
 						<div class="rest-area div-2">
 							<div class="rest-area">
 								<h4>
-									<a href="#">채용정보 자세히보기</a>
+									<a href="${pageContext.request.contextPath }/company/companyreview">채용정보 자세히보기</a>
 								</h4>
 							</div>
 							<div class="rest-area">
@@ -173,7 +173,8 @@
 						<div class="rest-area div-2">
 							<div class="rest-area">
 								<h4>
-									<a href="#">채용정보 자세히보기</a>
+									<!-- companyreview 컨트롤러 수정 필요. -->
+									<a href="${pageContext.request.contextPath }/company/companyreview">채용정보 자세히보기</a>
 								</h4>
 							</div>
 							<div class="rest-area">
@@ -191,15 +192,13 @@
 		<!-- 해당 부분까지 -->
 
 		<div class="container-30">
-			<div class="myrow container-100 background-white">
-				<div class="myrow" style="height: 10%">
-					<img src="${pageContext.request.contextPath }/img/noone.jpg"
-						class="image-center height-100">;
+			<div class="padding container-100 background-white">
+				<div class="padding" style="height: 10%">
+					<img src="${pageContext.request.contextPath }/img/noone.jpg" class="image-center height-100">;
 				</div>
 				<hr class="style-one">
 				<div class="myrow input-lg">
-					<a href="${pageContext.request.contextPath }/member/information">내
-						프로필</a>
+					<a href="${pageContext.request.contextPath }/member/information">내 프로필</a>
 				</div>
 				<div class="myrow input-lg">관심있는 기업</div>
 			</div>
