@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="/WEB-INF/view/template/header.jsp"></jsp:include>
 <script src="${pageContext.request.contextPath}/js/info.js"></script>
+
 <div class="container-800 out-align-center">
 	
 	<h3>name : ${nmdto.name}</h3>
@@ -13,6 +15,7 @@
     <h3>birth : ${nmdto.birth}</h3>
     <h3>image:${nmdto.imgname}</h3>
     <h3>image:${nmdto.imgencoding}</h3>
+
 
 	<div class="div-2">
 		<div class="myrow content-size height-250 background-white">
@@ -29,16 +32,21 @@
 			</div>
 			<div class="div-2 rest-area" style="height: 81%">
 				<div class="myrow content-size border-circle">
-					
-					<div style="height: 63%">
-						<img src="${pageContext.request.contextPath }/img/noone.jpg" class="image-center height-100">;
+					<div class="padding container-100" style="height: 63%">
+						<%-- <c:if test="${not empty nmdto.imgname }">
+							<img id="profile-image" src="${pageContext.request.contextPath}/upload/${nmdto.imgname}"  class="image-center img-43">
+						</c:if>
+						<c:if test="${empty nmdto.imgname }"> --%>
+							<div class="container-100 in-align-center height-100">
+								<img id="profile-image" src="${pageContext.request.contextPath}/img/noone.jpg">
+							</div>
+						<%-- </c:if> --%>
 					</div>
-					
 					<div>
-					<form action="${pageContext.request.contextPath }/member/information" method="post" enctype="multipart/form-data">
-						<input type="file" name="file" >
+					<form id="fileform" action="${pageContext.request.contextPath }/member/information" method="post" enctype="multipart/form-data">
+						<input type="file" name="file" id="file">
 						<div class="in-align-center">
-							<input type="submit" id="upload" value="업로드"> 
+							<input type="button" id="upload" value="업로드"> 
 							<input type="button" value="사진삭제">
 						</div>
 					</form>

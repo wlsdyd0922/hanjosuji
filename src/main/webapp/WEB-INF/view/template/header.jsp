@@ -28,8 +28,8 @@
 
 <!-- jQuery -->
 <script src="https://code.jquery.com/jquery-latest.js"></script>
-<script src="${pageContext.request.contextPath}/js/jquery-1.11.3.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/star.js"></script>
+<script src="${pageContext.request.contextPath}/js/jquery.form.min.js"></script>
 <!-- Latest compiled and minified JavaScript -->
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"

@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import job.exception.ImageException;
 import job.model.NormalMDaoImpl;
@@ -24,12 +25,12 @@ public class ImageInputImpl implements ImageInput {
 	
 	private Logger log = LoggerFactory.getLogger(getClass());
 	@Override
-	public void input(MultipartFile file, String email) throws IllegalStateException, IOException, ImageException {
+	public void input(MultipartHttpServletRequest request, String email) throws IllegalStateException, IOException, ImageException {
+		MultipartFile file = request.getFile("file");
 		if (!file.getOriginalFilename().endsWith(".jpg") && !file.getOriginalFilename().endsWith(".png")
 				&& !file.getOriginalFilename().endsWith(".gif")) {
 			throw new ImageException("이미지는 jpg,png,gif 중에서만 사용 가능합니다");
 		}
-		
 		String savename = UUID.randomUUID().toString();
 		String path = servletContext.getRealPath("/upload");
 		String enctype = file.getContentType();
