@@ -14,6 +14,7 @@ public class ExceptionController {
 	public String error(ImageException e,Model model) {
 		
 		
+		
 		log.error("에러발생",e);
 		model.addAttribute("error",e.getMessage());
 		return "error";
