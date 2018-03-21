@@ -31,16 +31,14 @@
 				</div>
 			</div>
 			<div class="div-2 rest-area" style="height: 81%">
-				<div class="myrow content-size border-circle">
-					<div class="padding container-100" style="height: 63%">
-						<%-- <c:if test="${not empty nmdto.imgname }">
-							<img id="profile-image" src="${pageContext.request.contextPath}/upload/${nmdto.imgname}"  class="image-center img-43">
+				<div class="myrow content-size border-circle" align="center">
+					<div>
+						<c:if test="${not empty nmdto.imgname }">
+							<img id="profile-image" src="${pageContext.request.contextPath}/upload/${nmdto.imgname}"  width=65% height=auto>
 						</c:if>
-						<c:if test="${empty nmdto.imgname }"> --%>
-							<div class="container-100 in-align-center height-100">
-								<img id="profile-image" src="${pageContext.request.contextPath}/img/noone.jpg">
-							</div>
-						<%-- </c:if> --%>
+						<c:if test="${empty nmdto.imgname }"> 
+							<img style="object-fit:contain" id="profile-image" src="${pageContext.request.contextPath}/img/noone.jpg" >
+						 </c:if> 
 					</div>
 					<div>
 					<form id="fileform" action="${pageContext.request.contextPath }/member/information" method="post" enctype="multipart/form-data">
