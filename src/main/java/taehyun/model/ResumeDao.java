@@ -10,7 +10,9 @@ import taehyun.bean.ResumeDto;
 public interface ResumeDao {
 	void insert(ResumeDto rdto);
 	List<ResumeDto> getList(String author);
+	ResumeDto searchTarget(String author);
 	boolean delete(ResumeDto rdto);
 	boolean edit(ResumeDto rdto);
 	boolean connResume(String email, String title);
+	
 }

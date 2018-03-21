@@ -4,16 +4,20 @@ import java.util.List;
  
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
-import job.bean.NormalMDto;
 import taehyun.bean.ResumeDto;
 
 @Repository("resumeDao")
 public class ResumeDaoImpl implements ResumeDao{
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
+	private ResultSetExtractor<ResumeDto> extractor = (rs)->{
+		if(rs.next()) return new ResumeDto(rs);
+		else return null;
+	};
 	
 	@Override
 	public void insert(ResumeDto rdto) {
@@ -43,7 +47,11 @@ public class ResumeDaoImpl implements ResumeDao{
 		String sql = "select * from resume order by title asc";
 		return jdbcTemplate.query(sql, mapper, author);
 	}
-
+	public ResumeDto searchTarget(String author)
+	{
+		String sql = "select * from resume where author=?";
+		return jdbcTemplate.query(sql, extractor, author);
+	}
 	@Override
 	public boolean delete(ResumeDto rdto) {
 		String sql = "delete from resume where email=? and title=?";
@@ -75,8 +83,3 @@ public class ResumeDaoImpl implements ResumeDao{
 		return jdbcTemplate.update(sql, email, title)>0;
 	}
 }
-
-
-
-
-

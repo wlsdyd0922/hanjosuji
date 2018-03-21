@@ -3,38 +3,47 @@ package taehyun.bean;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class boardDto {
+public class BoardDto {
 	
 	private int no;
 	private int count;
 	private String title;
-	private int salary;
+	private String salary;
 	private String working;
+	private String contesnts;
 	private String company;
 	private String reg;
 	
-	public boardDto() {
+	public BoardDto() {
 		super();
 	}
-	public boardDto(int no, int count, String title, int salary, String working, String company, String reg) {
+	public BoardDto(int no, int count, String title, String salary, String working, String contents, String company, String reg) {
 		super();
 		this.no = no;
 		this.count = count;
 		this.title = title;
 		this.salary = salary;
 		this.working = working;
+		this.contesnts = contents;
 		this.company = company;
 		this.reg = reg;
 	}
 
-	public boardDto(ResultSet rs) throws SQLException {
+	public BoardDto(ResultSet rs) throws SQLException {
 		setNo(rs.getInt("no"));
 		setCount(rs.getInt("count"));
 		setTitle(rs.getString("title"));
-		setSalary(rs.getInt("salary"));
+		setSalary(rs.getString("salary"));
 		setWorking(rs.getString("working"));
+		setContesnts(rs.getString("contents"));
 		setCompany(rs.getString("company"));
 		setReg(rs.getString("reg"));
+	}
+	public String getContesnts() {
+		return contesnts;
+	}
+	public void setContesnts(String contesnts) {
+		this.contesnts = contesnts;
 	}
 	public int getNo() {
 		return no;
@@ -61,10 +70,10 @@ public class boardDto {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public int getSalary() {
+	public String getSalary() {
 		return salary;
 	}
-	public void setSalary(int salary) {
+	public void setSalary(String salary) {
 		this.salary = salary;
 	}
 	public String getWorking() {

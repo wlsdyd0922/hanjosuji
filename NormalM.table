@@ -47,10 +47,22 @@ create table hireboard(
 no number primary key,
 count number not null,
 title varchar(100) not null,
-salary number not null,
+salary varchar2(30) not null,
 working varchar2(20) not null,
+contents varchar2(4000),
 company varchar2(50) not null,
 reg date);
+
+SQL> desc hireboard;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ NO      	글번호                                                           NOT NULL NUMBER
+ COUNT      채용인원                                                        NOT NULL NUMBER
+ TITLE      채용 공고 제목                                                NOT NULL VARCHAR2(100)
+ SALARY     급여                                                              NOT NULL NUMBER
+ WORKING    근무시간                                                        NOT NULL VARCHAR2(20)
+ COMPANY    글 쓴 회사                                                      NOT NULL VARCHAR2(50)
+ REG        글 쓴 시간                                                      DATE
 
 --company table
 Name                                      Null?    Type

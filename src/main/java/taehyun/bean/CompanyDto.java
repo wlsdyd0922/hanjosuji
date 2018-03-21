@@ -3,7 +3,7 @@ package taehyun.bean;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class companyDto {
+public class CompanyDto {
 	private String name;
 	private String industry;
 	private String ceo;
@@ -16,11 +16,11 @@ public class companyDto {
 	private String imgname;
 	private String imgecnoding;
 	
-	public companyDto() {
+	public CompanyDto() {
 		super();
 	}
 	
-	public companyDto(ResultSet rs) throws SQLException {
+	public CompanyDto(ResultSet rs) throws SQLException {
 		setName(rs.getString("name"));
 		setIndustry(rs.getString("industry"));
 		setCeo(rs.getString("ceo"));
