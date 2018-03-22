@@ -1,5 +1,5 @@
 package job.model;
-
+ 
 import org.springframework.stereotype.Repository;
 
 import job.bean.ReviewDto;

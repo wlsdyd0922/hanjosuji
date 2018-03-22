@@ -40,9 +40,8 @@
 	<form action="" autocomplete="on">
 		<div style="width: 400px; height: 400px;">
 			<div id="wrap">
-				<input id="search" name="search" type="text"
-					placeholder="원하시는 기업명을 입력해 주세요."> <input id="search_submit"
-					value="Rechercher" type="submit">
+				<input id="search" name="search" type="text" placeholder="원하시는 기업명을 입력해 주세요."> 
+				<input id="search_submit" value="Rechercher" type="submit">
 			</div>
 		</div>
 	</form>

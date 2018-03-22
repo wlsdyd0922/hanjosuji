@@ -32,6 +32,7 @@ boardno		//게시글 번호
 
 create table resume(
 title varchar2(100) not null,
+count number not null,
 career varchar2(100) not null,
 edu varchar2(100) not null,
 salary varchar2(50) not null,
@@ -45,8 +46,9 @@ alter table resume add foreign key (email) references NormalM(email);
 
 create table hireboard(
 no number primary key,
-count number not null,
 title varchar(100) not null,
+count number not null,
+employee number not null,
 salary varchar2(30) not null,
 working varchar2(20) not null,
 contents varchar2(4000),
