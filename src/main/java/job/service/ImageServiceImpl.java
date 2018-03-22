@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.UUID;
 
 import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,7 +24,6 @@ public class ImageServiceImpl implements ImageService {
 	@Autowired
 	private NormalMDaoImpl nmdao;
 	
-	private Logger log = LoggerFactory.getLogger(getClass());
 	@Override
 	public void input(MultipartHttpServletRequest request, String email) throws IllegalStateException, IOException, ImageException {
 		MultipartFile file = request.getFile("file");
@@ -31,13 +31,10 @@ public class ImageServiceImpl implements ImageService {
 				&& !file.getOriginalFilename().endsWith(".gif")) {
 			throw new ImageException("이미지는 jpg,png,gif 중에서만 사용 가능합니다");
 		}
+		
 		String savename = UUID.randomUUID().toString();
 		String path = servletContext.getRealPath("/upload");
 		String enctype = file.getContentType();
-		
-		log.debug("savename={}",savename);
-		log.debug("path={}",path);
-		log.debug("enctype={}",enctype);
 
 		File dir = new File(path);
 		if (!dir.exists()) dir.mkdirs();
@@ -47,7 +44,15 @@ public class ImageServiceImpl implements ImageService {
 		nmdao.setImg(savename,enctype,email);
 	}
 	@Override
-	public void delete() {
-		
+	public void delete(HttpServletRequest request) {
+		String email = (String) request.getSession().getAttribute("accept");
+		String aaa = nmdao.deleteImg(email);
+		if (aaa != null) {
+			// 파일삭제...
+			String path = servletContext.getRealPath("/upload") + "\\" + aaa;
+			File file = new File(path);
+			if (file.exists())
+				file.delete();
+		}
 	}
 }

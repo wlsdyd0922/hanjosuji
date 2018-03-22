@@ -22,6 +22,10 @@ public class NormalMDaoImpl implements NormalMDao{
 		if(rs.next()) return new NormalMDto(rs);
 		else return null;
 	};
+	private ResultSetExtractor<String> exImgName = (rs)->{
+		if(rs.next()) return rs.getString(1);
+		else return null;
+	};
 	
 	private ResultSetExtractor<Integer> extractorNumber = (rs)->{
 		if(rs.next()) return rs.getInt(1);
@@ -132,9 +136,13 @@ public class NormalMDaoImpl implements NormalMDao{
 		String sql = "update NormalM set imgname=?,imgencoding=? where email=?";
 		return jdbcTemplate.update(sql,savename,enctype,email)>0;
 	}
-	
-	public boolean setCompany(String company,String email)
-	{
+	public String deleteImg(String email) {
+		String sql = "select imgname from normalm where email=?";
+		String imgname =  jdbcTemplate.query(sql, exImgName,email);
+		setImg("", "", email);
+		return imgname;
+	}
+	public boolean setCompany(String company,String email) {
 		String sql = "update NormalM set company=? where email=?";
 		return jdbcTemplate.update(sql,company,email)>0;
 	}
