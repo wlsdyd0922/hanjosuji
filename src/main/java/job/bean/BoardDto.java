@@ -1,4 +1,4 @@
-package taehyun.bean;
+package job.bean;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -7,6 +7,7 @@ public class BoardDto {
 	
 	private int no;
 	private int count;
+	private int employee;
 	private String title;
 	private String salary;
 	private String working;
@@ -17,10 +18,11 @@ public class BoardDto {
 	public BoardDto() {
 		super();
 	}
-	public BoardDto(int no, int count, String title, String salary, String working, String contents, String company, String reg) {
+	public BoardDto(int no, int count, int employee, String title, String salary, String working, String contents, String company, String reg) {
 		super();
 		this.no = no;
 		this.count = count;
+		this.employee = employee;
 		this.title = title;
 		this.salary = salary;
 		this.working = working;
@@ -32,12 +34,19 @@ public class BoardDto {
 	public BoardDto(ResultSet rs) throws SQLException {
 		setNo(rs.getInt("no"));
 		setCount(rs.getInt("count"));
+		setEmployee(rs.getInt("emplyoee"));
 		setTitle(rs.getString("title"));
 		setSalary(rs.getString("salary"));
 		setWorking(rs.getString("working"));
 		setContesnts(rs.getString("contents"));
 		setCompany(rs.getString("company"));
 		setReg(rs.getString("reg"));
+	}
+	public int getEmployee() {
+		return employee;
+	}
+	public void setEmployee(int employee) {
+		this.employee = employee;
 	}
 	public String getContesnts() {
 		return contesnts;

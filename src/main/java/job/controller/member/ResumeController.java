@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import taehyun.bean.ResumeDto;
-import taehyun.model.ResumeDaoImpl;
+import job.bean.ResumeDto;
+import job.model.ResumeDaoImpl;
 
 @Controller
 @RequestMapping("resume")

@@ -16,10 +16,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import job.bean.ResumeDto;
 import job.model.NormalMDaoImpl;
-import taehyun.bean.ResumeDto;
-import taehyun.model.ResumeDao;
-import taehyun.model.ResumeDaoImpl;
+import job.model.ResumeDao;
+import job.model.ResumeDaoImpl;
 
 @Controller
 public class FileUploadController{
