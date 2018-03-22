@@ -132,4 +132,10 @@ public class NormalMDaoImpl implements NormalMDao{
 		String sql = "update NormalM set imgname=?,imgencoding=? where email=?";
 		return jdbcTemplate.update(sql,savename,enctype,email)>0;
 	}
+	
+	public boolean setCompany(String company,String email)
+	{
+		String sql = "update NormalM set company=? where email=?";
+		return jdbcTemplate.update(sql,company,email)>0;
+	}
 }
