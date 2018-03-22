@@ -1,10 +1,10 @@
-package taehyun.model;
+package job.model;
 
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import taehyun.bean.BoardDto;
+import job.bean.BoardDto;
 
 @Repository
 public interface BoardDao {

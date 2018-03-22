@@ -8,6 +8,6 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import job.exception.ImageException;
 @Service
-public interface ImageInput {
+public interface ImageService {
 	void input(MultipartHttpServletRequest request, String email) throws IllegalStateException, IOException, ImageException;
 }

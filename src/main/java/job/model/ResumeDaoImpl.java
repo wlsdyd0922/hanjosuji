@@ -1,14 +1,14 @@
-package taehyun.model;
+package job.model;
 
 import java.util.List;
- 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
-import taehyun.bean.ResumeDto;
+import job.bean.ResumeDto;
 
 @Repository("resumeDao")
 public class ResumeDaoImpl implements ResumeDao{

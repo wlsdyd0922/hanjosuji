@@ -88,7 +88,6 @@
 					</c:otherwise>
 				</c:choose>
 				<c:if test="${accept eq 'admin' }">
-
 				</c:if>
 			</div>
 		</div>

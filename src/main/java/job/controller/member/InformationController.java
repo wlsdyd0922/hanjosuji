@@ -15,7 +15,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import job.exception.ImageException;
 import job.model.NormalMDao;
-import job.service.ImageInput;
+import job.service.ImageService;
 
 @Controller
 @RequestMapping("member")
@@ -23,7 +23,7 @@ public class InformationController {
 	@Autowired
 	private NormalMDao nmdao;
 	@Autowired
-	private ImageInput imginput;
+	private ImageService imginput;
 	private Logger log = LoggerFactory.getLogger(getClass());
 
 	@RequestMapping("information")
@@ -46,7 +46,7 @@ public class InformationController {
 	public String imgDelete(HttpServletRequest request) {
 		String email = (String) request.getSession().getAttribute("accept");
 		log.debug("딜리트들어옴");
-		//
+		
 		return "redirect:/member/information";
 	}
 }

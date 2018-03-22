@@ -1,6 +1,7 @@
 package job.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,19 +32,25 @@ public class BoardController {
 		request.setAttribute("bdto", bdto);
 		return "board/companyhire";
 	}
-
-	@RequestMapping("board/write")
-	public String board_detail() {
-		return "board/write";
+	
+	@RequestMapping(value="board/company",method = RequestMethod.POST)
+	public String board(BoardDto bdto, HttpSession session) {
+		session.setAttribute("company", bdto);
+		return "board/company_target";
 	}
-	@RequestMapping(value="board/write",method=RequestMethod.POST)
-	public String board_detail(BoardDto bdto, HttpServletRequest request) {
-		bdto.setEmployee(Integer.parseInt(request.getParameter("employee")));
-		bdto.setTitle(request.getParameter("title"));
-		bdto.setSalary(request.getParameter("salary"));
-		bdto.setWorking(request.getParameter("working"));
-		bdto.setContesnts(request.getParameter("contents"));
-		bdto.setCompany(request.getParameter("company"));
+	@RequestMapping("board/company_target")
+	public String board_detail() {
+		return "board/company_target";
+	}
+	@RequestMapping("board/company_target")
+	public String board_detail(BoardDto bdto, HttpSession session) {
+		BoardDto bdto2 = (BoardDto)session.getAttribute("company");
+		bdto.setCount(bdto2.getCount());
+		bdto.setTitle(bdto2.getTitle());
+		bdto.setSalary(bdto2.getSalary());
+		bdto.setWorking(bdto2.getWorking());
+		bdto.setCompany(bdto2.getCompany());
+		session.invalidate();
 		boardDao.insert(bdto);
 		return "redirect:/";
 	}

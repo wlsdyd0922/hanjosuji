@@ -17,7 +17,7 @@ import job.exception.ImageException;
 import job.model.NormalMDaoImpl;
 
 @Service("ImageInput")
-public class ImageInputImpl implements ImageInput {
+public class ImageServiceImpl implements ImageService {
 	@Autowired
 	private ServletContext servletContext;
 	@Autowired
