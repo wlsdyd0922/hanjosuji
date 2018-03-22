@@ -32,21 +32,20 @@
 			</div>
 			<div class="div-2 rest-area" style="height: 81%">
 				<div class="myrow content-size border-circle" align="center">
-					<div>
+					<div style="height:150px">
 						<c:if test="${not empty nmdto.imgname }">
-							<img id="profile-image" src="${pageContext.request.contextPath}/upload/${nmdto.imgname}"  width=65% height=auto>
+							<img id="profile-image" src="${pageContext.request.contextPath}/upload/${nmdto.imgname}"  width=67% height=auto>
 						</c:if>
 						<c:if test="${empty nmdto.imgname }"> 
 							<img style="object-fit:contain" id="profile-image" src="${pageContext.request.contextPath}/img/noone.jpg" >
 						 </c:if> 
 					</div>
-					<div>
+					<div class = "filebox bs3-primary" style="height: 33px">
 					<form id="fileform" action="${pageContext.request.contextPath }/member/information" method="post" enctype="multipart/form-data">
-						<input type="file" name="file" id="file">
-						<div class="in-align-center">
-							<input type="button" id="upload" value="업로드"> 
-							<input type="button" value="사진삭제">
-						</div>
+						<label for="ex_file">업로드</label>
+						<input type="file" name="file" class = "file" id="ex_file">
+						<label for="delete">사진삭제</label>
+						<input type="button" id="delete">
 					</form>
 					</div>
 				</div>
