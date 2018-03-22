@@ -15,6 +15,7 @@
     <h3>birth : ${nmdto.birth}</h3>
     <h3>image:${nmdto.imgname}</h3>
     <h3>image:${nmdto.imgencoding}</h3>
+    <h3>company:${nmdto.company}</h3>
 
 
 	<div class="div-2">
@@ -37,7 +38,7 @@
 							<img id="profile-image" src="${pageContext.request.contextPath}/upload/${nmdto.imgname}"  width=67% height=auto>
 						</c:if>
 						<c:if test="${empty nmdto.imgname }"> 
-							<img style="object-fit:contain" id="profile-image" src="${pageContext.request.contextPath}/img/noone.jpg" >
+							<img style="object-fit:contain" id="profile-image" src="${pageContext.request.contextPath}/img/noone.jpg" width=67% height=auto>
 						 </c:if> 
 					</div>
 					<div class = "filebox bs3-primary" style="height: 33px">

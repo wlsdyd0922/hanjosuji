@@ -9,4 +9,5 @@ import job.exception.ImageException;
 @Service
 public interface ImageService {
 	void input(MultipartHttpServletRequest request, String email) throws IllegalStateException, IOException, ImageException;
+	void delete();
 }

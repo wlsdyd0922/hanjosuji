@@ -15,15 +15,17 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import job.exception.ImageException;
 import job.model.NormalMDao;
+import job.model.NormalMDaoImpl;
 import job.service.ImageService;
 
 @Controller
 @RequestMapping("member")
 public class InformationController {
 	@Autowired
-	private NormalMDao nmdao;
+	private ImageService imgservice;
 	@Autowired
-	private ImageService imginput;
+	private NormalMDaoImpl nmdao;
+	
 	private Logger log = LoggerFactory.getLogger(getClass());
 
 	@RequestMapping("information")
@@ -38,7 +40,7 @@ public class InformationController {
 	public String imgUpload(MultipartHttpServletRequest request) throws ImageException, IllegalStateException, IOException {
 		String email = (String) request.getSession().getAttribute("accept");
 //		log.debug("request = {}", request.getFile("file").getOriginalFilename());
-		imginput.input(request,email);
+		imgservice.input(request,email);
 		return "redirect:/member/infomation";
 	}
 	@RequestMapping("delete")
@@ -46,7 +48,8 @@ public class InformationController {
 	public String imgDelete(HttpServletRequest request) {
 		String email = (String) request.getSession().getAttribute("accept");
 		log.debug("딜리트들어옴");
-		
+		boolean aaa = nmdao.setImg("","",email);
+		System.out.println(aaa);
 		return "redirect:/member/information";
 	}
 }

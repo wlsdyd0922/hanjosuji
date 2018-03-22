@@ -47,6 +47,7 @@ public class NormalMDto {
 		setPwquiz(rs.getString("pwquiz"));		//질문
 		setImgname(rs.getString("imgname"));
 		setImgencoding(rs.getString("imgencoding"));
+		setCompany(rs.getString("company"));
 	}
 	public String getEmail() {
 		return email;

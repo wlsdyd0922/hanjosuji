@@ -46,4 +46,8 @@ public class ImageServiceImpl implements ImageService {
 		file.transferTo(target);
 		nmdao.setImg(savename,enctype,email);
 	}
+	@Override
+	public void delete() {
+		
+	}
 }
