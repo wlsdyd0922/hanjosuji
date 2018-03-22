@@ -2,6 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="loginFlag" value="${not empty accept}"></c:set>
+<c:set var="compFlag" value="${not empty companyaccept}"></c:set>
+<c:set var="company" value="${not empty company}"></c:set>
 <html>
 <head>
 <title>MemberInformation</title>
@@ -49,22 +51,18 @@
 				<a href="${pageContext.request.contextPath }" class="left"><i
 					class="glyphicon glyphicon-home">MAIN</i></a>
 				<c:choose>
-					<c:when test="${loginFlag}">
+					<c:when test="${!company}">
 						<!-- 일반 사용자 information -->
 						<a href="${pageContext.request.contextPath }/member/information" class="left">
 							<i class="glyphicon glyphicon-user">INFO</i>
 						</a>
 					</c:when>
-					<c:when test="${compFlag}">
+					<c:otherwise>
 						<!-- 기업 사용자 information -->
 						<a href="${pageContext.request.contextPath }/member/company_information" class="left">
 							<i class="glyphicon glyphicon-user">INFO</i>
 						</a>
-					</c:when>
-						
-					<c:otherwise>
 					</c:otherwise>
-					
 				</c:choose>
 				<c:if test="${accept eq 'admin' }">
 
@@ -74,11 +72,9 @@
 			<div class="container-30 in-align-right">
 				<c:choose>
 					<c:when test="${loginFlag }">
-						<img src="${pageContext.request.contextPath }/img/noone.jpg"
-							class="height-100"> 유저 : ${sessionScope.accept}
-                                <a
-							href="${pageContext.request.contextPath }/member/logout"
-							class="rright">로그아웃</a>
+						<img src="${pageContext.request.contextPath }/img/noone.jpg" class="height-100"> 
+							유저 : ${sessionScope.accept}
+                        <a href="${pageContext.request.contextPath }/member/logout" class="rright">로그아웃</a>
 					</c:when>
 					<c:otherwise>
 						<a href="${pageContext.request.contextPath }/login" class="right">로그인</a>

@@ -2,18 +2,24 @@ package job.controller.member;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import job.model.NormalMDaoImpl;
 
 @Controller
 @RequestMapping("member")
 public class EditController {
 	
+	@Autowired
+	private NormalMDaoImpl nmdao;
+	
 	@RequestMapping("edit_personal")
 	public String EditPersonal(HttpServletRequest request) {
-		request.getAttribute("nmdto");
-		
+		String email = (String) request.getSession().getAttribute("accept");
+		request.setAttribute("nmdto", nmdao.info(email));
 		return "member/edit_personal";
 	} 
 	@RequestMapping(value="edit_personal",method=RequestMethod.POST)

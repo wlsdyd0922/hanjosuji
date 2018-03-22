@@ -72,16 +72,16 @@
 			</div>
 			<div class="div-2 rest-area" style="height: 81%">
 				<div class="myrow content-size in-align-center">
-					<div class="input-lg text-primary border-circle">선호기업종목</div>
-					<div class="input-lg">IT/정보업체</div>
-					<div class="input-lg text-primary border-circle">경력유무</div>
-					<div class="input-lg">경력직</div>
+					<div class="input-lg text-primary border-circle">학교</div>
+					<div class="input-lg">OOO대학교/고등학교</div>
+					<div class="input-lg text-primary border-circle">희망직종</div>
+					<div class="input-lg">IT</div>
 				</div>
 				<div class="myrow content-size in-align-center">
-					<div class="input-lg text-primary border-circle">선호기업</div>
-					<div class="input-lg">1.해군</div>
-					<div class="input-lg">2.KCC</div>
-					<div class="input-lg">3.KCC건설</div>
+					<div class="input-lg text-primary border-circle">경력유무</div>
+					<div class="input-lg">신입</div>
+					<div class="input-lg text-primary border-circle">희망지역</div>
+					<div class="input-lg">판교</div>
 				</div>
 			</div>
 		</div>

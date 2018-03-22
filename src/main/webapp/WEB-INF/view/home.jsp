@@ -87,7 +87,7 @@
 					</div>
 				</div>
 				<div class="myrow rest-area input-group" id="the-basics">
-					<input type="text" id="search" class="form-control"
+					<input type="text" id="search_job" class="form-control"
 						placeholder="검색어를 입력하세요"> <span class="input-group-btn">
 						<input type="submit" class="btn btn-secondary" value="검색">
 					</span>

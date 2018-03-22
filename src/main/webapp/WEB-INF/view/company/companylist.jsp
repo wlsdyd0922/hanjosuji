@@ -88,7 +88,7 @@
 					</div>
 				</div>
 				<div class="myrow rest-area input-group" id="the-basics">
-					<input type="text" id="search" class="form-control"
+					<input type="text" id="search_company" class="form-control"
 						placeholder="검색어를 입력하세요"> <span class="input-group-btn">
 						<input type="submit" class="btn btn-secondary" value="검색">
 					</span>
@@ -136,7 +136,7 @@
 							</div>
 							<div class="rest-area">
 								<h4 class="in-align-right">
-									<a href="#">지원하기</a>
+									<a href="${pageContext.request.contextPath }/company/employment_information">지원내용확인하기</a>
 								</h4>
 							</div>
 						</div>
@@ -179,7 +179,7 @@
 							</div>
 							<div class="rest-area">
 								<h4 class="in-align-right">
-									<a href="#">지원하기</a>
+									<a href="${pageContext.request.contextPath }/company/employment_information">지원내용확인하기</a>
 								</h4>
 							</div>
 						</div>

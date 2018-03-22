@@ -27,6 +27,10 @@ public class LogInController {
 		if (request.getSession().getAttribute("accept") != null) {
 			request.getSession().removeAttribute("accept"); // 기존값을 제거해 준다.
 		}
+		
+		if (request.getSession().getAttribute("companyaccept") != null) {
+			request.getSession().removeAttribute("companyaccept"); // 기존값을 제거해 준다.
+		}
 		NMdto.setPw(new SHA256().On(NMdto.getPw()));
 
 		Cookie ck = new Cookie("rememberId", NMdto.getEmail());
@@ -36,9 +40,10 @@ public class LogInController {
 			ck.setMaxAge(0);
 		}
 		response.addCookie(ck);
-
 		if (NMdao.login(NMdto.getEmail(), NMdto.getPw())) {
 			request.getSession().setAttribute("accept", NMdto.getEmail());// accept라는 이름으로 세션에 id를 저장한다.
+			request.getSession().setAttribute("companyaccept", NMdto.getEmail());// companyaccept라는 이름으로 세션에 id를 저장한다.
+			request.getSession().setAttribute("company", NMdao.info(NMdto.getEmail()).getCompany());
 			return "redirect:/";
 		} else {
 			model.addAttribute("error", true);

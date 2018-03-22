@@ -25,17 +25,17 @@
 			<span class="input-group-addon glyphicons-iphone-shake"
 				id="sizing-addon1"><i class="glyphicon glyphicon-phone-alt"></i></span>
 			<input type="text" class="form-control" name="phone"
-				value="01011112222">
+				value="${nmdto.phone }">
 		</div>
 		<div class="myrow input-group input-group-lg">
 			<span class="input-group-addon glyphicons-tent" id="sizing-addon1"><i
 				class="glyphicon glyphicon-tent"></i></span> <input type="text"
-				class="form-control" name="address" value="서울특별시 강남구">
+				class="form-control" name="address" value="${nmdto.addr }구">
 		</div>
 		<div class="myrow input-group input-group-lg">
 			<span class="input-group-addon" id="sizing-addon1"><i
 				class="glyphicon glyphicon-tent"></i></span> <input type="text"
-				class="form-control" name="address_detail" value="강남역 지하철 2호선 4번 출구"
+				class="form-control" name="address_detail" value="${nmdto.addr2 }"
 				>
 		</div>
 		<div class="myrow div-2">
