@@ -7,7 +7,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import job.bean.ReviewDto;
-
+ 
 @Repository("reviewDao")
 public class ReviewDaoImpl {
 	@Autowired

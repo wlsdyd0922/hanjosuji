@@ -2,7 +2,7 @@ package job.bean;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
+ 
 public class CompanyMDto {	//14개
 	private String email; 
 	private String password; 

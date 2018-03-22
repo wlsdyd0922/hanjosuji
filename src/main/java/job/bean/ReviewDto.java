@@ -2,7 +2,7 @@ package job.bean;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
+ 
 public class ReviewDto {	//15개
 	private int no;				//일련번호
 	private String company;		//회사이름

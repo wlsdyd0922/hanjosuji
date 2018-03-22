@@ -2,7 +2,7 @@ package job.bean;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
+ 
 public class NormalMDto { 
 	private String email;
 	private String name;
