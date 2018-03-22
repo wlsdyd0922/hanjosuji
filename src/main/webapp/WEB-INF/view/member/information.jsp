@@ -13,7 +13,9 @@
     <h3>addr : ${nmdto.addr}</h3>
     <h3>addr2 : ${nmdto.addr2}</h3>
     <h3>birth : ${nmdto.birth}</h3>
+    
     <h3>image:${nmdto.imgname}</h3>
+    
     <h3>image:${nmdto.imgencoding}</h3>
     <h3>company:${nmdto.company}</h3>
 

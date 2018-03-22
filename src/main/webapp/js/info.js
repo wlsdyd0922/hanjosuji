@@ -36,6 +36,7 @@ $(document).ready(function(){
 	document.querySelector(".file").addEventListener("change", loadFile);
 	
 	$("#delete").on("click",function(){
+		var uuid = 
 		console.log("클릭");
 		$.ajax({
 			url:'delete',
