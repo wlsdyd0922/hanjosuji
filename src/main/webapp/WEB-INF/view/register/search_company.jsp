@@ -3,8 +3,9 @@
 <html>
 
 <head>
-<title>기업찾기</title>
-<link rel="stylesheet" type="text/css" href="/css/common.css">
+	<title>기업찾기</title>
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/css/common.css">
 <!-- bootstrap을 사용하기 위한 링크 설정 -->
 
 <!-- Latest compiled and minified CSS -->
@@ -26,15 +27,13 @@
 
 <!-- jQuery -->
 <script src="https://code.jquery.com/jquery-latest.js"></script>
-
+<script src="${pageContext.request.contextPath}/js/star.js"></script>
+<script src="${pageContext.request.contextPath}/js/jquery.form.min.js"></script>
 <!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
 	integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
 	crossorigin="anonymous"></script>
-
-<script>
-	
-</script>
 </head>
 
 <body>

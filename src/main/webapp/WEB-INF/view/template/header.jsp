@@ -51,18 +51,18 @@
 				<c:choose>
 					<c:when test="${loginFlag }">
 						
-						<!-- 일반 사용자 information -->
-						<c:if test="">
-							<a href="${pageContext.request.contextPath }/member/information" class="left">
-								<i class="glyphicon glyphicon-user">INFO</i>
-							</a>
-						</c:if>
 						<!-- 기업 사용자 information -->
-						<c:if test="">
+						<c:when test="${nmdto.company }">
 							<a href="${pageContext.request.contextPath }/member/company_information" class="left">
 								<i class="glyphicon glyphicon-user">INFO</i>
 							</a>
-						</c:if>
+						</c:when>
+						<!-- 일반 사용자 information -->
+						<c:otherwise>
+							<a href="${pageContext.request.contextPath }/member/information" class="left">
+								<i class="glyphicon glyphicon-user">INFO</i>
+							</a>
+						</c:otherwise>
 						
 						<a href="${pageContext.request.contextPath }/company/companylist"
 							class="left"><i class="glyphicon glyphicon-search">기업채용정보</i></a>
