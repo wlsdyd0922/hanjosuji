@@ -11,7 +11,7 @@ public class BoardDto {
 	private String title;
 	private String salary;
 	private String working;
-	private String contesnts;
+	private String contents;
 	private String company;
 	private String reg;
 	
@@ -21,24 +21,24 @@ public class BoardDto {
 	public BoardDto(int no, int count, int employee, String title, String salary, String working, String contents, String company, String reg) {
 		super();
 		this.no = no;
+		this.title = title;
 		this.count = count;
 		this.employee = employee;
-		this.title = title;
 		this.salary = salary;
 		this.working = working;
-		this.contesnts = contents;
+		this.contents = contents;
 		this.company = company;
 		this.reg = reg;
 	}
 
 	public BoardDto(ResultSet rs) throws SQLException {
 		setNo(rs.getInt("no"));
-		setCount(rs.getInt("count"));
-		setEmployee(rs.getInt("emplyoee"));
 		setTitle(rs.getString("title"));
+		setCount(rs.getInt("count"));
+		setEmployee(rs.getInt("employee"));
 		setSalary(rs.getString("salary"));
 		setWorking(rs.getString("working"));
-		setContesnts(rs.getString("contents"));
+		setContents(rs.getString("contents"));
 		setCompany(rs.getString("company"));
 		setReg(rs.getString("reg"));
 	}
@@ -48,11 +48,11 @@ public class BoardDto {
 	public void setEmployee(int employee) {
 		this.employee = employee;
 	}
-	public String getContesnts() {
-		return contesnts;
+	public String getContents() {
+		return contents;
 	}
-	public void setContesnts(String contesnts) {
-		this.contesnts = contesnts;
+	public void setContents(String contents) {
+		this.contents = contents;
 	}
 	public int getNo() {
 		return no;
@@ -91,8 +91,8 @@ public class BoardDto {
 	public void setWorking(String working) {
 		this.working = working;
 	}
-	public String getReg() {
-		return reg;
+	public String getReg() { 
+		return reg.substring(0,10).replace("-",".");
 	}
 	public void setReg(String reg) {
 		this.reg = reg;

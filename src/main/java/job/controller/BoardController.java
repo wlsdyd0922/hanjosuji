@@ -1,7 +1,11 @@
 package job.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,10 +18,13 @@ import job.model.BoardDaoImpl;
 public class BoardController {
 	@Autowired
 	private BoardDaoImpl boardDao;
-	
+	private Logger log = LoggerFactory.getLogger(getClass());
 	@RequestMapping("board/list")
-	public String list() {
-		return "board/list";
+	public String list(HttpServletRequest request) {
+
+		List<BoardDto> list = boardDao.getList();
+		request.setAttribute("list", list);
+		return "board/list"; 
 	}
 	
 	@RequestMapping("board/companyhire")
@@ -26,23 +33,26 @@ public class BoardController {
 		if(request.getParameter("target")!=null && request.getParameter("target")!="") {
 			no = Integer.parseInt(request.getParameter("target"));
 		}
-		System.out.println("no:"+no);
 		BoardDto bdto = boardDao.searchTarget(no);
 		request.setAttribute("bdto", bdto);
 		return "board/companyhire";
 	}
 
 	@RequestMapping("board/write")
-	public String board_detail() {
+	public String boardWrite() {
 		return "board/write";
 	}
 	@RequestMapping(value="board/write",method=RequestMethod.POST)
-	public String board_detail(BoardDto bdto, HttpServletRequest request) {
-		bdto.setEmployee(Integer.parseInt(request.getParameter("employee")));
+	public String boardWrite(BoardDto bdto, HttpServletRequest request) {		
 		bdto.setTitle(request.getParameter("title"));
+		if(request.getParameter("employee")!=null && request.getParameter("employee")!="") {
+			int employee = Integer.parseInt(request.getParameter("employee"));
+			log.debug("employee:",employee);
+		}
+		bdto.setEmployee(Integer.parseInt(request.getParameter("employee")));
 		bdto.setSalary(request.getParameter("salary"));
 		bdto.setWorking(request.getParameter("working"));
-		bdto.setContesnts(request.getParameter("contents"));
+		bdto.setContents(request.getParameter("contents"));
 		bdto.setCompany(request.getParameter("company"));
 		boardDao.insert(bdto);
 		return "redirect:/";
