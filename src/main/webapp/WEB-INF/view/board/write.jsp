@@ -17,7 +17,9 @@
 		<div class="div-2">
 			<div class="container-20">회사명</div>
 			<div class="container-80">
-				<input class="form-input-full" type="text" name="company"> <select>
+				<input class="form-input-full" type="text" name="company"> 
+				<select>
+					<option></option>
 					<option>1</option>
 					<option>2</option>
 					<option>3</option>
@@ -27,7 +29,7 @@
 		<div class="div-2">
 			<div class="container-20">고용인원</div>
 			<div class="container-80">
-				<input class="form-input-full" type="text" name="count" placeholder="숫자로 입력해 주세요">
+				<input class="form-input-full" type="text" name="employee" placeholder="숫자로 입력해 주세요">
 			</div>
 		</div>
 		<div class="div-2">
@@ -46,7 +48,7 @@
 		<div class="div-2">
 			<div class="container-20">기타내용</div>
 			<div class="container-80">
-				<textarea class="textarea container-100 height-100" name="contents"></textarea>
+				<textarea class="textarea container-100" style="height:200px" name="contents"></textarea>
 			</div>
 		</div>
 		<div class="container-100 in-align-center">
