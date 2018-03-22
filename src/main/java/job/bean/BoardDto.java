@@ -91,7 +91,7 @@ public class BoardDto {
 	public void setWorking(String working) {
 		this.working = working;
 	}
-	public String getReg() {
+	public String getReg() { 
 		return reg.substring(0,10).replace("-",".");
 	}
 	public void setReg(String reg) {

@@ -38,6 +38,7 @@ public class BoardDaoImpl implements BoardDao{
 	private RowMapper<BoardDto> mapper = (rs, idx)->{
 		return new BoardDto(rs);
 	};
+	//채용공고 전체 리스트
 	@Override
 	public List<BoardDto> getList() {
 		String sql = "select * from hireboard order by reg desc";

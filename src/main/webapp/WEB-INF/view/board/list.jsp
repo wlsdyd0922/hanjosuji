@@ -7,7 +7,7 @@
 <div class="in-align-center">
         <h1>채용 공고 리스트</h1>
     </div>
-<table class="table">
+<table class="table"> 
 	<thead>
 		<tr>
 			<th>번호</th>

@@ -24,7 +24,7 @@ public class BoardController {
 
 		List<BoardDto> list = boardDao.getList();
 		request.setAttribute("list", list);
-		return "board/list";
+		return "board/list"; 
 	}
 	
 	@RequestMapping("board/companyhire")

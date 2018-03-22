@@ -54,7 +54,7 @@
 		<div class="container-100 in-align-center">
 			<input type="button" value="돌아가기" onclick="#"> 
 			<input type="submit" value="작성하기">
-		</div>
+		</div> 
 	</div>
 </form>
 
