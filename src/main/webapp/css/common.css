@@ -892,3 +892,36 @@ body {
   background-color: #5cb85c;
     border-color: #4cae4c;
 }
+
+#pop {
+    width: 500px;
+    height: 300px;
+    position: fixed;
+    left: 500px;
+    top: 200px;
+    text-align: center;
+    z-index:10000;
+}
+
+#mask {  
+  position:absolute;  
+  left:0;
+  top:0;
+  z-index:9000;  
+  background-color:#000;  
+  display:none;  
+}
+
+#x-mark{
+    position:absolute;
+    top: 0px;
+    left: 460px;
+}
+
+#inside{
+    background-color: white;
+    position: absolute;
+    top: 80px;
+    width: 475px;
+    height: 210px
+}

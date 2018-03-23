@@ -114,7 +114,7 @@
 							<div class="padding">
 								<div class="out-align-center"
 									style="width: 100px; height: 100px;">
-									<img src="/img/logo.png" style="width: 100%; height: auto;">
+									<img src="${pageContext.request.contextPath }/img/logo.png" style="width: 100%; height: auto;">
 								</div>
 							</div>
 						</div>
@@ -130,7 +130,7 @@
 							<button class="background-white shape-circle">좋아요♡</button>
 						</div>
 						<div class="container-100 font-medium in-align-center">
-							<a href="#">기업상세보기</a>
+							<a href="${pageContext.request.contextPath }/company/companyreview">기업상세보기</a>
 						</div>
 					</div>
 				</div>
@@ -145,7 +145,7 @@
 
 							<!-- for문 -->
 							<div class="container-20 padding">
-								<img src="/img/logo.png" style="width: 100%; height: auto;">
+								<img src="${pageContext.request.contextPath }/img/logo.png" style="width: 100%; height: auto;">
 							</div>
 							<div class="container-80 padding">
 								<h4>청소부 모집</h4>
@@ -156,8 +156,7 @@
 					</div>
 				</div>
 				<div class="padding">
-					<button class="form-btn-full font-medium btn btn-primary"
-						onclick="#">지원하기</button>
+					<button class="form-btn-full font-medium btn btn-primary openMask">지원하기</button>
 				</div>
 			</div>
 		</div>

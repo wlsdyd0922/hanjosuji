@@ -66,7 +66,7 @@
 														<div class="div-main padding-5 container-70">
 															<div>JAVA/JSP 개발자 구함</div>
 															<div>
-																<a href="#">지원하기</a>
+																<a class="openMask">지원하기</a>
 															</div>
 														</div>
 													</div>
