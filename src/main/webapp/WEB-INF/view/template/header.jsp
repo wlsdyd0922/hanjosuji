@@ -59,6 +59,9 @@
 					
 					<c:when test="${grade eq '관리자'}">
 					<!-- 회사 등록 요청 게시판 -->
+					<a href="${pageContext.request.contextPath }/admin/compacceptboard" class="left">
+							<i class="glyphicon glyphicon-user">회사목록</i>
+						</a>
 					<!-- 회원 목록 -> 회원 정보 변경 -->
 					</c:when>
 					

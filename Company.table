@@ -9,3 +9,7 @@
  TYPE                                               VARCHAR2(20)	//기업형태
  SALES                                              NUMBER			//매출
  LOCATION                                           VARCHAR2(100)	//주소
+ IMGNAME                                            VARCHAR2(1000)	//회사 사진 이미지 이름
+ IMGENCODING                                        VARCHAR2(10)	//회사 사진 이미지 확장자
+ REGCODE                                            VARCHAR2(15)	//사업자 번호
+ CHECKED															//회사 등록 여부 (admin이 확인 할 내용)

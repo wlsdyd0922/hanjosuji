@@ -21,6 +21,10 @@
 			<mvc:mapping path="/member/*" />
 			<bean class="job.intercepter.MemberIntercepter"></bean>
 		</mvc:interceptor>
+		<mvc:interceptor>
+			<mvc:mapping path="/admin/*" />
+			<bean class="job.intercepter.AdminIntercepter"></bean>
+		</mvc:interceptor>
 	</mvc:interceptors>
 
 
