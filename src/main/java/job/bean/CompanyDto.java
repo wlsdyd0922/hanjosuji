@@ -15,6 +15,7 @@ public class CompanyDto {
 	private String location;
 	private String imgname;
 	private String imgecnoding;
+	private String regcode;
 	
 	public CompanyDto() {
 		super();
@@ -32,6 +33,7 @@ public class CompanyDto {
 		setLocation(rs.getString("location"));
 		setImgname(rs.getString("imgname"));
 		setImgecnoding(rs.getString("imgecnoding"));
+		setRegcode(rs.getString("regcode"));
 	}
 
 	public String getName() {
@@ -100,5 +102,10 @@ public class CompanyDto {
 	public void setImgecnoding(String imgecnoding) {
 		this.imgecnoding = imgecnoding;
 	}
-	
+	public String getRegcode() {
+		return regcode;
+	}
+	public void setRegcode(String regcode) {
+		this.regcode = regcode;
+	}
 }

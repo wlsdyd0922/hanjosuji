@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import job.bean.CompanyMDto;
+import job.bean.CompanyDto;
 import job.bean.NormalMDto;
 import job.manager.SHA256;
-import job.model.CompanyMDaoImpl;
+import job.model.CompanyDaoImpl;
 import job.model.NormalMDaoImpl;
 
 @Controller
@@ -25,7 +25,7 @@ public class RegisterController {
 	@Autowired
 	private NormalMDaoImpl nmdao;
 	@Autowired
-	private CompanyMDaoImpl cmdao;
+	private CompanyDaoImpl cdao;
 	
 	@RequestMapping("register_choose")
 	public String RegisterChoose() {
@@ -55,20 +55,20 @@ public class RegisterController {
 	}
 	
 	@RequestMapping(value = "register_company",method = RequestMethod.POST)
-	public String RegisterCompany(CompanyMDto cmdto) {
-		log.debug(cmdto.getEmail());
-		log.debug(cmdto.getPassword());
-		log.debug(cmdto.getPhone());
-		log.debug(cmdto.getCompany());
-		log.debug(cmdto.getCeo());
-		log.debug(cmdto.getBirth());
-		log.debug(cmdto.getPwquiz());
-		log.debug(cmdto.getPwans());
-		log.debug(cmdto.getIndustry());
-		log.debug(cmdto.getLocation());
-		log.debug(""+cmdto.getEmployee());
-		log.debug(cmdto.getSales());
-		cmdao.register(cmdto);
+	public String RegisterCompany(CompanyDto cdto) {
+		log.debug(cdto.getName());
+		log.debug(cdto.getIndustry());
+		log.debug(cdto.getCeo());
+		log.debug(cdto.getBirth());
+		log.debug(cdto.getWebsite());
+		log.debug(""+cdto.getEmployee());
+		log.debug(cdto.getType());
+		log.debug(""+cdto.getSales());
+		log.debug(cdto.getLocation());
+		log.debug(cdto.getImgname());
+		log.debug(cdto.getImgecnoding());
+		log.debug(cdto.getRegcode());
+		cdao.insert(cdto);
 		return "register/register_company";
 	}
 	@RequestMapping("compsearch")
@@ -79,7 +79,7 @@ public class RegisterController {
 	}
 	
 	@RequestMapping("chksameid")
-	@ResponseBody      
+	@ResponseBody
 	public String ChkIdSame(String email) {
 		return String.valueOf(nmdao.ChkSameId(email));
 	}

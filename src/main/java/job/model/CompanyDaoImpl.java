@@ -6,9 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Repository;
 
 import job.bean.CompanyDto;
-
+@Repository("companyDao")
 public class CompanyDaoImpl implements CompanyDao{
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
@@ -19,10 +20,10 @@ public class CompanyDaoImpl implements CompanyDao{
 	private RowMapper<CompanyDto> mapper = (rs, idx)->{
 		return new CompanyDto(rs);
 	};
-	
+	 
 	@Override
 	public void insert(CompanyDto cdto) {
-		String sql = "insert into company values(?,?,?,?,?,?,?,?,?,?,?)";
+		String sql = "insert into company values(?,?,?,?,?,?,?,?,?,?,?,?)";
 		Object[] args = {
 			cdto.getName(),
 			cdto.getIndustry(),
@@ -34,7 +35,8 @@ public class CompanyDaoImpl implements CompanyDao{
 			cdto.getSales(),
 			cdto.getLocation(),
 			cdto.getImgname(),
-			cdto.getImgecnoding()
+			cdto.getImgecnoding(),
+			cdto.getRegcode()
 		};
 		jdbcTemplate.update(sql, args);
 	}

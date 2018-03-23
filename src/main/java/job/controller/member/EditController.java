@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import job.model.CompanyDaoImpl;
 import job.model.NormalMDaoImpl;
 
 @Controller
@@ -15,6 +16,8 @@ public class EditController {
 	
 	@Autowired
 	private NormalMDaoImpl nmdao;
+	@Autowired
+	private CompanyDaoImpl cdao;
 	
 	@RequestMapping("edit_personal")
 	public String EditPersonal(HttpServletRequest request) {
@@ -26,7 +29,17 @@ public class EditController {
 	public String EditPersonal1() {
 		return "member/edit_personal";
 	} 
-
+	@RequestMapping("edit_company")
+	public String EditCompany(HttpServletRequest request) {
+		String email = (String) request.getSession().getAttribute("accept");
+		request.setAttribute("nmdto", nmdao.info(email));
+		return "company/list";
+	} 
+	@RequestMapping(value="edit_company",method=RequestMethod.POST)
+	public String EditCompany() {
+		return "member/edit_compnay";
+	} 
+	
 	
 	@RequestMapping("edit_resume")
 	public String EditDetailResum() {
