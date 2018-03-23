@@ -1,7 +1,7 @@
 create table NormalM(
 email varchar2(50) primary key,
 name varchar2(15) not null,
-gender varchar2(5) not null,
+gender varchar2(5),
 pw varchar2(64) not null,
 phone varchar2(20),
 addr varchar2(100),
@@ -11,7 +11,6 @@ birth varchar2(15),
 pwquiz varchar2(50) not null,
 pwans varchar2(50) not null,
 grade varchar2(10),
-resume varchar2(50),
 company varchar2(30),
 imgname varchar2(1000),
 imgencoding varchar2(10));
@@ -79,3 +78,4 @@ Name                                      Null?    Type
  SALES                                              NUMBER
  LOCATION                                           VARCHAR2(100)
  IMAGE                                              VARCHAR2(100)
+ REGCODE                                            VARCHAR2(15)

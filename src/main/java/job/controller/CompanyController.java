@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import job.bean.CompanyDto;
 import job.bean.NormalMDto;
@@ -26,10 +27,17 @@ public class CompanyController {
 		return null;
 	}
 	
-	@RequestMapping("register_company")
-	public String company_register(NormalMDto ndto)
+	@RequestMapping(value = "register_company",method = RequestMethod.POST)
+	public String company_register(CompanyDto cdto)
 	{
-		ndao.register(ndto);
+		cdao.insert(cdto);
+		return "company/companylist";
+	}
+	
+	@RequestMapping("register_companymember")
+	public String company_register(NormalMDto nmdto)
+	{
+		ndao.register(nmdto);
 		return "company/companylist";
 	}
 }
