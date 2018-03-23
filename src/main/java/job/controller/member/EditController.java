@@ -37,7 +37,7 @@ public class EditController {
 	} 
 	@RequestMapping(value="edit_company",method=RequestMethod.POST)
 	public String EditCompany() {
-		return "member/edit_personal";
+		return "member/edit_compnay";
 	} 
 	
 	
