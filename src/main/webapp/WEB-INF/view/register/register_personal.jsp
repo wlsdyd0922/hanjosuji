@@ -27,7 +27,7 @@
 			<i class="glyphicon glyphicon-user"></i>
 			</span>
 			<div class="form-control">
-				<input type="radio" name="gender" id="male" value="남" required>
+				<input type="radio" name="gender" id="male" value="남" required checked>
 				<label for="male">남자</label> 
 				<input type="radio" name="gender" id="female" value="여" required> 
 				<label for="female">여자</label>
@@ -74,7 +74,6 @@
 			</span> 
 			<input id="date" class="form-control" type="date" name="birth" required>
 		</div>
-
 		<div class="myrow">
 			<h4>비밀번호 확인 질문을 선택하세요.</h4>
 			<div class="form-group">

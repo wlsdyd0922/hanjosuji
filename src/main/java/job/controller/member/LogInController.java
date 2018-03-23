@@ -25,7 +25,7 @@ public class LogInController {
 	@RequestMapping(value = "login", method = RequestMethod.POST)
 	public String LogIn(NormalMDto NMdto, HttpServletRequest request, HttpServletResponse response, Model model) {
 		if (request.getSession().getAttribute("accept") != null) {
-			request.getSession().removeAttribute("accept"); // 기존값을 제거해 준다.
+			request.getSession().invalidate(); // 기존값을 제거해 준다.
 		}
 		NMdto.setPw(new SHA256().On(NMdto.getPw()));
 		Cookie ck = new Cookie("rememberId", NMdto.getEmail());
@@ -38,7 +38,7 @@ public class LogInController {
 		
 		if (NMdao.login(NMdto.getEmail(), NMdto.getPw())) {
 			request.getSession().setAttribute("accept", NMdto.getEmail());// accept라는 이름으로 세션에 id를 저장한다.
-			request.getSession().setAttribute("company", NMdao.info(NMdto.getEmail()).getCompany());
+			request.getSession().setAttribute("grade", NMdao.info(NMdto.getEmail()).getGrade());
 			return "redirect:/";
 		} else {
 			model.addAttribute("error", true);

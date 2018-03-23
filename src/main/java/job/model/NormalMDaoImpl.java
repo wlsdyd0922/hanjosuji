@@ -22,6 +22,10 @@ public class NormalMDaoImpl implements NormalMDao{
 		if(rs.next()) return new NormalMDto(rs);
 		else return null;
 	};
+	private ResultSetExtractor<NormalMDto> exLonIn = (rs)->{
+		if(rs.next()) return new NormalMDto(rs);
+		else return null;
+	};
 	private ResultSetExtractor<String> exImgName = (rs)->{
 		if(rs.next()) return rs.getString(1);
 		else return null;

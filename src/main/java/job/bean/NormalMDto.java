@@ -48,6 +48,7 @@ public class NormalMDto {
 		setImgname(rs.getString("imgname"));
 		setImgencoding(rs.getString("imgencoding"));
 		setCompany(rs.getString("company"));
+		setGrade(rs.getString("grade"));
 	}
 	public String getEmail() {
 		return email;

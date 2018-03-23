@@ -2,8 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="loginFlag" value="${not empty accept}"></c:set>
-<c:set var="compFlag" value="${not empty companyaccept}"></c:set>
-<c:set var="company" value="${not empty company}"></c:set>
+<c:set var="grade" value="${grade}"></c:set>
 <html>
 <head>
 <title>MemberInformation</title>
@@ -51,21 +50,21 @@
 				<a href="${pageContext.request.contextPath }" class="left"><i
 					class="glyphicon glyphicon-home">MAIN</i></a>
 				<c:choose>
-					<c:when test="${!company}">
+					<c:when test="${grade eq '일반'}">
 						<!-- 일반 사용자 information -->
 						<a href="${pageContext.request.contextPath }/member/information" class="left">
 							<i class="glyphicon glyphicon-user">INFO</i>
 						</a>
 					</c:when>
 					<c:otherwise>
+					
 						<!-- 기업 사용자 information -->
 						<a href="${pageContext.request.contextPath }/member/company_information" class="left">
 							<i class="glyphicon glyphicon-user">INFO</i>
 						</a>
 					</c:otherwise>
 				</c:choose>
-				<c:if test="${accept eq 'admin' }">
-
+				<c:if test="${grade eq '관리자' }">
 				</c:if>
 				<a href="${pageContext.request.contextPath }/company/companylist" class="left"><i class="glyphicon glyphicon-search">기업채용정보</i></a>
 			</div>
