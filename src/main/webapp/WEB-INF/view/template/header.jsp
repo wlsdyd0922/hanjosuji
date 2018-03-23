@@ -36,6 +36,7 @@
 	integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
 	crossorigin="anonymous"></script>
 	<script src="${pageContext.request.contextPath}/js/application.js"></script>
+	<script src="${pageContext.request.contextPath}/js/find_company.js"></script>
 </head>
 <body>
 	<!-- 1페이지 영역-->

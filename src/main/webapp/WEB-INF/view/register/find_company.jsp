@@ -29,6 +29,7 @@
 <script src="https://code.jquery.com/jquery-latest.js"></script>
 <script src="${pageContext.request.contextPath}/js/star.js"></script>
 <script src="${pageContext.request.contextPath}/js/jquery.form.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/find_company.js"></script>
 <!-- Latest compiled and minified JavaScript -->
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
@@ -37,14 +38,16 @@
 </head>
 
 <body>
-	<form action="" autocomplete="on">
-		<div style="width: 400px; height: 400px;">
-			<div id="wrap">
-				<input id="search" name="search" type="text" placeholder="원하시는 기업명을 입력해 주세요."> 
-				<input id="search_submit" value="Rechercher" type="submit">
-			</div>
-		</div>
-	</form>
+	<div style="width: 400px; height: 400px;">
+        <div id="company_search_result"> 
+            <input id="company_input" type="text" placeholder="원하시는 기업명을 입력해 주세요">
+            <button id="search_button">검색</button>
+        </div>
+        <div id = "show_status" class="padding container-100 in-align-center" style="height: 100px;">
+            <label class="font-medium">존재하지 않은 기업입니다.</label><br>
+            <button class="btn btn-primary btn-lg" onclick="location.href='${pageContext.request.contextPath }/register/register_newcompany'">기업등록</button>
+        </div>
+    </div>
 </body>
 
 </html>

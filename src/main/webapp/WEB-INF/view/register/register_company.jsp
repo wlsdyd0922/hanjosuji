@@ -38,7 +38,7 @@
 					class="form-control" name="company_name" placeholder="회사명을 입력해주세요">
 			</div>
 			<div class="rest-area padding">
-				<button class="btn btn-primary input-lg" id="search_button">
+				<button class="btn btn-primary input-lg" id="company_search_button">
 					<i class="glyphicon glyphicon-search"></i>
 				</button>
 			</div>
