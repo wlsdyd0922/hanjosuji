@@ -100,7 +100,7 @@ public class CompanyDaoImpl implements CompanyDao{
 
 	@Override
 	public boolean isCheck(CompanyDto cdto) {
-		String sql = "update company set checked=1 where name=?";
+		String sql = "update company set checked='1' where name=?";
 		return jdbcTemplate.update(sql, cdto.getName())>0;
 	}
 }
