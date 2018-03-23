@@ -27,13 +27,13 @@
 						이력서 <span class="icono-checkCircle" style="color: lightblue"></span>
 						<!-- 이력서 미존재시 -->
 						<span class="icono-plusCircle" style="color: lightblue"
-							onclick="location.href='/member/edit_resume'"></span>
+							onclick="location.href='${pageContext.request.contextPath}/member/edit_resume'"></span>
 
 						<!-- 자소서 존재시-->
 						자기소개서 <span class="icono-checkCircle" style="color: lightblue"></span>
 						<!-- 자소서 미존재시 -->
 						<span class="icono-plusCircle" style="color: lightblue"
-							onclick="location.href='/member/edit_introduction_paper'"></span>
+							onclick="location.href='${pageContext.request.contextPath}/member/edit_introduction_paper'"></span>
 					</div>
 				</div>
 			</div>
