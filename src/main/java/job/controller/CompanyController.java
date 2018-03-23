@@ -11,7 +11,7 @@ import job.bean.NormalMDto;
 import job.model.CompanyDaoImpl;
 import job.model.NormalMDaoImpl;
 
-@Controller
+@Controller 
 public class CompanyController {
 	
 	private Logger log = LoggerFactory.getLogger(getClass());

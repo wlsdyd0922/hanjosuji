@@ -20,7 +20,7 @@ public class CompanyDaoImpl implements CompanyDao{
 	private RowMapper<CompanyDto> mapper = (rs, idx)->{
 		return new CompanyDto(rs);
 	};
-	
+	 
 	@Override
 	public void insert(CompanyDto cdto) {
 		String sql = "insert into company values(?,?,?,?,?,?,?,?,?,?,?)";
