@@ -16,7 +16,7 @@ public class CompanyDto {
 	private String imgname;
 	private String imgecnoding;
 	private String regcode;
-	
+	private String checked; 
 	public CompanyDto() {
 		super();
 	}
@@ -34,6 +34,7 @@ public class CompanyDto {
 		setImgname(rs.getString("imgname"));
 		setImgecnoding(rs.getString("imgecnoding"));
 		setRegcode(rs.getString("regcode"));
+		setChecked(rs.getString("checked"));
 	}
 
 	public String getName() {
@@ -107,5 +108,13 @@ public class CompanyDto {
 	}
 	public void setRegcode(String regcode) {
 		this.regcode = regcode;
+	}
+
+	public String getChecked() {
+		return checked;
+	}
+
+	public void setChecked(String checked) {
+		this.checked = checked;
 	}
 }
