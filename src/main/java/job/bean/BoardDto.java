@@ -5,9 +5,10 @@ import java.sql.SQLException;
 
 public class BoardDto {
 	private int no;
-	private int count;
-	private int employee;
 	private String title;
+	private int count;
+	private String state;
+	private int employee;	
 	private String salary;
 	private String working;
 	private String contents;
@@ -17,11 +18,14 @@ public class BoardDto {
 	public BoardDto() {
 		super();
 	}
-	public BoardDto(int no, int count, int employee, String title, String salary, String working, String contents, String company, String reg) {
+
+	public BoardDto(int no, String title, int count, String state, int employee, String salary, String working,
+			String contents, String company, String reg) {
 		super();
 		this.no = no;
 		this.title = title;
 		this.count = count;
+		this.state = state;
 		this.employee = employee;
 		this.salary = salary;
 		this.working = working;
@@ -34,6 +38,7 @@ public class BoardDto {
 		setNo(rs.getInt("no"));
 		setTitle(rs.getString("title"));
 		setCount(rs.getInt("count"));
+		setState(rs.getString("state"));
 		setEmployee(rs.getInt("employee"));
 		setSalary(rs.getString("salary"));
 		setWorking(rs.getString("working"));
@@ -95,6 +100,14 @@ public class BoardDto {
 	}
 	public void setReg(String reg) {
 		this.reg = reg;
+	}
+
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
 	}
 
 }

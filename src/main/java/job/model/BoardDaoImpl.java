@@ -19,7 +19,7 @@ public class BoardDaoImpl implements BoardDao{
 	};
 	@Override
 	public void insert(BoardDto bdto) {
-		String sql = "insert into hireboard values(hireboard_seq.nextval,?,0,?,?,?,?,?,sysdate)";
+		String sql = "insert into hireboard values(hireboard_seq.nextval,?,0,'채용중',?,?,?,?,?,sysdate)";
 		Object[] args = {
 			bdto.getTitle(),
 			bdto.getEmployee(),
@@ -77,5 +77,10 @@ public class BoardDaoImpl implements BoardDao{
 				bdto.getCompany()
 			};
 			return jdbcTemplate.update(sql, args)>0;
+	}
+	@Override
+	public boolean emplEnd(BoardDto bdto) {
+		String sql = "update hireboard set state='종료' where company=?";
+		return jdbcTemplate.update(sql, bdto.getCompany())>0;
 	}
 }

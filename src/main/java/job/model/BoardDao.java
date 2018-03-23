@@ -16,4 +16,5 @@ public interface BoardDao {
 
 	void insert(BoardDto bdto);
 
+	boolean emplEnd(BoardDto bdto);
 }

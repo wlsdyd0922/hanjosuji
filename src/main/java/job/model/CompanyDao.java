@@ -15,4 +15,5 @@ public interface CompanyDao {
 	boolean delete(CompanyDto cdto);
 	boolean edit(CompanyDto cdto);
 	boolean image(CompanyDto cdto);
+	boolean isCheck(CompanyDto cdto);
 }
