@@ -80,3 +80,4 @@ Name                                      Null?    Type
  LOCATION                                           VARCHAR2(100)
  IMAGE                                              VARCHAR2(100)
  REGCODE                                            VARCHAR2(15)
+ 
