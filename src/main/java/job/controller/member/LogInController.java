@@ -1,9 +1,13 @@
 package job.controller.member;
 
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.cookie;
+
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,11 +22,15 @@ import job.model.NormalMDaoImpl;
 public class LogInController {
 	@Autowired
 	private NormalMDaoImpl NMdao = new NormalMDaoImpl();
+	
+	private Logger log = LoggerFactory.getLogger(getClass());
+	
 	@RequestMapping("login")
 	public String LogIn(HttpServletRequest request) {
 		return "login";
 	}
 	@RequestMapping(value = "login", method = RequestMethod.POST)
+	
 	public String LogIn(NormalMDto NMdto, HttpServletRequest request, HttpServletResponse response, Model model) {
 		if (request.getSession().getAttribute("accept") != null) {
 			request.getSession().invalidate(); // 기존값을 제거해 준다.

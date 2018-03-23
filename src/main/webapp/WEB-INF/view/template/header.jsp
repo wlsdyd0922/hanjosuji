@@ -6,8 +6,7 @@
 <html>
 <head>
 <title>MemberInformation</title>
-<link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/css/common.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/common.css">
 <!-- bootstrap을 사용하기 위한 링크 설정 -->
 
 <!-- Latest compiled and minified CSS -->
@@ -38,12 +37,13 @@
 	crossorigin="anonymous"></script>
 	<script src="${pageContext.request.contextPath}/js/application.js"></script>
 </head>
-
 <body>
 	<!-- 1페이지 영역-->
-	<main> <!-- 상단 영역 --> <header class="font-big in-align-center">
-		<a href="${pageContext.request.contextPath}/"><img
-			src="${pageContext.request.contextPath}/img/logo.png"></a>
+	<main> <!-- 상단 영역 --> 
+	<header class="font-big in-align-center">
+		<a href="${pageContext.request.contextPath}/">
+			<img src="${pageContext.request.contextPath}/img/logo.png">
+		</a>
 	</header> <!-- 메뉴 영역 -->
 	<nav class="menu input-lg border">
 		<div class="div-2 container-1000 out-align-center">
@@ -52,21 +52,23 @@
 					class="glyphicon glyphicon-home">MAIN</i></a>
 				<c:choose>
 					<c:when test="${grade eq '일반'}">
-						<!-- 일반 사용자 information -->
 						<a href="${pageContext.request.contextPath }/member/information" class="left">
 							<i class="glyphicon glyphicon-user">INFO</i>
 						</a>
 					</c:when>
-					<c:otherwise>
 					
-						<!-- 기업 사용자 information -->
+					<c:when test="${grade eq '관리자'}">
+					<!-- 회사 등록 요청 게시판 -->
+					<!-- 회원 목록 -> 회원 정보 변경 -->
+					</c:when>
+					
+					<c:when test="${grade eq '기업'}">
 						<a href="${pageContext.request.contextPath }/member/company_information" class="left">
 							<i class="glyphicon glyphicon-user">INFO</i>
 						</a>
-					</c:otherwise>
+					</c:when>
 				</c:choose>
-				<c:if test="${grade eq '관리자' }">
-				</c:if>
+				
 				<a href="${pageContext.request.contextPath }/company/companylist" class="left"><i class="glyphicon glyphicon-search">기업채용정보</i></a>
 			</div>
 			<div class="container-30 in-align-right">

@@ -2,10 +2,13 @@
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="/WEB-INF/view/template/header.jsp"></jsp:include>
+
 <script>
 $(function(){
+	if($('#grade').val()!="관리자" || $("input[type=email]").val()==sessionStorage.getItem("accept")){
 		$('#grade').prop('outerHTML', $('#grade').prop('outerHTML')+$('#grade option:selected').text());
 		$('#grade').hide();
+	}
 });
 </script>
 
@@ -27,7 +30,7 @@ $(function(){
 			<span class="input-group-addon" id="sizing-addon1">
 				<i class="glyphicon glyphicon-envelope"></i>
 			</span>
-			<input type="text" class="form-control" name="id" value="${nmdto.email}" readonly>
+			<input type="text" class="form-control" name="email" value="${nmdto.email}" readonly>
 		</div>
 		<div class="myrow input-group input-group-lg">
 			<span class="input-group-addon glyphicons glyphicons-lock" id="sizing-addon1">
@@ -62,7 +65,6 @@ $(function(){
 		<div class="myrow">
 			<h4>회원 등급</h4>
 			<div class="form-group">
-		
 				<select id="grade"name="grade" class="form-control input-lg">
 					<option value="일반" <c:if test="${grade eq '일반'}">selected="selected"</c:if>>일반회원</option>
 					<option value="기업" <c:if test="${grade eq '기업'}">selected="selected"</c:if>>기업회원</option>
