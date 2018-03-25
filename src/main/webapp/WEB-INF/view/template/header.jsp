@@ -72,8 +72,11 @@
 						</a>
 					</c:when>
 				</c:choose>
-				
 				<a href="${pageContext.request.contextPath }/company/companylist" class="left"><i class="glyphicon glyphicon-search">기업채용정보</i></a>
+				<c:if test="${accept eq 'admin' }">
+					<a href="${pageContext.request.contextPath }/admin/compacceptboard" class="left"><i class="glyphicon glyphicon-plus">기업등록요청</i></a>
+					<!-- 관리자 계정으로 로그인시 보인다. -->
+				</c:if>
 			</div>
 			<div class="container-30 in-align-right">
 				<c:choose>
@@ -84,13 +87,9 @@
 					</c:when>
 					<c:otherwise>
 						<a href="${pageContext.request.contextPath }/login" class="right">로그인</a>
-						<a
-							href="${pageContext.request.contextPath }/register/register_choose"
-							class="rright">회원가입</a>
+						<a href="${pageContext.request.contextPath }/register/register_choose" class="rright">회원가입</a>
 					</c:otherwise>
 				</c:choose>
-				<c:if test="${accept eq 'admin' }">
-				</c:if>
 			</div>
 		</div>
 	</nav>
