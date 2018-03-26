@@ -32,7 +32,7 @@
         </div>
     </div>
     <div class="div-2 rest-area" style="height: 7%;">
-        <div class="myrow rest-area input-lg border-circle">${rdto.title}</div>
+        <div class="myrow rest-area input-lg border-circle">${rdto.career}</div>
     </div>
     <div>
         <div class="div-1 border-white">
@@ -40,15 +40,23 @@
         </div>
     </div>
     <div class="div-2 rest-area" style="height: 7%;">
-        <div class="myrow rest-area input-lg border-circle">${rdto.title}</div>
+        <div class="myrow rest-area input-lg border-circle">${rdto.edu}</div>
     </div>
     <div>
         <div class="div-1 border-white">
             <h3 class="myrow">희망 연봉</h3>
         </div>
     </div>
+    <div class="div-2 rest-area" style="height: 17%;">
+        <div class="myrow rest-area input-lg border-circle">${rdto.salary}</div>
+    </div>
+    <div>
+        <div class="div-1 border-white">
+            <h3 class="myrow">자기소개</h3>
+        </div>
+    </div>
     <div class="div-2 rest-area" style="height: 7%;">
-        <div class="myrow rest-area input-lg border-circle">${rdto.title}</div>
+        <div class="myrow rest-area input-lg border-circle">${rdto.pr}</div>
     </div>
     <div>
         <div class="div-1 border-white">
@@ -56,7 +64,7 @@
         </div>
     </div>
     <div class="div-2 rest-area" style="height: 29%;">
-        <div class="myrow rest-area input-lg border-circle">${rdto.title}</div>
+        <div class="myrow rest-area input-lg border-circle">${rdto.portfolio}</div>
     </div>
     <div>
         <div class="div-1 border-white">
@@ -64,7 +72,7 @@
         </div>
     </div>
     <div class="div-2 rest-area" style="height: 15%;">
-        <div class="myrow rest-area input-lg border-circle">${rdto.title}</div>
+        <div class="myrow rest-area input-lg border-circle">${rdto.certi}</div>
     </div>
     <div>
         <div class="div-1 border-white">
@@ -72,7 +80,7 @@
         </div>
     </div>
     <div class="div-2 rest-area" style="height: 15%;">
-        <div class="myrow rest-area input-lg border-circle">${rdto.title}</div>
+        <div class="myrow rest-area input-lg border-circle">${rdto.prize}</div>
     </div>
     <input type="button" name="list" value="목록으로" onclick="location.href='${pageContext.request.contextPath }/member/information'">
 <jsp:include page="/WEB-INF/view/template/footer.jsp"></jsp:include>
