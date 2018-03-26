@@ -57,7 +57,6 @@ public class BoardController {
 		bdto.setWorking(request.getParameter("working"));
 		bdto.setContents(request.getParameter("contents"));
 		bdto.setCompany(request.getParameter("company"));
-		bdto.setReg(request.getParameter("reg"));
 		boardDao.insert(bdto);
 		return "redirect:/";
 	}
