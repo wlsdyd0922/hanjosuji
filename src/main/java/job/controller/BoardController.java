@@ -60,4 +60,16 @@ public class BoardController {
 		boardDao.insert(bdto);
 		return "redirect:/";
 	}
+	@RequestMapping("board/hirend")
+	public String hirend(BoardDto bdto)
+	{
+		boardDao.emplEnd(bdto);
+		return "board/list";
+	}
+	@RequestMapping("board/delete")
+	public String delete(BoardDto bdto)
+	{
+		boardDao.delete(bdto);
+		return "board/list";
+	}
 }
