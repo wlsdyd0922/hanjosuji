@@ -2,9 +2,12 @@ package job.model;
 
 import java.util.List;
 
-import job.bean.AdminDto;
+import org.springframework.stereotype.Repository;
 
+import job.bean.CompanyDto;
+
+@Repository
 public interface AdminDao {
-	public int count_page();
-	public List<AdminDto> list(int end, int begin);
+	// 회사 전체 목록 및 등록 승인페이지
+	List<CompanyDto> CompList();
 }

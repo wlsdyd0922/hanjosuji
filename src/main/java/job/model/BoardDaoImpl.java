@@ -57,8 +57,7 @@ public class BoardDaoImpl implements BoardDao{
 		return jdbcTemplate.query(sql, mapper, company);
 	}
 	
-	public BoardDto searchTarget(int no)
-	{
+	public BoardDto searchTarget(int no) {
 		String sql = "select * from hireboard where no=?";
 		return jdbcTemplate.query(sql, extractor, no);
 	}

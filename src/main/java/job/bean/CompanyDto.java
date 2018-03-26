@@ -14,9 +14,11 @@ public class CompanyDto {
 	private int sales;
 	private String location;
 	private String imgname;
-	private String imgecnoding;
+	private String imgencoding;
 	private String regcode;
-	private String checked; 
+	private String checked;
+	private int no;
+
 	public CompanyDto() {
 		super();
 	}
@@ -32,9 +34,18 @@ public class CompanyDto {
 		setSales(rs.getInt("sales"));
 		setLocation(rs.getString("location"));
 		setImgname(rs.getString("imgname"));
-		setImgecnoding(rs.getString("imgecnoding"));
+		setImgecnoding(rs.getString("imgencoding"));
 		setRegcode(rs.getString("regcode"));
 		setChecked(rs.getString("checked"));
+		setNo(rs.getInt("no"));
+	}
+
+	public int getNo() {
+		return no;
+	}
+
+	public void setNo(int no) {
+		this.no = no;
 	}
 
 	public String getName() {
@@ -98,10 +109,10 @@ public class CompanyDto {
 		this.imgname = imgname;
 	}
 	public String getImgecnoding() {
-		return imgecnoding;
+		return imgencoding;
 	}
-	public void setImgecnoding(String imgecnoding) {
-		this.imgecnoding = imgecnoding;
+	public void setImgecnoding(String imgencoding) {
+		this.imgencoding = imgencoding;
 	}
 	public String getRegcode() {
 		return regcode;

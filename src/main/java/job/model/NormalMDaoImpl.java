@@ -115,7 +115,7 @@ public class NormalMDaoImpl implements NormalMDao{
 	}
 	@Override
 	public List<NormalMDto> adminList() {
-		String sql = "select * from NormalM where admin='admin' order by email";
+		String sql = "select * from NormalM where admin='관리자' order by email";
 		return jdbcTemplate.query(sql, mapper);
 	}
 	@Override

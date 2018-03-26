@@ -17,6 +17,7 @@ public class CompanyDaoImpl implements CompanyDao{
 		if(rs.next()) return new CompanyDto(rs);
 		else return null;
 	};
+	
 	private RowMapper<CompanyDto> mapper = (rs, idx)->{
 		return new CompanyDto(rs);
 	};

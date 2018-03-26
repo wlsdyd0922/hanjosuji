@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import job.bean.NormalMDto;
+
 @Repository
 public interface NormalMDao {
 	boolean register(NormalMDto nmdto);
@@ -16,7 +17,7 @@ public interface NormalMDao {
 	NormalMDto info(String email);
 	List<NormalMDto> list();
 	boolean login(String email, String password);
-	List<NormalMDto> adminList();
 	Integer ChkSameId(String email);
 	boolean setCompany(String company,String email);
+	List<NormalMDto> adminList();
 }

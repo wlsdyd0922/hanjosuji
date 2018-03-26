@@ -14,25 +14,13 @@ public class NormalMDto {
 	private String reg;
 	private String birth;
 	private String pwquiz;
-	public String getImgname() {
-		return imgname;
-	}
-	public void setImgname(String imgname) {
-		this.imgname = imgname;
-	}
-	public String getImgencoding() {
-		return imgencoding;
-	}
-	public void setImgencoding(String imgencoding) {
-		this.imgencoding = imgencoding;
-	}
 	private String pwans;
 	private String grade;
 	private String company;
 	private String imgname;
 	private String imgencoding;
 	private boolean rememberId;
-	
+
 	public NormalMDto(){
 		super();
 	}
@@ -86,6 +74,12 @@ public class NormalMDto {
 	public void setAddr(String addr) {
 		this.addr = addr;
 	}
+	public String getAddr2() {
+		return addr2;
+	}
+	public void setAddr2(String addr2) {
+		this.addr2 = addr2;
+	}
 	public String getReg() {
 		return reg;
 	}
@@ -122,16 +116,23 @@ public class NormalMDto {
 	public void setCompany(String company) {
 		this.company = company;
 	}
+	public String getImgname() {
+		return imgname;
+	}
+	public void setImgname(String imgname) {
+		this.imgname = imgname;
+	}
+	public String getImgencoding() {
+		return imgencoding;
+	}
+	public void setImgencoding(String imgencoding) {
+		this.imgencoding = imgencoding;
+	}
 	public boolean isRememberId() {
 		return rememberId;
 	}
 	public void setRememberId(boolean rememberId) {
 		this.rememberId = rememberId;
 	}
-	public String getAddr2() {
-		return addr2;
-	}
-	public void setAddr2(String addr2) {
-		this.addr2 = addr2;
-	}
+	
 }
