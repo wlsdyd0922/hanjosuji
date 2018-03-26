@@ -22,6 +22,7 @@
 					<li class="font-small" rel="tab2">기업리뷰</li>
 					<li class="font-small" rel="tab3">기업리뷰작성</li>
 				</ul>
+				
 				<div class="tab_container">
 					<div class="padding">
 						<div id="tab1" class="tab_content">

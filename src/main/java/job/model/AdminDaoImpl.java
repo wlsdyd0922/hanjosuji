@@ -18,8 +18,13 @@ public class AdminDaoImpl implements AdminDao {
 	};
 
 	@Override
-	public List<CompanyDto> CompList(int sno, int eno) {
-		String sql = "select * from (select * from (select rownum rn,A.* from (select * from company order by no)A)) where rn between ? and ?";
-		return jdbcTemplate.query(sql, compmapper,sno,eno);
+	public List<CompanyDto> CompList(int chk, int sno, int eno) {
+		String sql = "select * from (select * from (select rownum rn,A.* from (select * from company where checked=? order by no)A)) where rn between ? and ?";
+		return jdbcTemplate.query(sql, compmapper,chk,sno,eno);
+	}
+
+	public int getCount() {
+		String sql = "select count(*) from company";
+		return jdbcTemplate.queryForObject(sql,Integer.class);
 	}
 }
