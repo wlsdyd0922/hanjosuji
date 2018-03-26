@@ -4,6 +4,7 @@
 
 <script src="${pageContext.request.contextPath}/js/register_company.js"></script>
 <script src="${pageContext.request.contextPath}/js/search_company.js"></script>
+
 <form action="${pageContext.request.contextPath }/register/register_company" method="post">
 	<div class="container-500 out-align-center">
 		<div class="myrow input-group input-group-lg">
@@ -35,7 +36,7 @@
 			<div class="container-90 myrow input-group input-group-lg">
 				<span class="input-group-addon glyphicons-tent" id="sizing-addon1"><i
 					class="glyphicon glyphicon-tent"></i></span> <input type="text"
-					class="form-control" name="company_name" placeholder="회사명을 입력해주세요">
+					class="form-control" id="company_name" name="company_name" placeholder="회사명을 입력해주세요" readonly>
 			</div>
 			<div class="rest-area padding">
 				<button class="btn btn-primary input-lg" id="company_search_button">
