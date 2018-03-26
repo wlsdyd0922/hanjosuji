@@ -69,15 +69,15 @@ SQL> desc hireboard;
 --company table
 Name                                      Null?    Type
  ----------------------------------------- -------- ----------------------------
- NAME                                      NOT NULL VARCHAR2(30)
- INDUSTRY                                  NOT NULL VARCHAR2(20)
- CEO                                                VARCHAR2(10)
- BIRTH                                              VARCHAR2(15)
- WEBSITE                                            VARCHAR2(50)
- EMPLOYEE                                           NUMBER
- TYPE                                               VARCHAR2(20)
- SALES                                              NUMBER
- LOCATION                                           VARCHAR2(100)
- IMAGE                                              VARCHAR2(100)
- REGCODE                                            VARCHAR2(15)
+ NAME       업체명                            					    NOT NULL VARCHAR2(30)
+ INDUSTRY   분야                              			 			NOT NULL VARCHAR2(20)
+ CEO        대표                                        					VARCHAR2(10)
+ BIRTH      설립일                                        					VARCHAR2(15)
+ WEBSITE    웹사이트                                       		 			VARCHAR2(50)
+ EMPLOYEE   근로자 수                                        				NUMBER
+ TYPE       기업형태                                        					VARCHAR2(20)
+ SALES      매출액                                       					NUMBER
+ LOCATION   주소지                                       					VARCHAR2(100)
+ IMAGE      사진 	                                    VARCHAR2(100)
+ REGCODE  	사업자등록번호                                          			VARCHAR2(15)
  
