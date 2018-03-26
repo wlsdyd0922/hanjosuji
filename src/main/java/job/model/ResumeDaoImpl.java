@@ -21,7 +21,7 @@ public class ResumeDaoImpl implements ResumeDao{
 	
 	@Override
 	public void insert(ResumeDto rdto) {
-		String sql = "insert into resume values(?,?,?,?,?,?,?,?,?,?,?)";
+		String sql = "insert into resume values(?,0,?,?,?,?,?,?,?,?,0,resume_seq.nextVal)";
 		Object[] args = {
 			rdto.getTitle(),
 			rdto.getCareer(),
@@ -31,9 +31,7 @@ public class ResumeDaoImpl implements ResumeDao{
 			rdto.getPortfolio(),
 			rdto.getCerti(),
 			rdto.getPrize(),
-			rdto.getEmail(),
-			rdto.getBoardno(),
-			rdto.getFace()
+			rdto.getEmail()
 		};
 		jdbcTemplate.update(sql, args);
 	}
@@ -60,8 +58,8 @@ public class ResumeDaoImpl implements ResumeDao{
 	@Override
 	public boolean edit(ResumeDto rdto) {
 		String sql = "update resume set title=?,career=?,edu=?,"
-				+ "salary=?,pr=?,portfolio=?,certi=?,prize=?,face=?"
-				+ " where email=?";
+				+ "salary=?,pr=?,portfolio=?,certi=?,prize=?"
+				+ " where no=?";
 		Object[] args = {
 				rdto.getTitle(),
 				rdto.getCareer(),
@@ -71,8 +69,7 @@ public class ResumeDaoImpl implements ResumeDao{
 				rdto.getPortfolio(),
 				rdto.getCerti(),
 				rdto.getPrize(),
-				rdto.getFace(),
-				rdto.getEmail()
+				rdto.getNo()
 			};
 			return jdbcTemplate.update(sql, args)>0;
 		}
@@ -81,5 +78,10 @@ public class ResumeDaoImpl implements ResumeDao{
 	public boolean connResume(String email,String title) {
 		String sql = "update resume set email=? where title=?";
 		return jdbcTemplate.update(sql, email, title)>0;
+	}
+	@Override
+	public boolean connBoard(int boardno, int resumeno) {
+		String sql = "update resume set boardno=? where no=?";
+		return jdbcTemplate.update(sql, boardno, resumeno)>0;
 	}
 }

@@ -30,17 +30,17 @@ email		//이메일
 boardno		//게시글 번호
 
 create table resume(
-title varchar2(100) not null,
-count number not null,
-career varchar2(100) not null,
-edu varchar2(100) not null,
-salary varchar2(50) not null,
-pr varchar2(1000) not null,
-portfolio varchar2(100),
-certi varchar2(1000),
-prize varchar2(1000),
-email varchar2(50),
-boardno number);
+title varchar2(100) not null,	제목
+count number not null,			조회수
+career varchar2(100) not null,	경력
+edu varchar2(100) not null,		학력
+salary varchar2(50) not null,	희망연봉
+pr varchar2(1000) not null,		자기소개
+portfolio varchar2(100),		포트폴리오
+certi varchar2(1000),			자격증
+prize varchar2(1000),			수상경력
+email varchar2(50),				작성자 이메일
+boardno number);				연결번호
 alter table resume add foreign key (email) references NormalM(email);
 
 create table hireboard(
