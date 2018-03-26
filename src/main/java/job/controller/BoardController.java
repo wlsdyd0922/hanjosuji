@@ -46,14 +46,18 @@ public class BoardController {
 	public String boardWrite(BoardDto bdto, HttpServletRequest request) {		
 		bdto.setTitle(request.getParameter("title"));
 		if(request.getParameter("employee")!=null && request.getParameter("employee")!="") {
-			int employee = Integer.parseInt(request.getParameter("employee"));
-			log.debug("employee:",employee);
+			bdto.setEmployee(Integer.parseInt(request.getParameter("employee")));
 		}
-		bdto.setEmployee(Integer.parseInt(request.getParameter("employee")));
+		bdto.setTitle(request.getParameter("title"));
+		if(request.getParameter("count")!=null && request.getParameter("count")!="") {
+			bdto.setCount(Integer.parseInt(request.getParameter("count")));
+		}
+		bdto.setState(request.getParameter("state"));
 		bdto.setSalary(request.getParameter("salary"));
 		bdto.setWorking(request.getParameter("working"));
 		bdto.setContents(request.getParameter("contents"));
 		bdto.setCompany(request.getParameter("company"));
+		bdto.setReg(request.getParameter("reg"));
 		boardDao.insert(bdto);
 		return "redirect:/";
 	}
