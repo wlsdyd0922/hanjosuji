@@ -19,10 +19,11 @@ public class BoardDaoImpl implements BoardDao{
 	};
 	@Override
 	public void insert(BoardDto bdto) {
-		String sql = "insert into hireboard values(hireboard_seq.nextval,?,0,'채용중',?,?,?,?,?,sysdate)";
+		String sql = "insert into hireboard values(hireboard_seq.nextval,?,0,'채용중',?,?,?,?,?,?,sysdate)";
 		Object[] args = {
 			bdto.getTitle(),
 			bdto.getEmployee(),
+			bdto.getEmpltype(),
 			bdto.getSalary(),
 			bdto.getWorking(),
 			bdto.getContents(),
