@@ -38,111 +38,143 @@
 </head>
 
 <body>
-	<div class="padding" style="width: 400px; height: 600px;">
-		<h1 class="in-align-center">기업등록</h1>
-		<div class="div-2 padding">
-			<div class="container-30 padding-left-5">
-				<h5 class="font-small">
-					<b>기업명</b>
-				</h5>
-			</div>
-			<div class="container-70">
-				<input class="form-control" type="text" style="height: 40px">
-			</div>
-		</div>
-		<div class="div-2 padding">
-			<div class="container-100 div-2">
+	<form id="register_company_form"
+		action="${pageContext.request.contextPath}/register/register_newcompany"
+		method="post">
+		<div class="padding" style="width: 400px; height: 600px;">
+			<h1 class="in-align-center">기업등록</h1>
+			<div class="div-2 padding">
 				<div class="container-30 padding-left-5">
-					<h5 class="font-smallest">
-						<b>산업군</b>
+					<h5 class="font-small">
+						<b>기업명</b>
 					</h5>
 				</div>
 				<div class="container-70">
-					<select name="favSort" class="container-100 form-control">
-						<option>경영/사무</option>
-						<option>영업/고객상담</option>
-						<option>IT/인터넷</option>
-						<option>디자인</option>
-						<option>서비스</option>
-						<option>전문직</option>
-						<option>의료</option>
-						<option>생산/제조</option>
-						<option>건설</option>
-						<option>유통/무역</option>
-						<option selected>미디어</option>
-						<option>교육</option>
-						<option>특수계층/공공</option>
-					</select>
+					<input class="form-control" id="new_company_name" name="name" type="text"
+						style="height: 40px" required>
 				</div>
 			</div>
-			<div class="container-100 div-2">
+			<div class="div-2 padding">
+				<div class="container-100 div-2">
+					<div class="container-30 padding-left-5">
+						<h5 class="font-smallest">
+							<b>산업군</b>
+						</h5>
+					</div>
+					<div class="container-70">
+						<select name="industry" class="container-100 form-control">
+							<option>경영/사무</option>
+							<option>영업/고객상담</option>
+							<option>IT/인터넷</option>
+							<option>디자인</option>
+							<option>서비스</option>
+							<option>전문직</option>
+							<option>의료</option>
+							<option>생산/제조</option>
+							<option>건설</option>
+							<option>유통/무역</option>
+							<option selected>미디어</option>
+							<option>교육</option>
+							<option>특수계층/공공</option>
+						</select>
+					</div>
+				</div>
+				<div class="container-100 div-2">
+					<div class="container-30 padding-left-5">
+						<h5 class="font-smallest">
+							<b>기업형태</b>
+						</h5>
+					</div>
+					<div class="container-70">
+						<select name="type" class="container-100 form-control">
+							<option>대기업</option>
+							<option>중소기업</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="div-2 padding">
 				<div class="container-30 padding-left-5">
-					<h5 class="font-smallest">
-						<b>기업형태</b>
+					<h5 class="font-small">
+						<b>사장이름</b>
 					</h5>
 				</div>
 				<div class="container-70">
-					<select name="foam_of_company" class="container-100 form-control">
-						<option>대기업</option>
-						<option>중소기업</option>
-					</select>
+					<input class="form-control" name="ceo" type="text"
+						style="height: 40px" required>
 				</div>
 			</div>
+			<div class="div-2 padding">
+				<div class="container-30 padding-left-5">
+					<h5 class="font-small">
+						<b>홈피주소</b>
+					</h5>
+				</div>
+				<div class="container-70">
+					<input class="form-control" name="website" type="text"
+						style="height: 40px" required>
+				</div>
+			</div>
+			<div class="div-2 padding">
+				<div class="container-30 padding-left-5">
+					<h5 class="font-small">
+						<b>직원수</b>
+					</h5>
+				</div>
+				<div class="container-70">
+					<input class="form-control" name="employee" type="text"
+						style="height: 40px" required>
+				</div>
+			</div>
+			<div class="div-2 padding">
+				<div class="container-30 padding-left-5">
+					<h5 class="font-small">
+						<b>매출액</b>
+					</h5>
+				</div>
+				<div class="container-70">
+					<input class="form-control" name="sales" type="text"
+						style="height: 40px" required>
+				</div>
+			</div>
+			<div class="div-2 padding">
+				<div class="container-30 padding-left-5">
+					<h5 class="font-small">
+						<b>회사위치</b>
+					</h5>
+				</div>
+				<div class="container-70">
+					<input class="form-control" name="location" type="text"
+						style="height: 40px" required>
+				</div>
+			</div>
+			<div class="div-2 padding">
+				<div class="container-30 padding-left-5">
+					<h5 class="font-small">
+						<b>사업자 등록번호</b>
+					</h5>
+				</div>
+				<div class="container-70">
+					<input class="form-control" name="regcode" type="text"
+						style="height: 40px" required>
+				</div>
+			</div>
+			<div class="div-2 padding">
+				<div class="container-30 padding-left-5">
+					<h5 class="font-small">
+						<b>창립일</b>
+					</h5>
+				</div>
+				<div class="container-70">
+					<input class="form-control" name="birth" type="date"
+						style="height: 40px" required>
+				</div>
+			</div>
+			<div class="padding in-align-center">
+				<input type="submit" id="register_company" name="register_company" class="btn btn-primary" value="기업등록">
+			</div>
 		</div>
-		<div class="div-2 padding">
-			<div class="container-30 padding-left-5">
-				<h5 class="font-small">
-					<b>사장이름</b>
-				</h5>
-			</div>
-			<div class="container-70">
-				<input class="form-control" type="text" style="height: 40px">
-			</div>
-		</div>
-		<div class="div-2 padding">
-			<div class="container-30 padding-left-5">
-				<h5 class="font-small">
-					<b>홈피주소</b>
-				</h5>
-			</div>
-			<div class="container-70">
-				<input class="form-control" type="text" style="height: 40px">
-			</div>
-		</div>
-		<div class="div-2 padding">
-			<div class="container-30 padding-left-5">
-				<h5 class="font-small">
-					<b>직원수</b>
-				</h5>
-			</div>
-			<div class="container-70">
-				<input class="form-control" type="text" style="height: 40px">
-			</div>
-		</div>
-		<div class="div-2 padding">
-			<div class="container-30 padding-left-5">
-				<h5 class="font-small">
-					<b>매출액</b>
-				</h5>
-			</div>
-			<div class="container-70">
-				<input class="form-control" type="text" style="height: 40px">
-			</div>
-		</div>
-		<div class="div-2 padding">
-			<div class="container-30 padding-left-5">
-				<h5 class="font-small">
-					<b>회사위치</b>
-				</h5>
-			</div>
-			<div class="container-70">
-				<input class="form-control" type="text" style="height: 40px">
-			</div>
-		</div>
-		<div class="padding in-align-center">
-			<button class="btn btn-primary">기업등록</button>
-		</div>
-	</div>
+	</form>
 </body>
 
 </html>

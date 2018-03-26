@@ -23,8 +23,8 @@ public class CompanyDaoImpl implements CompanyDao{
 	};
 	 
 	@Override
-	public void insert(CompanyDto cdto) {
-		String sql = "insert into company values(?,?,?,?,?,?,?,?,?,?,?,?,'0')";
+	public boolean insert(CompanyDto cdto) {
+		String sql = "insert into company values(?,?,?,?,?,?,?,?,?,'','',?,'0','0')";
 		Object[] args = {
 			cdto.getName(),
 			cdto.getIndustry(),
@@ -35,11 +35,9 @@ public class CompanyDaoImpl implements CompanyDao{
 			cdto.getType(),
 			cdto.getSales(),
 			cdto.getLocation(),
-			cdto.getImgname(),
-			cdto.getImgecnoding(),
 			cdto.getRegcode()
 		};
-		jdbcTemplate.update(sql, args);
+		return jdbcTemplate.update(sql, args)>0;
 	}
 
 	@Override
