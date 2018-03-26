@@ -36,11 +36,4 @@ public class ReviewDaoImpl {
 		String sql = "select * from review where no=?";
 		return jdbcTemplate.query(sql,extractor,no);
 	}
-	
-	
-	
-	
-	
-	
-	
 }

@@ -18,7 +18,12 @@ public class AdminController {
 	private AdminDaoImpl addao = new AdminDaoImpl(); 
 	@RequestMapping("compacceptboard")
 	public String cmpAcptBoard(HttpServletRequest request) {
-		List<CompanyDto> list = addao.CompList();
+		
+		int pangNo=2;
+		int endpage = pangNo*10;
+		int startpage = (pangNo-1)*10+1;
+		
+		List<CompanyDto> list = addao.CompList(startpage,endpage);
 		request.setAttribute("list", list);
 		return "admin/compacceptboard";
 	}

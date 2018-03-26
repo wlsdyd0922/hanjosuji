@@ -18,8 +18,8 @@ public class AdminDaoImpl implements AdminDao {
 	};
 
 	@Override
-	public List<CompanyDto> CompList() {
-		String sql = "select * from (select * from (select rownum rn,A.* from (select * from company order by no)A)) where rn between 1 and 5";
-		return jdbcTemplate.query(sql, compmapper);
+	public List<CompanyDto> CompList(int sno, int eno) {
+		String sql = "select * from (select * from (select rownum rn,A.* from (select * from company order by no)A)) where rn between ? and ?";
+		return jdbcTemplate.query(sql, compmapper,sno,eno);
 	}
 }

@@ -25,26 +25,28 @@
 	<tbody>
 	<c:forEach var="list" items="${list}">
 		<tr>
-			<td>${list.no}번호</td>
-			<td>${list.name}회사</td>
-			<td>${list.industry}분야</td>
-			<td>${list.ceo}대표자명</td>
-			<td>${list.birth}설립일</td>
-			<td>${list.website}웹 사이트 주소</td>
-			<td>${list.employee}사원 수</td>
-			<td>${list.type }기업 형태</td>
-			<td>${list.sales }매출</td>
-			<td>${list.location}회사 주소</td>
+			<td>${list.no}</td>
+			<td>${list.name}</td>
+			<td>${list.industry}</td>
+			<td>${list.ceo}</td>
+			<td>${list.birth}</td>
+			<td>${list.website}</td>
+			<td>${list.employee}</td>
+			<td>${list.type}</td>
+			<td>${list.sales}</td>
+			<td>${list.location}</td>
 <!-- 			등록버튼 누를시 알림창 -->
 			<td>
-				<c:if test="${list.checked}">
-				
+				<c:if test="${list.checked ==0}">
+					<button>등록</button>
 				</c:if>
-			등록완료or<button>등록</button></td>
+				<c:if test="${list.checked==1 }">
+					등록완료
+				</c:if>
+			</td>
 		</tr>
 		</c:forEach>
 	</tbody>
-	
 </table>
 
 <jsp:include page="/WEB-INF/view/template/footer.jsp"></jsp:include>
