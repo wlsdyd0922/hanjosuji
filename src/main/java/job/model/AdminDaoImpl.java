@@ -22,8 +22,18 @@ public class AdminDaoImpl implements AdminDao {
 		String sql = "select * from (select * from (select rownum rn,A.* from (select * from company where checked=? order by no)A)) where rn between ? and ?";
 		return jdbcTemplate.query(sql, compmapper,chk,sno,eno);
 	}
-
-	public int getCount() {
+	@Override
+	public int getNCCount() {
+		String sql = "select count(*) from company where checked=0";
+		return jdbcTemplate.queryForObject(sql,Integer.class);
+	}
+	@Override
+	public int getOCCount() {
+		String sql = "select count(*) from company where checked=1";
+		return jdbcTemplate.queryForObject(sql,Integer.class);
+	}
+	@Override
+	public int getAllCount() {
 		String sql = "select count(*) from company";
 		return jdbcTemplate.queryForObject(sql,Integer.class);
 	}

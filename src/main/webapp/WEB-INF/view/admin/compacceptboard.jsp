@@ -1,47 +1,74 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <jsp:include page="/WEB-INF/view/template/header.jsp"></jsp:include>
 <script src="${pageContext.request.contextPath }/js/company.js"></script>
-
+<style>
+ul.tabs {
+    margin: 0;
+    padding: 0;
+    float: left;
+    list-style: none;
+    height: 32px;
+    border-bottom: 1px solid #eee;
+    border-left: 1px solid #eee;
+    width: 100%;
+    font-family:"dotum";
+    font-size:12px;
+}
+ul.tabs li {
+    float: left;
+    text-align:center;
+    cursor: pointer;
+    width:82px;
+    height: 31px;
+    line-height: 31px;
+    border: 1px solid #eee;
+    border-left: none;
+    font-weight: bold;
+    background: #fafafa;
+    overflow: hidden;
+    position: relative;
+}
+</style>
 
 <script>
+$(function () {
 
+    $(".tab_content").hide();
+    $(".tab_content:first").show();
+
+    $("ul.tabs li").click(function () {
+        $("ul.tabs li").removeClass("active").css("color", "#333");
+        //$(this).addClass("active").css({"color": "darkred","font-weight": "bolder"});
+        $(this).addClass("active").css("color", "darkred");
+        $(".tab_content").hide()
+        var activeTab = $(this).attr("rel");
+        $("#" + activeTab).fadeIn()
+    });
+});
+</script>
+
+<script>
 $(document).ready(function(){
-	$("#tab1").on("click",function(){
-		$.ajax({
-			url : 'compacceptboard',
-			data : {"data" :0},
-			dataType : 'json'
-			
-		});
-	});
-	
-	$("#tab2").on("click",function(){
-		$.ajax({
-			url : 'compacceptboard',
-			data : {"data" : 1},
-			dataType : 'json'
-			
-		});
+	$("ul>li").on("click",function(){
+		console.log("클릭");
+		
 	});
 });
-
 </script>
 
 
 <div id="container">
 	<ul class="tabs">
-		<li class="active font-small" rel="tab1" id = "tab1">미승인 회사목록</li>
-		<li class="font-small" rel="tab2" id="tab2" >승인된 회사목록</li>
+		<li class="active font-small" rel="tab1">미승인 회사목록</li>
+		<li class="font-small" rel="tab2">승인된 회사목록</li>
 	</ul>
 </div>
 
 <div class="tab_container">
 <div id="tab1" class="tab_content">
 	<div class="div-2 container-100 in-align-center">
-	<input type="hidden" value="0" name="chk"> 
 	<table class="table font-medium">
 	<thead>
 		<tr>
@@ -62,7 +89,7 @@ $(document).ready(function(){
 <!-- 	미등록된 회사만보는 목록 만들기 -->
 <!-- 	검색 -->
 	<tbody>
-		<c:forEach var="list" items="${list}">
+		<c:forEach var="list" items="${list0}">
 			<tr>
 				<td>${list.no}</td>
 				<td>${list.name}</td>
@@ -119,7 +146,6 @@ $(document).ready(function(){
 
 <div id="tab2" class="tab_content">
 	<div class="div-2 container-100 in-align-center">
-	<input type="hidden" value="1" name="chk"> 
 	<table class="table font-medium">
 	<thead>
 		<tr>
@@ -140,7 +166,7 @@ $(document).ready(function(){
 <!-- 	미등록된 회사만보는 목록 만들기 -->
 <!-- 	검색 -->
 	<tbody>
-		<c:forEach var="list" items="${list}">
+		<c:forEach var="list" items="${list1}">
 			<tr>
 				<td>${list.no}</td>
 				<td>${list.name}</td>

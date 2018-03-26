@@ -10,4 +10,10 @@ import job.bean.CompanyDto;
 public interface AdminDao {
 	// 회사 전체 목록 및 등록 승인페이지
 	List<CompanyDto> CompList(int chk, int sno, int eno);
+	//미승인 회사목록
+	int getNCCount();
+	//승인 회사 목록
+	int getOCCount();
+	//전체 회사 목록
+	int getAllCount();
 }

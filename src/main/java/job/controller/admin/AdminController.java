@@ -22,16 +22,7 @@ public class AdminController {
 	private Logger log = LoggerFactory.getLogger(getClass());
 	
 	@RequestMapping("compacceptboard")
-	public String cmpAcptBoard(HttpServletRequest request,String data) {
-		log.debug("data={}",data);
-		int chk=0;
-		if(data==null) {
-			chk=0;
-		}else {
-			chk=Integer.parseInt(data);
-		}
-		log.debug(String.valueOf(chk));
-		
+	public String cmpAcptBoard(HttpServletRequest request) {
 		int pageno;				//현제 페이지 번호
 		int pagedatasize=10;	//한 페이지당 보여줄 데이터 개수
 		int enddata;			//데이터베이스상 페이지별 첫번째 데이터
@@ -41,7 +32,7 @@ public class AdminController {
 		int pageblockstart;		//페이지 블록 시작번호
 		int pageblockend;		//페이지 블록 끝번호
 		int pageblocksize;		//페이지 블록 당 페이징 개수
-		
+		int chk;
 		//뷰에서 받은 pageno가 null이라면 강제로 1 저장 아니면 param저장
 		if(request.getParameter("pageno")==null) pageno=1;
 		else pageno=Integer.parseInt(request.getParameter("pageno"));
@@ -49,10 +40,13 @@ public class AdminController {
 		//페이지별 데이터베이스내 데이터 시작 및 마지막을 구하여 sql이용 데이터 list구하기
 		enddata = pageno*pagedatasize;
 		startdata = (pageno-1)*pagedatasize+1;
-		List<CompanyDto> list = addao.CompList(chk, startdata,enddata);
+		chk=0;
+		List<CompanyDto> list0 = addao.CompList(chk, startdata,enddata);
+		chk=1;
+		List<CompanyDto> list1 = addao.CompList(chk, startdata,enddata);
 		
 		//데이터베이스 내 전체 데이터 개수 구하기
-		count = addao.getCount();
+		count = addao.getNCCount();
 		
 		//전체 데이터 이용 페이지 수 구하기
 		pagesize = count/pagedatasize;
@@ -71,7 +65,8 @@ public class AdminController {
 		request.setAttribute("pageblockend", pageblockend);
 		request.setAttribute("pageblockstart", pageblockstart);
 		request.setAttribute("pagesize", pagesize);
-		request.setAttribute("list", list);
+		request.setAttribute("list0", list0);
+		request.setAttribute("list1", list1);
 		request.setAttribute("pageno", pageno);
 		return "admin/compacceptboard";
 	}
