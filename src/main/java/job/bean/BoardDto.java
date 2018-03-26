@@ -9,6 +9,7 @@ public class BoardDto {
 	private int count;
 	private String state;
 	private int employee;	
+	private String empltype;
 	private String salary;
 	private String working;
 	private String contents;
@@ -18,15 +19,16 @@ public class BoardDto {
 	public BoardDto() {
 		super();
 	}
-
-	public BoardDto(int no, String title, int count, String state, int employee, String salary, String working,
-			String contents, String company, String reg) {
+	
+	public BoardDto(int no, String title, int count, String state, int employee, String empltype, String salary,
+			String working, String contents, String company, String reg) {
 		super();
 		this.no = no;
 		this.title = title;
 		this.count = count;
 		this.state = state;
 		this.employee = employee;
+		this.empltype = empltype;
 		this.salary = salary;
 		this.working = working;
 		this.contents = contents;
@@ -40,6 +42,7 @@ public class BoardDto {
 		setCount(rs.getInt("count"));
 		setState(rs.getString("state"));
 		setEmployee(rs.getInt("employee"));
+		setEmpltype(rs.getString("empltype"));
 		setSalary(rs.getString("salary"));
 		setWorking(rs.getString("working"));
 		setContents(rs.getString("contents"));
@@ -108,6 +111,14 @@ public class BoardDto {
 
 	public void setState(String state) {
 		this.state = state;
+	}
+
+	public String getEmpltype() {
+		return empltype;
+	}
+
+	public void setEmpltype(String empltype) {
+		this.empltype = empltype;
 	}
 
 }

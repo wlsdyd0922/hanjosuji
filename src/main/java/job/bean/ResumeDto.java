@@ -14,7 +14,7 @@ public class ResumeDto {
 	private String prize;
 	private String email;
 	private int boardno;
-	private String face;
+	private int no;
 	public ResumeDto(ResultSet rs) throws SQLException {
 		setTitle(rs.getString("title"));
 		setCareer(rs.getString("career"));
@@ -26,10 +26,10 @@ public class ResumeDto {
 		setPrize(rs.getString("prize"));
 		setEmail(rs.getString("email"));
 		setBoardno(rs.getInt("boardno"));
-		setFace(rs.getString("face"));
+		setNo(rs.getInt("no"));
 	}
 	public ResumeDto(String title, String career, String edu, String salary, String pr, String portfolio, String certi,
-			String prize, String email, int boardno, String face) {
+			String prize, String email, int boardno, int no) {
 		super();
 		this.title = title;
 		this.career = career;
@@ -41,7 +41,7 @@ public class ResumeDto {
 		this.prize = prize;
 		this.email = email;
 		this.boardno = boardno;
-		this.face = face;
+		this.no = no;
 	}
 	public String getTitle() {
 		return title;
@@ -103,10 +103,10 @@ public class ResumeDto {
 	public void setBoardno(int boardno) {
 		this.boardno = boardno;
 	}
-	public String getFace() {
-		return face;
+	public int getNo() {
+		return no;
 	}
-	public void setFace(String face) {
-		this.face = face;
+	public void setNo(int no) {
+		this.no = no;
 	}
 }

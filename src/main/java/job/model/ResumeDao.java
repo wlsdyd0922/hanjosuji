@@ -14,5 +14,5 @@ public interface ResumeDao {
 	boolean delete(ResumeDto rdto);
 	boolean edit(ResumeDto rdto);
 	boolean connResume(String email, String title);
-	
+	boolean connBoard(int boardno, int resumeno);
 }
