@@ -11,7 +11,6 @@ public interface CompanyDao {
 	boolean insert(CompanyDto cdto);
 	List<CompanyDto> getList();
 	List<CompanyDto> searchList(String name);
-	CompanyDto searchTarget(String company);
 	boolean delete(CompanyDto cdto);
 	boolean edit(CompanyDto cdto);
 	boolean image(CompanyDto cdto);

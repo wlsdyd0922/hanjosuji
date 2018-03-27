@@ -48,14 +48,8 @@ public class CompanyDaoImpl implements CompanyDao{
 
 	@Override
 	public List<CompanyDto> searchList(String name) {
-		String sql = "select * from company where name like '%'||?||'%' order by name";
+		String sql = "select * from company where lower(name) like '%'||lower(?)||'%' order by name";
 		return jdbcTemplate.query(sql, mapper, name);
-	}
-	
-	public CompanyDto searchTarget(String company)
-	{
-		String sql = "select * from hireboard where name=?";
-		return jdbcTemplate.query(sql, extractor, company);
 	}
 	
 	@Override
