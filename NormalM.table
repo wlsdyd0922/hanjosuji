@@ -67,13 +67,17 @@ alter table notes add constraint fk_company foreign key(company) references comp
 SQL> desc hireboard;
  Name                                      Null?    Type
  ----------------------------------------- -------- ----------------------------
- NO      	글번호                                                           NOT NULL NUMBER
- COUNT      채용인원                                                        NOT NULL NUMBER
- TITLE      채용 공고 제목                                                NOT NULL VARCHAR2(100)
- SALARY     급여                                                              NOT NULL NUMBER
- WORKING    근무시간                                                        NOT NULL VARCHAR2(20)
- COMPANY    글 쓴 회사                                                      NOT NULL VARCHAR2(50)
- REG        글 쓴 시간                                                      DATE
+ NO            글 번호                           			   NOT NULL NUMBER
+ TITLE         공고 제목                            		   NOT NULL VARCHAR2(100)
+ COUNT         조회수                            			   NOT NULL NUMBER
+ STATE         채용 상태                            		   NOT NULL VARCHAR2(10)
+ EMPLOYEE      채용 인원                            		   NOT NULL NUMBER
+ EMPLTYPE      채용 형태                            		   NOT NULL VARCHAR2(10)
+ SALARY        급여                            			   NOT NULL VARCHAR2(30)
+ WORKING       근무 시간                            		   NOT NULL VARCHAR2(20)
+ CONTENTS      공고 내용                                     				VARCHAR2(4000)
+ COMPANY       공고 회사                            		   NOT NULL VARCHAR2(50)
+ REG           등록 시간                                     				DATE
 
 --company table
 Name                                      Null?    Type
