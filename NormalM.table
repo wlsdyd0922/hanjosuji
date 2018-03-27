@@ -22,6 +22,9 @@ alter table NormalM add constraint grades check(grade in('기업','일반','관�
 create table resume(
 title varchar2(100) not null,
 count number not null,
+favdivision varchar2(20) not null,
+favregion varchar2(50) not null,
+workingstatus varchar2(10) not null,
 career varchar2(100) not null,
 edu varchar2(100) not null,
 salary varchar2(50) not null,
