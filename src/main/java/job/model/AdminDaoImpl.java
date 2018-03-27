@@ -19,22 +19,17 @@ public class AdminDaoImpl implements AdminDao {
 	};
 
 	@Override
-	public List<CompanyDto> CompChkList(int chk, int sno, int eno) {
+	public List<CompanyDto> compChkList(int chk, int sno, int eno) {
 		String sql = "select * from (select * from (select rownum rn,A.* from (select * from company where checked=? order by no)A)) where rn between ? and ?";
 		return jdbcTemplate.query(sql, compmapper, chk, sno, eno);
 	}
 
 	@Override
-	public List<CompanyDto> CompAllList(int sno, int eno) {
+	public List<CompanyDto> compAllList(int sno, int eno) {
 		String sql = "select * from (select * from (select rownum rn,A.* from (select * from company order by no)A)) where rn between ? and ?";
 		return jdbcTemplate.query(sql, compmapper, sno, eno);
 	}
 
-	@Override
-	public int getNCCount() {
-		String sql = "select count(*) from company where checked=0";
-		return jdbcTemplate.queryForObject(sql, Integer.class);
-	}
 
 	@Override
 	public int getCount(int type) {
@@ -46,15 +41,10 @@ public class AdminDaoImpl implements AdminDao {
 			return jdbcTemplate.queryForObject(sql, Integer.class, type);
 		}
 	}
+	
 	@Override
-	public int getOCCount() {
-		String sql = "select count(*) from company where checked=1";
-		return jdbcTemplate.queryForObject(sql, Integer.class);
-	}
-
-	@Override
-	public int getAllCount() {
-		String sql = "select count(*) from company";
-		return jdbcTemplate.queryForObject(sql, Integer.class);
+	public boolean compDelete(int no) {
+		String sql = "delete company where no=?";
+		return jdbcTemplate.update(sql,no)>0;
 	}
 }

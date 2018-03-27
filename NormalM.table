@@ -101,14 +101,14 @@ Name                                      Null?    Type
   Name                                      Null?    Type
  ----------------------------------------- -------- ----------------------------
  TITLE       제목                              				NOT NULL VARCHAR2(100)
- COUNT       조회수                              				NOT NULL NUMBER
+ COUNT       조회수                             				NOT NULL NUMBER
  CAREER      경력                              				NOT NULL VARCHAR2(100)
  EDU         학력                              				NOT NULL VARCHAR2(100)
  SALARY      희망연봉                              			NOT NULL VARCHAR2(50)
  PR          자기소개                              			NOT NULL VARCHAR2(1000)
  PORTFOLIO   포트폴리오                                       		VARCHAR2(100)
- CERTI       자격증                                       			VARCHAR2(1000)
+ CERTI       자격증                                     			VARCHAR2(1000)
  PRIZE       수상경력                                       		VARCHAR2(1000)
- EMAIL       작성자 이메일                                      	 	VARCHAR2(50)
+ EMAIL       작성자 이메일                                    	 	VARCHAR2(50)
  BOARDNO     게시글 번호                                       		NUMBER
  NO                                        	NOT NULL NUMBER
