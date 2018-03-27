@@ -5,7 +5,6 @@
 <script src="${pageContext.request.contextPath}/js/info.js"></script>
 
 <div class="container-800 out-align-center">
-
 <h1>쪽지 보내기</h1>
 
 <hr class="style-one">

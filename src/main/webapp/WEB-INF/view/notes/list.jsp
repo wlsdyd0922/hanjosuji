@@ -18,6 +18,7 @@
 		</thead>
 		<tbody>
 			<tr>
+			
 				<c:forEach var="ndto" items="${list}">
 					<th><a href="#">${ndto.title}</a></th>
 					<th>${ndto.company}</th>
