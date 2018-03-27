@@ -6,7 +6,7 @@
 
 <div class="container-800 out-align-center">
 	
-	<h3>name : ${nmdto.name}</h3>
+	<%-- <h3>name : ${nmdto.name}</h3>
     <h3>id : ${nmdto.email}</h3>
     <h3>gender : ${nmdto.gender}</h3>
     <h3>phone : ${nmdto.phone}</h3>
@@ -16,8 +16,14 @@
     <h3>image:${nmdto.imgname}</h3>
     <h3>image:${nmdto.imgencoding}</h3>
     <h3>company:${nmdto.company}</h3>
-    <h3>grade:${sessionScope.grade}</h3>
-
+    <h3>grade:${sessionScope.grade}</h3> --%>
+    <h3>${rdto.email }</h3>
+    <h3>${rdto.title }</h3>
+    <h3>${rdto.career }</h3>
+    <h3>${rdto.edu }</h3>
+    <h3>${rdto.salary }</h3>
+    <h3>${rdto.certi }</h3>
+    <h3>${rdto.prize }</h3>
 
 	<div class="div-2">
 		<div class="myrow content-size height-250 background-white">

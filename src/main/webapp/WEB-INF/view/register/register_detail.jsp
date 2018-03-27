@@ -3,23 +3,23 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="company" value="${not empty company}"></c:set>
 <jsp:include page="/WEB-INF/view/template/header.jsp"></jsp:include>
-<form
-	action="${pageContext.request.contextPath }/register/register_detail"
-	method="post">
+<form action="${pageContext.request.contextPath }/register/register_detail" method="post">
+<input type="hidden" name="email" value="${sessionScope.accept }">
 	<div class="container-500 out-align-center">
 
 		<c:if test="${!company }">
 			<div class="myrow input-group input-group-lg">
-				<span class="input-group-addon" id="sizing-addon1"> <i
-					class="glyphicon glyphicon-text-size"></i></span> <input type="text"
-					class="form-control" name="school" placeholder="졸업한 학교를 입력하세요">
+				<span class="input-group-addon" id="sizing-addon1"> 
+					<i class="glyphicon glyphicon-text-size"></i>
+				</span> 
+				<input type="text" class="form-control" name="edu" value="${rdto.edu }" placeholder="졸업한 학교를 입력하세요">
 			</div>
 		</c:if>
 
 		<div class="myrow">
 			<div class="form-group">
-				<select name="favCom" class="form-control input-lg">
-					<option>경영/사무</option>
+				<select name="favDivision" class="form-control input-lg">
+					<option selected>경영/사무</option>
 					<option>영업/고객상담</option>
 					<option>IT/인터넷</option>
 					<option>디자인</option>
@@ -35,8 +35,8 @@
 				</select>
 			</div>
 			<div class="form-group">
-				<select name="favCom" class="form-control input-lg">
-					<option>서울</option>
+				<select name="favRegion" class="form-control input-lg">
+					<option selected>서울</option>
 					<option>경기</option>
 					<option>인천</option>
 					<option>부산</option>
@@ -62,38 +62,37 @@
 			<div class="myrow div-2">
 				<div class="form-input div-ratio2">현재 본인의 상태를 체크해 주세요.</div>
 				<div class="form-input div-ratio1 in-align-right">
-					<label class="radio-inline"> <input type="radio"
-						name="workingstatus" value="new"> 신입
-					</label> <label class="radio-inline"> <input type="radio"
-						name="workingstatus" value="experienced"> 경력
+					<label class="radio-inline"> 
+						<input type="radio" name="workingstatus" value="new" checked> 신입
+					</label> 
+					<label class="radio-inline"> 
+						<input type="radio" name="workingstatus" value="experienced"> 경력
 					</label>
 				</div>
 			</div>
 			<div class="myrow">
 				<div class="form-group">
 					<label for="comment"><h4>수상경력</h4></label>
-					<textarea class="form-control textarea" rows="2" id="prize"></textarea>
+					<textarea class="form-control textarea" rows="2" name="prize">${rdto.prize }</textarea>
 				</div>
 			</div>
 			<div class="myrow">
 				<div class="form-group">
 					<label for="comment"><h4>자격증</h4></label>
-					<textarea class="form-control textarea" rows="2" id="certification"></textarea>
+					<textarea class="form-control textarea" rows="2" name="certi">${rdto.certi }</textarea>
 				</div>
 			</div>
 			<div class="myrow">
 				<div class="form-group">
 					<label for="comment"><h4>포트폴리오</h4></label>
-					<textarea class="form-control textarea" rows="2" id="portfolio"></textarea>
+					<textarea class="form-control textarea" rows="2" name="portfolio">${rdto.portfolio }</textarea>
 				</div>
 			</div>
 		</c:if>
 
 		<div class="myrow div-2">
-			<input class="btn btn-primary btn-lg form-btn-full" type="submit"
-				value="가입"> <input
-				class="btn btn-primary btn-lg form-btn-full" type="button"
-				value="돌아가기" onclick="location.href='javascript:history.back()'">
+			<input class="btn btn-primary btn-lg form-btn-full" type="submit" value="수정"> 
+			<input class="btn btn-primary btn-lg form-btn-full" type="button" value="돌아가기" onclick="location.href='javascript:history.back()'">
 		</div>
 	</div>
 </form>

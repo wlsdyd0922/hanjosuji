@@ -13,9 +13,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import job.bean.CompanyDto;
 import job.bean.NormalMDto;
+import job.bean.ResumeDto;
 import job.manager.SHA256;
 import job.model.CompanyDaoImpl;
 import job.model.NormalMDaoImpl;
+import job.model.ResumeDaoImpl;
 
 @Controller
 @RequestMapping("register")
@@ -26,6 +28,8 @@ public class RegisterController {
 	private NormalMDaoImpl nmdao;
 	@Autowired
 	private CompanyDaoImpl cdao;
+	@Autowired
+	private ResumeDaoImpl rdao;
 	
 	@RequestMapping("register_choose")
 	public String RegisterChoose() {
@@ -85,8 +89,19 @@ public class RegisterController {
 	}
 	
 	@RequestMapping("register_detail")
-	public String RegisterDetail() {
+	public String RegisterDetailGet(HttpServletRequest request) {
+		String email = (String) request.getSession().getAttribute("accept");
+		if(rdao.searchTarget(email)!=null)
+			request.setAttribute("rdto",rdao.searchTarget(email));
 		return "/register/register_detail";
+	}
+	
+	@RequestMapping(value="register_detail",method = RequestMethod.POST)
+	public String RegisterDetailPost(ResumeDto rdto, HttpServletRequest request) {
+		String email = (String) request.getSession().getAttribute("accept");
+		if(rdao.searchTarget(email)!=null)
+			rdao.edit(rdto);
+		return "/member/information";
 	}
 
 }

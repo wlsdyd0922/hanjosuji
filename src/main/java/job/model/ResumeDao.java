@@ -8,7 +8,7 @@ import job.bean.ResumeDto;
 
 @Repository 
 public interface ResumeDao {
-	void insert(ResumeDto rdto);
+	boolean insert(ResumeDto rdto);
 	List<ResumeDto> getList(String author);
 	ResumeDto searchTarget(String author);
 	boolean delete(ResumeDto rdto);

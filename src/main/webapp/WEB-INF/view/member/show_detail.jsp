@@ -5,15 +5,15 @@
 	<div class="myrow input-group input-group-lg">
 		<span class="input-group-addon" id="sizing-addon1"><i
 			class="glyphicon glyphicon-text-size"></i></span> <input type="text"
-			class="form-control" name="school" placeholder="졸업한 학교를 입력하세요">
+			class="form-control" value="${rdto.edu }" readonly>
 	</div>
 	<div class="myrow">
 		<div class="form-group">
-			<select name="favCom" class="form-control input-lg">
+			<select name="favDivision" class="form-control input-lg">
 				<option>경영/사무</option>
 				<option>영업/고객상담</option>
 				<option>IT/인터넷</option>
-				<option selected>디자인</option>
+				<option>디자인</option>
 				<option>서비스</option>
 				<option>전문직</option>
 				<option>의료</option>
@@ -26,11 +26,11 @@
 			</select>
 		</div>
 		<div class="form-group">
-			<select name="favCom" class="form-control input-lg">
+			<select name="favRegion" class="form-control input-lg">
 				<option>서울</option>
 				<option>경기</option>
 				<option>인천</option>
-				<option selected>부산</option>
+				<option>부산</option>
 				<option>대구</option>
 				<option>광주</option>
 				<option>대전</option>
@@ -61,26 +61,24 @@
 	<div class="myrow">
 		<div class="form-group">
 			<label for="comment"><h4>수상경력</h4></label>
-			<textarea class="form-control textarea" rows="2" id="prize" readonly></textarea>
+			<textarea class="form-control textarea" rows="2" readonly>${rdto.prize }</textarea>
 		</div>
 	</div>
 	<div class="myrow">
 		<div class="form-group">
 			<label for="comment"><h4>자격증</h4></label>
-			<textarea class="form-control textarea" rows="2" id="certification"
-				readonly></textarea>
+			<textarea class="form-control textarea" rows="2" readonly>${rdto.certi }</textarea>
 		</div>
 	</div>
 	<div class="myrow">
 		<div class="form-group">
 			<label for="comment"><h4>포트폴리오</h4></label>
-			<textarea class="form-control textarea" rows="2" id="portfolio"
-				readonly></textarea>
+			<textarea class="form-control textarea" rows="2" readonly>${rdto.portfolio }</textarea>
 		</div>
 	</div>
 	<div class="myrow div-2">
 		<input class="btn btn-primary btn-lg form-btn-full" type="button"
-			value="정보등록"
+			value="정보수정"
 			onclick="location.href='${pageContext.request.contextPath }/register/register_detail'">
 		<input class="btn btn-primary btn-lg form-btn-full" type="button"
 			value="돌아가기"

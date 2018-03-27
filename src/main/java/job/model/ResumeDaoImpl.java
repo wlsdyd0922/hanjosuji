@@ -20,20 +20,19 @@ public class ResumeDaoImpl implements ResumeDao{
 	};
 	
 	@Override
-	public void insert(ResumeDto rdto) {
-		String sql = "insert into resume values(?,0,?,?,?,?,?,?,?,?,0,resume_seq.nextVal)";
+	public boolean insert(ResumeDto rdto) {
+		String sql = "insert into resume values('미등록',0,?,?,?,'미등록',?,'미등록','미등록',?,?,?,?,resume_seq.nextVal)";
 		Object[] args = {
-			rdto.getTitle(),
-			rdto.getCareer(),
+			rdto.getFavDivision(),
+			rdto.getFavRegion(),
+			rdto.getWorkingstatus(),
 			rdto.getEdu(),
-			rdto.getSalary(),
-			rdto.getPr(),
 			rdto.getPortfolio(),
 			rdto.getCerti(),
 			rdto.getPrize(),
 			rdto.getEmail()
 		};
-		jdbcTemplate.update(sql, args);
+		return jdbcTemplate.update(sql, args)>0;
 	}
 
 	private RowMapper<ResumeDto> mapper = (rs, idx)->{
@@ -45,10 +44,10 @@ public class ResumeDaoImpl implements ResumeDao{
 		String sql = "select * from resume order by title asc";
 		return jdbcTemplate.query(sql, mapper, author);
 	}
-	public ResumeDto searchTarget(String author)
+	public ResumeDto searchTarget(String email)
 	{
-		String sql = "select * from resume where author=?";
-		return jdbcTemplate.query(sql, extractor, author);
+		String sql = "select * from resume where email=?";
+		return jdbcTemplate.query(sql, extractor, email);
 	}
 	@Override
 	public boolean delete(ResumeDto rdto) {
@@ -57,19 +56,16 @@ public class ResumeDaoImpl implements ResumeDao{
 	}
 	@Override
 	public boolean edit(ResumeDto rdto) {
-		String sql = "update resume set title=?,career=?,edu=?,"
-				+ "salary=?,pr=?,portfolio=?,certi=?,prize=?"
-				+ " where no=?";
+		String sql = "update resume set favdivision=?,favregion=?,workingstatus=?,edu=?,portfolio=?,certi=?,prize=? where email=?";
 		Object[] args = {
-				rdto.getTitle(),
-				rdto.getCareer(),
+				rdto.getFavDivision(),
+				rdto.getFavRegion(),
+				rdto.getWorkingstatus(),
 				rdto.getEdu(),
-				rdto.getSalary(),
-				rdto.getPr(),
 				rdto.getPortfolio(),
 				rdto.getCerti(),
 				rdto.getPrize(),
-				rdto.getNo()
+				rdto.getEmail()
 			};
 			return jdbcTemplate.update(sql, args)>0;
 		}

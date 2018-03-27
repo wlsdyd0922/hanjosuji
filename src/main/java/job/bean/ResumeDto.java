@@ -5,6 +5,10 @@ import java.sql.SQLException;
    
 public class ResumeDto {
 	private String title;
+	private int count;
+	private String favRegion;
+	private String favDivision;
+	private String workingstatus;
 	private String career;
 	private String edu;
 	private String salary;
@@ -14,9 +18,13 @@ public class ResumeDto {
 	private String prize;
 	private String email;
 	private int boardno;
-	private int no;
+	
 	public ResumeDto(ResultSet rs) throws SQLException {
 		setTitle(rs.getString("title"));
+		setCount(rs.getInt("count"));
+		setFavDivision(rs.getString("favDivision"));
+		setFavRegion(rs.getString("favRegion"));
+		setWorkingstatus(rs.getString("workingstatus"));
 		setCareer(rs.getString("career"));
 		setEdu(rs.getString("edu"));
 		setSalary(rs.getString("salary"));
@@ -26,12 +34,12 @@ public class ResumeDto {
 		setPrize(rs.getString("prize"));
 		setEmail(rs.getString("email"));
 		setBoardno(rs.getInt("boardno"));
-		setNo(rs.getInt("no"));
 	}
-	public ResumeDto(String title, String career, String edu, String salary, String pr, String portfolio, String certi,
-			String prize, String email, int boardno, int no) {
+	public ResumeDto(String title, int count,String career, String edu, String salary, String pr, String portfolio, String certi,
+			String prize, String email, String favRegion, String favDivision, String workingstatus, int boardno) {
 		super();
 		this.title = title;
+		this.count = count;
 		this.career = career;
 		this.edu = edu;
 		this.salary = salary;
@@ -40,8 +48,14 @@ public class ResumeDto {
 		this.certi = certi;
 		this.prize = prize;
 		this.email = email;
+		this.favRegion = favRegion;
+		this.favDivision = favDivision;
+		this.workingstatus = workingstatus;
 		this.boardno = boardno;
-		this.no = no;
+	}
+	
+	public ResumeDto() {
+		super();
 	}
 	public String getTitle() {
 		return title;
@@ -103,10 +117,29 @@ public class ResumeDto {
 	public void setBoardno(int boardno) {
 		this.boardno = boardno;
 	}
-	public int getNo() {
-		return no;
+	public String getFavRegion() {
+		return favRegion;
 	}
-	public void setNo(int no) {
-		this.no = no;
+	public void setFavRegion(String favRegion) {
+		this.favRegion = favRegion;
 	}
+	public String getFavDivision() {
+		return favDivision;
+	}
+	public void setFavDivision(String favDivision) {
+		this.favDivision = favDivision;
+	}
+	public String getWorkingstatus() {
+		return workingstatus;
+	}
+	public void setWorkingstatus(String workingstatus) {
+		this.workingstatus = workingstatus;
+	}
+	public int getCount() {
+		return count;
+	}
+	public void setCount(int count) {
+		this.count = count;
+	}
+	
 }

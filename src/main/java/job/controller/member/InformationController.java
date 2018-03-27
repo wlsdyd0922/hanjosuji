@@ -13,6 +13,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import job.exception.ImageException;
 import job.model.NormalMDaoImpl;
+import job.model.ResumeDaoImpl;
 import job.service.ImageService;
 
 @Controller
@@ -20,8 +21,12 @@ import job.service.ImageService;
 public class InformationController {
 	@Autowired
 	private ImageService imgservice;
+	
 	@Autowired
 	private NormalMDaoImpl nmdao;
+	
+	@Autowired
+	private ResumeDaoImpl rdao;
 
 //	private Logger log = LoggerFactory.getLogger(getClass());
 
@@ -29,6 +34,7 @@ public class InformationController {
 	public String information(HttpServletRequest request) {
 		String email = (String) request.getSession().getAttribute("accept");
 		request.setAttribute("nmdto", nmdao.info(email));
+		request.setAttribute("rdto", rdao.searchTarget(email));
 		return "member/information";
 	}
 
