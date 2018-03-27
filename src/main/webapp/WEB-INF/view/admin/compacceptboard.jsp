@@ -18,6 +18,8 @@ $(document).ready(function() {
 	});
 });
 
+
+
 //부분 페이지를 가져오는 요청 함수
 function requestList(type, page){
 	$.ajax({

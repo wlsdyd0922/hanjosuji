@@ -46,7 +46,6 @@ public class AdminDaoImpl implements AdminDao {
 			return jdbcTemplate.queryForObject(sql, Integer.class, type);
 		}
 	}
-
 	@Override
 	public int getOCCount() {
 		String sql = "select count(*) from company where checked=1";

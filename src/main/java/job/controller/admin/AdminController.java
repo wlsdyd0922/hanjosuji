@@ -62,9 +62,6 @@ public class AdminController {
 		//페이지 블록 끝번호가 전체 페이지 수보다 크다면 페이지 블록 끝번호를 전체페이지 끝번호로 변겅
 		if(pageblockend > pagesize) pageblockend=pagesize;
 		
-		
-		
-		
 		if(type==2) {
 			list = addao.CompAllList(startdata,enddata);
 		}else {

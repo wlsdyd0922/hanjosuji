@@ -4,6 +4,7 @@
 <table class="table font-medium">
 	<thead>
 		<tr>
+		
 			<th width = 3%>번호</th>
 			<th>회사</th>
 			<th>분야</th>
