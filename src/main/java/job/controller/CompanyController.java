@@ -28,16 +28,20 @@ public class CompanyController {
 	}
 	
 	@RequestMapping(value = "register_company",method = RequestMethod.POST)
-	public String company_register(CompanyDto cdto)
-	{
+	public String company_register(CompanyDto cdto)	{
 		cdao.insert(cdto);
 		return "company/companylist";
 	}
 	
 	@RequestMapping("register_companymember")
-	public String company_register(NormalMDto nmdto)
-	{
+	public String company_register(NormalMDto nmdto)	{
 		ndao.register(nmdto);
 		return "company/companylist";
 	}
+	@RequestMapping("/company/companylist")
+	public String companylist() {
+		return "/company/companylist";
+	}
+	
+	
 }
