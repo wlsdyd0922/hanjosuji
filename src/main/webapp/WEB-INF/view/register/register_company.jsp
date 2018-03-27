@@ -130,7 +130,7 @@
 				value="가입완료"> <input
 				class="btn btn-primary btn-lg form-btn-full" type="button"
 				value="돌아가기"
-				onclick="location.href = '${pageContext.request.contextPath }/register/register_choose'">
+				onclick="history.back()">
 		</div>
 	</div>
 </form>

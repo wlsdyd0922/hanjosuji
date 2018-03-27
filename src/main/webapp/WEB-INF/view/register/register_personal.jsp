@@ -13,7 +13,7 @@
 			<input type="text" class="form-control" name="email" placeholder="아이디를 입력하세요" required>
 		</div>
 		
-		<div id = "checkMsg"></div>
+		<div class="padding font-medium in-align-center" id = "checkMsg"></div>
 
 		<div class="myrow input-group input-group-lg">
 			<span class="input-group-addon" id="sizing-addon1">
@@ -59,8 +59,16 @@
 			<span class="input-group-addon glyphicons-iphone-shake" id="sizing-addon1">
 				<i class="glyphicon glyphicon-phone-alt"></i>
 			</span>
-			<input type="button" id="post" value = "주소찾기">
-			<input type="text" class="form-control" id="addr" name="addr" placeholder="주소" required readonly>
+			<div class="div-2">
+				<div class="container-90">
+					<input type="text" class="form-control input-lg" id="addr" name="addr" placeholder="주소" required readonly>
+				</div>
+				<div class="container-10">
+					<button class="btn btn-primary input-lg" id="post">
+						<i class="glyphicon glyphicon-search"></i>
+					</button>
+				</div>
+			</div>
 			<input type="text" class="form-control" id="addr2" name="addr2" placeholder="상세주소">
 		</div>
 
@@ -97,7 +105,7 @@
 			<input class="btn btn-primary btn-lg form-btn-full" type="submit"
 				value="가입완료"> 
 			<input class="btn btn-primary btn-lg form-btn-full" type="button"
-				value="돌아가기" onclick="location.href = '${pageContext.request.contextPath }/register/register_choose'">
+				value="돌아가기" onclick="history.back()">
 		</div>
 	</div>
 </form>
