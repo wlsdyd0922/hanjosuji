@@ -26,17 +26,6 @@ public class BoardController {
 		request.setAttribute("list", list);
 		return "board/list"; 
 	}
-	
-	@RequestMapping("board/companyhire")
-	public String board(HttpServletRequest request) {
-		int no = 1;
-		if(request.getParameter("target")!=null && request.getParameter("target")!="") {
-			no = Integer.parseInt(request.getParameter("target"));
-		}
-		BoardDto bdto = boardDao.searchTarget(no);
-		request.setAttribute("bdto", bdto);
-		return "board/companyhire";
-	}
 
 	@RequestMapping("board/write")
 	public String boardWrite() {
@@ -53,10 +42,18 @@ public class BoardController {
 			bdto.setCount(Integer.parseInt(request.getParameter("count")));
 		}
 		bdto.setState(request.getParameter("state"));
+		bdto.setEmpltype(request.getParameter("empltype"));
+		bdto.setCareer(request.getParameter("career"));
 		bdto.setSalary(request.getParameter("salary"));
 		bdto.setWorking(request.getParameter("working"));
 		bdto.setContents(request.getParameter("contents"));
-		bdto.setCompany(request.getParameter("company"));
+		if(request.getParameter("company").equals("self")) {
+			bdto.setCompany(request.getParameter("company1"));
+		}
+		else{
+			bdto.setCompany(request.getParameter("company"));
+		}
+		
 		boardDao.insert(bdto);
 		return "redirect:/";
 	}

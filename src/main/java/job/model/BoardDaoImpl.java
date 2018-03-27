@@ -54,34 +54,29 @@ public class BoardDaoImpl implements BoardDao{
 	}
 
 	@Override
-	public List<BoardDto> searchList(String company) {
-		String sql = "select * from hireboard where company like '%'||?||'%' order by reg desc";
-		return jdbcTemplate.query(sql, mapper, company);
+	public List<BoardDto> searchList(String company,String location,String industry, String type, String career,String empltype) {
+	//company:키워드검색,location:위치, industry:직군, type:대기업/중소기업, career:신입경력
+		// empltype: 고용형태
+String sql = "select * from company a full outer join hireboard b"
+		+ " on a.name=b.company where upper(a.name) like '%'||upper(?)||'%'"
+		+ " and a.location like '%'||?||'%' and a.industry like '%'||?||'%'"
+		+ " and a.type like '%'||?||'%' and b.career like '%'||?||'%' and"
+		+ " b.empltype like '%'||?||'%'";
+//		String sql = "select * from hireboard where upper(company) like '%'||upper(?)||'%' order by reg desc";
+		return jdbcTemplate.query(sql, mapper, company,location,industry,type,career,empltype);
 	}
-	
-	public BoardDto searchTarget(int no) {
-		String sql = "select * from hireboard where no=?";
-		return jdbcTemplate.query(sql, extractor, no);
-	}
-	 
-	@Override
-	public boolean edit(BoardDto bdto) {
-		String sql = "update hireboard set count=?,title=?,"
-				+ "salary=?,working=?,contents=?"
-				+ " where company=?";
-		Object[] args = {
-				bdto.getCount(),
-				bdto.getTitle(),
-				bdto.getSalary(),
-				bdto.getWorking(),
-				bdto.getContents(),
-				bdto.getCompany()
-			};
-			return jdbcTemplate.update(sql, args)>0;
-	}
+
 	@Override
 	public boolean emplEnd(BoardDto bdto) {
 		String sql = "update hireboard set state='종료' where company=?";
 		return jdbcTemplate.update(sql, bdto.getCompany())>0;
 	}
+	@Override
+	public boolean edit(BoardDto bdto) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	
+	
+	
 }

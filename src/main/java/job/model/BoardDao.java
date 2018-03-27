@@ -11,7 +11,7 @@ public interface BoardDao {
  
 	boolean edit(BoardDto bdto);
 
-	List<BoardDto> searchList(String company);
+
 
 	boolean delete(BoardDto bdto);
 
@@ -20,4 +20,9 @@ public interface BoardDao {
 	void insert(BoardDto bdto);
 
 	boolean emplEnd(BoardDto bdto);
+
+
+
+	List<BoardDto> searchList(String company, String location, String industry, String type, String career,
+			String empltype);
 }

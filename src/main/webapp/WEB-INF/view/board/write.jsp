@@ -17,19 +17,45 @@
 		<div class="div-2">
 			<div class="container-20">회사명</div>
 			<div class="container-80">
-				<input class="form-input-full" type="text" name="company"> 
-				<select>
-					<option></option>
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
+				<select name="company">
+					<option value="">=== 선택해주세요 ===</option>
+					<option value="kgitbank">kgitbank</option>
+					<option value="samsung">samsung</option>
+					<option value="LG">LG</option>
+					<!-- value="self"이면 getParameter company1 받기-->
+					<option value="self">직접입력하기</option>
 				</select>
+				<input class="form-input-full" type="text" name="company1">
 			</div>
 		</div>
 		<div class="div-2">
 			<div class="container-20">고용인원</div>
 			<div class="container-80">
 				<input class="form-input-full" type="text" name="employee" placeholder="숫자로 입력해 주세요">
+			</div>
+		</div>
+		<div class="div-2">
+			<div class="container-20">고용형태</div>
+			<div class="container-80">
+				<select name="empltype">
+					<option value="정규직">정규직</option>
+					<option value="계약직">계약직</option>
+					<option value="인턴">인턴</option>
+					<option value="파견직">파견직</option>
+					<option value="프리랜서">프리랜서</option>
+				</select>
+			</div>
+		</div>
+		<div class="div-2">
+			<div class="container-20">경력</div>
+			<div class="container-80">
+				<select name="career" class="container-100">
+					<option value="신입">신입</option>
+					<option value="2년 이하">2년이하</option>
+					<option value="3~5년">3~5년</option>
+					<option value="6년이상">6년이상</option>
+					<option value="경력무관">경력무관</option>
+				</select>
 			</div>
 		</div>
 		<div class="div-2">
