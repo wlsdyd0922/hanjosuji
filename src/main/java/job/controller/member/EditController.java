@@ -32,16 +32,16 @@ public class EditController {
 	public String EditPersonal1() {
 		return "member/edit_personal";
 	} 
-	@RequestMapping("edit_company")
-	public String EditCompany(HttpServletRequest request) {
-		String company = (String) request.getSession().getAttribute("company");
-		request.setAttribute("cdto", cdao.searchTarget(company));
-		return "company/edit_compnay";
-	} 
-	@RequestMapping(value="edit_company",method=RequestMethod.POST)
-	public String EditCompany() {
-		return "company/edit_compnay";
-	} 
+//	@RequestMapping("edit_company")
+//	public String EditCompany(HttpServletRequest request) {
+//		String company = (String) request.getSession().getAttribute("company");
+//		request.setAttribute("cdto", cdao.searchTarget(company));
+//		return "company/edit_compnay";
+//	} 
+//	@RequestMapping(value="edit_company",method=RequestMethod.POST)
+//	public String EditCompany() {
+//		return "company/edit_compnay";
+//	} 
 	
 	@RequestMapping("edit_resume")
 	public String EditDetailResume(HttpServletRequest request) {
