@@ -9,6 +9,7 @@ public class BoardDto {
 	private int count;
 	private String state;
 	private int employee;	
+	private String career;
 	private String empltype;
 	private String salary;
 	private String working;
@@ -19,22 +20,6 @@ public class BoardDto {
 	public BoardDto() {
 		super();
 	}
-	
-	public BoardDto(int no, String title, int count, String state, int employee, String empltype, String salary,
-			String working, String contents, String company, String reg) {
-		super();
-		this.no = no;
-		this.title = title;
-		this.count = count;
-		this.state = state;
-		this.employee = employee;
-		this.empltype = empltype;
-		this.salary = salary;
-		this.working = working;
-		this.contents = contents;
-		this.company = company;
-		this.reg = reg;
-	}
 
 	public BoardDto(ResultSet rs) throws SQLException {
 		setNo(rs.getInt("no"));
@@ -42,6 +27,7 @@ public class BoardDto {
 		setCount(rs.getInt("count"));
 		setState(rs.getString("state"));
 		setEmployee(rs.getInt("employee"));
+		setCareer(rs.getString("career"));
 		setEmpltype(rs.getString("empltype"));
 		setSalary(rs.getString("salary"));
 		setWorking(rs.getString("working"));
@@ -119,6 +105,14 @@ public class BoardDto {
 
 	public void setEmpltype(String empltype) {
 		this.empltype = empltype;
+	}
+
+	public String getCareer() {
+		return career;
+	}
+
+	public void setCareer(String career) {
+		this.career = career;
 	}
 
 }
