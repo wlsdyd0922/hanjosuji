@@ -49,8 +49,8 @@ public class AdminDaoImpl implements AdminDao {
 	}
 
 	@Override
-	public List<CompanyDto> nameList(String name) {
-		String sql = "select * from (select * from (select rownum rn,A.* from (select * from company order by no)A))where name like '%'||?||'%' ";
-		return jdbcTemplate.query(sql,compmapper,name);
+	public boolean compAccept(int no) {
+		String sql = "update company set checked=1 where no=?";
+		return jdbcTemplate.update(sql,no)>0;
 	}
 }

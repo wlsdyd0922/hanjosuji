@@ -1,6 +1,8 @@
 package job.controller.member;
 
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
@@ -15,6 +17,7 @@ import job.bean.CompanyDto;
 import job.bean.NormalMDto;
 import job.bean.ResumeDto;
 import job.manager.SHA256;
+import job.model.AdminDaoImpl;
 import job.model.CompanyDaoImpl;
 import job.model.NormalMDaoImpl;
 import job.model.ResumeDaoImpl;
@@ -30,6 +33,7 @@ public class RegisterController {
 	private CompanyDaoImpl cdao;
 	@Autowired
 	private ResumeDaoImpl rdao;
+
 	
 	@RequestMapping("register_choose")
 	public String RegisterChoose() {
@@ -102,6 +106,32 @@ public class RegisterController {
 		if(rdao.searchTarget(email)!=null)
 			rdao.edit(rdto);
 		return "/member/information";
+	}
+	@RequestMapping("find_company")
+	public String register_newcompany() {
+		return "register/find_company";
+	}
+	
+//	@RequestMapping(value="find_company",method=RequestMethod.POST)
+//	public String register_newcompany(HttpServletRequest request) {
+//		String name = request.getParameter("company_name");
+//		List<CompanyDto> list = adminDao.nameList(name);
+//		if(list.isEmpty()) {
+//			log.debug("리스트없음");
+//		}
+//		request.setAttribute("list", list);
+//		return "register/find_company";
+//	}
+	@RequestMapping("find_company_part")
+	public String find_company_part(HttpServletRequest request) {
+		String name = request.getParameter("company_name");
+		List<CompanyDto> list = cdao.nameList(name);
+		if(list.isEmpty()) {
+			log.debug("리스트없음");
+			return "register/find_company_nok";
+		}
+		request.setAttribute("list", list);	
+		return "register/find_company_ok";
 	}
 
 }

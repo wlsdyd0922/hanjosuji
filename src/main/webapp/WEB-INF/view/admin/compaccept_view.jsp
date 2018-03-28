@@ -33,12 +33,12 @@
 				<td>${company.location}</td>
 				<td>
 				<c:if test="${company.checked==0}">
-					<button class="compaccept" onclick="outno('${company.no}')">등록</button>
+					<button class="compaccept" onclick="compaccept('${company.no}','${param.type}','${param.pageno}')">등록</button>
 				</c:if>
 				<c:if test="${company.checked==1}">
 					등록완료
 				</c:if>
-				<button class = "compdelete" onclick="outno('${company.no}','${param.type}','${param.pageno}')">삭제</button>
+				<button class = "compdelete" onclick="compdelete('${company.no}','${param.type}','${param.pageno}')">삭제</button>
 				</td>
 			</tr>
 		</c:forEach>

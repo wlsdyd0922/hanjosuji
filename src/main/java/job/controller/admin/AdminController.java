@@ -77,4 +77,15 @@ public class AdminController {
 		}
 		return null;
 	}
+	
+	@RequestMapping("compaccept")
+	@ResponseBody
+	public String compAccept(int no,HttpServletRequest request) {
+		if(addao.compAccept(no)) {
+			log.debug("성공");
+		}else{
+			log.debug("실패");
+		}
+		return null;
+	}
 }

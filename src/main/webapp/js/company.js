@@ -1,15 +1,6 @@
 $(function () {
     $(".tab_content").hide();
     $(".tab_content:first").show();
-
-//    $("ul.tabs li").click(function () {
-//        $("ul.tabs li").removeClass("active").css("color", "#333");
-//        //$(this).addClass("active").css({"color": "darkred","font-weight": "bolder"});
-//        $(this).addClass("active").css("color", "darkred");
-//        $(".tab_content").hide()
-//        var activeTab = $(this).attr("rel");
-//        $("#" + activeTab).fadeIn()
-//    });
 });
 
 
@@ -24,13 +15,9 @@ $(document).ready(function() {
 	$("#okcomp").on("click",function(){
 		requestList(1, 1);
 	});
-	
-	
-	
-	
-	
 });
-function outno(no,type,pageno){
+
+function compdelete(no,type,pageno){
 	$.ajax({
 		url:"compdelete",
 		data:{no:no},
@@ -40,6 +27,15 @@ function outno(no,type,pageno){
 	});	
 }
 
+function compaccept(no,type,pageno){
+	$.ajax({
+		url:"compaccept",
+		data:{no:no},
+		success:function(){
+			requestList(type,pageno);
+		}
+	});	
+}
 
 //부분 페이지를 가져오는 요청 함수
 function requestList(type, page){
@@ -53,6 +49,3 @@ function requestList(type, page){
 		}
 	});
 }
-
-
-

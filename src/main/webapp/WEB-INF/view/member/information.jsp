@@ -1,29 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="/WEB-INF/view/template/header.jsp"></jsp:include>
 <script src="${pageContext.request.contextPath}/js/info.js"></script>
 
 <div class="container-800 out-align-center">
-	
-	<%-- <h3>name : ${nmdto.name}</h3>
-    <h3>id : ${nmdto.email}</h3>
-    <h3>gender : ${nmdto.gender}</h3>
-    <h3>phone : ${nmdto.phone}</h3>
-    <h3>addr : ${nmdto.addr}</h3>
-    <h3>addr2 : ${nmdto.addr2}</h3>
-    <h3>birth : ${nmdto.birth}</h3>
-    <h3>image:${nmdto.imgname}</h3>
-    <h3>image:${nmdto.imgencoding}</h3>
-    <h3>company:${nmdto.company}</h3>
-    <h3>grade:${sessionScope.grade}</h3> --%>
-    <h3>${rdto.email }</h3>
-    <h3>${rdto.title }</h3>
-    <h3>${rdto.career }</h3>
-    <h3>${rdto.edu }</h3>
-    <h3>${rdto.salary }</h3>
-    <h3>${rdto.certi }</h3>
-    <h3>${rdto.prize }</h3>
 
 	<div class="div-2">
 		<div class="myrow content-size height-250 background-white">
@@ -109,7 +90,14 @@
 				</div>
 			</div>
 			<div class="div-2 rest-area" style="height: 29%;">
-				<div class="myrow rest-area input-lg border-circle">등록완료</div>
+				<c:choose>
+					<c:when test="${rdto.career==null }">
+						<div class="myrow rest-area input-lg border-circle">미등록</div>
+					</c:when>
+					<c:otherwise>
+						<div class="myrow rest-area input-lg border-circle">등록완료</div>
+					</c:otherwise>
+				</c:choose>
 			</div>
 			<div>
 				<div class="div-2 border-white">
@@ -123,7 +111,14 @@
 				</div>
 			</div>
 			<div class="div-2 rest-area" style="height: 29%;">
-				<div class="myrow rest-area input-lg border-circle">등록완료</div>
+				<c:choose>
+					<c:when test="${rdto.pr==null }">
+						<div class="myrow rest-area input-lg border-circle">미등록</div>
+					</c:when>
+					<c:otherwise>
+						<div class="myrow rest-area input-lg border-circle">등록완료</div>
+					</c:otherwise>
+				</c:choose>
 			</div>
 		</div>
 		<div class="myrow content-size height-250  background-white">

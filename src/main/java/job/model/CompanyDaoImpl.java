@@ -96,4 +96,10 @@ public class CompanyDaoImpl implements CompanyDao{
 		String sql = "update company set checked='1' where name=?";
 		return jdbcTemplate.update(sql, cdto.getName())>0;
 	}
+	
+	@Override
+	public List<CompanyDto> nameList(String name) {
+		String sql = "select * from (select * from (select rownum rn,A.* from (select * from company order by no)A))where name like '%'||?||'%' ";
+		return jdbcTemplate.query(sql,mapper,name);
+	}
 }
