@@ -17,4 +17,6 @@ public interface AdminDao {
 	int getCount(int type);
 
 	boolean compDelete(int no);
+	
+	List<CompanyDto> nameList(String name);
 }

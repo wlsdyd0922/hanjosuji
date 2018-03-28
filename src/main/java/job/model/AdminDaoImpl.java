@@ -47,4 +47,10 @@ public class AdminDaoImpl implements AdminDao {
 		String sql = "delete company where no=?";
 		return jdbcTemplate.update(sql,no)>0;
 	}
+
+	@Override
+	public List<CompanyDto> nameList(String name) {
+		String sql = "select * from (select * from (select rownum rn,A.* from (select * from company order by no)A))where name like '%'||?||'%' ";
+		return jdbcTemplate.query(sql,compmapper,name);
+	}
 }
