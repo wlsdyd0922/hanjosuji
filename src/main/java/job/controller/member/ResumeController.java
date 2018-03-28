@@ -26,13 +26,6 @@ public class ResumeController {
 		return "member/information";
 	}
 	
-	@RequestMapping("resume")
-	public String resume(HttpServletRequest request) {
-		String email = (String) request.getSession().getAttribute("accept");
-		log.debug(email);
-		request.setAttribute("rdto", rdao.searchTarget(email));
-		return "member/resume";
-	}
 	//이력서 상세보기
 	@RequestMapping("resume_detail")
 	public String resume_detail(HttpServletRequest request)
