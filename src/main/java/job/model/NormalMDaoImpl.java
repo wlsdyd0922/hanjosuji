@@ -8,6 +8,8 @@ import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
+import com.sun.javafx.tools.packager.Log;
+
 import job.bean.NormalMDto;
 
 @Repository("normalMdao")
@@ -58,18 +60,30 @@ public class NormalMDaoImpl implements NormalMDao{
 	}
 	@Override 
 	public boolean edit(NormalMDto nmdto) {
-		String sql = "update NormalM set pw=?,phone=?,addr=?,pwquiz=?,pwans=?,grade=?,resume=?,company=? where email=?";
-		Object[] args = new Object[] {
-			nmdto.getPw(),
-			nmdto.getPhone(),
-			nmdto.getAddr(),
-			nmdto.getPwquiz(),
-			nmdto.getPwans(),
-			nmdto.getGrade(),
-			nmdto.getCompany(),
-			nmdto.getEmail()
-		};
-		return jdbcTemplate.update(sql, args) > 0;
+		System.out.println(nmdto.getPw());
+		if(nmdto.getPw().equals("")) {
+			String sql = "update NormalM set phone=?,addr=?,addr2=?,pwquiz=? where email=?";
+			Object[] args = new Object[] {
+				nmdto.getPhone(),
+				nmdto.getAddr(),
+				nmdto.getAddr2(),
+				nmdto.getPwquiz(),
+				nmdto.getEmail()
+			};
+			return jdbcTemplate.update(sql, args) > 0;
+		}else {
+			String sql = "update NormalM set pw=?,phone=?,addr=?,addr2=?,pwquiz=? where email=?";
+			Object[] args = new Object[] {
+					nmdto.getPw(),
+					nmdto.getPhone(),
+					nmdto.getAddr(),
+					nmdto.getAddr2(),
+					nmdto.getPwquiz(),
+					nmdto.getEmail()
+			};
+			return jdbcTemplate.update(sql, args) > 0;
+		}
+		
 	}
 	
 	public boolean face(String savename, String email) {

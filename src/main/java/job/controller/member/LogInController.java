@@ -1,7 +1,5 @@
 package job.controller.member;
 
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.cookie;
-
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

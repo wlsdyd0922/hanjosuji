@@ -3,27 +3,9 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="/WEB-INF/view/template/header.jsp"></jsp:include>
 
-<script>
-$(function(){
-	if($('#grade').val()!="관리자" || $("input[type=email]").val()==sessionStorage.getItem("accept")){
-		$('#grade').prop('outerHTML', $('#grade').prop('outerHTML')+$('#grade option:selected').text());
-		$('#grade').hide();
-	}
-});
-</script>
+<script src="${pageContext.request.contextPath}/js/edit_Personal.js"></script>
 
-
-<h3>email:${nmdto.email }</h3>
-<h3>name:${ nmdto.name}</h3>
-<h3>gender:${ nmdto.gender}</h3>
-<h3>phone:${ nmdto.phone}</h3>
-<h3>addr:${nmdto.addr }</h3>
-<h3>addr:${nmdto.addr2 }</h3>
-<h3>pwquiz:${ nmdto.pwquiz}</h3>
-<h3>grade:${sessionScope.grade}</h3>
-<h3>company:${ nmdto.company}</h3>
-
-<form action="#" method="post">
+<form action="edit_personal" method="post">
 	<div class="empty-row"></div>
 	<div class="container-500 out-align-center">
 		<div class="myrow input-group input-group-lg">
@@ -36,7 +18,7 @@ $(function(){
 			<span class="input-group-addon glyphicons glyphicons-lock" id="sizing-addon1">
 				<i class="glyphicon glyphicon-lock"></i>
 			</span>
-			<input type="password" class="form-control" name="pw" placeholder="비밀번호를 입력하세요">
+			<input type="password" class="form-control" name="pw" placeholder="변경한다면 비밀번호를 입력하세요">
 		</div>
 		<div class="myrow input-group input-group-lg">
 			<span class="input-group-addon glyphicons glyphicons-lock" id="sizing-addon1">
@@ -48,19 +30,30 @@ $(function(){
 			<span class="input-group-addon glyphicons-iphone-shake" id="sizing-addon1">
 				<i class="glyphicon glyphicon-phone-alt"></i>
 			</span>
-			<input type="text" class="form-control" name="phone" value="${nmdto.phone }">
+			<input type="text" class="form-control" name="phone" value="${nmdto.phone}">
 		</div>
 		<div class="myrow input-group input-group-lg">
 			<span class="input-group-addon glyphicons-tent" id="sizing-addon1">
 				<i class="glyphicon glyphicon-tent"></i>
 			</span>
-			<input type="text" class="form-control" name="address" value="${nmdto.addr }구">
+			<input type="text" class="form-control" name="addr" value="${nmdto.addr}">
 		</div>
 		<div class="myrow input-group input-group-lg">
 			<span class="input-group-addon" id="sizing-addon1">
 				<i class="glyphicon glyphicon-tent"></i>
 			</span>
-			<input type="text" class="form-control" name="address_detail" value="${nmdto.addr2 }">
+			<input type="text" class="form-control" name="addr2" value="${nmdto.addr2 }">
+		</div>
+		
+		<div class="myrow">
+			<h4>비밀번호 확인 질문을 선택하세요.</h4>
+			<div class="form-group">
+				<select name="pwquiz" class="form-control input-lg">
+					<option value="1" <c:if test="${nmdto.pwquiz eq 1}">selected</c:if>>당신이 졸업한 초등학교는?</option>
+					<option value="2" <c:if test="${nmdto.pwquiz eq 2}">selected</c:if>>어머니 성함은?</option>
+					<option value="3" <c:if test="${nmdto.pwquiz eq 3}">selected</c:if>>당신의 애완동물 이름은?</option>
+				</select>
+			</div>
 		</div>
 		<div class="myrow">
 			<h4>회원 등급</h4>

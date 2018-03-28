@@ -86,9 +86,9 @@
 			<h4>비밀번호 확인 질문을 선택하세요.</h4>
 			<div class="form-group">
 				<select name="pwquiz" class="form-control input-lg">
-					<option>당신이 졸업한 초등학교는?</option>
-					<option>어머니 성함은?</option>
-					<option>당신의 애완동물 이름은?</option>
+					<option value="1">당신이 졸업한 초등학교는?</option>
+					<option value="2">어머니 성함은?</option>
+					<option value="3">당신의 애완동물 이름은?</option>
 				</select>
 			</div>
 		</div>
