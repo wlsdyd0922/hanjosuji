@@ -7,12 +7,13 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import job.bean.ResumeDto;
 import job.model.ResumeDaoImpl;
 
 @Controller
-@RequestMapping("resume")
+//@RequestMapping("resume")
 public class ResumeController {
 	private Logger log = LoggerFactory.getLogger(getClass());
 
@@ -25,11 +26,6 @@ public class ResumeController {
 		return "member/information";
 	}
 	
-	@RequestMapping("resume")
-	public String resume()
-	{
-		return "member/resume";
-	}
 	//이력서 상세보기
 	@RequestMapping("resume_detail")
 	public String resume_detail(HttpServletRequest request)

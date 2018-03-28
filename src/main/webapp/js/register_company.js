@@ -4,16 +4,16 @@ $(document).ready(function() {
 	var pwa = false;
 	var phone = false;
 	var ans = false;
-	$("input[name=email]").on("input", function() {
+	$("input[name=email]").on("input",function(){
 		var regex = /^\w{6,15}$/;
-		if (!$(this).val()) {
-			$(this).css("border-color", "#ccc");
-		} else if (regex.test($(this).val())) {
-			$(this).css("border-color", "deepskyblue");
+		if(!$(this).val()){
+			$(this).css("border-color","#ccc");
+		}else if(regex.test($(this).val())){
+			$(this).css("border-color","deepskyblue");
 			id = true;
-		} else {
-			$(this).css("border-color", "deeppink");
-			id = false;
+		}else{
+			$(this).css("border-color","deeppink");
+			id=false;
 		}
 	});
 	$("input[name=pw]").on("input", function() {

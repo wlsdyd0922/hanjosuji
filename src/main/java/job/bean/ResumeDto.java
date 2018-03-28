@@ -2,12 +2,12 @@ package job.bean;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-   
+
 public class ResumeDto {
 	private String title;
 	private int count;
-	private String favRegion;
-	private String favDivision;
+	private String favdivision;
+	private String favregion;
 	private String workingstatus;
 	private String career;
 	private String edu;
@@ -19,11 +19,15 @@ public class ResumeDto {
 	private String email;
 	private int boardno;
 	
+	public ResumeDto() {
+		super();
+	}
+
 	public ResumeDto(ResultSet rs) throws SQLException {
 		setTitle(rs.getString("title"));
 		setCount(rs.getInt("count"));
-		setFavDivision(rs.getString("favDivision"));
-		setFavRegion(rs.getString("favRegion"));
+		setFavdivision(rs.getString("favdivision"));
+		setFavregion(rs.getString("favregion"));
 		setWorkingstatus(rs.getString("workingstatus"));
 		setCareer(rs.getString("career"));
 		setEdu(rs.getString("edu"));
@@ -35,28 +39,7 @@ public class ResumeDto {
 		setEmail(rs.getString("email"));
 		setBoardno(rs.getInt("boardno"));
 	}
-	public ResumeDto(String title, int count,String career, String edu, String salary, String pr, String portfolio, String certi,
-			String prize, String email, String favRegion, String favDivision, String workingstatus, int boardno) {
-		super();
-		this.title = title;
-		this.count = count;
-		this.career = career;
-		this.edu = edu;
-		this.salary = salary;
-		this.pr = pr;
-		this.portfolio = portfolio;
-		this.certi = certi;
-		this.prize = prize;
-		this.email = email;
-		this.favRegion = favRegion;
-		this.favDivision = favDivision;
-		this.workingstatus = workingstatus;
-		this.boardno = boardno;
-	}
-	
-	public ResumeDto() {
-		super();
-	}
+
 	public String getTitle() {
 		return title;
 	}
@@ -117,24 +100,36 @@ public class ResumeDto {
 	public void setBoardno(int boardno) {
 		this.boardno = boardno;
 	}
-	public String getFavRegion() {
-		return favRegion;
+
+	public String getFavdivision() {
+		return favdivision;
 	}
-	public void setFavRegion(String favRegion) {
-		this.favRegion = favRegion;
+
+	public void setFavdivision(String favdivision) {
+		this.favdivision = favdivision;
+	}
+
+	public String getFavregion() {
+		return favregion;
+	}
+
+	public void setFavregion(String favregion) {
+		this.favregion = favregion;
+	}
+
+	public void setWorkingstatus(String workingstatus) {
+		this.workingstatus = workingstatus;
 	}
 	public String getFavDivision() {
-		return favDivision;
+		return favdivision;
 	}
 	public void setFavDivision(String favDivision) {
-		this.favDivision = favDivision;
+		this.favdivision = favDivision;
 	}
 	public String getWorkingstatus() {
 		return workingstatus;
 	}
-	public void setWorkingstatus(String workingstatus) {
-		this.workingstatus = workingstatus;
-	}
+
 	public int getCount() {
 		return count;
 	}

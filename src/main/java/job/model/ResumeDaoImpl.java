@@ -22,20 +22,23 @@ public class ResumeDaoImpl implements ResumeDao {
 	};
 
 	@Override
-	public boolean insert(ResumeDto rdto) {
-		if (rdto.getPrize() != null) {
-			String sql = "insert into resume values('',0,?,?,?,'',?,'','',?,?,?,?,resume_seq.nextVal)";
-			Object[] args = { rdto.getFavDivision(), rdto.getFavRegion(), rdto.getWorkingstatus(), rdto.getEdu(),
-					rdto.getPortfolio(), rdto.getCerti(), rdto.getPrize(), rdto.getEmail() };
-			return jdbcTemplate.update(sql, args) > 0;
-		} else if (rdto.getCareer() != null) {
-			String sql = "insert into resume values('',0,'','','',?,?,'','','',?,'',?,resume_seq.nextVal)";
-			Object[] args = { rdto.getCareer(), rdto.getEdu(), rdto.getCerti(), rdto.getEmail() };
-			return jdbcTemplate.update(sql, args) > 0;
-		}
-
-		return false;
-
+	public void insert(ResumeDto rdto) {
+		String sql = "insert into resume values(?,0,?,?,?,?,?,?,?,?,?,?,?,null)";
+		Object[] args = {
+			rdto.getTitle(),
+			rdto.getFavdivision(),
+			rdto.getFavregion(),
+			rdto.getWorkingstatus(),
+			rdto.getCareer(),
+			rdto.getEdu(),
+			rdto.getSalary(),
+			rdto.getPr(),
+			rdto.getPortfolio(),
+			rdto.getCerti(),
+			rdto.getPrize(),
+			rdto.getEmail()
+		};
+		jdbcTemplate.update(sql, args);
 	}
 
 	private RowMapper<ResumeDto> mapper = (rs, idx) -> {
@@ -47,10 +50,10 @@ public class ResumeDaoImpl implements ResumeDao {
 		String sql = "select * from resume order by title asc";
 		return jdbcTemplate.query(sql, mapper, author);
 	}
-
-	public ResumeDto searchTarget(String email) {
+	public ResumeDto searchTarget(String author)
+	{
 		String sql = "select * from resume where email=?";
-		return jdbcTemplate.query(sql, extractor, email);
+		return jdbcTemplate.query(sql, extractor, author);
 	}
 
 	@Override
@@ -58,21 +61,38 @@ public class ResumeDaoImpl implements ResumeDao {
 		String sql = "delete from resume where email=? and title=?";
 		return jdbcTemplate.update(sql, rdto.getEmail(), rdto.getTitle()) > 0;
 	}
-
 	@Override
 	public boolean edit(ResumeDto rdto) {
-		if (rdto.getPrize() != null) {
-			String sql = "update resume set favdivision=?,favregion=?,workingstatus=?,edu=?,portfolio=?,certi=?,prize=? where email=?";
-			Object[] args = { rdto.getFavDivision(), rdto.getFavRegion(), rdto.getWorkingstatus(), rdto.getEdu(),
-					rdto.getPortfolio(), rdto.getCerti(), rdto.getPrize(), rdto.getEmail() };
-			return jdbcTemplate.update(sql, args) > 0;
-		} else if (rdto.getCareer() != null) {
-			String sql = "update resume set career=?,edu=?,certi=? where email=?";
-			Object[] args = { rdto.getCareer(), rdto.getEdu(), rdto.getCerti(), rdto.getEmail() };
-			return jdbcTemplate.update(sql, args) > 0;
+		String sql = "update resume set "
+				+ "title=?,"
+				+ "favdivision=?,"
+				+ "favregion=?,"
+				+ "workingstatus=?,"
+				+ "career=?,"
+				+ "edu=?,"
+				+ "salary=?,"
+				+ "pr=?,"
+				+ "portfolio=?,"
+				+ "certi=?,"
+				+ "prize=?"
+				+ " where email=?";
+		Object[] args = {
+				rdto.getTitle(),
+				rdto.getFavdivision(),
+				rdto.getFavregion(),
+				rdto.getWorkingstatus(),
+				rdto.getCareer(),
+				rdto.getEdu(),
+				rdto.getSalary(),
+				rdto.getPr(),
+				rdto.getPortfolio(),
+				rdto.getCerti(),
+				rdto.getPrize(),
+				rdto.getEmail()
+			};
+			return jdbcTemplate.update(sql, args)>0;
 		}
-		return false;
-	}
+
 
 	@Override
 	public boolean connResume(String email, String title) {
@@ -81,8 +101,13 @@ public class ResumeDaoImpl implements ResumeDao {
 	}
 
 	@Override
-	public boolean connBoard(int boardno, int resumeno) {
-		String sql = "update resume set boardno=? where no=?";
-		return jdbcTemplate.update(sql, boardno, resumeno) > 0;
+	public boolean connBoard(int boardno, String email) {
+		String sql = "update resume set boardno=? where email=?";
+		return jdbcTemplate.update(sql, boardno, email)>0;
+	}
+	@Override
+	public boolean increaseView(ResumeDto rdto) {
+		String sql = "UPDATE resume SET COUNT = (SELECT nvl(COUNT, 0) + 1 FROM resume WHERE email= ?) WHERE email=?";
+		return jdbcTemplate.update(sql, rdto.getEmail(), rdto.getEmail())>0;
 	}
 }

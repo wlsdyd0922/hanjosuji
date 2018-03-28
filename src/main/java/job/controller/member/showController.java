@@ -15,13 +15,10 @@ import job.model.ResumeDaoImpl;
 @RequestMapping("member")
 public class showController {
 	private Logger log = LoggerFactory.getLogger(getClass());
-	
 	@Autowired
 	private NormalMDaoImpl nmdao;
-	
 	@Autowired
 	private ResumeDaoImpl rdao;
-
 	@RequestMapping("introduction_paper")
 	public String introduction_paper() {
 		return "member/introduction_paper";
@@ -30,9 +27,7 @@ public class showController {
 	@RequestMapping("resume")
 	public String resume(HttpServletRequest request) {
 		String email = (String) request.getSession().getAttribute("accept");
-		request.setAttribute("nmdto",nmdao.info(email));
-		if(rdao.searchTarget(email)!=null)
-			request.setAttribute("rdto",rdao.searchTarget(email));
+		request.setAttribute("rdto", rdao.searchTarget(email));
 		return "member/resume";
 	}
 	

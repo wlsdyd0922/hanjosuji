@@ -8,11 +8,12 @@ import job.bean.ResumeDto;
 
 @Repository 
 public interface ResumeDao {
-	boolean insert(ResumeDto rdto);
+	void insert(ResumeDto rdto);
 	List<ResumeDto> getList(String author);
 	ResumeDto searchTarget(String author);
 	boolean delete(ResumeDto rdto);
 	boolean edit(ResumeDto rdto);
 	boolean connResume(String email, String title);
-	boolean connBoard(int boardno, int resumeno);
+	boolean connBoard(int boardno, String email);
+	boolean increaseView(ResumeDto rdto);
 }
