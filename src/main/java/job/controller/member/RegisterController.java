@@ -99,8 +99,11 @@ public class RegisterController {
 	@RequestMapping(value="register_detail",method = RequestMethod.POST)
 	public String RegisterDetailPost(ResumeDto rdto, HttpServletRequest request) {
 		String email = (String) request.getSession().getAttribute("accept");
+		log.debug(rdto.getEmail());
 		if(rdao.searchTarget(email)!=null)
 			rdao.edit(rdto);
+		else
+			rdao.insert(rdto);
 		return "/member/information";
 	}
 

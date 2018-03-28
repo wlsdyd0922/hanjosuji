@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import job.bean.ResumeDto;
 import job.model.CompanyDaoImpl;
 import job.model.NormalMDaoImpl;
 import job.model.ResumeDaoImpl;
@@ -45,13 +46,21 @@ public class EditController {
 	
 	@RequestMapping("edit_resume")
 	public String EditDetailResume(HttpServletRequest request) {
-		String author = (String) request.getSession().getAttribute("author");
-		request.setAttribute("rdto", rdao.searchTarget(author));
+		String email = (String) request.getSession().getAttribute("accept");
+		request.setAttribute("nmdto",nmdao.info(email));
+		if(rdao.searchTarget(email)!=null)
+			request.setAttribute("rdto",rdao.searchTarget(email));
 		return "member/edit_resume";
 	} 
 	@RequestMapping(value="edit_resume",method=RequestMethod.POST)
-	public String EditDetailResume() {
-		return "company/edit_resume";
+	public String EditDetailResume(ResumeDto rdto, HttpServletRequest request) {
+		String email = (String) request.getSession().getAttribute("accept");
+		if(rdao.searchTarget(email)!=null) {
+			rdao.edit(rdto);
+		}else {
+			rdao.insert(rdto);
+		}
+		return "member/information";
 	} 
 
 	@RequestMapping("edit_introduction_paper")

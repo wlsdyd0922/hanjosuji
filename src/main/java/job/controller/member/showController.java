@@ -2,6 +2,8 @@ package job.controller.member;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +14,7 @@ import job.model.ResumeDaoImpl;
 @Controller
 @RequestMapping("member")
 public class showController {
+	private Logger log = LoggerFactory.getLogger(getClass());
 	
 	@Autowired
 	private NormalMDaoImpl nmdao;
@@ -25,7 +28,11 @@ public class showController {
 	}
 
 	@RequestMapping("resume")
-	public String resume() {
+	public String resume(HttpServletRequest request) {
+		String email = (String) request.getSession().getAttribute("accept");
+		request.setAttribute("nmdto",nmdao.info(email));
+		if(rdao.searchTarget(email)!=null)
+			request.setAttribute("rdto",rdao.searchTarget(email));
 		return "member/resume";
 	}
 	

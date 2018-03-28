@@ -15,11 +15,23 @@
 				<input type="text" class="form-control" name="edu" value="${rdto.edu }" placeholder="졸업한 학교를 입력하세요">
 			</div>
 		</c:if>
-
+		<script>
+			$(document).ready(function(){
+				choose_select("favDivision");
+				choose_select("favRegion");
+			});
+			
+			function choose_select(data_value){
+				/* 1. 데이터베이스에 입력된 데이터 값을 불러 온다.*/
+			    var choice = $("select[name="+ data_value +"]").attr("data-value");
+			    /* 2. 데이터베이스에의 값을 초기값으로 입력한다.*/
+			    $("select[name="+ data_value +"]").val(choice);
+			};
+		</script>
 		<div class="myrow">
 			<div class="form-group">
-				<select name="favDivision" class="form-control input-lg">
-					<option selected>경영/사무</option>
+				<select name="favDivision" class="form-control input-lg" data-value="${rdto.favDivision}">
+					<option>경영/사무</option>
 					<option>영업/고객상담</option>
 					<option>IT/인터넷</option>
 					<option>디자인</option>
@@ -35,8 +47,8 @@
 				</select>
 			</div>
 			<div class="form-group">
-				<select name="favRegion" class="form-control input-lg">
-					<option selected>서울</option>
+				<select name="favRegion" class="form-control input-lg" data-value="${rdto.favRegion}">
+					<option>서울</option>
 					<option>경기</option>
 					<option>인천</option>
 					<option>부산</option>

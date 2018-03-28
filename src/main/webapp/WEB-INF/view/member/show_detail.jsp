@@ -1,6 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <jsp:include page="/WEB-INF/view/template/header.jsp"></jsp:include>
+<script>
+	$(document).ready(function() {
+		choose_select("favDivision");
+		choose_select("favRegion");
+	});
+
+	function choose_select(data_value) {
+		/* 1. 데이터베이스에 입력된 데이터 값을 불러 온다.*/
+		var choice = $("select[name=" + data_value + "]").attr("data-value");
+		/* 2. 데이터베이스에의 값을 초기값으로 입력한다.*/
+		$("select[name=" + data_value + "]").val(choice);
+	};
+</script>
 <div class="container-500 out-align-center">
 	<div class="myrow input-group input-group-lg">
 		<span class="input-group-addon" id="sizing-addon1"><i
@@ -9,7 +22,7 @@
 	</div>
 	<div class="myrow">
 		<div class="form-group">
-			<select name="favDivision" class="form-control input-lg">
+			<select name="favDivision" class="form-control input-lg" data-value="${rdto.favDivision }">
 				<option>경영/사무</option>
 				<option>영업/고객상담</option>
 				<option>IT/인터넷</option>
@@ -26,7 +39,7 @@
 			</select>
 		</div>
 		<div class="form-group">
-			<select name="favRegion" class="form-control input-lg">
+			<select name="favRegion" class="form-control input-lg" data-value="${rdto.favRegion }">
 				<option>서울</option>
 				<option>경기</option>
 				<option>인천</option>
@@ -81,8 +94,7 @@
 			value="정보수정"
 			onclick="location.href='${pageContext.request.contextPath }/register/register_detail'">
 		<input class="btn btn-primary btn-lg form-btn-full" type="button"
-			value="돌아가기"
-			onclick="location.href='javascript:history.back()'">
+			value="돌아가기" onclick="location.href='javascript:history.back()'">
 	</div>
 </div>
 
