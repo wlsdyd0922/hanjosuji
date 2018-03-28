@@ -3,6 +3,7 @@
 <jsp:include page="/WEB-INF/view/template/header.jsp"></jsp:include>
 <div class="container-1000 out-align-center">
 	<h1>이력서 등록</h1>
+	<h2>title:${rdto.title }</h2>
 	<hr class="style-one">
 	<div class="myrow div-2" style="height: 116px;">
 		<div class="myrow">

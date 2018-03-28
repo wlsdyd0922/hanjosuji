@@ -46,14 +46,16 @@ public class EditController {
 	
 	@RequestMapping("edit_resume")
 	public String EditDetailResume(HttpServletRequest request) {
-		String author = (String) request.getSession().getAttribute("author");
+		String author = (String) request.getSession().getAttribute("accept");
 		request.setAttribute("rdto", rdao.searchTarget(author));
 		return "member/edit_resume";
 	} 
 	@RequestMapping(value="edit_resume",method=RequestMethod.POST)
-	public String EditDetailResume(ResumeDto rdto) {
+	public String EditDetailResume(ResumeDto rdto,HttpServletRequest request) {
+		String author = (String) request.getSession().getAttribute("accept");
+		request.setAttribute("rdto", rdao.searchTarget(author));
 		rdao.edit(rdto);
-		return "member/edit_resume";
+		return "member/information";
 	} 
 
 	@RequestMapping("edit_introduction_paper")
