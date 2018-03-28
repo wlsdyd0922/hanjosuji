@@ -21,9 +21,12 @@ public class ResumeDaoImpl implements ResumeDao{
 	
 	@Override
 	public void insert(ResumeDto rdto) {
-		String sql = "insert into resume values(?,0,?,?,?,?,?,?,?,?,0,resume_seq.nextVal)";
+		String sql = "insert into resume values(?,0,?,?,?,?,?,?,?,?,?,?,?,null)";
 		Object[] args = {
 			rdto.getTitle(),
+			rdto.getFavdivision(),
+			rdto.getFavregion(),
+			rdto.getWorkingstatus(),
 			rdto.getCareer(),
 			rdto.getEdu(),
 			rdto.getSalary(),
@@ -47,7 +50,7 @@ public class ResumeDaoImpl implements ResumeDao{
 	}
 	public ResumeDto searchTarget(String author)
 	{
-		String sql = "select * from resume where author=?";
+		String sql = "select * from resume where email=?";
 		return jdbcTemplate.query(sql, extractor, author);
 	}
 	@Override
@@ -57,11 +60,24 @@ public class ResumeDaoImpl implements ResumeDao{
 	}
 	@Override
 	public boolean edit(ResumeDto rdto) {
-		String sql = "update resume set title=?,career=?,edu=?,"
-				+ "salary=?,pr=?,portfolio=?,certi=?,prize=?"
-				+ " where no=?";
+		String sql = "update resume set "
+				+ "title=?,"
+				+ "favdivision=?,"
+				+ "favregion=?,"
+				+ "workingstatus=?,"
+				+ "career=?,"
+				+ "edu=?,"
+				+ "salary=?,"
+				+ "pr=?,"
+				+ "portfolio=?,"
+				+ "certi=?,"
+				+ "prize=?"
+				+ " where email=?";
 		Object[] args = {
 				rdto.getTitle(),
+				rdto.getFavdivision(),
+				rdto.getFavregion(),
+				rdto.getWorkingstatus(),
 				rdto.getCareer(),
 				rdto.getEdu(),
 				rdto.getSalary(),
@@ -69,7 +85,7 @@ public class ResumeDaoImpl implements ResumeDao{
 				rdto.getPortfolio(),
 				rdto.getCerti(),
 				rdto.getPrize(),
-				rdto.getNo()
+				rdto.getEmail()
 			};
 			return jdbcTemplate.update(sql, args)>0;
 		}
@@ -80,8 +96,13 @@ public class ResumeDaoImpl implements ResumeDao{
 		return jdbcTemplate.update(sql, email, title)>0;
 	}
 	@Override
-	public boolean connBoard(int boardno, int resumeno) {
-		String sql = "update resume set boardno=? where no=?";
-		return jdbcTemplate.update(sql, boardno, resumeno)>0;
+	public boolean connBoard(int boardno, String email) {
+		String sql = "update resume set boardno=? where email=?";
+		return jdbcTemplate.update(sql, boardno, email)>0;
+	}
+	@Override
+	public boolean increaseView(ResumeDto rdto) {
+		String sql = "UPDATE resume SET COUNT = (SELECT nvl(COUNT, 0) + 1 FROM resume WHERE email= ?) WHERE email=?";
+		return jdbcTemplate.update(sql, rdto.getEmail(), rdto.getEmail())>0;
 	}
 }
