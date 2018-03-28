@@ -47,4 +47,9 @@ public class AdminDaoImpl implements AdminDao {
 		String sql = "delete company where no=?";
 		return jdbcTemplate.update(sql,no)>0;
 	}
+
+	public boolean compAccept(int no) {
+		String sql = "update company set checked=1 where no=?";
+		return jdbcTemplate.update(sql,no)>0;
+	}
 }

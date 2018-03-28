@@ -82,7 +82,6 @@
 						<div class="container-20 in-align-center">지원일자</div>
 						<div class="container-20 in-align-center">보기</div>
 					</div>
-					
 					<!-- 여기서 부터 for문-->
 					<div class="div-2 rest-area font-small">
 						<div class="container-20 in-align-center">1</div>
@@ -103,7 +102,6 @@
 						</div>
 					</div>
 					<!-- for문 끝-->
-				
 				</div>
 			</div>
 		</div>
