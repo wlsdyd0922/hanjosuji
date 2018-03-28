@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import job.bean.ResumeDto;
 import job.model.CompanyDaoImpl;
 import job.model.NormalMDaoImpl;
 import job.model.ResumeDaoImpl;
@@ -50,8 +51,9 @@ public class EditController {
 		return "member/edit_resume";
 	} 
 	@RequestMapping(value="edit_resume",method=RequestMethod.POST)
-	public String EditDetailResume() {
-		return "company/edit_resume";
+	public String EditDetailResume(ResumeDto rdto) {
+		rdao.edit(rdto);
+		return "member/edit_resume";
 	} 
 
 	@RequestMapping("edit_introduction_paper")

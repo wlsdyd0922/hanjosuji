@@ -18,6 +18,11 @@ public class ResumeDto {
 	private String prize;
 	private String email;
 	private int boardno;
+	
+	public ResumeDto() {
+		super();
+	}
+
 	public ResumeDto(ResultSet rs) throws SQLException {
 		setTitle(rs.getString("title"));
 		setCount(rs.getInt("count"));
