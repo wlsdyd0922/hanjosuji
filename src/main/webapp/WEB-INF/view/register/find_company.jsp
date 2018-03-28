@@ -34,43 +34,18 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
 	integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
 	crossorigin="anonymous"></script>
-<script>
-$(document).ready(function() {
-	$('#search_button').click(function(){
-// 		var company_name = $('#company_name').val();
-var company_name = $('input[name=company_name]').val();
-		console.log(company_name);
-		$.ajax({
-			url:'find_company_part',
-			dataType:'html',
-			data:{'company_name':company_name},
-			success:function(result){
-				$("#list").html(result);
-			}
-		});
-	});
-});
-
-</script>
+<script src="${pageContext.request.contextPath}/js/find_company.js"></script>
 </head>
-
 <body>
-
 	<div style="width: 400px; height: 400px;">
         <div id="company_search_result"> 
-            <input id="company_name" name="company_name" type="text" placeholder="원하시는 기업명을 입력해 주세요">
-            <input type="button" id="search_button"value="검색">  
-            <div>
-            <c:forEach var="company" items="${list}" >
-				${company.name}
-			</c:forEach>
-            </div>
+        	<form action="#" onclick="return false;">
+            	<input id="company_name" name="company_name" type="text" placeholder="원하시는 기업명을 입력해 주세요">
+            	<input type="submit" id="search_button"value="검색">
+            </form>  
         </div>
-        
         <div id = "list">
-        
         </div>
     </div>
 </body>
-
 </html>

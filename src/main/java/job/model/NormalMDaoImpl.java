@@ -8,8 +8,6 @@ import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
-import com.sun.javafx.tools.packager.Log;
-
 import job.bean.NormalMDto;
 
 @Repository("normalMdao")

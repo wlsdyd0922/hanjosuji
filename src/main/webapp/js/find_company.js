@@ -1,34 +1,30 @@
 $(document).ready(function(){
-    $("#show_status").hide();
-    
-    /*  검색어 받아 오기 */
-    $("#search_button").click(function(){
-        var search = $("#company_input").val();
-        console.log(search);
-    });
-    
-    /* 비교하기 */
-    if($("#company_input").val())
-    {
-       
-    }
-    else
-    {
-        $("#show_status").show();
-    }
-    
+	$('#search_button').click(function(){
+		var company_name = $('input[name=company_name]').val();
+		if(company_name==""){
+			alert("검색어를 입력하세요");
+		}else{
+			$.ajax({
+				url:'find_company_part',
+				dataType:'html',
+				data:{'company_name':company_name},
+				success:function(result){
+					$("#list").html(result);
+				}
+			});
+		}
+	});
+	
     $("#company_search_button").click(function(event) {
     	event.preventDefault();
     	var url = "/job/register/find_company";
-    	var width = 400;
+    	var width = 401;
     	var height = 400;
     	var popupX = (window.screen.width / 2) - (width / 2);
     	var popupY = (window.screen.height / 2) - (height / 2);
     	var option = "resizable=no, scrollbars=no, status=no, height=" + height + ", width=" + width + ", left=" + popupX + ", top=" + popupY;
-    	
     	window.open(url, 'test', option)
     });
-    
     
     //등록 되지 않은 회사 이름 값 넘기는 법
     $("#register_company_form").submit(function(event){

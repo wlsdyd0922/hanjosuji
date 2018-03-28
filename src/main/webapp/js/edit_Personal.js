@@ -48,11 +48,13 @@ $(document).ready(function(){
 		}
 	});
 	$("input[name=phone]").trigger("input");
+	
 	$("input[type=submit]").on("click",function(){
-		if(phone==true){
+		if(phone==true&&pw==true&&pwa==true){
 			return true;
 		}else{
 			return false;
 		}
 	});
+	
 });
