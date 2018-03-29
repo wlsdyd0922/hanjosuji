@@ -13,7 +13,7 @@
 			</span> 
 			<input type="text" class="form-control" name="email" placeholder="아이디를 입력하세요">
 		</div>
-		<div id="checkMsg"></div>
+		<div class="padding font-medium in-align-center" id="checkMsg"></div>
 		<div class="myrow input-group input-group-lg">
 			<span class="input-group-addon glyphicons glyphicons-lock"
 				id="sizing-addon1"><i class="glyphicon glyphicon-lock"></i></span> <input

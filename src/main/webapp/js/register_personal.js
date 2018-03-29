@@ -1,11 +1,11 @@
 $(document).ready(function() {
-	var id =false;
-	var pw =false;
-	var pwa=false;
+	var id = false;
+	var pw = false;
+	var pwa = false;
 	var phone = false;
 	var ans = false;
 	//아이디 중복 확인
-	$("input[name=email]").on("blur", function() {
+	$("input[name=email]").on("keyup", function() {
 		var email = $(this).val();
 		$.ajax({
 			url : 'chksameid',
@@ -17,18 +17,20 @@ $(document).ready(function() {
 						$("#checkMsg").html('<p style="color:blue">이 아이디는 사용이 가능합니다.</p>');
 					}else{
 						$("#checkMsg").html('<p style="color:red">이 아이디는 사용중 입니다.</p>');
+						$("input[name=email]").css("border-color","deeppink");
+						console.log("들어옴")
+						id=false;
 					}
 				}else{
 					$("#checkMsg").html('<p style="color:red">아이디는 6~15글자 및 영문</p>');
 				}
-				
 			},
-			error : function(request, status, error) {}
 		});
 	});
 	
 	//아이디 글자 확인..(추후 email로 regex 변경)
 	$("input[name=email]").on("input",function(){
+		console.log("id", id)
 		var regex = /^\w{6,15}$/;
 		if(!$(this).val()){
 			$(this).css("border-color","#ccc");
