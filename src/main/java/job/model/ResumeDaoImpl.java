@@ -23,7 +23,7 @@ public class ResumeDaoImpl implements ResumeDao {
 
 	@Override
 	public void insert(ResumeDto rdto) {
-		String sql = "insert into resume values(?,0,?,?,?,?,?,?,?,?,?,?,?,null)";
+		String sql = "insert into resume values(?,0,?,?,?,?,?,?,?,?,?,?,?,?,?,?,null)";
 		Object[] args = {
 			rdto.getTitle(),
 			rdto.getFavdivision(),
@@ -32,7 +32,10 @@ public class ResumeDaoImpl implements ResumeDao {
 			rdto.getCareer(),
 			rdto.getEdu(),
 			rdto.getSalary(),
-			rdto.getPr(),
+			rdto.getPr1(),
+			rdto.getPr2(),
+			rdto.getPr3(),
+			rdto.getPr4(),
 			rdto.getPortfolio(),
 			rdto.getCerti(),
 			rdto.getPrize(),
@@ -63,37 +66,77 @@ public class ResumeDaoImpl implements ResumeDao {
 	}
 	@Override
 	public boolean edit(ResumeDto rdto) {
+		if(rdto.getPr1()!=null) {
+			System.out.println(1);
 		String sql = "update resume set "
-				+ "title=?,"
-				+ "favdivision=?,"
-				+ "favregion=?,"
-				+ "workingstatus=?,"
-				+ "career=?,"
-				+ "edu=?,"
-				+ "salary=?,"
-				+ "pr=?,"
-				+ "portfolio=?,"
-				+ "certi=?,"
-				+ "prize=?"
+				+ "pr1=?,"
+				+ "pr2=?,"
+				+ "pr3=?,"
+				+ "pr4=?"
 				+ " where email=?";
 		Object[] args = {
-				rdto.getTitle(),
-				rdto.getFavdivision(),
-				rdto.getFavregion(),
-				rdto.getWorkingstatus(),
-				rdto.getCareer(),
-				rdto.getEdu(),
-				rdto.getSalary(),
-				rdto.getPr(),
-				rdto.getPortfolio(),
-				rdto.getCerti(),
-				rdto.getPrize(),
+				rdto.getPr1(),
+				rdto.getPr2(),
+				rdto.getPr3(),
+				rdto.getPr4(),
 				rdto.getEmail()
 			};
 			return jdbcTemplate.update(sql, args)>0;
 		}
-
-
+		else if(rdto.getCareer()!=null) {
+			System.out.println(2);
+			String sql = "update resume set "
+					+ "title=?,"
+					+ "favdivision=?,"
+					+ "favregion=?,"
+					+ "workingstatus=?,"
+					+ "career=?,"
+					+ "edu=?,"
+					+ "salary=?,"
+					+ "portfolio=?,"
+					+ "certi=?,"
+					+ "prize=?"
+					+ " where email=?";
+			Object[] args = {
+					rdto.getTitle(),
+					rdto.getFavdivision(),
+					rdto.getFavregion(),
+					rdto.getWorkingstatus(),
+					rdto.getCareer(),
+					rdto.getEdu(),
+					rdto.getSalary(),
+					rdto.getPortfolio(),
+					rdto.getCerti(),
+					rdto.getPrize(),
+					rdto.getEmail()
+				};
+				return jdbcTemplate.update(sql, args)>0;
+			}else
+			{
+				System.out.println(3);
+				String sql = "update resume set "
+						+ "favdivision=?,"
+						+ "favregion=?,"
+						+ "workingstatus=?,"
+						+ "edu=?,"
+						+ "portfolio=?,"
+						+ "certi=?,"
+						+ "prize=?"
+						+ " where email=?";
+				Object[] args = {
+						rdto.getFavdivision(),
+						rdto.getFavregion(),
+						rdto.getWorkingstatus(),
+						rdto.getEdu(),
+						rdto.getPortfolio(),
+						rdto.getCerti(),
+						rdto.getPrize(),
+						rdto.getEmail()
+					};
+					return jdbcTemplate.update(sql, args)>0;
+				}
+		}
+		
 	@Override
 	public boolean connResume(String email, String title) {
 		String sql = "update resume set email=? where title=?";

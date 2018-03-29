@@ -61,15 +61,15 @@
 			<div class="div-2 rest-area" style="height: 81%">
 				<div class="myrow content-size in-align-center">
 					<div class="input-lg text-primary border-circle">학교</div>
-					<div class="input-lg">OOO대학교/고등학교</div>
+					<div class="input-lg">${rdto.edu}</div>
 					<div class="input-lg text-primary border-circle">희망직종</div>
-					<div class="input-lg">IT</div>
+					<div class="input-lg">${rdto.favdivision }</div>
 				</div>
 				<div class="myrow content-size in-align-center">
 					<div class="input-lg text-primary border-circle">경력유무</div>
-					<div class="input-lg">신입</div>
+					<div class="input-lg">${rdto.workingstatusKor() }</div>
 					<div class="input-lg text-primary border-circle">희망지역</div>
-					<div class="input-lg">판교</div>
+					<div class="input-lg">${rdto.favregion }</div>
 				</div>
 			</div>
 		</div>
@@ -112,11 +112,11 @@
 			</div>
 			<div class="div-2 rest-area" style="height: 29%;">
 				<c:choose>
-					<c:when test="${rdto.pr==null }">
-						<div class="myrow rest-area input-lg border-circle">미등록</div>
+					<c:when test="${rdto.pr1!=null && rdto.pr2!=null && rdto.pr3!=null && rdto.pr4!=null }">
+						<div class="myrow rest-area input-lg border-circle">등록완료</div>
 					</c:when>
 					<c:otherwise>
-						<div class="myrow rest-area input-lg border-circle">등록완료</div>
+						<div class="myrow rest-area input-lg border-circle">미등록</div>
 					</c:otherwise>
 				</c:choose>
 			</div>

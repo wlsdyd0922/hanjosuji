@@ -1,45 +1,49 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="/WEB-INF/view/template/header.jsp"></jsp:include>
 <form action="${pageContext.request.contextPath}/member/edit_resume" method="post">
 	<div class="container-1000 out-align-center">
 		<h1>이력서 등록</h1>
 		<hr class="style-one">
 		<div class="myrow div-2" style="height: 116px;">
-			<div class="myrow">
-				<div class="input-lg">이름</div>
-				<div class="input-lg">
-					<input type="text" name="korname" value="${nmdto.name }" readonly>
-				</div>
+		<div class="padding container-30">
+			<div class="input-lg div-2">
+				<div class="container-30">제목</div>
+				<input type="text" name="title" class = "form-input-full" value= "${rdto.title}">
 			</div>
-			<div class="myrow rest-area">
-				<div class="input-lg in-align-right">
-					<input type="text" name="email" placeholder="이메일을 입력해 주세요">
-				</div>
-				<div class="input-lg in-align-right">
-					<input type="text" name="phone" placeholder="전화번호를입력해 주세요">
-				</div>
+			<div class="input-lg div-2">
+				<div class="container-30">조회수</div>
+				<input type="text" name="count" class = "form-input-full" value="${rdto.count}" readonly>
 			</div>
 		</div>
-		<hr class="style-one">
-		<div class="myrow div-2" style="height: 116px;">
-			<div class="input-lg container-20">Title</div>
-			<textarea class="container-100 height-100 textarea" name="title">${rdto.title}</textarea>
+		<div class="padding container-70">
+			<div class="input-lg in-align-right">
+			이메일
+				<input type="text" name="email" value="${sessionScope.accept}">
+			</div>
+			<div class="input-lg in-align-right">
+			신청한 공고
+				<input type="text" name="boardno" value="${rdto.boardno	}" readonly>
+			</div>
 		</div>
+	</div>
 		<hr class="style-one">
 		<div class="myrow div-2" style="height: 116px;">
 			<div class="input-lg container-20">Favorite Division</div>
-			<textarea class="container-100 height-100 textarea" name="favdivision">${rdto.favdivision}</textarea>
+			<textarea class="container-100 height-100 textarea" name="favdivision" readonly>${rdto.favdivision}</textarea>
 		</div>
 		<hr class="style-one">
 		<div class="myrow div-2" style="height: 116px;">
 			<div class="input-lg container-20">Favorite Region</div>
-			<textarea class="container-100 height-100 textarea" name="favregion">${rdto.favregion}</textarea>
+			<textarea class="container-100 height-100 textarea" name="favregion" readonly>${rdto.favregion}</textarea>
 		</div>
 		<hr class="style-one">
 		<div class="myrow div-2" style="height: 116px;">
 			<div class="input-lg container-20">Working Status</div>
-			<textarea class="container-100 height-100 textarea" name="workingstatus">${rdto.workingstatus}</textarea>
+			<textarea class="container-100 height-100 textarea" name="workingstatus" readonly>
+				${rdto.workingstatusKor() }
+			</textarea>
 		</div>
 		<hr class="style-one">
 		<div class="myrow div-2" style="height: 116px;">
@@ -49,17 +53,12 @@
 		<hr class="style-one">
 		<div class="myrow div-2" style="height: 116px;">
 			<div class="input-lg container-20">Education</div>
-			<textarea class="container-100 height-100 textarea" name="edu">${rdto.edu}</textarea>
+			<textarea class="container-100 height-100 textarea" name="edu" readonly>${rdto.edu}</textarea>
 		</div>
 		<hr class="style-one">
 		<div class="myrow div-2" style="height: 116px;">
 			<div class="input-lg container-20">Salary</div>
 			<textarea class="container-100 height-100 textarea" name="salary">${rdto.salary}</textarea>
-		</div>
-		<hr class="style-one">
-		<div class="myrow div-2" style="height: 116px;">
-			<div class="input-lg container-20">Promotion</div>
-			<textarea class="container-100 height-100 textarea" name="pr">${rdto.pr}</textarea>
 		</div>
 		<hr class="style-one">
 		<div class="myrow div-2" style="height: 116px;">

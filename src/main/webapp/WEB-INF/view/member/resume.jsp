@@ -5,82 +5,79 @@
 	<h1>이력서</h1>
 	<hr class="style-one">
 	<div class="myrow div-2" style="height: 116px;">
-		<div class="myrow">
-			<div class="input-lg">
-				<input type="text" name="title" placeholder="제목" readonly>${rdto.title}
+		<div class="padding container-30">
+			<div class="input-lg div-2">
+				<div class="container-30">제목</div>
+				<input type="text" name="title" class = "form-input-full" value= "${rdto.title}" readonly>
 			</div>
-			<div class="input-lg">
-				<input type="text" name="engname" placeholder="조회수"${rdto.count}
-					readonly>
+			<div class="input-lg div-2">
+				<div class="container-30">조회수</div>
+				<input type="text" name="count" class = "form-input-full" value="${rdto.count}" readonly>
 			</div>
 		</div>
-		<div class="myrow rest-area">
+		<div class="padding container-70">
 			<div class="input-lg in-align-right">
-				<input type="text" name="email" placeholder="이메일을 입력해 주세요" readonly>${rdto.email}
+			이메일
+				<input type="text" name="email" value="${sessionScope.accept}" readonly>
 			</div>
 			<div class="input-lg in-align-right">
-				<input type="text" name="phone" placeholder="신청한 공고" readonly>${rdto.boardno	}
+			신청한 공고
+				<input type="text" name="boardno" value="${rdto.boardno	}" readonly>
 			</div>
 		</div>
 	</div>
 	<hr class="style-one">
 	<div class="myrow div-2" style="height: 116px;">
 		<div class="input-lg container-20">Favorite Division</div>
-		<textarea class="container-100 height-100 textarea" name="edustory"
+		<textarea class="container-100 height-100 textarea" name="favdivision"
 			readonly>${rdto.favdivision}</textarea>
 	</div>
 	<hr class="style-one">
 	<div class="myrow div-2" style="height: 116px;">
 		<div class="input-lg container-20">Favorite Region</div>
-		<textarea class="container-100 height-100 textarea" name="edustory"
+		<textarea class="container-100 height-100 textarea" name="favregion"
 			readonly>${rdto.favregion}</textarea>
 	</div>
 	<hr class="style-one">
 	<div class="myrow div-2" style="height: 116px;">
 		<div class="input-lg container-20">Working Status</div>
-		<textarea class="container-100 height-100 textarea" name="edustory"
-			readonly>${rdto.workingstatus}</textarea>
+		<textarea class="container-100 height-100 textarea" name="workingstatus"
+			readonly>${rdto.workingstatusKor() }</textarea>
 	</div>
 	<hr class="style-one">
 	<div class="myrow div-2" style="height: 116px;">
 		<div class="input-lg container-20">Career</div>
-		<textarea class="container-100 height-100 textarea" name="edustory"
+		<textarea class="container-100 height-100 textarea" name="career"
 			readonly>${rdto.career}</textarea>
 	</div>
 	<hr class="style-one">
 	<div class="myrow div-2" style="height: 116px;">
 		<div class="input-lg container-20">Education</div>
-		<textarea class="container-100 height-100 textarea" name="edustory"
+		<textarea class="container-100 height-100 textarea" name="edu"
 			readonly>${rdto.edu}</textarea>
 	</div>
 	<hr class="style-one">
 	<div class="myrow div-2" style="height: 116px;">
 		<div class="input-lg container-20">Salary</div>
-		<textarea class="container-100 height-100 textarea" name="edustory"
+		<textarea class="container-100 height-100 textarea" name="salary"
 			readonly>${rdto.salary}</textarea>
 	</div>
 	<hr class="style-one">
 	<div class="myrow div-2" style="height: 116px;">
-		<div class="input-lg container-20">Public Relations</div>
-		<textarea class="container-100 height-100 textarea" name="edustory"
-			readonly>${rdto.pr}</textarea>
-	</div>
-	<hr class="style-one">
-	<div class="myrow div-2" style="height: 116px;">
 		<div class="input-lg container-20">Portfolio</div>
-		<textarea class="container-100 height-100 textarea" name="edustory"
+		<textarea class="container-100 height-100 textarea" name="portfolio"
 			readonly>${rdto.portfolio}</textarea>
 	</div>
 	<hr class="style-one">
 	<div class="myrow div-2" style="height: 116px;">
 		<div class="input-lg container-20">Certification</div>
 		<textarea class="container-100 height-100 textarea"
-			name="certification" readonly>${rdto.certi}</textarea>
+			name="certi" readonly>${rdto.certi}</textarea>
 	</div>
 	<hr class="style-one">
 	<div class="myrow div-2" style="height: 116px;">
 		<div class="input-lg container-20">Prize</div>
-		<textarea class="container-100 height-100 textarea" name="expstory"
+		<textarea class="container-100 height-100 textarea" name="prize"
 			readonly>${rdto.prize}</textarea>
 	</div>
 	<hr class="style-one">

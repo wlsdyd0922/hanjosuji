@@ -12,12 +12,20 @@ public class ResumeDto {
 	private String career;
 	private String edu;
 	private String salary;
-	private String pr;
+	private String pr1;
+	private String pr2;
+	private String pr3;
+	private String pr4;
 	private String portfolio;
 	private String certi;
 	private String prize;
 	private String email;
 	private int boardno;
+	
+	@Override
+	public String toString() {
+		return "[workingstatus = "+workingstatus+"]";
+	}
 	
 	public ResumeDto() {
 		super();
@@ -32,7 +40,10 @@ public class ResumeDto {
 		setCareer(rs.getString("career"));
 		setEdu(rs.getString("edu"));
 		setSalary(rs.getString("salary"));
-		setPr(rs.getString("pr"));
+		setPr1(rs.getString("pr1"));
+		setPr2(rs.getString("pr2"));
+		setPr3(rs.getString("pr3"));
+		setPr4(rs.getString("pr4"));
 		setPortfolio(rs.getString("portfolio"));
 		setCerti(rs.getString("certi"));
 		setPrize(rs.getString("prize"));
@@ -64,12 +75,38 @@ public class ResumeDto {
 	public void setSalary(String salary) {
 		this.salary = salary;
 	}
-	public String getPr() {
-		return pr;
+	public String getPr1() {
+		return pr1;
 	}
-	public void setPr(String pr) {
-		this.pr = pr;
+
+	public void setPr1(String pr1) {
+		this.pr1 = pr1;
 	}
+
+	public String getPr2() {
+		return pr2;
+	}
+
+	public void setPr2(String pr2) {
+		this.pr2 = pr2;
+	}
+
+	public String getPr3() {
+		return pr3;
+	}
+
+	public void setPr3(String pr3) {
+		this.pr3 = pr3;
+	}
+
+	public String getPr4() {
+		return pr4;
+	}
+
+	public void setPr4(String pr4) {
+		this.pr4 = pr4;
+	}
+
 	public String getPortfolio() {
 		return portfolio;
 	}
@@ -120,14 +157,16 @@ public class ResumeDto {
 	public void setWorkingstatus(String workingstatus) {
 		this.workingstatus = workingstatus;
 	}
-	public String getFavDivision() {
-		return favdivision;
-	}
-	public void setFavDivision(String favDivision) {
-		this.favdivision = favDivision;
-	}
+	
 	public String getWorkingstatus() {
 		return workingstatus;
+	}
+	
+	public String workingstatusKor() {
+		if(getWorkingstatus().equals("new"))
+			return "신입";
+		else
+			return "경력";
 	}
 
 	public int getCount() {

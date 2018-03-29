@@ -5,6 +5,7 @@
 	$(document).ready(function() {
 		choose_select("favDivision");
 		choose_select("favRegion");
+		radio_button();
 	});
 
 	function choose_select(data_value) {
@@ -13,6 +14,18 @@
 		/* 2. 데이터베이스에의 값을 초기값으로 입력한다.*/
 		$("select[name=" + data_value + "]").val(choice);
 	};
+	
+	function radio_button(){
+		/* 1. 데이터베이스에 입력된 데이터 값을 불러 온다.*/
+		var choice = $("#workingstatus").attr("data-value");
+		console.log(choice);
+		console.log($("#workingstatus label input").val());
+		/* 2. 데이터베이스에의 값을 초기값으로 입력한다.*/
+		if(choice === "new")
+			$("#workingstatus label input").eq(0).prop("checked",true);
+		else 
+			$("#workingstatus label input").eq(1).attr("checked","checked");
+	}
 </script>
 <div class="container-500 out-align-center">
 	<div class="myrow input-group input-group-lg">
@@ -22,7 +35,7 @@
 	</div>
 	<div class="myrow">
 		<div class="form-group">
-			<select name="favDivision" class="form-control input-lg" data-value="${rdto.favDivision }">
+			<select name="favDivision" class="form-control input-lg" data-value="${rdto.favdivision }">
 				<option>경영/사무</option>
 				<option>영업/고객상담</option>
 				<option>IT/인터넷</option>
@@ -39,7 +52,7 @@
 			</select>
 		</div>
 		<div class="form-group">
-			<select name="favRegion" class="form-control input-lg" data-value="${rdto.favRegion }">
+			<select name="favRegion" class="form-control input-lg" data-value="${rdto.favregion }">
 				<option>서울</option>
 				<option>경기</option>
 				<option>인천</option>
@@ -63,11 +76,12 @@
 	</div>
 	<div class="myrow div-2">
 		<div class="form-input div-ratio2">현재 본인의 상태를 체크해 주세요.</div>
-		<div class="form-input div-ratio1 in-align-right">
-			<label class="radio-inline"> <input type="radio"
-				name="workingstatus" value="new" checked> 신입
-			</label> <label class="radio-inline"> <input type="radio"
-				name="workingstatus" value="experienced"> 경력
+		<div id = "workingstatus" class="form-input div-ratio1 in-align-right" data-value="${rdto.workingstatus }">
+			<label class="radio-inline"> 
+				<input type="radio" name="workingstatus" value="new"> 신입
+			</label> 
+			<label class="radio-inline"> 
+				<input type="radio" name="workingstatus" value="exp"> 경력
 			</label>
 		</div>
 	</div>

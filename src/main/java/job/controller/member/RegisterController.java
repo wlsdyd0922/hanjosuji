@@ -95,6 +95,7 @@ public class RegisterController {
 	@RequestMapping("register_detail")
 	public String RegisterDetailGet(HttpServletRequest request) {
 		String email = (String) request.getSession().getAttribute("accept");
+		request.setAttribute("email", email);
 		if(rdao.searchTarget(email)!=null)
 			request.setAttribute("rdto",rdao.searchTarget(email));
 		return "/register/register_detail";
@@ -103,9 +104,11 @@ public class RegisterController {
 	@RequestMapping(value="register_detail",method = RequestMethod.POST)
 	public String RegisterDetailPost(ResumeDto rdto, HttpServletRequest request) {
 		String email = (String) request.getSession().getAttribute("accept");
+		log.debug("rdto = {}", rdto.toString());
 		if(rdao.searchTarget(email)!=null)
+			log.debug(rdao.searchTarget(email).getFavregion());
 			rdao.edit(rdto);
-		return "/member/information";
+		return "redirect:/member/information";
 	}
 	@RequestMapping("find_company")
 	public String register_newcompany() {

@@ -71,22 +71,36 @@ public class EditController {
 	
 	@RequestMapping("edit_resume")
 	public String EditDetailResume(HttpServletRequest request) {
-		String author = (String) request.getSession().getAttribute("accept");
-		request.setAttribute("rdto", rdao.searchTarget(author));
+		String email = (String) request.getSession().getAttribute("accept");
+		request.setAttribute("rdto", rdao.searchTarget(email));
 		return "member/edit_resume";
 	} 
 	@RequestMapping(value="edit_resume",method=RequestMethod.POST)
 	public String EditDetailResume(ResumeDto rdto,HttpServletRequest request) {
-		String author = (String) request.getSession().getAttribute("accept");
-		request.setAttribute("rdto", rdao.searchTarget(author));
-		rdao.edit(rdto);
+		String email = (String) request.getSession().getAttribute("accept");
+		if(rdao.searchTarget(email)==null)
+			rdao.insert(rdto);
+		else
+			rdao.edit(rdto);
 		return "member/information";
 	} 
 
 
 	@RequestMapping("edit_introduction_paper")
-	public String EditIntroduction_paper() {
+	public String EditIntroduction_paper_get(HttpServletRequest request) {
+		String email = (String) request.getSession().getAttribute("accept");
+		request.setAttribute("rdto", rdao.searchTarget(email));
 		return "member/edit_introduction_paper";
+	}
+	
+	@RequestMapping(value = "edit_introduction_paper", method=RequestMethod.POST)
+	public String EditIntroduction_paper_post(ResumeDto rdto, HttpServletRequest request) {
+		String email = (String) request.getSession().getAttribute("accept");
+		if(rdao.searchTarget(email)==null)
+			rdao.insert(rdto);
+		else
+			rdao.edit(rdto);
+		return "member/information";
 	}
 
 	@RequestMapping("edit_detail")

@@ -20,7 +20,9 @@ public class showController {
 	@Autowired
 	private ResumeDaoImpl rdao;
 	@RequestMapping("introduction_paper")
-	public String introduction_paper() {
+	public String introduction_paper(HttpServletRequest request) {
+		String email = (String) request.getSession().getAttribute("accept");
+		request.setAttribute("rdto", rdao.searchTarget(email));
 		return "member/introduction_paper";
 	}
 
