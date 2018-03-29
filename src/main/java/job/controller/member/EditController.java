@@ -55,7 +55,7 @@ public class EditController {
 		}
 		request.setAttribute("nmdto", nmdao.info(nmdto.getEmail()));
 		request.setAttribute("rdto", rdao.searchTarget(nmdto.getEmail()));
-		return "member/information";
+		return "redirect:/member/information";
 	}
 
 	// @RequestMapping("edit_company")
@@ -82,7 +82,7 @@ public class EditController {
 			rdao.insert(rdto);
 		else
 			rdao.edit(rdto);
-		return "member/information";
+		return "redirect:/member/information";
 	} 
 
 
@@ -100,7 +100,7 @@ public class EditController {
 			rdao.insert(rdto);
 		else
 			rdao.edit(rdto);
-		return "member/information";
+		return "redirect:/member/information";
 	}
 
 	@RequestMapping("edit_detail")
