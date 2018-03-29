@@ -3,42 +3,45 @@
 <jsp:include page="/WEB-INF/view/template/header.jsp"></jsp:include>
 <div class="container-1000 out-align-center padding">
 	<div class="padding background-white">
-		<h1>JAVA/JSP 개발자 채용</h1>
+		<h1>${bdto.title}</h1>
 	</div>
 	<div class="div-2">
 		<div class="container-60">
 			<div class="padding">
 				<div class="padding row">
 					<div class="padding col-md-2">
-						<div class="font-small in-align-center background-white">
-							품질관리</div>
+						<div class="font-small in-align-center background-white">품질관리
+							</div>
 					</div>
 					<div class="padding col-md-2">
-						<div class="font-small in-align-center background-white">경기
+						<div class="font-small in-align-center background-white">${bdto.career}
 						</div>
 					</div>
 					<div class="padding col-md-2">
-						<div class="font-small in-align-center background-white">경력
+						<div class="font-small in-align-center background-white">${bdto.empltype}
 						</div>
-					</div>
-					<div class="padding col-md-2">
-						<div class="font-small in-align-center background-white">
-							정규직</div>
 					</div>
 				</div>
 			</div>
 			<div class="div-main">
+				
 				<div class="background-white font-big padding">
-					<div class="border-bottom-lightblue">주요 업무</div>
+					<div class="border-bottom-lightblue">채용인원</div>
 				</div>
 				<div class="background-white font-medium padding">
-					☆ dsfsdfsdfsd<br> ☆ sdfsdfsdfsdf<br> ☆ sdfsdfsdfsdfsd
+					${bdto.count }명
 				</div>
 				<div class="background-white font-big padding">
-					<div class="border-bottom-lightblue">자격 요건</div>
+					<div class="border-bottom-lightblue">근무시간</div>
 				</div>
 				<div class="background-white font-medium padding">
-					☆ dsfsdfsdfsd<br> ☆ sdfsdfsdfsdf<br> ☆ sdfsdfsdfsdfsd
+					${bdto.working}
+				</div>
+				<div class="background-white font-big padding">
+					<div class="border-bottom-lightblue">상세내용</div>
+				</div>
+				<div class="background-white font-medium padding">
+					${bdto.contents}
 				</div>
 			</div>
 			<hr>
@@ -52,57 +55,16 @@
 							<div class="rest-area font-smallest">
 								<b>웹사이트</b>
 							</div>
-							<div class="rest-area font-smallest">www.naver.com</div>
+							<div class="rest-area font-smallest">${cdto.website}</div>
 						</div>
 						<div class="container-100 padding div-main">
 							<div class="rest-area font-smallest">
 								<b>본사</b>
 							</div>
-							<div class="rest-area font-smallest">제주도</div>
+							<div class="rest-area font-smallest">${cdto.location}</div>
 						</div>
 					</div>
-					<div class="rest-area div-2">
-						<div class="container-100 padding div-main">
-							<div class="rest-area font-smallest">
-								<b>웹사이트</b>
-							</div>
-							<div class="rest-area font-smallest">www.naver.com</div>
-						</div>
-						<div class="container-100 padding div-main">
-							<div class="rest-area font-smallest">
-								<b>본사</b>
-							</div>
-							<div class="rest-area font-smallest">제주도</div>
-						</div>
-					</div>
-					<div class="rest-area div-2">
-						<div class="container-100 padding div-main">
-							<div class="rest-area font-smallest">
-								<b>웹사이트</b>
-							</div>
-							<div class="rest-area font-smallest">www.naver.com</div>
-						</div>
-						<div class="container-100 padding div-main">
-							<div class="rest-area font-smallest">
-								<b>본사</b>
-							</div>
-							<div class="rest-area font-smallest">제주도</div>
-						</div>
-					</div>
-					<div class="rest-area div-2">
-						<div class="container-100 padding div-main">
-							<div class="rest-area font-smallest">
-								<b>웹사이트</b>
-							</div>
-							<div class="rest-area font-smallest">www.naver.com</div>
-						</div>
-						<div class="container-100 padding div-main">
-							<div class="rest-area font-smallest">
-								<b>본사</b>
-							</div>
-							<div class="rest-area font-smallest">제주도</div>
-						</div>
-					</div>
+					
 				</div>
 			</div>
 		</div>

@@ -9,12 +9,17 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import job.bean.BoardDto;
+import job.bean.CompanyDto;
 @Repository("boardDao")
 public class BoardDaoImpl implements BoardDao{
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 	private ResultSetExtractor<BoardDto> extractor = (rs)->{
 		if(rs.next()) return new BoardDto(rs);
+		else return null;
+	};
+	private ResultSetExtractor<CompanyDto> extractor2 = (rs)->{
+		if(rs.next()) return new CompanyDto(rs);
 		else return null;
 	};
 	@Override
@@ -57,11 +62,12 @@ public class BoardDaoImpl implements BoardDao{
 	public List<BoardDto> searchList(String company,String location,String industry, String type, String career,String empltype) {
 	//company:키워드검색,location:위치, industry:직군, type:대기업/중소기업, career:신입경력
 		// empltype: 고용형태
-String sql = "select * from company a full outer join hireboard b"
-		+ " on a.name=b.company where upper(a.name) like '%'||upper(?)||'%'"
-		+ " and a.location like '%'||?||'%' and a.industry like '%'||?||'%'"
-		+ " and a.type like '%'||?||'%' and b.career like '%'||?||'%' and"
-		+ " b.empltype like '%'||?||'%'";
+String sql = "select b.*, a.name, a.industry, a.ceo, a.birth, a.website, a.employee,"
+		+ " a.type, a.sales, a.location, a.imgname, a.imgencoding, a.regcode "
+		+ "from company a full outer join hireboard b on a.name=b.company "
+		+ "where upper(a.name) like '%'||upper(?)||'%' and a.location like '%'||?||'%'"
+		+ " and a.industry like '%'||?||'%' and a.type like '%'||?||'%' and"
+		+ " b.career like '%'||?||'%' and b.empltype like '%'||?||'%'";
 //		String sql = "select * from hireboard where upper(company) like '%'||upper(?)||'%' order by reg desc";
 		return jdbcTemplate.query(sql, mapper, company,location,industry,type,career,empltype);
 	}
@@ -75,6 +81,17 @@ String sql = "select * from company a full outer join hireboard b"
 	public boolean edit(BoardDto bdto) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+	@Override
+	public BoardDto info(int no) {
+		String sql = "select * from hireboard where no= ?";
+		return jdbcTemplate.query(sql,extractor,no);
+	}
+	@Override
+	public CompanyDto info2(int no) {
+		String sql = "select * from company a full outer join hireboard b on a.name = b.company "
+				+ "where b.no = ?";
+		return jdbcTemplate.query(sql, extractor2,no);
 	}
 	
 	

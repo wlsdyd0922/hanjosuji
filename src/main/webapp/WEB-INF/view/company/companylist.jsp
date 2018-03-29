@@ -6,13 +6,6 @@
 <div class="out-align-center container-1000">
 	<form action="${pageContext.request.contextPath }/company/companylist"
 		method="post">
-		<h3>favSort:${favSort}</h3>
-		<h3>edu:${edu }</h3>
-		<h3>career:${career }</h3>
-		<h3>region:${region }</h3>
-		<h3>company:${company }</h3>
-		<h3>employment:${employment }</h3>
-		<h3>keyword=${list2}</h3>
 		<div class="container-60 out-align-center border">
 			<div class="myrow in-align-center border div-main"
 				style="height: 200px;">
@@ -156,7 +149,7 @@
 								<div class="rest-area">
 									<h4 class="in-align-right">
 										<a
-											href="${pageContext.request.contextPath }/company/employment_information">지원내용확인하기</a>
+											href="${pageContext.request.contextPath }/company/employment_information?no=${bdto.no}">지원내용확인하기</a>
 									</h4>
 								</div>
 							</div>

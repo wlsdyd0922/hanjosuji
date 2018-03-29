@@ -52,21 +52,11 @@ public class CompanyController {
 	@RequestMapping(value="/company/companylist",method=RequestMethod.POST)
 	public String companylist(HttpServletRequest request) {
 		String favSort = request.getParameter("favSort");
-		String edu = request.getParameter("level_of_education");
 		String career = request.getParameter("career");
 		String location = request.getParameter("favRegion");
 		String company = request.getParameter("foam_of_company");
 		String employment = request.getParameter("foam_of_employment");
 		String keyword = request.getParameter("keyword");
-		request.setAttribute("favSort", favSort);
-		request.setAttribute("edu", edu);
-		request.setAttribute("career", career);
-		request.setAttribute("region", location);
-		request.setAttribute("company", company);
-		request.setAttribute("employment", employment);
-		request.setAttribute("keyword", keyword);
-		List<BoardDto> list = boardDao.getList();
-		request.setAttribute("list", list);
 
 		List<BoardDto> list2 = boardDao.searchList(keyword,location,favSort,company,career,employment);
 		

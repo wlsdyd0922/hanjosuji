@@ -72,7 +72,6 @@ $(document).ready(function() {
 				}else{
 					$("#checkMsg").html('<p style="color:red">아이디는 6~15글자 및 영문</p>');
 				}
-				
 			},
 			error : function(request, status, error) {}
 		});
