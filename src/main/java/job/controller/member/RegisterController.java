@@ -63,7 +63,7 @@ public class RegisterController {
 	}
 	
 	@RequestMapping(value = "register_company",method = RequestMethod.POST)
-	public String RegisterCompany(CompanyDto cdto) {
+	public String RegisterCompany(CompanyDto cdto, HttpServletRequest request) {
 		log.debug(cdto.getName());
 		log.debug(cdto.getIndustry());
 		log.debug(cdto.getCeo());
@@ -77,6 +77,8 @@ public class RegisterController {
 		log.debug(cdto.getImgecnoding());
 		log.debug(cdto.getRegcode());
 		cdao.insert(cdto);
+		String email = (String)request.getAttribute("accept");
+		nmdao.setCompany(cdto.getName(), email);
 		return "register/register_company";
 	}
 	@RequestMapping("compsearch")
