@@ -265,12 +265,12 @@ main {
 /* 폰트 관련 스타일 */
 
 @font-face {
-    font-family: cat;
-    src: url("../font/HoonWhitecatR.ttf");
+    font-family: gothic;
+    src: url("../font/NanumGothic.ttf");
 }
 
 * {
-    font-family: cat;
+    font-family: gothic;
 }
 
 .font-title {
@@ -532,7 +532,7 @@ hr.style-one {
 .star-input > .input > input:checked + label {
     display: inline-block;
     vertical-align: middle;
-    background: url('/img/grade_img.png')no-repeat;
+    background: url('../img/grade_img.png')no-repeat;
 }
 
 .star-input {
@@ -590,7 +590,7 @@ star-input > .input.focus {
 
 .star-input > .input > label[for="p1"] {
     width: 30px;
-    z-index: 4;
+    z-index: 5;
 }
 
 .star-input > .input > label[for="p2"] {
@@ -615,7 +615,7 @@ star-input > .input.focus {
 
 .star-input > .input > label[for="p6"] {
     width: 30px;
-    z-index: 4;
+    z-index: 5;
 }
 
 .star-input > .input > label[for="p7"] {
@@ -640,7 +640,7 @@ star-input > .input.focus {
 
 .star-input > .input > label[for="p11"] {
     width: 30px;
-    z-index: 4;
+    z-index: 5;
 }
 
 .star-input > .input > label[for="p12"] {
@@ -665,7 +665,7 @@ star-input > .input.focus {
 
 .star-input > .input > label[for="p16"] {
     width: 30px;
-    z-index: 4;
+    z-index: 5;
 }
 
 .star-input > .input > label[for="p17"] {
@@ -695,7 +695,6 @@ star-input > .input.focus {
     text-align: right;
     vertical-align: middle;
 }
-
 /* 버튼 스타일 */
 
 .button {
@@ -734,7 +733,7 @@ ul.tabs li {
     float: left;
     text-align:center;
     cursor: pointer;
-    width:82px;
+    width:120px;
     height: 31px;
     line-height: 31px;
     border: 1px solid #eee;

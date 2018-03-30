@@ -2,12 +2,14 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <jsp:include page="/WEB-INF/view/template/header.jsp"></jsp:include>
-<script src="${pageContext.request.contextPath }/js/company.js"></script>
-<form action="${pageContext.request.contextPath }/company/companyreview"
-	method="post">
+<!--<script src="${pageContext.request.contextPath }/js/company.js"></script>-->
+
+<script src="${pageContext.request.contextPath}/js/review.js"></script>
+
 	<div class="container-1000 out-align-center">
 		<div class="in-align-left">
-			<h1>기업리뷰 작성</h1>
+			<h1>기업 정보</h1>
+			<h3>company:${param.company}</h3>
 		</div>
 		<div class="empty-row"></div>
 		<div class="in-align-left">
@@ -208,6 +210,8 @@
 
 							</div>
 						</div>
+						
+<form action="${pageContext.request.contextPath}/company/companyreview" method="POST">						
 						<!-- #tab2 -->
 						<div id="tab3" class="tab_content">
 							<div class="out-align-center container-100">
@@ -215,9 +219,8 @@
 								<div class="myrow div-2" style="height: 48px;">
 									<div class="input-lg" style="width: 150px;">기업명</div>
 									<div class="rest-area">
-										<input type="text" name="company"
-											class="container-70 height-100 image-center"
-											placeholder="기업명을 입력해주세요">
+										<input type="text" name="company" value="${param.company}"
+											class="container-70 height-100 image-center" readonly>
 									</div>
 								</div>
 								<div class="myrow div-2" style="height: 48px;">
@@ -312,13 +315,13 @@
 									</div>
 									<div class="container-100">
 										<div class="in-align-right">
-											<input type="button" class="button shape-circle" value="다음으로"
-												onclick="location.href='/company/companylist'">
+											<input type="submit" class="button shape-circle" value="다음으로">
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
+</form>
 					</div>
 					<!-- .tab_container -->
 				</div>
@@ -326,5 +329,5 @@
 			</div>
 		</div>
 	</div>
-</form>
+
 <jsp:include page="/WEB-INF/view/template/footer.jsp"></jsp:include>

@@ -1,8 +1,3 @@
-$(function () {
-    $(".tab_content").hide();
-    $(".tab_content:first").show();
-});
-
 
 $(document).ready(function() {
 	requestList(2, 1);

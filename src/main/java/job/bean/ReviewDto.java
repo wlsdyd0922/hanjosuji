@@ -11,7 +11,8 @@ public class ReviewDto {	//15개
 	private String typedetail;	//세부직종
 	private String career;		//경력 몇년인지
 	private String location;	//근무지역
-	private int grade;			//기업평점
+	private int grade;		
+	//기업평점
 	private String onecomment;	//한줄평
 	private String hopecomment;	//바라는점
 	private int welfare;

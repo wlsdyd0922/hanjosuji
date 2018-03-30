@@ -32,8 +32,8 @@ public class ReviewDaoImpl {
 		jdbcTemplate.update(sql,args);
 	}
 	//상세 리뷰
-	public ReviewDto loadReview(int no) {		
-		String sql = "select * from review where no=?";
-		return jdbcTemplate.query(sql,extractor,no);
+	public ReviewDto loadReview(String company) {		
+		String sql = "select * from review where company = ?";
+		return jdbcTemplate.query(sql,extractor,company);
 	}
 }

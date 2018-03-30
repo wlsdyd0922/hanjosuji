@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <jsp:include page="/WEB-INF/view/template/header.jsp"></jsp:include>
-<script src="/job/js/jquery-1.11.3.min.js"></script>
 <script src="/job/js/star.js"></script>
 <div class="container-1000 out-align-center">
 <form action="${pageContext.request.contextPath }/company/review_detail"

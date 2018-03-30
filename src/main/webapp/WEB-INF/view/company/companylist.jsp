@@ -142,7 +142,7 @@
 								<div class="rest-area">
 									<h4>
 										<a
-											href="${pageContext.request.contextPath }/company/companyreview">채용정보
+											href="${pageContext.request.contextPath }/company/companyreview?company=${bdto.company}">채용정보
 											자세히보기</a>
 									</h4>
 								</div>

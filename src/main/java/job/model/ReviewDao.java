@@ -7,5 +7,5 @@ import job.bean.ReviewDto;
 @Repository
 public interface ReviewDao {
 	void register(ReviewDto rdto);
-	ReviewDto loadReview(int no);
+	ReviewDto loadReview(String company);
 }
