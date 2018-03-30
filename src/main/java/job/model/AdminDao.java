@@ -8,14 +8,11 @@ import job.bean.CompanyDto;
 
 @Repository
 public interface AdminDao {
-
-	List<CompanyDto> compChkList(int chk, int sno, int eno);
+	List<CompanyDto> compChkList(int chk, int sno, int eno, String sort, String search);
 	// 회사 전체 목록 및 등록 승인페이지
-
-	List<CompanyDto> compAllList(int sno, int eno);
-
-	int getCount(int type);
-
+	int getCount(int type, String sort, String search);
 	boolean compDelete(int no);
 	boolean compAccept(int no);
+	List<CompanyDto> compAllList(int sno, int eno, String sort, String search);
+	
 }

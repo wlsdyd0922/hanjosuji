@@ -19,26 +19,42 @@ public class AdminDaoImpl implements AdminDao {
 	};
 
 	@Override
-	public List<CompanyDto> compChkList(int chk, int sno, int eno) {
+	public List<CompanyDto> compChkList(int chk, int sno, int eno,String sort ,String search) {
 		String sql = "select * from (select * from (select rownum rn,A.* from (select * from company where checked=? order by no)A)) where rn between ? and ?";
 		return jdbcTemplate.query(sql, compmapper, chk, sno, eno);
 	}
 
 	@Override
-	public List<CompanyDto> compAllList(int sno, int eno) {
-		String sql = "select * from (select * from (select rownum rn,A.* from (select * from company order by no)A)) where rn between ? and ?";
-		return jdbcTemplate.query(sql, compmapper, sno, eno);
+	public List<CompanyDto> compAllList(int sno, int eno,String sort ,String search) {
+		String sql;
+		if(search != null && !search.equals("")) {
+			sql = "select * from (select * from (select rownum rn,A.* from (select * from company where "+sort+" like '%'||?||'%' order by no)A)) where rn between ? and ?";
+			return jdbcTemplate.query(sql, compmapper, search,sno, eno);
+		}else {
+			sql = "select * from (select * from (select rownum rn,A.* from (select * from company order by no)A)) where rn between ? and ?";
+			return jdbcTemplate.query(sql, compmapper, sno, eno);
+		}		
 	}
 
-
 	@Override
-	public int getCount(int type) {
+	public int getCount(int type ,String sort,String search) {
+		String sql;
 		if (type == 2) {
-			String sql = "select count(*) from company";
-			return jdbcTemplate.queryForObject(sql, Integer.class);
+			if(search != null && !search.equals("")) {
+				sql = "select count(*) from company where "+sort+" like '%'||?||'%'";
+				return jdbcTemplate.queryForObject(sql, Integer.class,search);
+			}else {
+				sql = "select count(*) from company";
+				return jdbcTemplate.queryForObject(sql, Integer.class);
+			}
 		} else {
-			String sql = "select count(*) from company where checked=?";
-			return jdbcTemplate.queryForObject(sql, Integer.class, type);
+			if(search != null && !search.equals("")) {
+				sql = "select count(*) from company where "+sort+" like '%'||?||'%' and checked=?";
+				return jdbcTemplate.queryForObject(sql, Integer.class,search, type);
+			}else {
+				sql = "select count(*) from company where checked=?";
+				return jdbcTemplate.queryForObject(sql, Integer.class, type);
+			}
 		}
 	}
 	

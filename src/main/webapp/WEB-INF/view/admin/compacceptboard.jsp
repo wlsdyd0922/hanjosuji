@@ -5,7 +5,6 @@
 <script src="${pageContext.request.contextPath }/js/company.js"></script>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/blockbutton.css">
 
-
 <div class = "div-2">
     <div class="button_base b07_3d_double_roll container-100" id = "all">
         <div>전체 회사 목록</div>
