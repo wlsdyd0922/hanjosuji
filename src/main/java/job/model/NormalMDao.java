@@ -20,4 +20,5 @@ public interface NormalMDao {
 	Integer ChkSameId(String email);
 	boolean setCompany(String company,String email);
 	List<NormalMDto> adminList();
+	String getCompany(String email);
 }
