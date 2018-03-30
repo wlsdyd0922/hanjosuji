@@ -61,13 +61,16 @@ no number primary key,
 title varchar2(50) not null,
 contents varchar2(300) not null,
 email varchar2(50) not null,
-company varchar2(100) not null,
+company varchar2(100),
 reg date,
-read char(1));
+read char(1),
+sender varchar2(50) not null,
+readreg date
+);
 
 alter table notes add constraint fk_email foreign key(email) references normalm(email);
 alter table notes add constraint fk_company foreign key(company) references company(name);
-
+alter table notes add constraint fk_sender foreign key(sender) references normalm(email);
 
 -----------------좋아요 테이블--------------------
 create table likes(
