@@ -7,6 +7,7 @@ import java.sql.SQLException;
 public class LikesDto {
 	private String email;
 	private String company;
+	
 	public String getEmail() {
 		return email;
 	}
@@ -22,6 +23,7 @@ public class LikesDto {
 	public LikesDto() {
 		super();
 	}
+	
 	public LikesDto(ResultSet rs) throws SQLException {
 		setEmail(rs.getString("email"));
 		setCompany(rs.getString("company"));

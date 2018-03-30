@@ -11,4 +11,5 @@ public interface LikesDao {
 	boolean insert(LikesDto ldto);
 	boolean delete(LikesDto ldto);
 	List<LikesDto> searchList(String email);
+	boolean isLiked(LikesDto ldto);
 }

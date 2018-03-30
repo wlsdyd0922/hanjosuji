@@ -1,6 +1,39 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="/WEB-INF/view/template/header.jsp"></jsp:include>
+<script>
+	$(document).ready(function() {
+		select($("#like").attr("data-value"));
+		var company_name = $("#company_name").text();
+		
+		$("#like").click(function() {
+			$.ajax({
+				type : "POST",
+				url : "employment_information",
+				data : {
+					company : company_name
+					},
+				success :function(){
+					if($("#like").val() === "좋아요♥")
+						$("#like").val("좋아요취소♡");
+					else
+						$("#like").val("좋아요♥");
+				}
+			});
+		});
+	});
+	
+	function select(data_value)
+	{
+		if(data_value === "true"){
+			$("#like").val("좋아요취소♡");
+		}
+		else{
+			$("#like").val("좋아요♥");
+		}
+	}
+</script>
 <div class="container-1000 out-align-center padding">
 	<div class="padding background-white">
 		<h1>${bdto.title}</h1>
@@ -83,13 +116,13 @@
 						<div class="container-100 div-main">
 							<div class="rest-area"></div>
 							<div class="rest-area"></div>
-							<div class="rest-area font-medium in-align-center">회사이름</div>
-							<div class="rest-area font-medium in-align-center">홈페이지</div>
+							<div id="company_name" class="rest-area font-medium in-align-center">${cdto.name }</div>
+							<div class="rest-area font-medium in-align-center">${cdto.website }</div>
 						</div>
 					</div>
 					<div class="div-2" style="height: 30%">
 						<div class="container-100 font-medium in-align-center">
-							<button class="background-white shape-circle">좋아요♡</button>
+							<input type = "button" id = "like" value="좋아요♥" class="background-white shape-circle" data-value="${isLiked }">
 						</div>
 						<div class="container-100 font-medium in-align-center">
 							<a href="${pageContext.request.contextPath }/company/companyreview">기업상세보기</a>

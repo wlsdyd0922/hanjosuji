@@ -35,13 +35,27 @@ public class LikesDaoImpl implements LikesDao{
 	@Override
 	public boolean delete(LikesDto ldto) {
 		String sql = "delete from likes where email=? and company=?";
-		return jdbcTemplate.update(sql,ldto.getEmail(),ldto.getCompany())>0;
+		Object[] args = {
+				ldto.getEmail(),
+				ldto.getCompany()
+			};
+		return jdbcTemplate.update(sql,args)>0;
 	}
-
+	
 	@Override
 	public List<LikesDto> searchList(String email) {
 		String sql = "select * from likes where email=?";
 		return jdbcTemplate.query(sql, mapper, email);
+	}
+
+	@Override
+	public boolean isLiked(LikesDto ldto) {
+		String sql = "select count(*) from likes where email=? and company=?";
+		Object[] args = {
+				ldto.getEmail(),
+				ldto.getCompany()
+			};
+		return jdbcTemplate.queryForObject(sql,Integer.class, args)>0;
 	}
 	
 }
