@@ -13,4 +13,5 @@ public interface NotesDao {
 	boolean send(NotesDto ndto,String email);
 	boolean delete(NotesDto ndto);
 	boolean read(NotesDto ndto);
+	NotesDto search(String email,int no);
 }

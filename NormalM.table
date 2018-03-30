@@ -20,15 +20,18 @@ alter table NormalM add constraint grades check(grade in('기업','일반','관�
 
 이력서------------------------------------------------------------
 create table resume(
-title varchar2(100) not null,
-count number not null,
-favdivision varchar2(20) not null,
-favregion varchar2(50) not null,
-workingstatus varchar2(10) not null,
-career varchar2(100) not null,
-edu varchar2(100) not null,
-salary varchar2(50) not null,
-pr varchar2(1000) not null,
+title varchar2(100),
+count number,
+favdivision varchar2(20),
+favregion varchar2(50),
+workingstatus varchar2(10),
+career varchar2(100),
+edu varchar2(100),
+salary varchar2(50),
+pr1 varchar2(4000),
+pr2 varchar2(4000),
+pr3 varchar2(4000),
+pr4 varchar2(4000),
 portfolio varchar2(100),
 certi varchar2(1000),
 prize varchar2(1000),
@@ -66,7 +69,12 @@ alter table notes add constraint fk_email foreign key(email) references normalm(
 alter table notes add constraint fk_company foreign key(company) references company(name);
 
 
-
+-----------------좋아요 테이블--------------------
+create table likes(
+email varchar2(50) references normalm(email),
+company varchar2(30) references company(name)
+);
+  
 =========================================================
 SQL> desc hireboard;
  Name                                      Null?    Type
@@ -86,20 +94,21 @@ SQL> desc hireboard;
 --company table
 Name                                      Null?    Type
  ----------------------------------------- -------- ----------------------------
- NAME           이름                          			  NOT NULL VARCHAR2(30)
- INDUSTRY       사업분야                           		  NOT NULL VARCHAR2(20)
- CEO            대표                           	  				   VARCHAR2(10)
- BIRTH          설립일                                    			   VARCHAR2(15)
- WEBSITE        웹사이트주소                                    		   VARCHAR2(50)
- EMPLOYEE       근로자 수                                    			   NUMBER
- TYPE           기업형태                                    		 	   VARCHAR2(20)
- SALES          매출                                    				   NUMBER
- LOCATION       주소지                                    			   VARCHAR2(100)
- IMGNAME        이미지 파일 이름                                  		   VARCHAR2(1000)
- IMGENCODING    이미지 확장자                                    		   VARCHAR2(10)
- REGCODE        사업자 등록번호                                    		   VARCHAR2(15)
- CHECKED        승인/미승인                                      		   CHAR(1)
- NO             db 관리용 번호                                    		   NUMBER
+ NAME           이름                          			  NOT NULL 	VARCHAR2(30)
+ INDUSTRY       사업분야                           		  NOT NULL 	VARCHAR2(20)
+ CEO            대표                           	  				   	VARCHAR2(10)
+ BIRTH          설립일                                    			   	VARCHAR2(15)
+ WEBSITE        웹사이트주소                                    		   	VARCHAR2(50)
+ EMPLOYEE       근로자 수                                    			   	NUMBER
+ TYPE           기업형태                                    		 	   	VARCHAR2(20)
+ SALES          매출                                    				   	NUMBER
+ LOCATION       주소지                                    			   	VARCHAR2(100)
+ IMGNAME        이미지 파일 이름                                  		   	VARCHAR2(1000)
+ IMGENCODING    이미지 확장자                                    		   	VARCHAR2(10)
+ REGCODE        사업자 등록번호                                    		   	VARCHAR2(15)
+ CHECKED        승인/미승인                                      		   	CHAR(1)
+ NO             db 관리용 번호                                    		   	NUMBER
+ HIT			좋아요 횟수							   	NUMBER
  
   Name                                      Null?    Type
  ----------------------------------------- -------- ----------------------------

@@ -162,4 +162,10 @@ public class NormalMDaoImpl implements NormalMDao{
 		String sql = "update NormalM set company=? where email=?";
 		return jdbcTemplate.update(sql,company,email)>0;
 	}
+	@Override
+	public String getCompany(String email) {
+		String sql = "select company from NormalM where email=?";
+		Object[] args = new Object[] {email};
+		return jdbcTemplate.queryForObject(sql,args,String.class);	
+	}
 }

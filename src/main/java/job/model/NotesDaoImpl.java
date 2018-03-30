@@ -21,16 +21,15 @@ public class NotesDaoImpl implements NotesDao{
 	private RowMapper<NotesDto> mapper = (rs, idx)->{
 		return new NotesDto(rs);
 	};
-	
 	@Override
 	public void insert(NotesDto ndto) {
-		String sql = "insert into notes values(notes_seq.nextVal,?,?,?,?,sysdate,?)";
+		String sql = "insert into notes values(notes_seq.nextVal,?,?,?,?,sysdate,0,?)";
 		Object[] args = {
 			ndto.getTitle(),
 			ndto.getContents(),
 			ndto.getEmail(),
 			ndto.getCompany(),
-			ndto.getRead()
+			ndto.getSender()
 		};
 		jdbcTemplate.update(sql, args);
 	}
@@ -57,6 +56,12 @@ public class NotesDaoImpl implements NotesDao{
 	public boolean read(NotesDto ndto) {
 		String sql = "update hireboard set read='1' where no=?";
 		return jdbcTemplate.update(sql, ndto.getNo())>0;
+	}
+
+	@Override
+	public NotesDto search(String email, int no) {
+		String sql = "select * from notes where email=? and no=?";
+		return jdbcTemplate.query(sql, extractor, email,no);
 	}
 
 }

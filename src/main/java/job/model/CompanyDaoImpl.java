@@ -54,6 +54,13 @@ public class CompanyDaoImpl implements CompanyDao{
 	}
 	
 	@Override
+	public CompanyDto searchTarget(String company)
+	{
+		String sql = "select * from company where lower(name) like '%'||lower(?)||'%'";
+		return jdbcTemplate.query(sql, extractor, company);
+	}
+	
+	@Override
 	public boolean delete(CompanyDto cdto) {
 		String sql = "delete from company where name=?";
 		return jdbcTemplate.update(sql,cdto.getName())>0;
