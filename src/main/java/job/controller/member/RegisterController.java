@@ -104,9 +104,7 @@ public class RegisterController {
 	@RequestMapping(value="register_detail",method = RequestMethod.POST)
 	public String RegisterDetailPost(ResumeDto rdto, HttpServletRequest request) {
 		String email = (String) request.getSession().getAttribute("accept");
-		log.debug("rdto = {}", rdto.toString());
 		if(rdao.searchTarget(email)!=null)
-			log.debug(rdao.searchTarget(email).getFavregion());
 			rdao.edit(rdto);
 		return "redirect:/member/information";
 	}
@@ -127,7 +125,8 @@ public class RegisterController {
 //	}
 	@RequestMapping("find_company_part")
 	public String find_company_part(HttpServletRequest request) {
-		String name = request.getParameter("company_name");
+		String name = request.getParameter("company_name").toLowerCase();
+		System.out.println(name); 
 		List<CompanyDto> list = cdao.nameList(name);
 		if(list.isEmpty()) {
 			log.debug("리스트없음");
@@ -136,5 +135,16 @@ public class RegisterController {
 		request.setAttribute("list", list);	
 		return "register/find_company_ok";
 	}
-
+	@RequestMapping("register_newcompany")
+	public String register_newcompany_get() {
+		return "register/register_newcompany";
+	}
+	
+	@RequestMapping(value="register_newcompany", method = RequestMethod.POST)
+	public String register_newcompany_post(CompanyDto cdto) throws Exception {
+		if(!cdao.insert(cdto)) {
+			throw new Exception("회원가입 실패");
+		}
+		return "register/register_newcompany";
+	}
 }

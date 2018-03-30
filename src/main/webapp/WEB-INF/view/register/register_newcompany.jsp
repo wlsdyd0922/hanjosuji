@@ -38,10 +38,8 @@
 </head>
 
 <body>
-	<form id="register_company_form"
-		action="${pageContext.request.contextPath}/register/register_newcompany"
-		method="post">
-		<div class="padding" style="width: 400px; height: 600px;">
+	<form action="${pageContext.request.contextPath}/register/register_newcompany"	method="post">
+		<div class="padding" style="width: 400px; height: 600px; ">
 			<h1 class="in-align-center">기업등록</h1>
 			<div class="div-2 padding">
 				<div class="container-30 padding-left-5">

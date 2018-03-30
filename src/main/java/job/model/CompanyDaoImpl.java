@@ -21,10 +21,11 @@ public class CompanyDaoImpl implements CompanyDao{
 	private RowMapper<CompanyDto> mapper = (rs, idx)->{
 		return new CompanyDto(rs);
 	};
+	
 	 
 	@Override
 	public boolean insert(CompanyDto cdto) {
-		String sql = "insert into company values(?,?,?,?,?,?,?,?,?,'','',?,'0','0')";
+		String sql = "insert into company values(?,?,?,?,?,?,?,?,?,'','',?,0,company_seq.nextval)";
 		Object[] args = {
 			cdto.getName(),
 			cdto.getIndustry(),
@@ -99,7 +100,7 @@ public class CompanyDaoImpl implements CompanyDao{
 	
 	@Override
 	public List<CompanyDto> nameList(String name) {
-		String sql = "select * from (select * from (select rownum rn,A.* from (select * from company order by no)A))where name like '%'||?||'%' ";
+		String sql = "select * from (select * from (select rownum rn,A.* from (select * from company where checked=1 order by no)A))where name like '%'||?||'%' ";
 		return jdbcTemplate.query(sql,mapper,name);
 	}
 }

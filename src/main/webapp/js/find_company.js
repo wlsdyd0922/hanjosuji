@@ -27,14 +27,6 @@ $(document).ready(function(){
     });
     
     //등록 되지 않은 회사 이름 값 넘기는 법
-    $("#register_company_form").submit(function(event){
-    	event.preventDefault();
-    	alert("등록이 완료되었습니다");
-    	//window.parent를 이용해서 부모창의 함수나 변수에 접근할 수 있음
-    	var name = $("#new_company_name").val();
-    	window.opener.parent.setCompanyname(name);
-    	window.self.close();
-    });
 });
 
 function setCompanyname(name){

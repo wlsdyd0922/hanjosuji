@@ -34,7 +34,7 @@ public class CompanyDto {
 		setSales(rs.getInt("sales"));
 		setLocation(rs.getString("location"));
 		setImgname(rs.getString("imgname"));
-		setImgecnoding(rs.getString("imgencoding"));
+		setImgencoding(rs.getString("imgencoding"));
 		setRegcode(rs.getString("regcode"));
 		setChecked(rs.getString("checked"));
 		setNo(rs.getInt("no"));
@@ -111,7 +111,7 @@ public class CompanyDto {
 	public String getImgecnoding() {
 		return imgencoding;
 	}
-	public void setImgecnoding(String imgencoding) {
+	public void setImgencoding(String imgencoding) {
 		this.imgencoding = imgencoding;
 	}
 	public String getRegcode() {

@@ -117,8 +117,8 @@
 		</div>
 		<div class="myrow input-group input-group-lg">
 			<span class="input-group-addon" id="sizing-addon1"><i
-				class="glyphicon glyphicon-user"></i></span> <input type="text"
-				class="form-control" name="employee" placeholder="근무인원을 입력하세요">
+				class="glyphicon glyphicon-user"></i></span> 
+			<input type="text" class="form-control" id = "employee"name="employee" placeholder="근무인원을 입력하세요">
 		</div>
 		<div class="myrow input-group input-group-lg">
 			<span class="input-group-addon" id="sizing-addon1"><i
