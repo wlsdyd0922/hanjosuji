@@ -44,6 +44,14 @@ public class NotesController {
 		return "member/notes";
 	}
 	
+	@RequestMapping("member/notes_send")
+	public String sendlist(HttpServletRequest request) {
+		String sender = (String)request.getSession().getAttribute("accept");
+		List<NotesDto> list = ntdao.sendList(sender);
+		request.setAttribute("notes_list", list);	
+		return "member/notes_send";
+	}
+	
 	@RequestMapping("member/notes_detail")
 	public String noteDetail(HttpServletRequest request)
 	{
@@ -51,6 +59,8 @@ public class NotesController {
 		int no = Integer.parseInt(request.getParameter("no"));
 		NotesDto ntdto = ntdao.search(email, no);
 		request.setAttribute("ntdto", ntdto);
+		if(ntdto.getRead().equals("0"))
+			ntdao.read(ntdto);
 		return "member/notes_detail";
 	}
 	

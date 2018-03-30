@@ -12,6 +12,7 @@ public class NotesDto {
 	private String reg;
 	private String read;
 	private String sender;
+	private String readreg;
 	
 	public NotesDto() {
 		super();
@@ -25,6 +26,7 @@ public class NotesDto {
 		setReg(rs.getString("reg"));
 		setRead(rs.getString("read"));
 		setSender(rs.getString("sender"));
+		setReadreg(rs.getString("readreg"));
 	}
 	
 	public int getNo() {
@@ -74,5 +76,11 @@ public class NotesDto {
 	}
 	public void setSender(String sender) {
 		this.sender = sender;
+	}
+	public String getReadreg() {
+		return readreg;
+	}
+	public void setReadreg(String readreg) {
+		this.readreg = readreg;
 	}
 }

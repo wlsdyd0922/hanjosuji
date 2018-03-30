@@ -10,7 +10,7 @@ import job.bean.NotesDto;
 public interface NotesDao {
 	void insert(NotesDto ndto);
 	List<NotesDto> getList(String email);
-	boolean send(NotesDto ndto,String email);
+	List<NotesDto> sendList(String sender);
 	boolean delete(NotesDto ndto);
 	boolean read(NotesDto ndto);
 	NotesDto search(String email,int no);

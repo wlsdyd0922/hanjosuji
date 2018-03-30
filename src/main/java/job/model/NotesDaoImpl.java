@@ -23,7 +23,7 @@ public class NotesDaoImpl implements NotesDao{
 	};
 	@Override
 	public void insert(NotesDto ndto) {
-		String sql = "insert into notes values(notes_seq.nextVal,?,?,?,?,sysdate,0,?)";
+		String sql = "insert into notes values(notes_seq.nextVal,?,?,?,?,sysdate,0,?,null)";
 		Object[] args = {
 			ndto.getTitle(),
 			ndto.getContents(),
@@ -41,9 +41,9 @@ public class NotesDaoImpl implements NotesDao{
 	}
 
 	@Override
-	public boolean send(NotesDto ndto, String email) {
-		// TODO Auto-generated method stub
-		return false;
+	public List<NotesDto> sendList(String sender) {
+		String sql = "select * from notes where sender=? order by reg desc";
+		return jdbcTemplate.query(sql, mapper, sender);
 	}
 
 	@Override
@@ -54,7 +54,7 @@ public class NotesDaoImpl implements NotesDao{
 
 	@Override
 	public boolean read(NotesDto ndto) {
-		String sql = "update hireboard set read='1' where no=?";
+		String sql = "update notes set read='1',readreg=sysdate where no=?";
 		return jdbcTemplate.update(sql, ndto.getNo())>0;
 	}
 
@@ -63,5 +63,4 @@ public class NotesDaoImpl implements NotesDao{
 		String sql = "select * from notes where email=? and no=?";
 		return jdbcTemplate.query(sql, extractor, email,no);
 	}
-
 }

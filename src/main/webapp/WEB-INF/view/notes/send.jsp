@@ -29,7 +29,7 @@
 	<div class="myrow in-align-center">
 		<input type="submit" class="button shape-circle" value="보내기">
 		<input type="button" class="button shape-circle" value="취소"
-			onclick="location.href='${pageContext.request.contextPath }/notes/notes_list'">
+			onclick="location.href='${pageContext.request.contextPath }/member/notes'">
 	</div>
 </div>
 </form>
