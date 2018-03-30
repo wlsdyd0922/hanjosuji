@@ -11,6 +11,7 @@ public class NotesDto {
 	private String company;
 	private String reg;
 	private String read;
+	private String sender;
 	
 	public NotesDto() {
 		super();
@@ -23,6 +24,7 @@ public class NotesDto {
 		setCompany(rs.getString("company"));
 		setReg(rs.getString("reg"));
 		setRead(rs.getString("read"));
+		setSender(rs.getString("sender"));
 	}
 	
 	public int getNo() {
@@ -66,5 +68,11 @@ public class NotesDto {
 	}
 	public void setRead(String read) {
 		this.read = read;
+	}
+	public String getSender() {
+		return sender;
+	}
+	public void setSender(String sender) {
+		this.sender = sender;
 	}
 }

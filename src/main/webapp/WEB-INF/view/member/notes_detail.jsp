@@ -12,6 +12,8 @@
 						<div class="rest-area div-2">
 							<div class="rest-area">
 								<div class="input-lg">제목</div>
+															</div>
+							<div class="rest-area">
 								<div class="input-lg">${ntdto.title}</div>
 							</div>
 						</div>
@@ -23,8 +25,11 @@
 								<div class="input-lg">${ntdto.reg}</div>
 							</div>
 						</div>
-						<div class="rest-area">
-							<div class="input-lg">${ntdto.contents}</div>
+						<div class="rest-area div-2">
+							<div class="rest-area">
+								<div class="input-lg">내용</div>
+								<div class="input-lg">${ntdto.contents}</div>
+							</div>
 						</div>
 					</div>
 				</div>

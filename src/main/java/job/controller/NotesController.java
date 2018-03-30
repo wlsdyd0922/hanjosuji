@@ -11,7 +11,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import job.bean.CompanyDto;
 import job.bean.NotesDto;
+import job.model.CompanyDaoImpl;
+import job.model.NormalMDaoImpl;
 import job.model.NotesDaoImpl;
 
 @Controller
@@ -21,6 +24,10 @@ public class NotesController {
 
 	@Autowired
 	private NotesDaoImpl ntdao;
+	@Autowired
+	private CompanyDaoImpl cdao;
+	@Autowired
+	private NormalMDaoImpl nmdao;
 	
 	@RequestMapping(value="register_notes",method=RequestMethod.POST)
 	public String register(NotesDto ntdto)
@@ -45,5 +52,25 @@ public class NotesController {
 		NotesDto ntdto = ntdao.search(email, no);
 		request.setAttribute("ntdto", ntdto);
 		return "member/notes_detail";
+	}
+	
+	@RequestMapping("notes/send")
+	public String noteSend(HttpServletRequest request)
+	{
+		request.getSession().setAttribute("sender",(String)request.getSession().getAttribute("accept"));
+		return "notes/send";
+	}
+	
+	@RequestMapping(value="notes/send",method=RequestMethod.POST)
+	public String noteSend(HttpServletRequest request,NotesDto ntdto)
+	{
+		ntdto.setTitle(request.getParameter("notes_title"));
+		String company = nmdao.getCompany(request.getParameter("sender"));
+		ntdto.setEmail((String)request.getSession().getAttribute("accept"));
+		ntdto.setCompany(request.getParameter(company));
+		ntdto.setContents(request.getParameter("contents"));
+		ntdto.setSender(request.getParameter("sender"));
+		ntdao.insert(ntdto);
+		return "member/notes";
 	}
 }

@@ -21,19 +21,15 @@ public class NotesDaoImpl implements NotesDao{
 	private RowMapper<NotesDto> mapper = (rs, idx)->{
 		return new NotesDto(rs);
 	};
-	private ResultSetExtractor<NotesDto> extractor2 = (rs)->{
-		if(rs.next()) return new NotesDto(rs);
-		else return null;
-	};
 	@Override
 	public void insert(NotesDto ndto) {
-		String sql = "insert into notes values(notes_seq.nextVal,?,?,?,?,sysdate,?)";
+		String sql = "insert into notes values(notes_seq.nextVal,?,?,?,?,sysdate,0,?)";
 		Object[] args = {
 			ndto.getTitle(),
 			ndto.getContents(),
 			ndto.getEmail(),
 			ndto.getCompany(),
-			ndto.getRead()
+			ndto.getSender()
 		};
 		jdbcTemplate.update(sql, args);
 	}
