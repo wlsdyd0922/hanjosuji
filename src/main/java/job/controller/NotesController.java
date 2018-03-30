@@ -66,8 +66,8 @@ public class NotesController {
 	{
 		ntdto.setTitle(request.getParameter("notes_title"));
 		String company = nmdao.getCompany(request.getParameter("sender"));
-		ntdto.setEmail((String)request.getSession().getAttribute("accept"));
-		ntdto.setCompany(request.getParameter(company));
+		ntdto.setEmail(request.getParameter("notes_to"));
+		ntdto.setCompany(company);
 		ntdto.setContents(request.getParameter("contents"));
 		ntdto.setSender(request.getParameter("sender"));
 		ntdao.insert(ntdto);
