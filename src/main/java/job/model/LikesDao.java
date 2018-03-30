@@ -1,5 +1,7 @@
 package job.model;
 
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
 import job.bean.LikesDto;
@@ -7,4 +9,5 @@ import job.bean.LikesDto;
 public interface LikesDao {
 	boolean insert(LikesDto ldto);
 	boolean delete(LikesDto ldto);
+	List<LikesDto> searchList(String email);
 }

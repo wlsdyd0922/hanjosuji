@@ -1,5 +1,7 @@
 package job.model;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
@@ -33,6 +35,12 @@ public class LikesDaoImpl implements LikesDao{
 	public boolean delete(LikesDto ldto) {
 		String sql = "delete from likes where email=? and company=?";
 		return jdbcTemplate.update(sql,ldto.getEmail(),ldto.getCompany())>0;
+	}
+
+	@Override
+	public List<LikesDto> searchList(String email) {
+		String sql = "select * from likes where email=?";
+		return jdbcTemplate.query(sql, mapper, email);
 	}
 	
 }
