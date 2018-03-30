@@ -24,6 +24,12 @@
 							<div class="rest-area">
 								<div class="input-lg">${ntdto.reg}</div>
 							</div>
+							<div class="rest-area">
+								<div class="input-lg">보낸이</div>
+							</div>
+							<div class="rest-area">
+								<div class="input-lg">${ntdto.company}</div>
+							</div>
 						</div>
 						<div class="rest-area div-2">
 							<div class="rest-area">
