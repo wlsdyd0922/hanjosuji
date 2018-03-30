@@ -69,7 +69,12 @@ alter table notes add constraint fk_email foreign key(email) references normalm(
 alter table notes add constraint fk_company foreign key(company) references company(name);
 
 
-
+-----------------좋아요 테이블--------------------
+create table likes(
+email varchar2(50) references normalm(email),
+company varchar2(30) references company(name)
+);
+  
 =========================================================
 SQL> desc hireboard;
  Name                                      Null?    Type
@@ -89,20 +94,21 @@ SQL> desc hireboard;
 --company table
 Name                                      Null?    Type
  ----------------------------------------- -------- ----------------------------
- NAME           이름                          			  NOT NULL VARCHAR2(30)
- INDUSTRY       사업분야                           		  NOT NULL VARCHAR2(20)
- CEO            대표                           	  				   VARCHAR2(10)
- BIRTH          설립일                                    			   VARCHAR2(15)
- WEBSITE        웹사이트주소                                    		   VARCHAR2(50)
- EMPLOYEE       근로자 수                                    			   NUMBER
- TYPE           기업형태                                    		 	   VARCHAR2(20)
- SALES          매출                                    				   NUMBER
- LOCATION       주소지                                    			   VARCHAR2(100)
- IMGNAME        이미지 파일 이름                                  		   VARCHAR2(1000)
- IMGENCODING    이미지 확장자                                    		   VARCHAR2(10)
- REGCODE        사업자 등록번호                                    		   VARCHAR2(15)
- CHECKED        승인/미승인                                      		   CHAR(1)
- NO             db 관리용 번호                                    		   NUMBER
+ NAME           이름                          			  NOT NULL 	VARCHAR2(30)
+ INDUSTRY       사업분야                           		  NOT NULL 	VARCHAR2(20)
+ CEO            대표                           	  				   	VARCHAR2(10)
+ BIRTH          설립일                                    			   	VARCHAR2(15)
+ WEBSITE        웹사이트주소                                    		   	VARCHAR2(50)
+ EMPLOYEE       근로자 수                                    			   	NUMBER
+ TYPE           기업형태                                    		 	   	VARCHAR2(20)
+ SALES          매출                                    				   	NUMBER
+ LOCATION       주소지                                    			   	VARCHAR2(100)
+ IMGNAME        이미지 파일 이름                                  		   	VARCHAR2(1000)
+ IMGENCODING    이미지 확장자                                    		   	VARCHAR2(10)
+ REGCODE        사업자 등록번호                                    		   	VARCHAR2(15)
+ CHECKED        승인/미승인                                      		   	CHAR(1)
+ NO             db 관리용 번호                                    		   	NUMBER
+ HIT			좋아요 횟수							   	NUMBER
  
   Name                                      Null?    Type
  ----------------------------------------- -------- ----------------------------
