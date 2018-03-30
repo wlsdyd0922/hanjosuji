@@ -16,7 +16,7 @@
 					},
 				success :function(){
 					if($("#like").val() === "좋아요♥")
-						$("#like").val("좋아요취소♡");
+						$("#like").val("좋아요♡");
 					else
 						$("#like").val("좋아요♥");
 				}
@@ -27,7 +27,7 @@
 	function select(data_value)
 	{
 		if(data_value === "true"){
-			$("#like").val("좋아요취소♡");
+			$("#like").val("좋아요♡");
 		}
 		else{
 			$("#like").val("좋아요♥");
