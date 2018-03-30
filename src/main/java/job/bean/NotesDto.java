@@ -3,6 +3,7 @@ package job.bean;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+
 public class NotesDto {
 	private int no;
 	private String title;

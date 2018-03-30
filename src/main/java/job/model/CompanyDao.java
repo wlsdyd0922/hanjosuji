@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import job.bean.CompanyDto;
 
+
 @Repository
 public interface CompanyDao {
 	boolean insert(CompanyDto cdto);

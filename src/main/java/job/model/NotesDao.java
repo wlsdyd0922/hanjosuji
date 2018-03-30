@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import job.bean.NotesDto;
 
+
 @Repository
 public interface NotesDao {
 	void insert(NotesDto ndto);

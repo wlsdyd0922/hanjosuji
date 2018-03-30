@@ -4,6 +4,7 @@
 <jsp:include page="/WEB-INF/view/template/header.jsp"></jsp:include>
 <div class="out-align-center container-1000">
 	<div class="div-2">
+	
 		<!-- 해당 부분부터 for문 적용-->
 		<div class="container-70 div-main">
 			<c:forEach var="ntdto" items="${notes_list}">

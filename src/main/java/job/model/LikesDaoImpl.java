@@ -13,6 +13,7 @@ import job.bean.LikesDto;
 public class LikesDaoImpl implements LikesDao{
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
+	
 	private ResultSetExtractor<LikesDto> extractor = (rs)->{
 		if(rs.next()) return new LikesDto(rs);
 		else return null;

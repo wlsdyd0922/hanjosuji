@@ -3,6 +3,7 @@ package job.bean;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+
 public class LikesDto {
 	private String email;
 	private String company;

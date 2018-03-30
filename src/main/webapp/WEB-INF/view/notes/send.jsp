@@ -6,6 +6,7 @@
 <div class="container-800 out-align-center">
 <h1>쪽지 보내기</h1>
 
+
 <hr class="style-one">
 	<div class="myrow div-2" style="height: 116px;">
 		<div class="myrow">

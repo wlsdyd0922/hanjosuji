@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import job.bean.NormalMDto;
 
+
 @Repository
 public interface NormalMDao {
 	boolean register(NormalMDto nmdto);

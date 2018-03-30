@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import job.bean.NotesDto;
 
+
 @Repository("NotesDao")
 public class NotesDaoImpl implements NotesDao{
 	@Autowired

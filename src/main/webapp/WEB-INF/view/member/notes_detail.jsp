@@ -4,6 +4,7 @@
 <jsp:include page="/WEB-INF/view/template/header.jsp"></jsp:include>
 <div class="out-align-center container-1000">
 	<div class="div-2">
+	
 		<!-- 해당 부분부터 for문 적용-->
 		<div class="container-70 div-main">
 			<div class="myrow div-2 background-white" style="height: 200px;">

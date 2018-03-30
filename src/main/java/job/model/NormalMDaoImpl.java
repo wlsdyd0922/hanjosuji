@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import job.bean.NormalMDto;
 
+
 @Repository("normalMdao")
 public class NormalMDaoImpl implements NormalMDao{
 	@Autowired

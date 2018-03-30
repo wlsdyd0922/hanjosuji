@@ -4,6 +4,7 @@
 <jsp:include page="/WEB-INF/view/template/header.jsp" />
 <div class="container-1000 out-align-center">
 	<div class="in-align-left">
+	
 		<h1>제목</h1>
 		<h1>보낸이</h1>
 		<h5>시간</h5>
