@@ -2,10 +2,14 @@ package job.model;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
+
+import com.oracle.tools.packager.Log;
 
 import job.bean.CompanyDto;
 
@@ -13,6 +17,8 @@ import job.bean.CompanyDto;
 public class AdminDaoImpl implements AdminDao {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
+	
+	private Logger log = LoggerFactory.getLogger(getClass());
 
 	private RowMapper<CompanyDto> compmapper = (rs, idx) -> {
 		return new CompanyDto(rs);
@@ -20,17 +26,25 @@ public class AdminDaoImpl implements AdminDao {
 
 	@Override
 	public List<CompanyDto> compChkList(int chk, int sno, int eno,String sort ,String search) {
-		String sql = "select * from (select * from (select rownum rn,A.* from (select * from company where checked=? order by no)A)) where rn between ? and ?";
-		return jdbcTemplate.query(sql, compmapper, chk, sno, eno);
+		String sql;
+		if(search != null && !search.equals("")) {
+			sql = "select * from (select * from (select rownum rn,A.* from (select * from company where checked=? and "+sort+" like '%'||?||'%' order by no)A)) where rn between ? and ?";
+			return jdbcTemplate.query(sql, compmapper, chk, search, sno, eno);
+		}else {
+			sql = "select * from (select * from (select rownum rn,A.* from (select * from company where checked=? order by no)A)) where rn between ? and ?";
+			return jdbcTemplate.query(sql, compmapper, chk, sno, eno);
+		}
 	}
 
 	@Override
 	public List<CompanyDto> compAllList(int sno, int eno,String sort ,String search) {
 		String sql;
 		if(search != null && !search.equals("")) {
+			log.debug("체크검색목록");
 			sql = "select * from (select * from (select rownum rn,A.* from (select * from company where "+sort+" like '%'||?||'%' order by no)A)) where rn between ? and ?";
 			return jdbcTemplate.query(sql, compmapper, search,sno, eno);
 		}else {
+			log.debug("체크전체목록");
 			sql = "select * from (select * from (select rownum rn,A.* from (select * from company order by no)A)) where rn between ? and ?";
 			return jdbcTemplate.query(sql, compmapper, sno, eno);
 		}		

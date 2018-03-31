@@ -5,8 +5,10 @@ $(function () {
 
 
 $(document).ready(function() {
+	$("input[type=search]").val("");
 	requestList(2, 1);
 	$("#all").on("click",function(){
+		$("input[type=search]").val("");
 		requestList(2, 1);
 	});
 	$("#nokcomp").on("click",function(){
@@ -14,6 +16,7 @@ $(document).ready(function() {
 		requestList(0, 1);
 	});
 	$("#okcomp").on("click",function(){
+		$("input[type=search]").val("");
 		requestList(1, 1);
 	});
 });
