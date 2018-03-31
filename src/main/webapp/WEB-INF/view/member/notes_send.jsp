@@ -25,13 +25,20 @@
 							<div class="rest-area div-2">
 								<div class="rest-area">
 									<div class="input-lg">제목</div>
+									<div class="input-lg">받는분</div>
 								</div>
 								<div class="rest-area">
-									<div class="input-lg">
-										<a href="${pageContext.request.contextPath}/member/notes_detail?no=${ntdto.no}">${ntdto.title}</a>
-									</div>
+									<div class="input-lg">${ntdto.title}</div>
+									<div class="input-lg">${ntdto.email}</div>
 								</div>
-
+							</div>
+							<div class="rest-area div-2">
+								<div class="rest-area">
+									<div class="input-lg">시간</div>
+								</div>
+								<div class="rest-area">
+									<div class="input-lg">${ntdto.reg}</div>
+								</div>
 								<div class="rest-area">
 									<div class="input-lg">
 										<c:choose>
@@ -45,37 +52,6 @@
 									</div>
 								</div>
 							</div>
-							<div class="rest-area div-2">
-								<div class="rest-area">
-									<div class="input-lg">보내신 분</div>
-								</div>
-								<div class="rest-area">
-									<div class="input-lg">${ntdto.sender}</div>
-								</div>
-								<div class="rest-area">
-									<div class="input-lg">업체명</div>
-								</div>
-								<div class="rest-area">
-									<div class="input-lg">${ntdto.company}</div>
-								</div>
-							</div>
-							<div class="rest-area div-2">
-								<div class="rest-area">
-									<div class="input-lg">받은 시간</div>
-								</div>
-								<div class="rest-area">
-									<div class="input-lg">${ntdto.reg}</div>
-								</div>
-
-								<div class="rest-area div-2">
-									<div class="rest-area">
-										<div class="input-lg">읽은 시간</div>
-									</div>
-									<div class="rest-area">
-										<div class="input-lg">${ntdto.readreg}</div>
-									</div>
-								</div>
-							</div>
 						</div>
 					</div>
 				</div>
@@ -85,7 +61,7 @@
 		<!-- 해당 부분까지 -->
 
 		<div class="container-30">
-			<div class="padding container-70 background-white">
+			<div class="padding container-100 background-white">
 				<div class="padding" style="height: 10%">
 					<img src="${pageContext.request.contextPath }/img/noone.jpg"
 						class="image-center height-100">;
