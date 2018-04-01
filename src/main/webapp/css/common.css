@@ -781,7 +781,7 @@ ul.tabs li.active {
 /* 기업 검색창 */
 #company_search_result{
     height: 40px;
-    width: 400px;
+    width: 100%;
     border: 1px solid #1b5ac2;
     background: #ffffff;
 }

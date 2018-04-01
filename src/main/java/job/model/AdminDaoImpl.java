@@ -9,8 +9,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
-import com.oracle.tools.packager.Log;
-
 import job.bean.CompanyDto;
 
 @Repository("adminDao")

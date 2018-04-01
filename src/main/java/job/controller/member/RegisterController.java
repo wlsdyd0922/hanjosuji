@@ -74,7 +74,7 @@ public class RegisterController {
 		log.debug(""+cdto.getSales());
 		log.debug(cdto.getLocation());
 		log.debug(cdto.getImgname());
-		log.debug(cdto.getImgecnoding());
+		log.debug(cdto.getImgencoding());
 		log.debug(cdto.getRegcode());
 		cdao.insert(cdto);
 		String email = (String)request.getAttribute("accept");

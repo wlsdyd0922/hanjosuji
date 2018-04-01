@@ -62,9 +62,6 @@ public class CompanyController {
 		
 		request.setAttribute("list2", list2);
 		
-		
 		return "/company/companylist";
 	}
-	
-	
 }

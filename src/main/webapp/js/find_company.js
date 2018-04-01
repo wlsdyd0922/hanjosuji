@@ -18,8 +18,8 @@ $(document).ready(function(){
     $("#company_search_button").click(function(event) {
     	event.preventDefault();
     	var url = "/job/register/find_company";
-    	var width = 401;
-    	var height = 400;
+    	var width = 701;
+    	var height = 600;
     	var popupX = (window.screen.width / 2) - (width / 2);
     	var popupY = (window.screen.height / 2) - (height / 2);
     	var option = "resizable=no, scrollbars=no, status=no, height=" + height + ", width=" + width + ", left=" + popupX + ", top=" + popupY;

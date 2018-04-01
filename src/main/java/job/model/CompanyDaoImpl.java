@@ -94,7 +94,7 @@ public class CompanyDaoImpl implements CompanyDao{
 				+ " where name=?";
 		Object[] args = {
 				cdto.getImgname(),
-				cdto.getImgecnoding(),
+				cdto.getImgencoding(),
 				cdto.getName()
 			};
 			return jdbcTemplate.update(sql, args)>0;
