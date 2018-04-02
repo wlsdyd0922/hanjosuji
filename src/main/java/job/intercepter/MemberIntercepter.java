@@ -5,10 +5,15 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
+
+import job.model.NotesDaoImpl;
 
 public class MemberIntercepter extends HandlerInterceptorAdapter{
 	private Logger log = LoggerFactory.getLogger(getClass());
+	@Autowired
+	private NotesDaoImpl ntdao;
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
@@ -17,6 +22,7 @@ public class MemberIntercepter extends HandlerInterceptorAdapter{
 			response.sendRedirect(request.getContextPath()+"/login");
 			return false;
 		}
+		request.setAttribute("notes_count", ntdao.count(login));
 		return super.preHandle(request, response, handler);
 	}
 }

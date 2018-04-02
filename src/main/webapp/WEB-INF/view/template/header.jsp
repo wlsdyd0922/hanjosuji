@@ -83,6 +83,7 @@
 					<c:when test="${loginFlag }">
 						<img src="${pageContext.request.contextPath }/img/noone.jpg" class="height-100"> 
 							유저 : ${sessionScope.accept}
+							   <a href="${pageContext.request.contextPath }/member/notes" class="rright">쪽지함(${notes_count})</a>
                         <a href="${pageContext.request.contextPath }/member/logout" class="rright">로그아웃</a>
 					</c:when>
 					<c:otherwise>

@@ -63,4 +63,13 @@ public class NotesDaoImpl implements NotesDao{
 		String sql = "select * from notes where email=? and no=?";
 		return jdbcTemplate.query(sql, extractor, email,no);
 	}
+
+	@Override
+	public String count(String email) {
+		String sql = "select count(*) from notes where email=? and read='0'";
+		Object[] args = new Object[] {
+				email
+			};
+		return jdbcTemplate.queryForObject(sql,args,String.class);
+	}
 }
