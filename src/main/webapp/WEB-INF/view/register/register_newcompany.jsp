@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 
 <head>
@@ -35,11 +36,65 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
 	integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
 	crossorigin="anonymous"></script>
+
+<script>
+$(document).ready(function() {
+	var msg = $("input[type=hidden]").val();
+	if(msg){
+		alert(msg);
+		window.close();
+	}
+	var loadFile = function(event){
+		if(this.files && this.files[0]){
+			var reader = new FileReader();
+		    reader.onload = function(){
+		    	var output = document.querySelector("#profile-image");
+		    	output.src = reader.result;
+		    	console.log(document.querySelector(".file").value);
+		    };
+		    reader.readAsDataURL(event.target.files[0]);
+		    	var f = document.querySelector(".file");
+		    	if(!f.files || !f.files[0]){
+		    		return;
+		    	}
+		    	var form = document.querySelector("#fileform");
+		    	var formData = new FormData(form);
+		    	console.log(formData);
+		}else{
+			document.querySelector("#profile-image").src="/job/img/noone.jpg";
+		}
+	}
+	document.querySelector(".file").addEventListener("change", loadFile);
+	
+	$("#fileform").on("submit",function(){
+	});
+	
+});
+</script>
 </head>
 
+
 <body>
-	<form action="${pageContext.request.contextPath}/register/register_newcompany"	method="post">
-		<div class="padding" style="width: 400px; height: 600px; ">
+
+<input type="hidden" value="${msg}">
+
+	<form id="fileform" action="${pageContext.request.contextPath}/register/register_newcompany" method="post" enctype="multipart/form-data">
+	
+		<div class="myrow content-size border-circle" align="center">
+		<div style="height:auto;">
+			<img style="object-fit: contain" id="profile-image"
+				src="${pageContext.request.contextPath}/img/noone.jpg" width=67%
+				height=auto>
+		</div>
+		<div class="filebox bs3-primary" style="height: 33px">
+			<label for="ex_file">업로드</label> 
+			<input type="file" name="file" class="file" id="ex_file" required>
+			<label for="delete">사진삭제</label>
+			<input type="button" id="delete">
+		</div>
+	</div>
+	
+		<div class="padding" style="width: 682px; height: 600px; ">
 			<h1 class="in-align-center">기업등록</h1>
 			<div class="div-2 padding">
 				<div class="container-30 padding-left-5">
@@ -120,7 +175,7 @@
 					</h5>
 				</div>
 				<div class="container-70">
-					<input class="form-control" name="employee" type="text"
+					<input class="form-control" name="employee" type="number"
 						style="height: 40px" required>
 				</div>
 			</div>
@@ -131,7 +186,7 @@
 					</h5>
 				</div>
 				<div class="container-70">
-					<input class="form-control" name="sales" type="text"
+					<input class="form-control" name="sales" type="number"
 						style="height: 40px" required>
 				</div>
 			</div>

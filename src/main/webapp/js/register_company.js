@@ -4,6 +4,8 @@ $(document).ready(function() {
 	var pwa = false;
 	var phone = false;
 	var ans = false;
+	var name = false;
+	var company = false;
 	$("input[name=email]").on("blur", function() {
 		var email = $(this).val();
 		$.ajax({
@@ -80,9 +82,22 @@ $(document).ready(function() {
 			phone = false;
 		}
 	});
+	
+	$("input[name=name]").on("input", function() {
+		var regex = /^[가-힣]{2,4}$/;
+		if (!$(this).val()) {
+			$(this).css("border-color", "#ccc");
+		} else if (regex.test($(this).val())) {
+			$(this).css("border-color", "deepskyblue");
+			name = true;
+		} else {
+			$(this).css("border-color", "deeppink");
+			name = false;
+		}
+	});
 
 
-	$("input[name=pwAns]").on("input", function() {
+	$("input[name=pwans]").on("input", function() {
 		if (!$(this).val()) {
 			$(this).css("border-color", "#ccc");
 			ans = false;
@@ -91,12 +106,22 @@ $(document).ready(function() {
 			ans = true;
 		}
 	});
-
+	
 	 $("input[type=submit]").on("click",function(){
-		 if(id===true&&pw===true&&pwa===true&&phone===true&&ans===true){
+		 if(id===true&&pw===true&&pwa===true&&phone===true&&ans===true&&name===true){
+			 var pw = SHA256($("input[name=pw]").val());
+			 $("input[name=pw]").val(pw);
+			 
+//			 var pwa = SHA256($("input[name=pw_again]").val());
+//			 $("input[name=pw_again]").val(pwa);
+			 
+			 var pwan = SHA256($("input[name=pwans]").val());
+			 $("input[name=pwans]").val(pwan);
+			 
 			 console.log("모두 통과");
 			 return true;
 		 }else{
+			 colsole.log()
 			 console.log("불가능");
 			 return false;
 		 }

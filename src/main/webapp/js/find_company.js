@@ -1,4 +1,15 @@
 $(document).ready(function(){
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	$('#search_button').click(function(){
 		var company_name = $('input[name=company_name]').val();
 		if(company_name==""){

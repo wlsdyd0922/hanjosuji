@@ -1,23 +1,29 @@
 package job.controller.member;
 
 
+import java.io.File;
 import java.util.List;
+import java.util.UUID;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import job.bean.CompanyDto;
 import job.bean.NormalMDto;
 import job.bean.ResumeDto;
+import job.exception.ImageException;
 import job.manager.SHA256;
-import job.model.AdminDaoImpl;
 import job.model.CompanyDaoImpl;
 import job.model.NormalMDaoImpl;
 import job.model.ResumeDaoImpl;
@@ -33,6 +39,8 @@ public class RegisterController {
 	private CompanyDaoImpl cdao;
 	@Autowired
 	private ResumeDaoImpl rdao;
+	@Autowired
+	private ServletContext servletContext;
 
 	
 	@RequestMapping("register_choose")
@@ -63,23 +71,19 @@ public class RegisterController {
 	}
 	
 	@RequestMapping(value = "register_company",method = RequestMethod.POST)
-	public String RegisterCompany(CompanyDto cdto, HttpServletRequest request) {
-		log.debug(cdto.getName());
-		log.debug(cdto.getIndustry());
-		log.debug(cdto.getCeo());
-		log.debug(cdto.getBirth());
-		log.debug(cdto.getWebsite());
-		log.debug(""+cdto.getEmployee());
-		log.debug(cdto.getType());
-		log.debug(""+cdto.getSales());
-		log.debug(cdto.getLocation());
-		log.debug(cdto.getImgname());
-		log.debug(cdto.getImgencoding());
-		log.debug(cdto.getRegcode());
-		cdao.insert(cdto);
-		String email = (String)request.getAttribute("accept");
-		nmdao.setCompany(cdto.getName(), email);
-		return "register/register_company";
+	public String RegisterCompany(
+			NormalMDto nmdto,
+			 HttpServletRequest request) {
+		String sha = new SHA256().On(nmdto.getPw());
+		log.debug(nmdto.getEmail());
+		log.debug(sha);
+		log.debug(nmdto.getPhone());
+		log.debug(nmdto.getName());
+		log.debug(nmdto.getPwquiz());
+		log.debug(nmdto.getPwans());
+		log.debug(nmdto.getCompany());
+		log.debug(nmdto.getGrade());
+		return "redirect:/";
 	}
 	@RequestMapping("compsearch")
 	@ResponseBody      
@@ -143,9 +147,47 @@ public class RegisterController {
 	}
 	
 	@RequestMapping(value="register_newcompany", method = RequestMethod.POST)
-	public String register_newcompany_post(CompanyDto cdto) throws Exception {
+	public String register_newcompany_post(MultipartHttpServletRequest mRequest,Model model) throws Exception {
+//		log.debug("드러옴");
+//		String aa = request.getParameter("name");
+//		log.debug(aa);
+//		MultipartFile file = request.getFile("file");
+//		log.debug(file.getOriginalFilename());
+		
+		CompanyDto cdto = new CompanyDto(mRequest);
+		MultipartFile file = mRequest.getFile("file");
+		String savename = UUID.randomUUID().toString();
+		String enctype = file.getContentType();
+		
+		
+		cdto.setImgencoding(enctype);
+		cdto.setImgname(savename);
+		
+		//파일 생성
+		
+		//파일 uuid 포함 db저장
+		
 		if(!cdao.insert(cdto)) {
 			throw new Exception("회원가입 실패");
+		}else {
+			if (!file.getOriginalFilename().endsWith(".jpg") && !file.getOriginalFilename().endsWith(".png")
+					&& !file.getOriginalFilename().endsWith(".gif")) {
+				throw new ImageException("이미지는 jpg,png,gif 중에서만 사용 가능합니다");
+			}
+			
+			String path = servletContext.getRealPath("/upload");
+			
+
+			File dir = new File(path);
+			log.debug(path);
+			
+			if (!dir.exists()) dir.mkdirs();
+
+			File target = new File(dir, savename);
+			file.transferTo(target);
+			
+			model.addAttribute("msg", "회사 등록 성공\n관리자 승인을 기다리세요"); 
+			
 		}
 		return "register/register_newcompany";
 	}
