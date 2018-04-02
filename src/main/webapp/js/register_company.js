@@ -121,7 +121,7 @@ $(document).ready(function() {
 			 console.log("모두 통과");
 			 return true;
 		 }else{
-			 colsole.log()
+			 
 			 console.log("불가능");
 			 return false;
 		 }
