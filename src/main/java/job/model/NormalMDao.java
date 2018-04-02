@@ -22,4 +22,5 @@ public interface NormalMDao {
 	boolean setCompany(String company,String email);
 	List<NormalMDto> adminList();
 	String getCompany(String email);
+	boolean member_delete(String email, String pw);
 }

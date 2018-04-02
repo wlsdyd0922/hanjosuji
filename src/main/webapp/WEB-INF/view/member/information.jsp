@@ -6,7 +6,41 @@
 <script>
 	$(document).ready(function() {
 		$("#memberleave").hide();
+		$("#white-background").hide();
+		$("#show-message").hide();
+		
+		$("#white-background").click(function(){
+			$("#white-background").hide();
+			$("#show-message").hide();
+		});
+		
+		$("#delete_button").click(function(){
+			password = $("#pw").val();
+			
+			$.ajax({
+				type : "POST",
+				url : "member_delete",
+				data : {
+					pw : password
+					},
+				success :function(result){
+					console.log(result)
+					if(result === "true"){
+						alert("회원삭제에 성공하셨습니다.");
+						window.location.href = "/job";
+					}else{
+						$("#white-background").css("z-index","40000");
+						$("#white-background").css("opacity","0.6");
+						$("#white-background").show();
+						$("#show-message").css("z-index", "50000");
+						$("#show-message").show();
+					}
+				}
+			});
+		});
+		
 	});
+	
 	function memberleave() {
 		$("#memberleave").toggle(500);
 	}
@@ -65,8 +99,7 @@
 					<div class="rest-area in-align-right">
 						<h3 class="myrow">
 							<a href="${pageContext.request.contextPath }/member/show_detail">상세보기</a>
-							<a
-								href="${pageContext.request.contextPath }/register/register_detail">편집</a>
+							<a href="${pageContext.request.contextPath }/register/register_detail">편집</a>
 						</h3>
 					</div>
 				</div>
@@ -148,19 +181,19 @@
 			</div>
 			<div class="rest-area" style="height: 81%">
 				<div class="padding">
-					<form action="#" method="post">
-						<div id="memberleave" style="height: 180px;">
-							<div class="empty-row"></div>
-							<div class="padding">
-								<input type="password" name="pw"
-									class="form-control font-medium form-input-full"
-									placeholder="비밀번호를 입력하세요.">
-							</div>
-							<div class="padding in-align-center">
-								<input type="submit" class="button shape-circle" value="회원 탈퇴">
-							</div>
+					<div id="memberleave" style="height: 180px;">
+					<div id="white-background" style="background-color: white; position: absolute; width: 350px; height: 180px"></div>
+					<div id="show-message" style="position: absolute; top: 650px; left: 830px;"><h3>비밀번호가 틀렸습니다.</h3></div>	
+						<div class="empty-row"></div>
+						<div class="padding">
+							<input type="password" name="pw" id="pw"
+								class="form-control font-medium form-input-full"
+								placeholder="비밀번호를 입력하세요.">
 						</div>
-					</form>
+						<div class="padding in-align-center">
+							<input type="button" id="delete_button" class="button shape-circle" value="회원 탈퇴">
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>

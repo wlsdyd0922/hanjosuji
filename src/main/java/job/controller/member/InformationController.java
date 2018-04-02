@@ -3,6 +3,7 @@ package job.controller.member;
 import java.io.IOException;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import job.bean.NormalMDto;
 import job.exception.ImageException;
+import job.manager.SHA256;
 import job.model.NormalMDaoImpl;
 import job.model.ResumeDaoImpl;
 import job.service.ImageService;
@@ -36,6 +39,20 @@ public class InformationController {
 		request.setAttribute("nmdto", nmdao.info(email));
 		request.setAttribute("rdto", rdao.searchTarget(email));
 		return "member/information";
+	}
+	
+	@RequestMapping(value = "member_delete", method = RequestMethod.POST)
+	@ResponseBody
+	public String member_delete(NormalMDto nmdto, HttpSession session, HttpServletRequest request) {
+		String email = (String) request.getSession().getAttribute("accept");
+		String password = new SHA256().On(nmdto.getPw());
+		System.out.println("id : " + email + " / " + "password : " + password);
+		String result = null;
+		if(nmdao.member_delete(email, password)) {
+			session.invalidate();
+			result = "true";
+		}
+		return result;
 	}
 
 	@RequestMapping(value = "upload", method = RequestMethod.POST)

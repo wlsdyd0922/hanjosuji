@@ -169,4 +169,13 @@ public class NormalMDaoImpl implements NormalMDao{
 		Object[] args = new Object[] {email};
 		return jdbcTemplate.queryForObject(sql,args,String.class);	
 	}
+	@Override
+	public boolean member_delete(String email, String pw) {
+		String sql = "delete from normalm where email =? and pw = ?";
+		Object[] args = new Object[] {email,pw};
+//		System.out.println(jdbcTemplate.update(sql,args) > 0);
+		return jdbcTemplate.update(sql,args) > 0;
+	}
+	
+	
 }
