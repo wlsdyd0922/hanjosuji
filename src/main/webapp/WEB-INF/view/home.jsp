@@ -1,8 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <jsp:include page="/WEB-INF/view/template/header.jsp"></jsp:include>
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/sliding.css">
+<script src="${pageContext.request.contextPath}/js/sliding.js"></script>
 	<div class="empty-row"></div>
 	<form action="${pageContext.request.contextPath }/company/companylist" method="post">
+	
+		<div class="simple_banner_wrap banner03" data-nav-type="prev_next">
+			<ul>
+				<li><a href="#"><img src="img/background.jpg"></a></li>
+				<li><a href="#"><img src="img/logo.png"></a></li>
+				<li><a href="#"><img src="img/noone.jpg"></a></li>
+				<li><a href="#"><img src="img/grade_img.png"></a></li>
+			</ul>
+		</div>	
+	
 		<div class="container-60 out-align-center border">
 			<div class="myrow in-align-center border div-main"
 				style="height: 200px;">
