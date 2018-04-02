@@ -125,7 +125,7 @@
 								</div>
 								<div class="rest-area">
 									<div class="form-title-input">
-										<a
+										<a 
 											href="${pageContext.request.contextPath }/company/employment_information?no=${bdto.no}">${bdto.title}</a>
 									</div>
 									<div class="form-input-full">${bdto.department}</div>

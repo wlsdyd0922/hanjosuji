@@ -16,7 +16,7 @@ import job.model.BoardDaoImpl;
  
 @Controller
 public class BoardController {
-	@Autowired
+	@Autowired 
 	private BoardDaoImpl boardDao;
 	private Logger log = LoggerFactory.getLogger(getClass());
 	@RequestMapping("board/list")

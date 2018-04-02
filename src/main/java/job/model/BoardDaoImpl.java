@@ -89,7 +89,7 @@ String sql = "select b.*, a.name, a.industry, a.ceo, a.birth, a.website, a.emplo
 	public BoardDto info(int no) {
 		String sql = "select * from hireboard where no = ?";
 		return jdbcTemplate.query(sql,extractor,no);
-	}
+	} 
 	//게시판 번호로 회사테이블+게시판테이블 조인해서 회사정보 조회
 	@Override
 	public CompanyDto info2(int no) {

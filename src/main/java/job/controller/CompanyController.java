@@ -25,7 +25,7 @@ public class CompanyController {
 	
 	private Logger log = LoggerFactory.getLogger(getClass());
 
-	@Autowired
+	@Autowired 
 	private CompanyDaoImpl cdao;
 	@Autowired
 	private NormalMDaoImpl ndao;

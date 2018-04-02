@@ -12,3 +12,4 @@ public interface ReviewDao {
 	ReviewDto loadReview(String company);
 	List<ReviewDto> reviewList();
 }
+ 

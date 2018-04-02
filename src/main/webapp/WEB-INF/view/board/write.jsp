@@ -12,7 +12,7 @@
 			<div class="container-20">제목</div>
 			<div class="container-80">
 				<input class="form-input-full" type="text" name="title">
-			</div>
+			</div> 
 		</div>
 		<div class="div-2">
 			<div class="container-20">회사명</div>

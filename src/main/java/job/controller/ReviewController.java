@@ -40,7 +40,7 @@ public class ReviewController {
 		int count = reviewDao.reviewCount(company);	//리뷰 개수
 		double average = reviewDao.reviewAvg(company);		//리뷰 평점 평균
 		String avg = String.format("%.1f", average);
-		
+		 
 		BoardDto bdto = boardDao.info3(company); //회사이름으로 게시판 조회(채용정보 보여주기용)
 		
 		request.setAttribute("rdto", rdto);

@@ -21,7 +21,7 @@ public class ReviewDaoImpl {
 	private ResultSetExtractor<ReviewDto> extractor = (rs)->{
 		if(rs.next()) return new ReviewDto(rs);
 		else return null;
-	};
+	}; 
 	//리뷰 등록
 	public void register(ReviewDto rdto) {
 		String sql = "insert into review values(review_seq.nextval,?,?,?,?,?,?,?,?,?,?,?,?,?,sysdate)";

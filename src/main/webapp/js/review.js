@@ -9,7 +9,7 @@ $(function() {
 																	// "active"클래스를
 																	// 삭제한다.
 		$(this).addClass("active").css("color", "darkred"); // ul.tabs li 에
-															// "active"클래스 대입
+					 										// "active"클래스 대입
 		$(".tab_content").hide()
 		var activeTab = $(this).attr("rel");
 		 $("#" + activeTab).fadeIn()

@@ -4,7 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class BoardDto {
-	private int no;
+	private int no; 
 	private String title;
 	private int count;
 	private String state;

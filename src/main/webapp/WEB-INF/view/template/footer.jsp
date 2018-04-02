@@ -21,7 +21,7 @@
 					<div>
 						<input type="text" class="form-input-full font-medium"
 							placeholder="이력서 이름을 입력해주세요">
-					</div>
+					</div> 
 					<div class="padding font-medium">
 						<!-- 이력서 존재시-->
 						이력서 <span class="icono-checkCircle" style="color: lightblue"></span>

@@ -13,7 +13,7 @@ public interface BoardDao {
 	boolean edit(BoardDto bdto);
 
 	BoardDto info(int no);
-	
+	 
 	CompanyDto info2(int no);
 	
 	BoardDto info3(String company);

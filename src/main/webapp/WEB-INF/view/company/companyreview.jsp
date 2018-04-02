@@ -82,7 +82,7 @@
 							<div class="padding container-100 in-align-center" style="overflow:scroll; height:510px;">
 <!-- for문 시작하기 -->
 								<div class="div-main container-100">
-					<c:choose>
+					<c:choose> 
 						<c:when test="${rdto ne null}">
 							<c:forEach var="rdto" items="${list}">
 									<div class="myrow div-2"

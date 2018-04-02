@@ -11,7 +11,7 @@
 			$.ajax({
 				type : "POST",
 				url : "employment_information",
-				data : {
+				data : { 
 					company : company_name
 					},
 				success :function(){
