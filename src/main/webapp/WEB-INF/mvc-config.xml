@@ -25,6 +25,10 @@
 			<mvc:mapping path="/admin/*" />
 			<bean class="job.intercepter.AdminIntercepter"></bean>
 		</mvc:interceptor>
+		<mvc:interceptor>
+			<mvc:mapping path="/**"/>
+			<bean class="job.intercepter.NotesIntercepter"></bean>
+		</mvc:interceptor>
 	</mvc:interceptors>
 
 

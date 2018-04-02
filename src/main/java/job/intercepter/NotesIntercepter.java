@@ -10,16 +10,16 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import job.model.NotesDaoImpl;
 
-public class MemberIntercepter extends HandlerInterceptorAdapter{
+public class NotesIntercepter extends HandlerInterceptorAdapter{
 	private Logger log = LoggerFactory.getLogger(getClass());
+	@Autowired
+	private NotesDaoImpl ntdao;
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
-		String login = (String) request.getSession().getAttribute("accept");
-		if(login==null) {
-			response.sendRedirect(request.getContextPath()+"/login");
-			return false;
-		}
+		String email = (String) request.getSession().getAttribute("accept");
+		if(email!=null) 
+			request.setAttribute("notes_count", ntdao.count(email));
 		return super.preHandle(request, response, handler);
 	}
 }
