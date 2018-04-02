@@ -18,4 +18,5 @@ public interface CompanyDao {
 	boolean image(CompanyDto cdto);
 	boolean isCheck(CompanyDto cdto);
 	List<CompanyDto> nameList(String name);
+	boolean comImgdel(String name);
 }

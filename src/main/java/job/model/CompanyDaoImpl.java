@@ -26,7 +26,7 @@ public class CompanyDaoImpl implements CompanyDao{
 	 
 	@Override
 	public boolean insert(CompanyDto cdto) {
-		String sql = "insert into company values(?,?,?,?,?,?,?,?,?,'','',?,0,company_seq.nextval)";
+		String sql = "insert into company values(?,?,?,?,?,?,?,?,?,?,?,?,0,company_seq.nextval,0)";
 		Object[] args = {
 			cdto.getName(),
 			cdto.getIndustry(),
@@ -37,6 +37,8 @@ public class CompanyDaoImpl implements CompanyDao{
 			cdto.getType(),
 			cdto.getSales(),
 			cdto.getLocation(),
+			cdto.getImgname(),
+			cdto.getImgencoding(),
 			cdto.getRegcode()
 		};
 		return jdbcTemplate.update(sql, args)>0;
@@ -110,5 +112,10 @@ public class CompanyDaoImpl implements CompanyDao{
 	public List<CompanyDto> nameList(String name) {
 		String sql = "select * from (select * from (select rownum rn,A.* from (select * from company where checked=1 order by no)A))where name like '%'||?||'%' ";
 		return jdbcTemplate.query(sql,mapper,name);
+	}
+	@Override
+	public boolean comImgdel(String name) {
+		String sql = "update company set imgname ='' where name =?";
+		return jdbcTemplate.update(sql)>0;
 	}
 }

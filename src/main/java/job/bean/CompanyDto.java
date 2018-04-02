@@ -3,6 +3,9 @@ package job.bean;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
+
 public class CompanyDto {
 	private String name;
 	private String industry;
@@ -18,9 +21,25 @@ public class CompanyDto {
 	private String regcode;
 	private String checked;
 	private int no;
-
+	
 	public CompanyDto() {
 		super();
+	}
+	
+	public CompanyDto(MultipartHttpServletRequest mRequest) {
+		setName(mRequest.getParameter("name"));
+		setIndustry(mRequest.getParameter("industry"));
+		setCeo(mRequest.getParameter("ceo"));
+		setBirth(mRequest.getParameter("birth"));
+		setWebsite(mRequest.getParameter("website"));
+		setEmployee(Integer.parseInt(mRequest.getParameter("employee")));
+		setType(mRequest.getParameter("type"));
+		setSales(Integer.parseInt(mRequest.getParameter("sales")));
+		setLocation(mRequest.getParameter("location"));
+		setImgname(mRequest.getParameter("imgname"));
+		setImgencoding(mRequest.getParameter("imgencoding"));
+		setRegcode(mRequest.getParameter("regcode"));
+		setChecked(mRequest.getParameter("checked"));
 	}
 	
 	public CompanyDto(ResultSet rs) throws SQLException {
