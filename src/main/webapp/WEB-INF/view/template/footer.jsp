@@ -9,7 +9,7 @@
 <!-- 팝업 창 -->
 <div id="pop" class="padding">
 	<div style="color: white">
-		<h1>"회사이름" 입사지원</h1>
+		<h1>${cdto.name} 입사지원</h1>
 	</div>
 	<div>
 		<span id="x-mark" class="icono-cross"></span>

@@ -8,14 +8,9 @@
 
 	<div class="container-1000 out-align-center">
 		<div class="in-align-left">
-			<h1>기업 정보</h1>
-			<h3>company:${param.company}</h3>
-		</div>
-		<div class="empty-row"></div>
-		<div class="in-align-left">
-			<h1>${rdto.company}</h1>
-			<h5>${rdto.type}</h5>
-			<h5>${rdto.grade}</h5>
+			<h1>${cdto.name}</h1>
+			<h5>${cdto.industry}</h5>
+			<h5>★${avg}</h5> <!-- 기업평점 평균으로 보여주기 -->
 		</div>
 		<div class="out-align-center" style="width: 1000px; height: 600px;">
 			<div id="container">
@@ -30,22 +25,23 @@
 						<div id="tab1" class="tab_content">
 							<div class="div-2 container-100 in-align-center">
 								<div class="in-align-left container-100">
-									<h5>${rdto.company}의전직원현직원들이작성한 (리뷰개수)개의 기업리뷰 등을 확인하세요</h5>
+								<!-- 리뷰개수 디비 카운트해서 가져오기 -->
+									<h5>${cdto.name}의 전 직원 현 직원 들이 작성한 ${count}개의 기업리뷰 등을 확인하세요</h5>
 									<div class="myrow content-size">
 										대표
-										<div class="input-lg text-primary"></div>
+										<div class="form-input text-primary">${cdto.ceo}</div>
 										설립일
-										<div class="input-lg text-primary">1999.09.01</div>
+										<div class="form-input text-primary">${cdto.birth}</div>
 										웹사이트
-										<div class="input-lg text-primary">www.google.com</div>
+										<div class="form-input text-primary">${cdto.website}</div>
 										사원수
-										<div class="input-lg text-primary"></div>
+										<div class="form-input text-primary">${cdto.employee}명</div>
 										기업형태
-										<div class="input-lg text-primary"></div>
+										<div class="form-input text-primary">${cdto.type}</div>
 										매출액
-										<div class="input-lg text-primary"></div>
+										<div class="form-input text-primary">${cdto.sales}</div>
 										본사
-										<div class="input-lg text-primary">주소</div>
+										<div class="form-input text-primary">${cdto.location}</div>
 									</div>
 								</div>
 								<div class="container-100">
@@ -67,7 +63,7 @@
 															</div>
 														</div>
 														<div class="div-main padding-5 container-70">
-															<div>JAVA/JSP 개발자 구함</div>
+															<div>${bdto.title}</div>
 															<div>
 																<a class="openMask">지원하기</a>
 															</div>
@@ -77,15 +73,18 @@
 											</div>
 										</div>
 										<!-- for문 끝 -->
-
 									</div>
 								</div>
 							</div>
 						</div>
 						<!-- #tab1 -->
-						<div id="tab2" class="tab_content">
-							<div class="padding div-2 container-100 in-align-center">
+						<div id="tab2" class="tab_content" >
+							<div class="padding container-100 in-align-center" style="overflow:scroll; height:510px;">
+<!-- for문 시작하기 -->
 								<div class="div-main container-100">
+					<c:choose>
+						<c:when test="${rdto ne null}">
+							<c:forEach var="rdto" items="${list}">
 									<div class="myrow div-2"
 										style="height: 10%; background-color: cornflowerblue">
 										<img src="${pageContext.request.contextPath }/img/noone.jpg"
@@ -206,6 +205,13 @@
 											</div>
 										</div>
 									</div>
+<!-- for문 마지막하기 --></c:forEach>
+						</c:when>
+						<c:otherwise>
+							<h1>등록 된 리뷰가 없습니다.</h1>
+						</c:otherwise>
+					</c:choose>
+						
 								</div>
 
 							</div>
@@ -217,37 +223,37 @@
 							<div class="out-align-center container-100">
 								<hr class="style-one">
 								<div class="myrow div-2" style="height: 48px;">
-									<div class="input-lg" style="width: 150px;">기업명</div>
+									<div class="form-input" style="width: 150px;">기업명</div>
 									<div class="rest-area">
 										<input type="text" name="company" value="${param.company}"
 											class="container-70 height-100 image-center" readonly>
 									</div>
 								</div>
 								<div class="myrow div-2" style="height: 48px;">
-									<div class="input-lg" style="width: 150px;">현상태</div>
-									<select name="status" class="rest-area input-lg">
+									<div class="form-input" style="width: 150px;">현상태</div>
+									<select name="status" class="rest-area form-input">
 										<option>근무</option>
 										<option>퇴사</option>
 									</select>
 								</div>
 								<div class="myrow div-2" style="height: 48px;">
-									<div class="input-lg" style="width: 150px;">직종</div>
+									<div class="form-input" style="width: 150px;">직종</div>
 									<div class="rest-area">
 										<select name="type"
 											class="container-100 height-100 shape-circle">
-											<option class="input-lg">경영/사무</option>
-											<option class="input-lg">영업/고객상담</option>
-											<option class="input-lg">IT/인터넷</option>
-											<option class="input-lg">디자인</option>
-											<option class="input-lg">서비스</option>
-											<option class="input-lg">전문직</option>
-											<option class="input-lg">의료</option>
-											<option class="input-lg">생산/제조</option>
-											<option class="input-lg">건설</option>
-											<option class="input-lg">유통/무역</option>
-											<option class="input-lg">미디어</option>
-											<option class="input-lg">교육</option>
-											<option class="input-lg">특수계층/공공</option>
+											<option class="form-input">경영/사무</option>
+											<option class="form-input">영업/고객상담</option>
+											<option class="form-input">IT/인터넷</option>
+											<option class="form-input">디자인</option>
+											<option class="form-input">서비스</option>
+											<option class="form-input">전문직</option>
+											<option class="form-input">의료</option>
+											<option class="form-input">생산/제조</option>
+											<option class="form-input">건설</option>
+											<option class="form-input">유통/무역</option>
+											<option class="form-input">미디어</option>
+											<option class="form-input">교육</option>
+											<option class="form-input">특수계층/공공</option>
 										</select>
 									</div>
 									<div class="rest-area">
@@ -255,25 +261,25 @@
 										<c:if test="">
 											<select name="typedetail"
 												class="container-100 height-100 shape-circle">
-												<option class="input-lg">경영/사무</option>
-												<option class="input-lg">영업/고객상담</option>
-												<option class="input-lg">IT/인터넷</option>
-												<option class="input-lg">디자인</option>
-												<option class="input-lg">서비스</option>
-												<option class="input-lg">전문직</option>
-												<option class="input-lg">의료</option>
-												<option class="input-lg">생산/제조</option>
-												<option class="input-lg">건설</option>
-												<option class="input-lg">유통/무역</option>
-												<option class="input-lg">미디어</option>
-												<option class="input-lg">교육</option>
-												<option class="input-lg">특수계층/공공</option>
+												<option class="form-input">경영/사무</option>
+												<option class="form-input">영업/고객상담</option>
+												<option class="form-input">IT/인터넷</option>
+												<option class="form-input">디자인</option>
+												<option class="form-input">서비스</option>
+												<option class="form-input">전문직</option>
+												<option class="form-input">의료</option>
+												<option class="form-input">생산/제조</option>
+												<option class="form-input">건설</option>
+												<option class="form-input">유통/무역</option>
+												<option class="form-input">미디어</option>
+												<option class="form-input">교육</option>
+												<option class="form-input">특수계층/공공</option>
 											</select>
 										</c:if>
 									</div>
 								</div>
 								<div class="myrow div-2" style="height: 48px;">
-									<div class="input-lg" style="width: 150px;">총경력</div>
+									<div class="form-input" style="width: 150px;">총경력</div>
 									<div class="rest-area">
 										<input type="text" name="career"
 											class="container-70 height-100 image-center"
@@ -281,28 +287,28 @@
 									</div>
 								</div>
 								<div class="myrow div-2" style="height: 48px;">
-									<div class="input-lg" style="width: 150px;">근무지역</div>
+									<div class="form-input" style="width: 150px;">근무지역</div>
 									<div class="rest-area">
 										<select name="location"
 											class="container-100 height-100 shape-circle">
-											<option class="input-lg">서울</option>
-											<option class="input-lg">경기</option>
-											<option class="input-lg">인천</option>
-											<option class="input-lg">부산</option>
-											<option class="input-lg">대구</option>
-											<option class="input-lg">광주</option>
-											<option class="input-lg">대전</option>
-											<option class="input-lg">울산</option>
-											<option class="input-lg">세종</option>
-											<option class="input-lg">강원</option>
-											<option class="input-lg">경남</option>
-											<option class="input-lg">경북</option>
-											<option class="input-lg">전남</option>
-											<option class="input-lg">전북</option>
-											<option class="input-lg">충남</option>
-											<option class="input-lg">충북</option>
-											<option class="input-lg">제주</option>
-											<option class="input-lg">전국</option>
+											<option class="form-input">서울</option>
+											<option class="form-input">경기</option>
+											<option class="form-input">인천</option>
+											<option class="form-input">부산</option>
+											<option class="form-input">대구</option>
+											<option class="form-input">광주</option>
+											<option class="form-input">대전</option>
+											<option class="form-input">울산</option>
+											<option class="form-input">세종</option>
+											<option class="form-input">강원</option>
+											<option class="form-input">경남</option>
+											<option class="form-input">경북</option>
+											<option class="form-input">전남</option>
+											<option class="form-input">전북</option>
+											<option class="form-input">충남</option>
+											<option class="form-input">충북</option>
+											<option class="form-input">제주</option>
+											<option class="form-input">전국</option>
 										</select>
 									</div>
 								</div>

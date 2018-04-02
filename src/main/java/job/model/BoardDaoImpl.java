@@ -24,7 +24,7 @@ public class BoardDaoImpl implements BoardDao{
 	};
 	@Override
 	public void insert(BoardDto bdto) {
-		String sql = "insert into hireboard values(hireboard_seq.nextval,?,0,'채용중',?,?,?,?,?,?,?,sysdate)";
+		String sql = "insert into hireboard values(hireboard_seq.nextval,?,0,'채용중',?,?,?,?,?,?,?,sysdate,?,?)";
 		Object[] args = {
 			bdto.getTitle(),
 			bdto.getEmployee(),
@@ -33,7 +33,9 @@ public class BoardDaoImpl implements BoardDao{
 			bdto.getSalary(),
 			bdto.getWorking(),
 			bdto.getContents(),
-			bdto.getCompany()
+			bdto.getCompany(),
+			bdto.getDepartment(),
+			bdto.getEdu()
 		};
 		jdbcTemplate.update(sql, args);
 	}
@@ -82,16 +84,24 @@ String sql = "select b.*, a.name, a.industry, a.ceo, a.birth, a.website, a.emplo
 		// TODO Auto-generated method stub
 		return false;
 	}
+	//게시판 번호로 게시판 테이블 조회
 	@Override
 	public BoardDto info(int no) {
-		String sql = "select * from hireboard where no= ?";
+		String sql = "select * from hireboard where no = ?";
 		return jdbcTemplate.query(sql,extractor,no);
 	}
+	//게시판 번호로 회사테이블+게시판테이블 조인해서 회사정보 조회
 	@Override
 	public CompanyDto info2(int no) {
 		String sql = "select * from company a full outer join hireboard b on a.name = b.company "
 				+ "where b.no = ?";
 		return jdbcTemplate.query(sql, extractor2,no);
+	}
+	//회사 이름으로 테이블 정보 조회
+	@Override
+	public BoardDto info3(String company) {
+		String sql = "select * from hireboard where company = ?";
+		return jdbcTemplate.query(sql, extractor,company);
 	}
 	
 	

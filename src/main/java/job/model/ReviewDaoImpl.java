@@ -1,5 +1,7 @@
 package job.model;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
@@ -35,5 +37,25 @@ public class ReviewDaoImpl {
 	public ReviewDto loadReview(String company) {		
 		String sql = "select * from review where company = ?";
 		return jdbcTemplate.query(sql,extractor,company);
+	}
+	//리뷰 목록
+	public List<ReviewDto> reviewList(String company){
+		String sql = "select * from review where company = ?";
+		return jdbcTemplate.query(sql, mapper,company);
+	}
+	//리뷰 카운트
+	public int reviewCount(String company) {
+		String sql = "select count(*) from review where company = ?";
+		return jdbcTemplate.queryForObject(sql, Integer.class,company);
+	}
+	//리뷰 평점 평균
+	public double reviewAvg(String company) {
+		String sql = "select avg(grade) from review where company = ?";
+		if(jdbcTemplate.queryForObject(sql, Double.class,company)==null) {
+			return 0;
+		}
+		else {
+		return jdbcTemplate.queryForObject(sql, Double.class,company);
+		}
 	}
 }

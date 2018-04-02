@@ -27,10 +27,10 @@
 	function select(data_value)
 	{
 		if(data_value === "true"){
-			$("#like").val("좋아요♡");
+			$("#like").val("좋아요♥");
 		}
 		else{
-			$("#like").val("좋아요♥");
+			$("#like").val("좋아요♡");
 		}
 	}
 </script>
@@ -43,7 +43,7 @@
 			<div class="padding">
 				<div class="padding row">
 					<div class="padding col-md-2">
-						<div class="font-small in-align-center background-white">품질관리
+						<div class="font-small in-align-center background-white">${bdto.department}
 							</div>
 					</div>
 					<div class="padding col-md-2">
@@ -122,7 +122,7 @@
 					</div>
 					<div class="div-2" style="height: 30%">
 						<div class="container-100 font-medium in-align-center">
-							<input type = "button" id = "like" value="좋아요♥" class="background-white shape-circle" data-value="${isLiked }">
+							<input type = "button" id = "like" value="좋아요♡" class="background-white shape-circle" data-value="${isLiked }">
 						</div>
 						<div class="container-100 font-medium in-align-center">
 							<a href="${pageContext.request.contextPath }/company/companyreview">기업상세보기</a>

@@ -13,9 +13,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import job.bean.BoardDto;
 import job.bean.CompanyDto;
+import job.bean.LikesDto;
 import job.bean.NormalMDto;
 import job.model.BoardDaoImpl;
 import job.model.CompanyDaoImpl;
+import job.model.LikesDaoImpl;
 import job.model.NormalMDaoImpl;
 
 @Controller 
@@ -29,6 +31,8 @@ public class CompanyController {
 	private NormalMDaoImpl ndao;
 	@Autowired
 	private BoardDaoImpl boardDao;
+	@Autowired
+	private LikesDaoImpl likesDao;
 	@RequestMapping("/기업임")
 	public String company() {
 		return null;
@@ -59,8 +63,16 @@ public class CompanyController {
 		String keyword = request.getParameter("keyword");
 
 		List<BoardDto> list2 = boardDao.searchList(keyword,location,favSort,company,career,employment);
-		
+		String email = (String) request.getSession().getAttribute("accept");
+		log.debug("email={}",email);
+		List<LikesDto> likeList = likesDao.searchList(email);
+		LikesDto ldto = new LikesDto();
+
+		boolean isLiked = likesDao.isLiked(ldto);
+		System.out.println("결과 : " + isLiked);
+		request.setAttribute("isLiked", isLiked);
 		request.setAttribute("list2", list2);
+		request.setAttribute("likeList", likeList);
 		
 		return "/company/companylist";
 	}

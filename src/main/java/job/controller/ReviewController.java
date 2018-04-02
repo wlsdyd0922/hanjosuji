@@ -1,5 +1,7 @@
 package job.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -10,9 +12,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import job.bean.BoardDto;
 import job.bean.CompanyDto;
 import job.bean.ReviewDto;
 import job.model.BoardDaoImpl;
+import job.model.CompanyDaoImpl;
 import job.model.ReviewDaoImpl;
 
 @Controller
@@ -21,16 +25,31 @@ public class ReviewController {
 	@Autowired
 	private ReviewDaoImpl reviewDao;
 	@Autowired
-	private BoardDaoImpl bdao;
+	private CompanyDaoImpl companyDao;
+	@Autowired
+	private BoardDaoImpl boardDao;
 	private Logger log = LoggerFactory.getLogger(getClass());
 
 	@RequestMapping("company/companyreview")
 	public String review(HttpServletRequest request) {
 		String company = request.getParameter("company"); //기업명 받기
 		ReviewDto rdto = reviewDao.loadReview(company);
-		//CompanyDto cdto = bdao.info2(no);
-		//request.setAttribute("cdto", cdto);
+		List<ReviewDto> list = reviewDao.reviewList(company);
+		CompanyDto cdto = companyDao.searchTarget(company);
+		cdto.setName(company.toUpperCase());	//기업명 대문자로 전송
+		int count = reviewDao.reviewCount(company);	//리뷰 개수
+		double average = reviewDao.reviewAvg(company);		//리뷰 평점 평균
+		String avg = String.format("%.1f", average);
+		
+		BoardDto bdto = boardDao.info3(company); //회사이름으로 게시판 조회(채용정보 보여주기용)
+		
 		request.setAttribute("rdto", rdto);
+		request.setAttribute("list", list);
+		request.setAttribute("count", count);
+		request.setAttribute("avg", avg);
+		request.setAttribute("cdto", cdto);
+		request.setAttribute("bdto", bdto);
+		
 		return "company/companyreview";
 	}
 	@RequestMapping(value="company/companyreview",method=RequestMethod.POST)

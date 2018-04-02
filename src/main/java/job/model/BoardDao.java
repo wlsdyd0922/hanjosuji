@@ -15,6 +15,8 @@ public interface BoardDao {
 	BoardDto info(int no);
 	
 	CompanyDto info2(int no);
+	
+	BoardDto info3(String company);
 
 	boolean delete(BoardDto bdto);
 

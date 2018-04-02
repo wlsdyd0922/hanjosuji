@@ -47,6 +47,12 @@
 			</div>
 		</div>
 		<div class="div-2">
+			<div class="container-20">모집분야</div>
+			<div class="container-80">
+				<input class="form-input-full" type="text" name="department">
+			</div>
+		</div>
+		<div class="div-2">
 			<div class="container-20">경력</div>
 			<div class="container-80">
 				<select name="career" class="container-100">
@@ -59,10 +65,23 @@
 			</div>
 		</div>
 		<div class="div-2">
+			<div class="container-20">최종학력</div>
+			<div class="container-80">
+				<select name="edu" class="container-100">
+					<option value="학력무관">학력무관</option>
+					<option value="고등학교졸업">고등학교졸업</option>
+					<option value="대학(2,3년)졸업">대학(2,3년)졸업</option>
+					<option value="대학교(4년)졸업">대학교(4년)졸업</option>
+					<option value="석사졸업">석사졸업</option>
+					<option value="박사졸업">박사졸업</option>
+				</select>
+			</div>
+		</div>
+		<div class="div-2">
 			<div class="container-20">급여</div>
 			<div class="container-80">
 				<input class="form-input-full" type="text" name="salary"
-					placeholder="예) 3000만원 / 회사내규">
+					placeholder="예) 3000만원  / 회사내규">
 			</div>
 		</div>
 		<div class="div-2">
