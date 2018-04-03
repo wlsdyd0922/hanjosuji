@@ -32,7 +32,6 @@
 <link rel="stylesheet" href="http://icono-49d6.kxcdn.com/icono.min.css">
 <!-- jQuery -->
 <script src="https://code.jquery.com/jquery-latest.js"></script>
-<script src="${pageContext.request.contextPath}/js/star.js"></script>
 <script src="${pageContext.request.contextPath}/js/jquery.form.min.js"></script>
 <!-- Latest compiled and minified JavaScript -->
 <script

@@ -119,6 +119,7 @@
 </form>
 	<div class="container-70 div-main out-align-center">
 	<table class = "table"  style="margin: auto;">
+	<tbody>
 		<c:forEach var="bdto" items="${list}" varStatus="status">
 			<tr>
 				<td rowspan="2" class = "td">
@@ -147,6 +148,25 @@
 				<td colspan="4"></td>
 			</tr>
 		</c:forEach>
+		</tbody>
+	<tfoot>
+		<tr>
+			<td colspan="11">
+				<c:if test="${adto.pageblockstart ne 1 }">
+					<a href="?pageno=${adto.pageblockstart-1}">[이전]</a>
+				</c:if>
+				<c:forEach var="pageNo" begin="${adto.pageblockstart}" end="${adto.pageblockend}" step="1">
+					<a href="?pageno=${pageNo}"
+						<c:if test="${adto.pageno eq pageNo}">
+							style="font-weight: bold; color: red;" 
+						</c:if>>${pageNo}</a>
+				</c:forEach>
+				<c:if test="${adto.pagesize!=adto.pageblockend}">
+					<a href="?pageno=${adto.pageblockstart+adto.pageblocksize}">[다음]</a>
+				</c:if>
+			</td>
+		</tr>
+	</tfoot>
 	</table>
 	</div>
 <jsp:include page="/WEB-INF/view/template/footer.jsp"></jsp:include>

@@ -50,9 +50,20 @@ public class BoardDaoImpl implements BoardDao{
 	};
 	//채용공고 전체 리스트
 	@Override
-	public List<BoardDto> getList() {
-		String sql = "select * from hireboard order by reg desc";
-		return jdbcTemplate.query(sql, mapper);
+	public List<BoardDto> getList(int start, int end) {
+		String sql = "select * from (select rownum rn,A.* from (select * from hireboard order by reg desc)A) where rn between ? and ?";
+		return jdbcTemplate.query(sql, mapper,start,end);
+	}
+	@Override
+	public int getCount(String sort, String search) {
+		String sql;
+		if(search != null && !search.equals("")) {
+			sql = "select count(*) from hireboard where "+sort+" like '%'||?||'%'";
+			return jdbcTemplate.queryForObject(sql, Integer.class,search);
+		}else {
+			sql = "select count(*) from hireboard";
+			return jdbcTemplate.queryForObject(sql, Integer.class);
+		}
 	}
 
 	@Override
