@@ -16,20 +16,19 @@ company varchar2(30),
 imgname varchar2(1000),
 imgencoding varchar2(10));
 alter table NormalM add constraint grades check(grade in('기업','일반','관리자'));
-
+alter table normalm add contraint fk_company foreign key references company(name);
 
 회사-------------------------------------------------------------
 create table company(
-NO number primary key,
-name varchar(30) not null,
-INDUSTRY varhcar2(20) not null,
+NO number unique,
+name varchar(30) primary key,
+INDUSTRY varchar2(20) not null,
 CEO varchar2(10),
 BIRTH varchar2(15),
 WEBSITE varchar2(100),
 EMPLOYEE number,
 TYPE varchar2(20),
 SALES number,
-postloc varchar2(100),
 addrloc varchar2(100),
 addr2loc varchar2(100),
 IMGNAME varchar2(1000),
