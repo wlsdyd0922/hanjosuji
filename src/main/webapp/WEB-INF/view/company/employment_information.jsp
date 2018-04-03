@@ -54,6 +54,10 @@
 						<div class="font-small in-align-center background-white">${bdto.empltype}
 						</div>
 					</div>
+					<div class="padding col-md-2">
+						<div class="font-small in-align-center background-white">${bdto.location}
+						</div>
+					</div>
 				</div>
 			</div>
 			<div class="div-main">
@@ -94,7 +98,7 @@
 							<div class="rest-area font-smallest">
 								<b>본사</b>
 							</div>
-							<div class="rest-area font-smallest">${cdto.location}</div>
+							<div class="rest-area font-smallest">${cdto.addrloc} ${cdto.addr2loc }</div>
 						</div>
 					</div>
 					

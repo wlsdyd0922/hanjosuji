@@ -8,10 +8,11 @@ import job.bean.NotesDto;
 
 @Repository
 public interface NotesDao {
-	void insert(NotesDto ndto);
+	void insert(NotesDto ntdto);
 	List<NotesDto> getList(String email);
 	List<NotesDto> sendList(String sender);
-	boolean delete(NotesDto ndto);
-	boolean read(NotesDto ndto);
+	boolean delete(NotesDto ntdto);
+	boolean read(NotesDto ntdto);
 	NotesDto search(String email,int no);
+	String count(String email);
 }

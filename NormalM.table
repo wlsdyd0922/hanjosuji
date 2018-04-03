@@ -16,6 +16,26 @@ company varchar2(30),
 imgname varchar2(1000),
 imgencoding varchar2(10));
 alter table NormalM add constraint grades check(grade in('기업','일반','관리자'));
+alter table normalm add contraint fk_company foreign key references company(name);
+
+회사-------------------------------------------------------------
+create table company(
+NO number unique,
+name varchar(30) primary key,
+INDUSTRY varchar2(20) not null,
+CEO varchar2(10),
+BIRTH varchar2(15),
+WEBSITE varchar2(100),
+EMPLOYEE number,
+TYPE varchar2(20),
+SALES number,
+addrloc varchar2(100),
+addr2loc varchar2(100),
+IMGNAME varchar2(1000),
+IMGENCODING varchar2(10),
+REGCODE varchar2(15),
+CHECKED char(1),
+HIT number);
 
 
 이력서------------------------------------------------------------
@@ -53,7 +73,8 @@ salary varchar2(30) not null,
 working varchar2(20) not null,
 contents varchar2(4000),
 company varchar2(50) not null,
-reg date);
+reg date,
+department varchar2(30));
 
 -----------------쪽지함 테이블---------------------
 create table notes(
@@ -127,3 +148,6 @@ Name                                      Null?    Type
  EMAIL       작성자 이메일                                    	 	VARCHAR2(50)
  BOARDNO     게시글 번호                                       		NUMBER
  NO                                        	NOT NULL NUMBER
+ 
+ regex---------------------------------------------------------------
+ var expEmail = /^[a-zA-Z0-9_\-\.]{2,50}@[a-zA-Z0-9_\-\.]{2,20}$/;

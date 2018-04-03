@@ -143,6 +143,5 @@ $(document).ready(function() {
                 document.getElementById('addr2').focus();
             }
         }).open();
-		
 	});
 });

@@ -4,15 +4,15 @@
 <form action="${pageContext.request.contextPath}/board/write"
 	method="post">
 	<div class="in-align-center">
-        <h1>채용 공고 작성</h1>
-    </div>
-    <div class="empty-row"></div>
+		<h1>채용 공고 작성</h1>
+	</div>
+	<div class="empty-row"></div>
 	<div class="container-1000 out-align-center">
 		<div class="div-2">
 			<div class="container-20">제목</div>
 			<div class="container-80">
 				<input class="form-input-full" type="text" name="title">
-			</div> 
+			</div>
 		</div>
 		<div class="div-2">
 			<div class="container-20">회사명</div>
@@ -24,16 +24,43 @@
 					<option value="LG">LG</option>
 					<!-- value="self"이면 getParameter company1 받기-->
 					<option value="self">직접입력하기</option>
-				</select>
-				<input class="form-input-full" type="text" name="company1">
+				</select> <input class="form-input-full" type="text" name="company1">
 			</div>
 		</div>
 		<div class="div-2">
 			<div class="container-20">고용인원</div>
 			<div class="container-80">
-				<input class="form-input-full" type="text" name="employee" placeholder="숫자로 입력해 주세요">
+				<input class="form-input-full" type="text" name="employee"
+					placeholder="숫자로 입력해 주세요">
 			</div>
 		</div>
+		<div class="div-2">
+			<div class="container-20">근무지역</div>
+			<div class="container-80">
+				<select name="location" class="container-100">
+					<option selected value="">=== 선택 ===</option>
+					<option value="서울">서울</option>
+					<option value="경기">경기</option>
+					<option value="인천">인천</option>
+					<option value="부산">부산</option>
+					<option value="대구">대구</option>
+					<option value="광주">광주</option>
+					<option value="대전">대전</option>
+					<option value="울산">울산</option>
+					<option value="세종">세종</option>
+					<option value="강원">강원</option>
+					<option value="경남">경남</option>
+					<option value="경북">경북</option>
+					<option value="전남">전남</option>
+					<option value="전북">전북</option>
+					<option value="충남">충남</option>
+					<option value="충북">충북</option>
+					<option value="제주">제주</option>
+					<option value="전국">전국</option>
+				</select>
+			</div>
+		</div>
+
 		<div class="div-2">
 			<div class="container-20">고용형태</div>
 			<div class="container-80">
@@ -93,13 +120,14 @@
 		<div class="div-2">
 			<div class="container-20">기타내용</div>
 			<div class="container-80">
-				<textarea class="textarea container-100" style="height:200px" name="contents"></textarea>
+				<textarea class="textarea container-100" style="height: 200px"
+					name="contents"></textarea>
 			</div>
 		</div>
 		<div class="container-100 in-align-center">
-			<input type="button" value="돌아가기" onclick="#"> 
-			<input type="submit" value="작성하기">
-		</div> 
+			<input type="button" value="돌아가기" onclick="#"> <input
+				type="submit" value="작성하기">
+		</div>
 	</div>
 </form>
 
