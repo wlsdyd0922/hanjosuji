@@ -30,19 +30,12 @@ public class FindController {
 
 	@RequestMapping("find_id_personal")
 	public String find_id_personal(HttpServletRequest request) {
-		request.getSession().setAttribute("find_id_personal", "find_id_personal");
 		return "find/find_id_personal";
 	}
 
 	@RequestMapping(value = "find_id_personal", method = RequestMethod.POST)
 	@ResponseBody
-	public String find_id_personal(String name, String phone, HttpSession session, HttpServletRequest request) {
-		System.out.println(name);
-		System.out.println(phone);
-		session.removeAttribute("find_id_personal");
-		NormalMDto nmdto = new NormalMDto();
-		nmdto.setName(name);
-		nmdto.setPhone(phone);
+	public String find_id_personal(NormalMDto nmdto, HttpSession session, HttpServletRequest request) {
 		String email = nmdao.getEmail(nmdto);
 		return email;
 	}
@@ -67,16 +60,15 @@ public class FindController {
 	
 	@RequestMapping("find_id_company")
 	public String find_id_company(HttpServletRequest request) {
-		request.getSession().setAttribute("find_id_company", "find_id_company");
 		return "find/find_id_company";
 	}
 	
 	@RequestMapping(value = "find_id_company", method = RequestMethod.POST)
+	@ResponseBody
 	public String find_id_company(NormalMDto nmdto, HttpSession session, HttpServletRequest request) {
-		session.removeAttribute("find_id_company");
 		String email = nmdao.getEmail(nmdto);
-		request.setAttribute("email", email);
-		return "find/find_id_ok";
+		System.out.println("email : " + email);
+		return email;
 	}
 	
 	@RequestMapping("find_pw_company")

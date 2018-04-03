@@ -93,8 +93,15 @@ public class NormalMDaoImpl implements NormalMDao{
 	
 	@Override
 	public String getEmail(NormalMDto nmdto) {
-		String sql = "select email from NormalM where name=? and phone=?";
-		Object[] args = new Object[] {nmdto.getName(),nmdto.getPhone()};
+		String sql = null;
+		Object[] args = null;
+		if(nmdto.getCompany()==null) {
+			sql = "select email from NormalM where name=? and phone=?";
+			args = new Object[] {nmdto.getName(),nmdto.getPhone()};
+		}else {
+			sql = "select email from NormalM where name=? and phone=? and company=?";
+			args = new Object[] {nmdto.getName(),nmdto.getPhone(),nmdto.getCompany()};
+		}
 		return jdbcTemplate.queryForObject(sql,args,String.class);	
 	}
 	@Override
