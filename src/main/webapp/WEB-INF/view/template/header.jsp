@@ -32,7 +32,7 @@
 <link rel="stylesheet" href="http://icono-49d6.kxcdn.com/icono.min.css">
 <!-- jQuery -->
 <script src="https://code.jquery.com/jquery-latest.js"></script>
-
+<script src="${pageContext.request.contextPath}/js/star.js"></script>
 <script src="${pageContext.request.contextPath}/js/jquery.form.min.js"></script>
 <!-- Latest compiled and minified JavaScript -->
 <script
@@ -75,11 +75,15 @@
 							<i class="glyphicon glyphicon-user">INFO</i>
 						</a>
 					</c:when>
+					
 				</c:choose>
 				<a href="${pageContext.request.contextPath }/company/companylist" class="left"><i class="glyphicon glyphicon-search">기업채용정보</i></a>
 				<c:if test="${accept eq 'admin' }">
 					<a href="${pageContext.request.contextPath }/admin/compacceptboard" class="left"><i class="glyphicon glyphicon-plus">기업등록요청</i></a>
 					<!-- 관리자 계정으로 로그인시 보인다. -->
+				</c:if>
+				<c:if test="${grade eq '기업'}">
+					<a href="${pageContext.request.contextPath }/board/write">채용공고등록</a>
 				</c:if>
 			</div>
 			<div class="container-30 in-align-right">
