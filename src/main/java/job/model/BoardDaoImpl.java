@@ -104,6 +104,12 @@ String sql = "select b.*, a.name, a.industry, a.ceo, a.birth, a.website, a.emplo
 		String sql = "select * from hireboard where company = ?";
 		return jdbcTemplate.query(sql, extractor,company);
 	}
+	//회사이름 + 해당 글번호 제외하고 조회
+	@Override
+	public List<BoardDto> otherList(String company, int no) {
+		String sql = "select * from hireboard where company = ? and no != ?";
+		return jdbcTemplate.query(sql, mapper, company, no);
+	}
 	
 	
 	

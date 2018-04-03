@@ -1,6 +1,8 @@
 package job.controller.member;
 
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -32,15 +34,20 @@ public class Employment_information {
 	public String employment_information_get(HttpServletRequest request, HttpSession session) {
 		int no = Integer.parseInt(request.getParameter("no"));
 		BoardDto bdto = bdao.info(no);
-		request.setAttribute("bdto", bdto);
 		CompanyDto cdto = bdao.info2(no);
-		request.setAttribute("cdto", cdto);
 		LikesDto ldto = new LikesDto();
+		request.setAttribute("cdto", cdto);
+		String company = cdto.getName();
+		cdto.setName(company.toUpperCase());
+		List<BoardDto> list = bdao.otherList(company, no);
+		
 		ldto.setEmail((String) session.getAttribute("accept"));
 		ldto.setCompany(cdto.getName());
 		boolean isLiked = ldao.isLiked(ldto);
-		System.out.println("결과 : " + isLiked);
+		
+		request.setAttribute("bdto", bdto);
 		request.setAttribute("isLiked", isLiked);
+		request.setAttribute("list", list);
 		return "company/employment_information";
 	}
 	

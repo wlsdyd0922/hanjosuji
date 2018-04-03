@@ -87,12 +87,11 @@
 					<div class="border-bottom-lightblue">기업 정보</div>
 				</div>
 				<div class="background-white font-medium padding div-main">
-					<div class="rest-area div-2">
 						<div class="container-100 padding div-main">
 							<div class="rest-area font-smallest">
 								<b>웹사이트</b>
 							</div>
-							<div class="rest-area font-smallest">${cdto.website}</div>
+							<div class="rest-area font-smallest"><a href="http://${cdto.website}">${cdto.website}</a></div>
 						</div>
 						<div class="container-100 padding div-main">
 							<div class="rest-area font-smallest">
@@ -100,8 +99,10 @@
 							</div>
 							<div class="rest-area font-smallest">${cdto.addrloc} ${cdto.addr2loc }</div>
 						</div>
-					</div>
 					
+				</div>
+				<div class="padding">
+					<button class="form-btn-full font-medium btn btn-primary openMask">지원하기</button>
 				</div>
 			</div>
 		</div>
@@ -113,7 +114,9 @@
 							<div class="padding">
 								<div class="out-align-center"
 									style="width: 100px; height: 100px;">
-									<img src="${pageContext.request.contextPath }/img/logo.png" style="width: 100%; height: auto;">
+									<img id="profile-image"
+								src="${pageContext.request.contextPath}/upload/${cdto.imgname}"
+								width=90px; height=70px;>
 								</div>
 							</div>
 						</div>
@@ -129,33 +132,32 @@
 							<input type = "button" id = "like" value="좋아요♡" class="background-white shape-circle" data-value="${isLiked }">
 						</div>
 						<div class="container-100 font-medium in-align-center">
-							<a href="${pageContext.request.contextPath }/company/companyreview">기업상세보기</a>
+							<a href="${pageContext.request.contextPath }/company/companyreview?company=${cdto.name}">기업상세보기</a>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="container-100" style="height: 200px;">
+			<div class="container-100" style="height: 520px; overflow:scroll;">
 				<div class="padding div-main">
 					<div class="background-white">
 						<div class="rest-area padding font-medium">
-							<b>이 기업의 다른채용 공고</b>
+							<b>${cdto.name}의 다른채용 공고</b>
 						</div>
-						<div class="rest-area div-2">
+						<div class="rest-area">
 
 							<!-- for문 -->
+							<c:forEach var="list" items="${list}">
 							<div class="container-20 padding">
-								<img src="${pageContext.request.contextPath }/img/logo.png" style="width: 100%; height: auto;">
+								${list.company}
 							</div>
 							<div class="container-80 padding">
-								<h4>청소부 모집</h4>
+								<a href="${pageContext.request.contextPath}/company/employment_information?no=${list.no}">${list.title}</a>
 							</div>
+							</c:forEach>
 							<!-- 끝 -->
 
 						</div>
 					</div>
-				</div>
-				<div class="padding">
-					<button class="form-btn-full font-medium btn btn-primary openMask">지원하기</button>
 				</div>
 			</div>
 		</div>

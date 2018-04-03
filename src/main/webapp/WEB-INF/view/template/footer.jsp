@@ -7,7 +7,7 @@
 <footer class="font-small in-align-center"> &copy;WorkSpace </footer>
 </main>
 <!-- 아이디 찾기 -->
-<c:if test="${not empty find_id_personal || not empty find_id_company  }">
+<c:if test="${not empty find_id_personal || not empty find_id_company }">
 	<div id="mask"></div>
 	<div id="pop" class="padding">
 		<div>
@@ -100,7 +100,7 @@
 					</div>
 				</div>
 				<div>
-					<button class="btn btn-primary btn-lg">지원하기</button>
+					<button class="btn btn-primary btn-lg" onclick="#">지원하기</button>
 				</div>
 			</div>
 		</div>

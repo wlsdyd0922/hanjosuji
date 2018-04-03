@@ -12,12 +12,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import job.bean.BoardDto;
+import job.bean.CompanyDto;
+import job.bean.NormalMDto;
 import job.model.BoardDaoImpl;
+import job.model.NormalMDaoImpl;
  
 @Controller
 public class BoardController {
 	@Autowired 
 	private BoardDaoImpl boardDao;
+	@Autowired
+	private NormalMDaoImpl nmdao;
 	private Logger log = LoggerFactory.getLogger(getClass());
 	@RequestMapping("board/list")
 	public String list(HttpServletRequest request) {
@@ -28,7 +33,11 @@ public class BoardController {
 	}
 
 	@RequestMapping("board/write")
-	public String boardWrite() {
+	public String boardWrite(HttpServletRequest request) {
+		String email = (String) request.getSession().getAttribute("accept");	//계정정보 받기
+		//계정에서 회사 이름 가져와서 첨부하기 
+		NormalMDto nmdto = nmdao.info(email);		
+		request.setAttribute("company", nmdto.getCompany());
 		return "board/write";
 	}
 	@RequestMapping(value="board/write",method=RequestMethod.POST)
@@ -40,13 +49,7 @@ public class BoardController {
 		if(request.getParameter("count")!=null && request.getParameter("count")!="") {
 			bdto.setCount(Integer.parseInt(request.getParameter("count")));
 		}
-
-		if(request.getParameter("company").equals("self")) {
-			bdto.setCompany(request.getParameter("company1"));
-		}
-		else{
-			bdto.setCompany(request.getParameter("company"));
-		}
+		
 		boardDao.insert(bdto);
 		return "redirect:/";
 	}

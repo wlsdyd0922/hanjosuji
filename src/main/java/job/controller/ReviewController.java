@@ -39,9 +39,14 @@ public class ReviewController {
 		cdto.setName(company.toUpperCase());	//기업명 대문자로 전송
 		int count = reviewDao.reviewCount(company);	//리뷰 개수
 		double average = reviewDao.reviewAvg(company);		//리뷰 평점 평균
-		String avg = String.format("%.1f", average);
+		String avg = String.format("%.1f", average);		//소수점 첫째짜리 까지 보여줌
 		 
 		BoardDto bdto = boardDao.info3(company); //회사이름으로 게시판 조회(채용정보 보여주기용)
+		
+		//채용정보 전체 불러오기
+		int no = 0;
+		List<BoardDto> list2 = boardDao.otherList(company, no);	
+		request.setAttribute("list2", list2);
 		
 		request.setAttribute("rdto", rdto);
 		request.setAttribute("list", list);

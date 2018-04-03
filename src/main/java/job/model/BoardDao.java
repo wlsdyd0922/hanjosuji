@@ -21,6 +21,8 @@ public interface BoardDao {
 	boolean delete(BoardDto bdto);
 
 	List<BoardDto> getList();
+	
+	List<BoardDto> otherList(String company, int no);
 
 	void insert(BoardDto bdto);
 
