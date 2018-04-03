@@ -53,7 +53,7 @@ $(document).ready(function(){
 				<td id = "acode">${company.regcode}</td>
 			</tr>
 			<tr>
-				<td colspan="3" id = "aloc">주소 : ${company.location}</td>
+				<td colspan="3" id = "aloc">주소 : ${company.addrloc} ${company.addr2loc}</td>
 			</tr>
 		</c:forEach>
 	</table>

@@ -73,16 +73,11 @@ public class RegisterController {
 	@RequestMapping(value = "register_company",method = RequestMethod.POST)
 	public String RegisterCompany(
 			NormalMDto nmdto,
-			 HttpServletRequest request) {
-		String sha = new SHA256().On(nmdto.getPw());
-		log.debug(nmdto.getEmail());
-		log.debug(sha);
-		log.debug(nmdto.getPhone());
-		log.debug(nmdto.getName());
-		log.debug(nmdto.getPwquiz());
-		log.debug(nmdto.getPwans());
-		log.debug(nmdto.getCompany());
-		log.debug(nmdto.getGrade());
+			 HttpServletRequest request) throws Exception {
+		nmdto.setBirth(null);
+		if(!nmdao.register(nmdto)) {
+			throw new Exception("회원가입 실패");
+		}
 		return "redirect:/";
 	}
 	@RequestMapping("compsearch")
@@ -148,18 +143,30 @@ public class RegisterController {
 	
 	@RequestMapping(value="register_newcompany", method = RequestMethod.POST)
 	public String register_newcompany_post(MultipartHttpServletRequest mRequest,Model model) throws Exception {
-//		log.debug("드러옴");
-//		String aa = request.getParameter("name");
-//		log.debug(aa);
-//		MultipartFile file = request.getFile("file");
-//		log.debug(file.getOriginalFilename());
+		log.debug("드러옴");
 		
 		CompanyDto cdto = new CompanyDto(mRequest);
+		log.debug("name = {}",cdto.getName());
+		log.debug("industry = {}",cdto.getIndustry());
+		log.debug("type = {}",cdto.getType());
+		log.debug("ceo = {}",cdto.getCeo());
+		log.debug("website = {}",cdto.getWebsite());
+		log.debug("employee = {}",cdto.getEmployee());
+		log.debug("sales = {}",cdto.getSales());
+		log.debug("addrloc = {}",cdto.getAddrloc());
+		log.debug("addr2loc = {}",cdto.getAddr2loc());
+		log.debug("regcode = {}",cdto.getRegcode());
+		log.debug("birth = {}",cdto.getBirth());
+		
 		MultipartFile file = mRequest.getFile("file");
+		
 		String savename = UUID.randomUUID().toString();
 		String enctype = file.getContentType();
 		
-		
+		log.debug("filename = {}",file.getOriginalFilename());
+		log.debug("filetype = {}",enctype);
+//		
+//		
 		cdto.setImgencoding(enctype);
 		cdto.setImgname(savename);
 		

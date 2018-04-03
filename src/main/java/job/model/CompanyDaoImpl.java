@@ -26,7 +26,7 @@ public class CompanyDaoImpl implements CompanyDao{
 	 
 	@Override
 	public boolean insert(CompanyDto cdto) {
-		String sql = "insert into company values(?,?,?,?,?,?,?,?,?,?,?,?,0,company_seq.nextval,0)";
+		String sql = "insert into company values(company_seq.nextval,?,?,?,?,?,?,?,?,?,?,?,?,?,0,0)";
 		Object[] args = {
 			cdto.getName(),
 			cdto.getIndustry(),
@@ -36,7 +36,8 @@ public class CompanyDaoImpl implements CompanyDao{
 			cdto.getEmployee(),
 			cdto.getType(),
 			cdto.getSales(),
-			cdto.getLocation(),
+			cdto.getAddrloc(),
+			cdto.getAddr2loc(),
 			cdto.getImgname(),
 			cdto.getImgencoding(),
 			cdto.getRegcode()
@@ -72,7 +73,7 @@ public class CompanyDaoImpl implements CompanyDao{
 	@Override
 	public boolean edit(CompanyDto cdto) {
 		String sql = "update company set industry=?,ceo=?,"
-				+ "birth=?,website=?,employee=?,type=?,sales=?,location=?"
+				+ "birth=?,website=?,employee=?,type=?,sales=?,addrloc=?,addr2loc=?"
 				+ " where name=?";
 		Object[] args = {
 				cdto.getIndustry(),
@@ -82,7 +83,8 @@ public class CompanyDaoImpl implements CompanyDao{
 				cdto.getEmployee(),
 				cdto.getType(),
 				cdto.getSales(),
-				cdto.getLocation(),
+				cdto.getAddrloc(),
+				cdto.getAddr2loc(),
 				cdto.getName()
 			};
 			return jdbcTemplate.update(sql, args)>0;

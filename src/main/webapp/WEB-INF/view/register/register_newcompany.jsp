@@ -28,9 +28,8 @@
 
 <!-- jQuery -->
 <script src="https://code.jquery.com/jquery-latest.js"></script>
-<script src="${pageContext.request.contextPath}/js/star.js"></script>
-<script src="${pageContext.request.contextPath}/js/jquery.form.min.js"></script>
-<script src="${pageContext.request.contextPath}/js/find_company.js"></script>
+<script src="${pageContext.request.contextPath}/js/regester_newcompany.js"></script>
+<script src="https://ssl.daumcdn.net/dmaps/map_js_init/postcode.v2.js"></script>
 <!-- Latest compiled and minified JavaScript -->
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
@@ -38,38 +37,7 @@
 	crossorigin="anonymous"></script>
 
 <script>
-$(document).ready(function() {
-	var msg = $("input[type=hidden]").val();
-	if(msg){
-		alert(msg);
-		window.close();
-	}
-	var loadFile = function(event){
-		if(this.files && this.files[0]){
-			var reader = new FileReader();
-		    reader.onload = function(){
-		    	var output = document.querySelector("#profile-image");
-		    	output.src = reader.result;
-		    	console.log(document.querySelector(".file").value);
-		    };
-		    reader.readAsDataURL(event.target.files[0]);
-		    	var f = document.querySelector(".file");
-		    	if(!f.files || !f.files[0]){
-		    		return;
-		    	}
-		    	var form = document.querySelector("#fileform");
-		    	var formData = new FormData(form);
-		    	console.log(formData);
-		}else{
-			document.querySelector("#profile-image").src="/job/img/noone.jpg";
-		}
-	}
-	document.querySelector(".file").addEventListener("change", loadFile);
-	
-	$("#fileform").on("submit",function(){
-	});
-	
-});
+
 </script>
 </head>
 
@@ -175,8 +143,8 @@ $(document).ready(function() {
 					</h5>
 				</div>
 				<div class="container-70">
-					<input class="form-control" name="employee" type="number"
-						style="height: 40px" required>
+					<input class="form-control" name="employee" type="text"
+						style="height: 40px;ime-mode:disabled;" onkeydown='return onlyNumber(event)' onkeyup='removeChar(event)' required>
 				</div>
 			</div>
 			<div class="div-2 padding">
@@ -186,8 +154,8 @@ $(document).ready(function() {
 					</h5>
 				</div>
 				<div class="container-70">
-					<input class="form-control" name="sales" type="number"
-						style="height: 40px" required>
+					<input class="form-control" name="sales" type="text"
+						style="height: 40px;ime-mode:disabled;" onkeydown='return onlyNumber(event)' onkeyup='removeChar(event)' required>
 				</div>
 			</div>
 			<div class="div-2 padding">
@@ -197,8 +165,9 @@ $(document).ready(function() {
 					</h5>
 				</div>
 				<div class="container-70">
-					<input class="form-control" name="location" type="text"
-						style="height: 40px" required>
+					<input type="button" class="btn btn-primary input-lg" id = "post" value="우편번호 찾기"><br>
+					<input class="form-control" name="addrloc" type="text" style="height: 40px" id="addrloc" placeholder="주소" required>
+					<input class="form-control" name="addr2loc" type="text" style="height: 40px" id="addr2loc" placeholder="상세주소">
 				</div>
 			</div>
 			<div class="div-2 padding">

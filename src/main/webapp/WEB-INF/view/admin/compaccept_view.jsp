@@ -38,7 +38,7 @@
 				<td>${company.employee}</td>
 				<td>${company.type}</td>
 				<td>${company.sales}</td>
-				<td>${company.location}</td>
+				<td>${company.addrloc} ${company.addr2loc}</td>
 				<td>
 				<c:if test="${company.checked==0}">
 					<button class="compaccept" onclick="compaccept('${company.no}','${param.type}','${param.pageno}')">등록</button>

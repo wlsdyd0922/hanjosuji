@@ -7,6 +7,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 public class CompanyDto {
+	private int no;
 	private String name;
 	private String industry;
 	private String ceo;
@@ -15,12 +16,13 @@ public class CompanyDto {
 	private int employee;
 	private String type;
 	private int sales;
-	private String location;
+	private String addrloc;
+	private String addr2loc;
 	private String imgname;
 	private String imgencoding;
 	private String regcode;
 	private String checked;
-	private int no;
+	private int hit;
 	
 	public CompanyDto() {
 		super();
@@ -35,7 +37,8 @@ public class CompanyDto {
 		setEmployee(Integer.parseInt(mRequest.getParameter("employee")));
 		setType(mRequest.getParameter("type"));
 		setSales(Integer.parseInt(mRequest.getParameter("sales")));
-		setLocation(mRequest.getParameter("location"));
+		setAddrloc(mRequest.getParameter("addrloc"));
+		setAddr2loc(mRequest.getParameter("addr2loc"));
 		setImgname(mRequest.getParameter("imgname"));
 		setImgencoding(mRequest.getParameter("imgencoding"));
 		setRegcode(mRequest.getParameter("regcode"));
@@ -43,6 +46,7 @@ public class CompanyDto {
 	}
 	
 	public CompanyDto(ResultSet rs) throws SQLException {
+		setNo(rs.getInt("no"));
 		setName(rs.getString("name"));
 		setIndustry(rs.getString("industry"));
 		setCeo(rs.getString("ceo"));
@@ -51,12 +55,21 @@ public class CompanyDto {
 		setEmployee(rs.getInt("employee"));
 		setType(rs.getString("type"));
 		setSales(rs.getInt("sales"));
-		setLocation(rs.getString("location"));
+		setAddrloc(rs.getString("addrloc"));
+		setAddr2loc(rs.getString("addr2loc"));
 		setImgname(rs.getString("imgname"));
 		setImgencoding(rs.getString("imgencoding"));
 		setRegcode(rs.getString("regcode"));
 		setChecked(rs.getString("checked"));
-		setNo(rs.getInt("no"));
+		setHit(rs.getInt("hit"));
+	}
+
+	public int getNo() {
+		return no;
+	}
+
+	public void setNo(int no) {
+		this.no = no;
 	}
 
 	public String getName() {
@@ -123,12 +136,20 @@ public class CompanyDto {
 		this.sales = sales;
 	}
 
-	public String getLocation() {
-		return location;
+	public String getAddrloc() {
+		return addrloc;
 	}
 
-	public void setLocation(String location) {
-		this.location = location;
+	public void setAddrloc(String addrloc) {
+		this.addrloc = addrloc;
+	}
+
+	public String getAddr2loc() {
+		return addr2loc;
+	}
+
+	public void setAddr2loc(String addr2loc) {
+		this.addr2loc = addr2loc;
 	}
 
 	public String getImgname() {
@@ -163,13 +184,14 @@ public class CompanyDto {
 		this.checked = checked;
 	}
 
-	public int getNo() {
-		return no;
+	public int getHit() {
+		return hit;
 	}
 
-	public void setNo(int no) {
-		this.no = no;
+	public void setHit(int hit) {
+		this.hit = hit;
 	}
+
 	
 	
 }
