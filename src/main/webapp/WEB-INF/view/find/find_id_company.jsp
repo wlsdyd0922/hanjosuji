@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <jsp:include page="/WEB-INF/view/template/header.jsp"></jsp:include>
+<script src="${pageContext.request.contextPath}/js/search_company.js"></script>
 <!-- 입력값에 따른 css 변화.js -->
 <form action="${pageContext.request.contextPath}/findmember/find_id_personal" method="post">
 	<div class="empty-row"></div>
@@ -17,6 +18,19 @@
 				</span>
 			<input type="text" class="form-control" name="phone"
 				placeholder="- 없이 입력하세요" required>
+		</div>
+		<div class="div-2">
+			<div class="container-90 myrow input-group input-group-lg">
+				<span class="input-group-addon glyphicons-tent" id="sizing-addon1">
+					<i class="glyphicon glyphicon-tent"></i>
+				</span>
+				<input type="text" class="form-control" id="company_name" name="company" placeholder="회사를 검색해 주세요" readonly required>
+			</div>
+			<div class="rest-area padding">
+				<button class="btn btn-primary input-lg" id="company_search_button">
+					<i class="glyphicon glyphicon-search"></i>
+				</button>
+			</div>
 		</div>
 		<div class="myrow div-2">
 			<input class="btn btn-primary btn-lg form-btn-full openMask" type="submit"

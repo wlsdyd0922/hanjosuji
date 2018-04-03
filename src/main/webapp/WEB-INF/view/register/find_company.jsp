@@ -30,8 +30,14 @@
 	<div style="width: 682px; height: 500px;">
         <div id="company_search_result"> 
         	<form action="#" onclick="return false;">
-            	<input id="company_name" name="company_name" type="text" placeholder="원하시는 기업명을 입력해 주세요">
-            	<input type="submit" id="search_button"value="검색">
+	        	<div class="div-2">
+	        		<div class="container-90">
+	            		<input id="company_name" name="company_name" class="form-control" type="text" placeholder="원하시는 기업명을 입력해 주세요">
+		            </div>	
+		            <div class="container-10">
+		            	<input type="submit" id="search_button"value="검색">
+		            </div>
+	        	</div>
             </form>  
         </div>
         <div id = "list">

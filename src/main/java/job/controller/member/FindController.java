@@ -3,6 +3,7 @@ package job.controller.member;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,7 +17,7 @@ import job.model.AdminDaoImpl;
 import job.model.NormalMDaoImpl;
 
 @Controller
-@RequestMapping("find")
+@RequestMapping("findmember")
 public class FindController {
 	@Autowired
 	private NormalMDaoImpl nmdao;
@@ -27,29 +28,63 @@ public class FindController {
 	}
 
 	@RequestMapping("find_id_personal")
-	public String find_id_personal() {
+	public String find_id_personal(HttpServletRequest request) {
+		request.getSession().setAttribute("find_id_personal", "find_id_personal");
 		return "find/find_id_personal";
 	}
 
 	@RequestMapping(value = "find_id_personal", method = RequestMethod.POST)
-	public String find_id_personal(NormalMDto nmdto, HttpServletRequest request) {
+	public String find_id_personal(NormalMDto nmdto, HttpSession session, HttpServletRequest request) {
 		String email = nmdao.getEmail(nmdto);
 		request.setAttribute("email", email);
+		session.removeAttribute("find_id_personal");
 		return "find/find_id_ok";
 	}
 
 	@RequestMapping("find_pw_personal")
-	public String find_pw_personal() {
+	public String find_pw_personal(HttpServletRequest request) {
+		request.getSession().setAttribute("find_pw_personal", "find_pw_personal");
 		return "find/find_pw_personal";
 	}
 
 	@RequestMapping(value = "find_pw_personal", method = RequestMethod.POST)
-	public String find_pw_personal(NormalMDto nmdto, HttpServletRequest request) {
-		String password = nmdao.getPw(nmdto); // json에 쓰기....
+	public String find_pw_personal(NormalMDto nmdto, HttpSession session, HttpServletRequest request) {
+		String password = nmdao.getPw(nmdto); 
 		System.out.println(password);
 		request.setAttribute("email", nmdto.getEmail());
+		session.removeAttribute("find_pw_personal");
 		return "find/find_pw_ok";
 	}
+	
+	@RequestMapping("find_id_company")
+	public String find_id_company(HttpServletRequest request) {
+		request.getSession().setAttribute("find_id_company", "find_id_company");
+		return "find/find_id_company";
+	}
+	
+	@RequestMapping(value = "find_id_company", method = RequestMethod.POST)
+	public String find_id_company(NormalMDto nmdto, HttpSession session, HttpServletRequest request) {
+		String email = nmdao.getEmail(nmdto);
+		request.setAttribute("email", email);
+		session.removeAttribute("find_id_company");
+		return "find/find_id_ok";
+	}
+	
+	@RequestMapping("find_pw_company")
+	public String find_pw_company(HttpServletRequest request) {
+		request.getSession().setAttribute("find_pw_company", "find_pw_company");
+		return "find/find_pw_company";
+	}
+	
+	@RequestMapping(value = "find_pw_company", method = RequestMethod.POST)
+	public String find_pw_company(NormalMDto nmdto, HttpSession session, HttpServletRequest request) {
+		String password = nmdao.getPw(nmdto); 
+		System.out.println(password);
+		request.setAttribute("email", nmdto.getEmail());
+		session.removeAttribute("find_pw_company");
+		return "find/find_pw_ok";
+	}
+	
 	//////////////// 아이디,비밀번호 찾기 성공 페이지
 
 	@RequestMapping("find_id_ok")

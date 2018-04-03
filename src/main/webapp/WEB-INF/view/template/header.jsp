@@ -3,6 +3,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="loginFlag" value="${not empty accept}"></c:set>
 <c:set var="grade" value="${grade}"></c:set>
+<c:set var="find_id_personal" value="${find_id_personal}"></c:set>
+<c:set var="find_pw_personal" value="${find_pw_personal}"></c:set>
+<c:set var="find_id_company" value="${find_id_company}"></c:set>
+<c:set var="find_pw_company" value="${find_pw_company}"></c:set>
 <html>
 <head>
 <title>MemberInformation</title>
