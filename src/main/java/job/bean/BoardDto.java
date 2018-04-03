@@ -18,9 +18,7 @@ public class BoardDto {
 	private String reg;
 	private String department;
 	private String edu;
-	
-	
-
+	private String location;
 
 	public BoardDto() {
 		super();
@@ -40,6 +38,7 @@ public class BoardDto {
 		setCompany(rs.getString("company"));
 		setReg(rs.getString("reg"));
 		setDepartment(rs.getString("department"));
+		setLocation(rs.getString("location"));
 	}
 	public int getEmployee() {
 		return employee;
@@ -133,6 +132,13 @@ public class BoardDto {
 	
 	public void setDepartment(String department) {
 		this.department = department;
+	}
+	public String getLocation() {
+		return location;
+	}
+	
+	public void setLocation(String location) {
+		this.location = location;
 	}
 
 }

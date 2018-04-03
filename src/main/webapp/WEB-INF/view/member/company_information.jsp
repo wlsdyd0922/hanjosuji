@@ -8,7 +8,7 @@
 		<div class="myrow content-size height-250 background-white">
 			<div class="div-2 border-white">
 				<div class="rest-area">
-					<h3 class="myrow">${nmdto.name}</h3>
+					<h3 class="myrow">${cdto.name}</h3>
 				</div>
 				<div class="rest-area in-align-right">
 					<h3 class="myrow">
@@ -19,15 +19,10 @@
 			</div>
 			<div class="div-2 rest-area" style="height: 81%">
 				<div class="myrow content-size border-circle">
-					<div style="height: 63%">
-						<img src="${pageContext.request.contextPath }/img/noone.jpg" class="image-center height-100">;
-					</div>
-					<div>
-						<input type="file" name="file">
-					</div>
 					<div class="in-align-center">
-						<input type="button" name="upload" value="업로드"> <input
-							type="button" name="upload-cancel" value="사진삭제">
+						<img id="profile-image"
+								src="${pageContext.request.contextPath}/upload/${cdto.imgname}"
+								width=67% height=auto>
 					</div>
 				</div>
 				<div class="myrow content-size in-align-center">

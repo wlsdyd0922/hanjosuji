@@ -14,7 +14,7 @@
 					<div class="container-100 div-main">
 						<div class="form-group height-100">
 							<select name="favSort" class="container-100">
-								<option selected value="">=== 선택 ===</option>
+								<option selected value="">직업별</option>
 								<option value="경영/사무">경영/사무</option>
 								<option value="영업/고객상담">영업/고객상담</option>
 								<option value="IT/인터넷">IT/인터넷</option>
@@ -32,7 +32,7 @@
 						</div>
 						<div class="form-group height-100">
 							<select name="level_of_education" class="container-100">
-								<option selected value="">=== 선택 ===</option>
+								<option selected value="">학력별</option>
 								<option value="대학교졸업(4년)">대학교졸업(4년)</option>
 								<option value="대학교졸업(2,3년)">대학교졸업(2,3년)</option>
 								<option value="대학원석사">대학원석사</option>
@@ -43,7 +43,7 @@
 						</div>
 						<div class="form-group height-100">
 							<select name="career" class="container-100">
-								<option selected value="">=== 선택 ===</option>
+								<option selected value=""> 경력 </option>
 								<option value="신입">신입</option>
 								<option value="2년 이하">2년이하</option>
 								<option value="3~5년">3~5년</option>
@@ -56,7 +56,7 @@
 					<div class="container-100">
 						<div class="form-group">
 							<select name="favRegion" class="container-100">
-								<option selected value="">=== 선택 ===</option>
+								<option selected value="">지역별</option>
 								<option value="서울">서울</option>
 								<option value="경기">경기</option>
 								<option value="인천">인천</option>
@@ -79,14 +79,14 @@
 						</div>
 						<div class="form-group">
 							<select name="foam_of_company" class="container-100">
-								<option selected value="">=== 선택 ===</option>
+								<option selected value="">기업형태</option>
 								<option value="대기업">대기업</option>
 								<option value="중소기업">중소기업</option>
 							</select>
 						</div>
 						<div class="form-group">
 							<select name="foam_of_employment" class="container-100">
-								<option selected value="">=== 선택 ===</option>
+								<option selected value="">근무형태</option>
 								<option value="정규직">정규직</option>
 								<option value="계약직">계약직</option>
 								<option value="인턴">인턴</option>

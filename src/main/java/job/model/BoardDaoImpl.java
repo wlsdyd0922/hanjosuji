@@ -24,7 +24,7 @@ public class BoardDaoImpl implements BoardDao{
 	};
 	@Override
 	public void insert(BoardDto bdto) {
-		String sql = "insert into hireboard values(hireboard_seq.nextval,?,0,'채용중',?,?,?,?,?,?,?,sysdate,?,?)";
+		String sql = "insert into hireboard values(hireboard_seq.nextval,?,0,'채용중',?,?,?,?,?,?,?,sysdate,?,?,?)";
 		Object[] args = {
 			bdto.getTitle(),
 			bdto.getEmployee(),
@@ -35,7 +35,8 @@ public class BoardDaoImpl implements BoardDao{
 			bdto.getContents(),
 			bdto.getCompany(),
 			bdto.getDepartment(),
-			bdto.getEdu()
+			bdto.getEdu(),
+			bdto.getLocation()
 		};
 		jdbcTemplate.update(sql, args);
 	}
@@ -67,7 +68,7 @@ public class BoardDaoImpl implements BoardDao{
 String sql = "select b.*, a.name, a.industry, a.ceo, a.birth, a.website, a.employee,"
 		+ " a.type, a.sales, a.addrloc, a.addr2loc, a.imgname, a.imgencoding, a.regcode "
 		+ "from company a full outer join hireboard b on a.name=b.company "
-		+ "where upper(a.name) like '%'||upper(?)||'%' and a.location like '%'||?||'%'"
+		+ "where upper(a.name) like '%'||upper(?)||'%' or b.location = ? "
 		+ " and a.industry like '%'||?||'%' and a.type like '%'||?||'%' and"
 		+ " b.career like '%'||?||'%' and b.empltype like '%'||?||'%'";
 //		String sql = "select * from hireboard where upper(company) like '%'||upper(?)||'%' order by reg desc";
