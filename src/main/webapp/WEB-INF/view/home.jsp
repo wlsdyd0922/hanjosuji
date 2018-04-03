@@ -118,40 +118,36 @@
 	</div>
 </form>
 	<div class="container-70 div-main out-align-center">
+	<table class = "table"  style="margin: auto;">
 		<c:forEach var="bdto" items="${list}" varStatus="status">
-			<div class="myrow div-2 background-white" style="height: 55px;">
-				<div class="rest-area height-100">
-					<div class="div-main">
-						<div class="rest-area div-2">
-							<div class="rest-area">
-								<div class="form-title-input">
-									<div class="rest-area">
-										<a id="company_name"
-											href="${pageContext.request.contextPath }/company/companyreview?company=${bdto.company}">${bdto.company}</a>
-									</div>
-								</div>
-							</div>
-							<div class="rest-area">
-								<div class="form-title-input">
-									<a
-										href="${pageContext.request.contextPath }/company/employment_information?no=${bdto.no}">${bdto.title}</a>
-								</div>
-								<div class="form-input-full">${bdto.department}</div>
-							</div>
-							<div class="rest-area">
-								<div class="form-input-full">${bdto.career}</div>
-								<div class="form-input-full">${bdto.edu}</div>
-
-							</div>
-							<div class="rest-area">
-								<div class="form-input-full">${bdto.empltype}</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+			<tr>
+				<td rowspan="2" class = "td">
+					<a href="${pageContext.request.contextPath }/company/employment_information?no=${bdto.no}" >${bdto.title}</a>
+				</td>
+				<td>
+					<label>${bdto.department}</label>
+				</td>
+				<td>
+					<label>${bdto.career}</label>
+				</td>
+				<td rowspan="2">
+					<a id="company_name" href="${pageContext.request.contextPath }/company/companyreview?company=${bdto.company}">${bdto.company}</a>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<label>에듀 : ${bdto.edu}</label>
+				</td>
+				<td>
+					<label>${bdto.empltype}</label>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="4"></td>
+			</tr>
 		</c:forEach>
+	</table>
 	</div>
-
 <jsp:include page="/WEB-INF/view/template/footer.jsp"></jsp:include>
 
