@@ -18,6 +18,27 @@ imgencoding varchar2(10));
 alter table NormalM add constraint grades check(grade in('기업','일반','관리자'));
 
 
+회사-------------------------------------------------------------
+create table company(
+NO number primary key,
+name varchar(30) not null,
+INDUSTRY varhcar2(20) not null,
+CEO varchar2(10),
+BIRTH varchar2(15),
+WEBSITE varchar2(100),
+EMPLOYEE number,
+TYPE varchar2(20),
+SALES number,
+postloc varchar2(100),
+addrloc varchar2(100),
+addr2loc varchar2(100),
+IMGNAME varchar2(1000),
+IMGENCODING varchar2(10),
+REGCODE varchar2(15),
+CHECKED char(1),
+HIT number);
+
+
 이력서------------------------------------------------------------
 create table resume(
 title varchar2(100),
@@ -128,3 +149,6 @@ Name                                      Null?    Type
  EMAIL       작성자 이메일                                    	 	VARCHAR2(50)
  BOARDNO     게시글 번호                                       		NUMBER
  NO                                        	NOT NULL NUMBER
+ 
+ regex---------------------------------------------------------------
+ var expEmail = /^[a-zA-Z0-9_\-\.]{2,50}@[a-zA-Z0-9_\-\.]{2,20}$/;
