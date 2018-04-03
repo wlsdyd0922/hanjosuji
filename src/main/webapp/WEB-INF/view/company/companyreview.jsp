@@ -41,7 +41,7 @@
 										매출액
 										<div class="form-input text-primary">${cdto.sales}</div>
 										본사
-										<div class="form-input text-primary">${cdto.location}</div>
+										<div class="form-input text-primary">${cdto.addrloc}</div>
 									</div>
 								</div>
 								<div class="container-100">

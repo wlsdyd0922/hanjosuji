@@ -65,7 +65,7 @@ public class BoardDaoImpl implements BoardDao{
 	//company:키워드검색,location:위치, industry:직군, type:대기업/중소기업, career:신입경력
 		// empltype: 고용형태
 String sql = "select b.*, a.name, a.industry, a.ceo, a.birth, a.website, a.employee,"
-		+ " a.type, a.sales, a.location, a.imgname, a.imgencoding, a.regcode "
+		+ " a.type, a.sales, a.addrloc, a.addr2loc, a.imgname, a.imgencoding, a.regcode "
 		+ "from company a full outer join hireboard b on a.name=b.company "
 		+ "where upper(a.name) like '%'||upper(?)||'%' and a.location like '%'||?||'%'"
 		+ " and a.industry like '%'||?||'%' and a.type like '%'||?||'%' and"
