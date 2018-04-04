@@ -5,9 +5,8 @@
 <script>
 	$(document).ready(function() {
 		select($("#like").attr("data-value"));
-		var company_name = $("#company_name").text();
-		
 		$("#like").click(function() {
+			var company_name = $("#company_name").text().toLowerCase();
 			$.ajax({
 				type : "POST",
 				url : "employment_information",
