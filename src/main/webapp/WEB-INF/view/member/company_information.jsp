@@ -11,10 +11,10 @@
 					<h3 class="myrow">${cdto.name}</h3>
 				</div>
 				<div class="rest-area in-align-right">
-					<h3 class="myrow">
+					<h4 class="myrow">
 						<a href="${pageContext.request.contextPath }/member/show_personal">상세보기</a>
 						<a href="${pageContext.request.contextPath }/member/edit_personal">편집</a>
-					</h3>
+					</h4>
 				</div>
 			</div>
 			<div class="div-2 rest-area" style="height: 81%">
@@ -38,10 +38,10 @@
 				<div class="div-2 border-white">
 					<h3 class="myrow">상세정보</h3>
 					<div class="rest-area in-align-right">
-						<h3 class="myrow">
+						<h4 class="myrow">
 							<a href="${pageContext.request.contextPath }/member/show_detail">상세보기</a>
 							<a href="${pageContext.request.contextPath }/register/register_detail">편집</a>
-						</h3>
+						</h4>
 					</div>
 				</div>
 			</div>

@@ -54,10 +54,10 @@
 					<h3 class="myrow">${nmdto.name}</h3>
 				</div>
 				<div class="rest-area in-align-right">
-					<h3 class="myrow">
+					<h4 class="myrow">
 						<a href="${pageContext.request.contextPath }/member/show_personal">상세보기</a>
 						<a href="${pageContext.request.contextPath }/member/edit_personal">편집</a>
-					</h3>
+					</h4>
 				</div>
 			</div>
 			<div class="div-2 rest-area" style="height: 81%">
@@ -97,10 +97,10 @@
 				<div class="div-2 border-white">
 					<h3 class="myrow">상세정보</h3>
 					<div class="rest-area in-align-right">
-						<h3 class="myrow">
+						<h4 class="myrow">
 							<a href="${pageContext.request.contextPath }/member/show_detail">상세보기</a>
 							<a href="${pageContext.request.contextPath }/register/register_detail">편집</a>
-						</h3>
+						</h4>
 					</div>
 				</div>
 			</div>
@@ -128,10 +128,10 @@
 				<div class="div-2 border-white">
 					<h3 class="myrow">이력서등록</h3>
 					<div class="rest-area in-align-right">
-						<h3 class="myrow">
+						<h4 class="myrow">
 							<a href="${pageContext.request.contextPath }/member/resume">상세보기</a>
 							<a href="${pageContext.request.contextPath }/member/edit_resume">편집</a>
-						</h3>
+						</h4>
 					</div>
 				</div>
 			</div>
@@ -149,12 +149,10 @@
 				<div class="div-2 border-white">
 					<h3 class="myrow">자기소개서등록</h3>
 					<div class="rest-area in-align-right">
-						<h3 class="myrow">
-							<a
-								href="${pageContext.request.contextPath }/member/introduction_paper">상세보기</a>
-							<a
-								href="${pageContext.request.contextPath }/member/edit_introduction_paper">편집</a>
-						</h3>
+						<h4 class="myrow">
+							<a href="${pageContext.request.contextPath }/member/introduction_paper">상세보기</a>
+							<a href="${pageContext.request.contextPath }/member/edit_introduction_paper">편집</a>
+						</h4>
 					</div>
 				</div>
 			</div>
@@ -174,9 +172,9 @@
 			<div class="div-2">
 				<h3 class="myrow">회원탈퇴</h3>
 				<div class="rest-area in-align-right">
-					<h3 class="myrow">
-						<a onclick="memberleave()">회원탈퇴</a>
-					</h3>
+					<h4 class="myrow">
+						<a onclick="memberleave()" style="cursor:pointer">회원탈퇴</a>
+					</h4>
 				</div>
 			</div>
 			<div class="rest-area" style="height: 81%">
