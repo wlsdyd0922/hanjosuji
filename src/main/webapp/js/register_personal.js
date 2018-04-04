@@ -96,7 +96,8 @@ $(document).ready(function() {
 	});
 	
 	//전체가 올바르게 작성되었는지에 따른 form 전송 및 거절
-	$("input[type=submit]").on("click",function(){
+	//$("input[type=submit]").on("click",function(){
+	$("form.register").on("submit", function(){
 		if(id===true&&pw===true&&pwa===true&&phone===true&&ans===true){
 			return true;
 		}else{

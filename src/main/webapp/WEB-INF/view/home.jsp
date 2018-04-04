@@ -5,7 +5,6 @@
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/css/sliding.css">
 <script src="${pageContext.request.contextPath}/js/sliding.js"></script>
-<div class="empty-row"></div>
 <form action="${pageContext.request.contextPath }/company/companylist"
 	method="post">
 

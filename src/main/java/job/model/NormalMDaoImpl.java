@@ -135,14 +135,29 @@ public class NormalMDaoImpl implements NormalMDao{
 	}
 	@Override
 	public int Chkaccount(NormalMDto nmdto) {
-		String sql = "select count(*) from NormalM where email=? and name=? and phone=? and pwquiz=? and pwans=?";
-		Object[] args = new Object[] {
-				nmdto.getEmail(),
-				nmdto.getName(),
-				nmdto.getPhone(),
-				nmdto.getPwquiz(),
-				nmdto.getPwans()
-				};
+		String sql = null;
+		Object[] args = null;
+		if(nmdto.getCompany()==null) {
+			sql = "select count(*) from NormalM where email=? and name=? and phone=? and pwquiz=? and pwans=?";
+			args = new Object[] {
+					nmdto.getEmail(),
+					nmdto.getName(),
+					nmdto.getPhone(),
+					nmdto.getPwquiz(),
+					nmdto.getPwans()
+					};
+		}else {
+			sql = "select count(*) from NormalM where email=? and name=? and phone=? and pwquiz=? and pwans=? and company=?";
+			args = new Object[] {
+					nmdto.getEmail(),
+					nmdto.getName(),
+					nmdto.getPhone(),
+					nmdto.getPwquiz(),
+					nmdto.getPwans(),
+					nmdto.getCompany()
+					};
+		}
+		
 		return jdbcTemplate.queryForObject(sql,args,Integer.class);
 	}
 	

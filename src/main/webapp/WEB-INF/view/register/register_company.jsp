@@ -9,7 +9,7 @@
 
 </script>
 	
-<form action="${pageContext.request.contextPath }/register/register_company" method="post">
+<form class="register" action="${pageContext.request.contextPath }/register/register_company" method="post">
 	<div class="container-500 out-align-center">
 		<div class="myrow input-group input-group-lg">
 			<span class="input-group-addon" id="sizing-addon1">
@@ -51,12 +51,14 @@
 				</select>
 			</div>
 		</div>
+		
 		<div class="myrow input-group input-group-lg">
 			<span class="input-group-addon" id="sizing-addon1">
 				<i class="glyphicon glyphicon-lock"></i>
 			</span>
 			<input type="text" class="form-control" name="pwans" placeholder="비밀번호 확인 답을 입력해 주세요">
 		</div>
+		
 		<div class="div-2">
 			<div class="container-90 myrow input-group input-group-lg">
 				<span class="input-group-addon glyphicons-tent" id="sizing-addon1">
