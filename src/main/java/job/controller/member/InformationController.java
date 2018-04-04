@@ -18,12 +18,13 @@ import job.manager.SHA256;
 import job.model.NormalMDaoImpl;
 import job.model.ResumeDaoImpl;
 import job.service.ImageService;
+import job.service.ImageServiceImpl;
 
 @Controller
 @RequestMapping("member")
 public class InformationController {
 	@Autowired
-	private ImageService imgservice;
+	private ImageServiceImpl imgservice;
 	
 	@Autowired
 	private NormalMDaoImpl nmdao;
@@ -46,9 +47,10 @@ public class InformationController {
 	public String member_delete(NormalMDto nmdto, HttpSession session, HttpServletRequest request) {
 		String email = (String) request.getSession().getAttribute("accept");
 		String password = new SHA256().On(nmdto.getPw());
-		System.out.println("id : " + email + " / " + "password : " + password);
 		String result = null;
-		if(nmdao.member_delete(email, password)) {
+		if(nmdao.login(email, password)) {
+			imgservice.delete(request);
+			nmdao.member_delete(email, password);
 			session.invalidate();
 			result = "true";
 		}

@@ -5,7 +5,6 @@
 <script src="${pageContext.request.contextPath}/js/register_personal.js"></script>
 <script src="${pageContext.request.contextPath}/js/sha256.js"></script>
 <form class="register" action="${pageContext.request.contextPath }/register/register_personal" method="post">
-	<div class="empty-row"></div>
 	<div class="container-500 out-align-center">
 		<div class="myrow input-group input-group-lg">
 			<span class="input-group-addon" id="sizing-addon1">

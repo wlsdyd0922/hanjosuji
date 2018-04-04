@@ -7,11 +7,8 @@
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/css/sliding.css">
 <script src="${pageContext.request.contextPath}/js/sliding.js"></script>
-<form action="${pageContext.request.contextPath }/company/companylist"
-	method="post">
-
-
-	<div class="container-60 out-align-center border">
+<form action="${pageContext.request.contextPath }/company/companylist" method="post">
+<div class="container-60 out-align-center border">
 	<div class="simple_banner_wrap banner03" data-nav-type="prev_next">
 		<ul>
 			<li><a href="#"><img src="img/ad1.gif" width=100% height=70%></a></li>
@@ -26,7 +23,6 @@
 			<li><a href="#"><img src="img/ad10.jpg" width=100% height=70%></a></li>
 			<li><a href="#"><img src="img/ad11.png" width=100% height=70%></a></li>
 			<li><a href="#"><img src="img/ad12.png" width=100% height=70%></a></li>
-
 		</ul>
 	</div>
 		<div class="myrow in-align-center border-white div-main"
