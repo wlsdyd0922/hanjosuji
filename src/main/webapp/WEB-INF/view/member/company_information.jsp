@@ -38,10 +38,10 @@
 				<div class="div-2 border-white">
 					<h3 class="myrow">상세정보</h3>
 					<div class="rest-area in-align-right">
-						<h4 class="myrow">
+						<h3 class="myrow">
 							<a href="${pageContext.request.contextPath }/member/show_detail">상세보기</a>
 							<a href="${pageContext.request.contextPath }/register/register_detail">편집</a>
-						</h4>
+						</h3>
 					</div>
 				</div>
 			</div>
@@ -71,6 +71,7 @@
 				</div>
 				<div class="div-main padding">
 					<div class="div-2 rest-area border-bottom-lightblue font-medium">
+						<div class="container-40 in-align-center">이력서제목</div>
 						<div class="container-40 in-align-center">지원직무</div>
 						<div class="container-30 in-align-center">지원자</div>
 						<div class="container-20 in-align-center">보기</div>
@@ -78,6 +79,7 @@
 					<!-- 여기서 부터 for문-->
 					<c:forEach var="list" items="${list}">
 					<div class="div-2 rest-area font-small">
+						<div class="container-40 in-align-center">${list.title}</div>
 						<div class="container-40 in-align-center">${list.favdivision}</div>
 						<div class="container-30 in-align-center">${list.email}</div>
 						<div class="container-20 in-align-center">

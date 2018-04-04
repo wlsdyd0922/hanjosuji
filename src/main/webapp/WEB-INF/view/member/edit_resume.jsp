@@ -59,7 +59,7 @@
 		</div>
 		<hr class="style-one">
 		<div class="myrow div-2" style="height: 116px;">
-			<div class="input-lg container-20">Porfolio</div>
+			<div class="input-lg container-20">Portfolio</div>
 			<textarea class="container-100 height-100 textarea" name="portfolio">${rdto.portfolio}</textarea>
 		</div>
 		<hr class="style-one">

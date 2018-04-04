@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import job.bean.BoardDto;
 import job.bean.CompanyDto;
@@ -22,7 +23,7 @@ import job.model.ResumeDaoImpl;
 
 @Controller
 public class Company_informationController {
-	
+
 	@Autowired
 	private NormalMDaoImpl nmdao;
 	@Autowired
@@ -32,29 +33,30 @@ public class Company_informationController {
 	@Autowired
 	private ResumeDaoImpl rdao;
 	private Logger log = LoggerFactory.getLogger(getClass());
+
 	@RequestMapping("member/company_information")
-	public String information(HttpServletRequest request) {
+	public String information(HttpServletRequest request, NormalMDto nmdto) {
 		String email = (String) request.getSession().getAttribute("accept");
-		NormalMDto nmdto = nmdao.info(email);
-		CompanyDto cdto = cdao.searchTarget(email);
-		request.setAttribute("nmdto", nmdao.info(email));
+		System.out.println(email);
+		nmdto = nmdao.info(email);
+		request.setAttribute("nmdto", nmdto);
+		CompanyDto cdto = cdao.searchTarget(nmdto.getCompany());
+		request.setAttribute("nmdto", nmdto);
 		request.setAttribute("cdto", cdto);
-		//resume boardno = board no 일치하는거...?
 		String company = cdto.getName();
-		System.out.println("company:"+company);
 		List<BoardDto> noList = bdao.searchNo(company);
-		for(BoardDto bdto : noList) {
-		System.out.println("no:"+bdto.getNo());
-		int boardno = rdao.getResumeNo();
-			if(bdto.getNo()==boardno) {
-				List<ResumeDto> list = rdao.applyList(boardno);
-				request.setAttribute("list", list);
-			}
-			else {
-				System.out.println("없어");
+		for (BoardDto bdto : noList) {
+			List<ResumeDto> resume = rdao.getResumeNo();
+			for (ResumeDto rdto : resume) {
+				if (bdto.getNo() == rdto.getBoardno()) {
+					List<ResumeDto> list = rdao.applyList(rdto.getBoardno());
+					for(ResumeDto r:list) {
+						System.out.println(r.getTitle());
+					}
+					request.setAttribute("list", list);
+				}
 			}
 		}
-		
 		return "member/company_information";
 	}
 

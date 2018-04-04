@@ -50,7 +50,10 @@ public class ResumeDto {
 		setEmail(rs.getString("email"));
 		setBoardno(rs.getInt("boardno"));
 	}
-
+	public ResumeDto(ResultSet rs,int a) throws SQLException{
+		setBoardno(rs.getInt("boardno"));
+		setTitle(rs.getString("title"));
+	}
 	public String getTitle() {
 		return title;
 	}

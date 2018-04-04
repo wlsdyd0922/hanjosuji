@@ -54,11 +54,9 @@
 					</div>
 				</div>
 				<div>
-					<input type="hidden" name=no value="${bdto.no}">
 					<input type="submit" class="btn btn-primary btn-lg" value="지원하기">
 				</div>
 			</div>
-			
 		</div>
 	</div>
 	</form>

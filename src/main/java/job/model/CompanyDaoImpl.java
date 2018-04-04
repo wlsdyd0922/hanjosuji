@@ -120,4 +120,5 @@ public class CompanyDaoImpl implements CompanyDao{
 		String sql = "update company set imgname ='' where name =?";
 		return jdbcTemplate.update(sql)>0;
 	}
+
 }

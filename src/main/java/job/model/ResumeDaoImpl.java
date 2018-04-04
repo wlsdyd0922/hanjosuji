@@ -179,15 +179,20 @@ public class ResumeDaoImpl implements ResumeDao {
 		return jdbcTemplate.update(sql, rdto.getEmail(), rdto.getEmail())>0;
 	}
 	@Override
-	public List<ResumeDto> applyList(int no) {
+	public List<ResumeDto> applyList(int boardno) {
 		String sql = "select * from resume where boardno=?";
-		return jdbcTemplate.query(sql, mapper,no);
+		return jdbcTemplate.query(sql, mapper,boardno);
 	}
 	@Override
-	public int getResumeNo() {
-		String sql = "select boardno from resume where boardno!=0";
-		return jdbcTemplate.queryForObject(sql,Integer.class);
+	public List<ResumeDto> getResumeNo() {
+		String sql = "select boardno, title from resume where boardno!=0";
+		return jdbcTemplate.query(sql,mapper2);
 	}
+	
+	private RowMapper<ResumeDto> mapper2 = (rs, idx) -> {
+		return new ResumeDto(rs,1);
+	};
+	
 	@Override
 	public ResumeDto info(int no) {
 		String sql = "select * from resume where boardno = ?";

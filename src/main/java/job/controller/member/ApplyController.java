@@ -28,8 +28,8 @@ public class ApplyController {
 	@RequestMapping(value="member/apply", method=RequestMethod.POST)
 	public String apply(HttpServletRequest request) {
 		String name = request.getParameter("resume_name");		//이력서 제목
-		int no = Integer.parseInt(request.getParameter("no"));	//게시판 번호
-		
+		System.out.println("게시판번호:"+Integer.parseInt(request.getParameter("boardno")));
+		int no = Integer.parseInt(request.getParameter("boardno"));	//게시판 번호
 		//세션 불러와서 이력서 정보 조회
 		String email = (String)request.getSession().getAttribute("accept");
 		ResumeDto rdto = rdao.searchTarget(email);
