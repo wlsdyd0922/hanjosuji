@@ -14,6 +14,7 @@ import job.bean.BoardDto;
 import job.bean.CompanyDto;
 import job.bean.NormalMDto;
 import job.bean.ResumeDto;
+import job.bean.ReviewDto;
 import job.model.BoardDaoImpl;
 import job.model.CompanyDaoImpl;
 import job.model.NormalMDaoImpl;
@@ -41,11 +42,19 @@ public class Company_informationController {
 		//resume boardno = board no 일치하는거...?
 		String company = cdto.getName();
 		System.out.println("company:"+company);
-		BoardDto bdto = bdao.info3(company);
-		System.out.println("board no:"+bdto.getNo());
-
-		List<ResumeDto> list = rdao.applyList(bdto.getNo());
-		request.setAttribute("list", list);
+		List<BoardDto> noList = bdao.searchNo(company);
+		for(BoardDto bdto : noList) {
+		System.out.println("no:"+bdto.getNo());
+		int boardno = rdao.getResumeNo();
+			if(bdto.getNo()==boardno) {
+				List<ResumeDto> list = rdao.applyList(boardno);
+				request.setAttribute("list", list);
+			}
+			else {
+				System.out.println("없어");
+			}
+		}
+		
 		return "member/company_information";
 	}
 

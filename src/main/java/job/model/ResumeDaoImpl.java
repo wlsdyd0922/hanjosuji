@@ -183,4 +183,14 @@ public class ResumeDaoImpl implements ResumeDao {
 		String sql = "select * from resume where boardno=?";
 		return jdbcTemplate.query(sql, mapper,no);
 	}
+	@Override
+	public int getResumeNo() {
+		String sql = "select boardno from resume where boardno!=0";
+		return jdbcTemplate.queryForObject(sql,Integer.class);
+	}
+	@Override
+	public ResumeDto info(int no) {
+		String sql = "select * from resume where boardno = ?";
+		return jdbcTemplate.query(sql,extractor,no);
+	}
 }

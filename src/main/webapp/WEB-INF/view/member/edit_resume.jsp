@@ -9,8 +9,7 @@
 		<div class="myrow div-2" style="height: 116px;">
 		<div class="padding container-30">
 			<div class="input-lg div-2">
-				<div class="container-30">제목</div>
-				<input type="text" name="title" class = "form-input-full" value= "${rdto.title}">
+				<input type="hidden" name="title" class = "form-input-full" value= "${rdto.title}">
 			</div>
 			<div class="input-lg div-2">
 				<div class="container-30">조회수</div>

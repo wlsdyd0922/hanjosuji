@@ -18,6 +18,8 @@ public interface BoardDao {
 	
 	BoardDto info3(String company);
 
+	List<BoardDto> searchNo(String company);
+	
 	boolean delete(BoardDto bdto);
 
 	List<BoardDto> otherList(String company, int no);

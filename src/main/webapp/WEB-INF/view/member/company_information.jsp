@@ -78,10 +78,10 @@
 					<!-- 여기서 부터 for문-->
 					<c:forEach var="list" items="${list}">
 					<div class="div-2 rest-area font-small">
-						<div class="container-40 in-align-center">${list.department}</div>
+						<div class="container-40 in-align-center">${list.favdivision}</div>
 						<div class="container-30 in-align-center">${list.email}</div>
 						<div class="container-20 in-align-center">
-							<a href="${pageContext.request.contextPath}/company/check_application">5</a>
+							<a href="${pageContext.request.contextPath}/company/check_application?no=${list.boardno}">이력서확인</a>
 						</div>
 					</div>
 					</c:forEach>
