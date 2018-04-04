@@ -26,10 +26,16 @@ public class BoardController {
 	@Autowired
 	private NormalMDaoImpl nmdao;
 	private Logger log = LoggerFactory.getLogger(getClass());
+	
 	@RequestMapping("board/list")
 	public String list(Model model,@RequestParam(required = false, defaultValue = "1") int pageno,
-			@RequestParam(required = false) String sort,
-			@RequestParam(required = false) String search) {
+			@RequestParam(required = false) String favSort,
+			@RequestParam(required = false) String level_of_education,
+			@RequestParam(required = false) String career,
+			@RequestParam(required = false) String favRegion,
+			@RequestParam(required = false) String foam_of_company,
+			@RequestParam(required = false) String foam_of_employment,
+			@RequestParam(required = false) String keyword) {
 		AdminDto adto = new AdminDto();
 		//한페이지당 보여줄 데이터 갯수
 		adto.setPagedatasize(10);
@@ -38,7 +44,7 @@ public class BoardController {
 		//보여질 데이터의 마지막 번호
 		adto.setEnddata(pageno * adto.getPagedatasize());
 		//모든 데이터의 개수
-		adto.setCount(boardDao.getCount(sort,search));
+		adto.setCount(boardDao.getCount(favSort,career,favRegion,foam_of_company,foam_of_employment,keyword,level_of_education));
 		//총 페이지 수
 		adto.setPagesize(adto.getCount() / adto.getPagedatasize());
 		//한 블록당 보여줄 페이지 개수

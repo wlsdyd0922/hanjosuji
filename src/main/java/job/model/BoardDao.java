@@ -28,10 +28,13 @@ public interface BoardDao {
 
 	boolean emplEnd(BoardDto bdto);
 
-	List<BoardDto> searchList(String company, String location, String industry, String type, String career,
-			String empltype);
-
-	int getCount(String sort, String search);
 
 	List<BoardDto> getList(int start, int end);
+
+	int getCount(String company, String location, String industry, String type, String career, String empltype,
+			String level_of_education);
+
+	List<BoardDto> searchList(String company, String location, String industry, String type, String career,
+			String empltype, String level_of_education);
+
 }
