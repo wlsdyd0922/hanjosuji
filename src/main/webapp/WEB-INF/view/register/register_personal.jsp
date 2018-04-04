@@ -3,6 +3,7 @@
 <jsp:include page="/WEB-INF/view/template/header.jsp"></jsp:include>
 <script src="https://ssl.daumcdn.net/dmaps/map_js_init/postcode.v2.js"></script>
 <script src="${pageContext.request.contextPath}/js/register_personal.js"></script>
+<script src="${pageContext.request.contextPath}/js/sha256.js"></script>
 <form class="register" action="${pageContext.request.contextPath }/register/register_personal" method="post">
 	<div class="empty-row"></div>
 	<div class="container-500 out-align-center">
@@ -17,7 +18,7 @@
 
 		<div class="myrow input-group input-group-lg">
 			<span class="input-group-addon" id="sizing-addon1">
-				<i class="glyphicon glyphicon-envelope"></i>
+				<i class="glyphicon glyphicon-user"></i>
 			</span> 
 			<input type="text" class="form-control" name="name" placeholder="이름을 입력하세요" required>
 		</div>

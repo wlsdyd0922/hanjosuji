@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>	
 <jsp:include page="/WEB-INF/view/template/header.jsp"></jsp:include>
 <!-- 입력값에 따른 css 변화.js -->
+<script src="${pageContext.request.contextPath}/js/sha256.js"></script>
 <script>
 	$(document).ready(function(){
 		$("input[type=submit]").click(function(){
@@ -10,7 +11,6 @@
 		});
 	});
 </script>
-<script src="${pageContext.request.contextPath}/js/sha256.js"></script>
 <form action="${pageContext.request.contextPath }/findmember/find_pw_personal" method="post">
 	<div class="empty-row"></div>
 	<div class="container-500 out-align-center">

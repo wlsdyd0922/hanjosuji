@@ -99,6 +99,11 @@ $(document).ready(function() {
 	//$("input[type=submit]").on("click",function(){
 	$("form.register").on("submit", function(){
 		if(id===true&&pw===true&&pwa===true&&phone===true&&ans===true){
+			$("input[name=pw]").val(SHA256($("input[name=pw]").val()));
+			 
+			 $("input[name=pw_again]").val(SHA256($("input[name=pw_again]").val()));
+			 
+			 $("input[name=pwans]").val(SHA256($("input[name=pwans]").val()));
 			return true;
 		}else{
 			return false;

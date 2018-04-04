@@ -6,7 +6,7 @@
 <hr class="style-one">
 <footer class="font-small in-align-center"> &copy;WorkSpace </footer>
 </main>
-
+<c:if test="${not empty accept }">
 <!-- 입사 지원시 -->
 	<form action="${pageContext.request.contextPath}/member/apply" method="post">
 	<div id="mask"></div>
@@ -62,7 +62,7 @@
 		</div>
 	</div>
 	</form>
-
+</c:if>
 </body>
 
 </html>

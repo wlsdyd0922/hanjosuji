@@ -78,7 +78,7 @@ public class FindController {
 	public String find_pw_company(NormalMDto nmdto, HttpSession session, HttpServletRequest request) {
 		//matching에 성공하면.
 			if(nmdao.Chkaccount(nmdto)>0) {
-				return "find/change_pw_personal";
+				return "find/change_pw_company";
 			}else {
 				return "redirect:/findmember/find_pw_company";
 			}

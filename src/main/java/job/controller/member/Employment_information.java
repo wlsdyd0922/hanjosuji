@@ -16,8 +16,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import job.bean.BoardDto;
 import job.bean.CompanyDto;
 import job.bean.LikesDto;
+import job.bean.ResumeDto;
 import job.model.BoardDaoImpl;
 import job.model.LikesDaoImpl;
+import job.model.ResumeDaoImpl;
 
 @Controller
 public class Employment_information {
@@ -30,6 +32,9 @@ public class Employment_information {
 	@Autowired
 	private LikesDaoImpl ldao;
 	
+	@Autowired
+	private ResumeDaoImpl rdao;
+	
 	@RequestMapping("company/employment_information")
 	public String employment_information_get(HttpServletRequest request, HttpSession session) {
 		int no = Integer.parseInt(request.getParameter("no"));
@@ -39,6 +44,7 @@ public class Employment_information {
 		LikesDto ldto = new LikesDto();
 		String company = cdto.getName();
 		List<BoardDto> list = bdao.otherList(company, no);
+		ResumeDto rdto = rdao.searchTarget(email);
 		
 		cdto.setName(company.toUpperCase());
 		ldto.setEmail(email);
@@ -47,6 +53,7 @@ public class Employment_information {
 		
 		request.setAttribute("cdto", cdto);
 		request.setAttribute("bdto", bdto);
+		request.setAttribute("rdto", rdto);
 		request.setAttribute("isLiked", isLiked);
 		request.setAttribute("list", list);
 		return "company/employment_information";
