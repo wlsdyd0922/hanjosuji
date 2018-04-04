@@ -42,8 +42,6 @@ public class FindController {
 
 	@RequestMapping("find_pw_personal")
 	public String find_pw_personal(HttpServletRequest request) {
-		request.getSession().setAttribute("find_pw_personal", "find_pw_personal");
-		System.out.println(1);
 		return "find/find_pw_personal";
 	}
 
@@ -51,9 +49,9 @@ public class FindController {
 	public String find_pw_personal(NormalMDto nmdto, HttpSession session, HttpServletRequest request) {
 		//matching에 성공하면.
 		if(nmdao.Chkaccount(nmdto)>0) {
-			return "redirect:/findmember/change_pw_personal";
+			return "find/change_pw_personal";
 		}else {
-			return "find/find_pw_personal";
+			return "redirect:/findmember/find_pw_personal";
 		}
 		
 	}
@@ -78,10 +76,12 @@ public class FindController {
 	
 	@RequestMapping(value = "find_pw_company", method = RequestMethod.POST)
 	public String find_pw_company(NormalMDto nmdto, HttpSession session, HttpServletRequest request) {
-		String password = nmdao.getPw(nmdto); 
-		System.out.println(password);
-		request.setAttribute("email", nmdto.getEmail());
-		return "find/find_pw_ok";
+		//matching에 성공하면.
+			if(nmdao.Chkaccount(nmdto)>0) {
+				return "find/change_pw_personal";
+			}else {
+				return "redirect:/findmember/find_pw_company";
+			}
 	}
 	
 
@@ -91,8 +91,21 @@ public class FindController {
 	}
 	
 	@RequestMapping(value = "change_pw_personal", method = RequestMethod.POST)
-	public String change_pw_personal_post(String pw, HttpServletRequest request) {
-		String email = (String)request.getAttribute("accept");
+	public String change_pw_personal_post(String email,String pw, HttpServletRequest request) {
+		System.out.println(email);
+		System.out.println(pw);
+		String password = new SHA256().On(pw);
+		nmdao.pwupdate(password, email);
+		return "redirect:/login";
+	}
+	
+	@RequestMapping("change_pw_company")
+	public String change_pw_company_get(HttpServletRequest request) {
+		return "find/change_pw_company";
+	}
+	
+	@RequestMapping(value = "change_pw_company", method = RequestMethod.POST)
+	public String change_pw_company_post(String email,String pw, HttpServletRequest request) {
 		System.out.println(email);
 		System.out.println(pw);
 		String password = new SHA256().On(pw);

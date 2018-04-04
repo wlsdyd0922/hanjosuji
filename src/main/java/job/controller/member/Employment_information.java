@@ -33,18 +33,19 @@ public class Employment_information {
 	@RequestMapping("company/employment_information")
 	public String employment_information_get(HttpServletRequest request, HttpSession session) {
 		int no = Integer.parseInt(request.getParameter("no"));
+		String email = (String) session.getAttribute("accept");
 		BoardDto bdto = bdao.info(no);
 		CompanyDto cdto = bdao.info2(no);
 		LikesDto ldto = new LikesDto();
-		request.setAttribute("cdto", cdto);
 		String company = cdto.getName();
-		cdto.setName(company.toUpperCase());
 		List<BoardDto> list = bdao.otherList(company, no);
 		
-		ldto.setEmail((String) session.getAttribute("accept"));
-		ldto.setCompany(cdto.getName());
+		cdto.setName(company.toUpperCase());
+		ldto.setEmail(email);
+		ldto.setCompany(cdto.getName().toLowerCase());
 		boolean isLiked = ldao.isLiked(ldto);
 		
+		request.setAttribute("cdto", cdto);
 		request.setAttribute("bdto", bdto);
 		request.setAttribute("isLiked", isLiked);
 		request.setAttribute("list", list);

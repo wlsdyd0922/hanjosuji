@@ -45,7 +45,7 @@
 		<input class="btn btn-primary btn-lg form-btn-full" id="find"
 			type="button" value="아이디찾기"> <input
 			class="btn btn-primary btn-lg form-btn-full" type="button"
-			value="돌아가기">
+			value="돌아가기" onclick="history.back()">
 	</div>
 </div>
 <!-- 아이디 찾기 -->

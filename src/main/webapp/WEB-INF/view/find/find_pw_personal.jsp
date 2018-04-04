@@ -3,6 +3,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>	
 <jsp:include page="/WEB-INF/view/template/header.jsp"></jsp:include>
 <!-- 입력값에 따른 css 변화.js -->
+<script>
+	$(document).ready(function(){
+		$("input[type=submit]").click(function(){
+			$("input[name=pwans]").val(SHA256($("input[name=pwans]").val()));
+		});
+	});
+</script>
 <script src="${pageContext.request.contextPath}/js/sha256.js"></script>
 <form action="${pageContext.request.contextPath }/findmember/find_pw_personal" method="post">
 	<div class="empty-row"></div>
@@ -14,7 +21,7 @@
 		</div>
 		<div class="myrow input-group input-group-lg">
 			<span class="input-group-addon" id="sizing-addon1"><i
-				class="glyphicon glyphicon-envelope"></i></span> <input type="text"
+				class="glyphicon glyphicon-user"></i></span> <input type="text"
 				class="form-control" name="name" placeholder="이름을 입력하세요" required>
 		</div>
 
@@ -44,7 +51,7 @@
 			<input class="btn btn-primary btn-lg form-btn-full" type="submit"
 				value="비밀번호찾기"> <input
 				class="btn btn-primary btn-lg form-btn-full" type="button"
-				value="돌아가기">
+				value="돌아가기" onclick="history.back()">
 		</div>
 	</div>
 </form>

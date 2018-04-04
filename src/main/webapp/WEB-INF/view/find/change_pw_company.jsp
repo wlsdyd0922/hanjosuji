@@ -5,7 +5,7 @@
 <!-- 입력값에 따른 css 변화.js -->
 <script src="${pageContext.request.contextPath}/js/sha256.js"></script>
 <script src="${pageContext.request.contextPath}/js/register_personal.js"></script>
-<form action="${pageContext.request.contextPath }/findmember/change_pw_personal" method="post">
+<form action="${pageContext.request.contextPath }/findmember/change_pw_company" method="post">
 	<div class="empty-row"></div>
 	<input type="hidden" name="email" value="${param.email}"> 
 	<div class="container-500 out-align-center">
