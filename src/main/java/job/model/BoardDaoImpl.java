@@ -50,9 +50,20 @@ public class BoardDaoImpl implements BoardDao{
 	};
 	//채용공고 전체 리스트
 	@Override
-	public List<BoardDto> getList() {
-		String sql = "select * from hireboard order by reg desc";
-		return jdbcTemplate.query(sql, mapper);
+	public List<BoardDto> getList(int start, int end) {
+		String sql = "select * from (select rownum rn,A.* from (select * from hireboard order by reg desc)A) where rn between ? and ?";
+		return jdbcTemplate.query(sql, mapper,start,end);
+	}
+	@Override
+	public int getCount(String sort, String search) {
+		String sql;
+		if(search != null && !search.equals("")) {
+			sql = "select count(*) from hireboard where "+sort+" like '%'||?||'%'";
+			return jdbcTemplate.queryForObject(sql, Integer.class,search);
+		}else {
+			sql = "select count(*) from hireboard";
+			return jdbcTemplate.queryForObject(sql, Integer.class);
+		}
 	}
 
 	@Override
@@ -103,6 +114,12 @@ String sql = "select b.*, a.name, a.industry, a.ceo, a.birth, a.website, a.emplo
 	public BoardDto info3(String company) {
 		String sql = "select * from hireboard where company = ?";
 		return jdbcTemplate.query(sql, extractor,company);
+	}
+	//회사이름 + 해당 글번호 제외하고 조회
+	@Override
+	public List<BoardDto> otherList(String company, int no) {
+		String sql = "select * from hireboard where company = ? and no != ?";
+		return jdbcTemplate.query(sql, mapper, company, no);
 	}
 	
 	

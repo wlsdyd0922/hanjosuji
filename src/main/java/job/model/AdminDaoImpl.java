@@ -26,10 +26,10 @@ public class AdminDaoImpl implements AdminDao {
 	public List<CompanyDto> compChkList(int chk, int sno, int eno,String sort ,String search) {
 		String sql;
 		if(search != null && !search.equals("")) {
-			sql = "select * from (select * from (select rownum rn,A.* from (select * from company where checked=? and "+sort+" like '%'||?||'%' order by no)A)) where rn between ? and ?";
+			sql = "select * from (select rownum rn,A.* from (select * from company where checked=? and "+sort+" like '%'||?||'%' order by no)A) where rn between ? and ?";
 			return jdbcTemplate.query(sql, compmapper, chk, search, sno, eno);
 		}else {
-			sql = "select * from (select * from (select rownum rn,A.* from (select * from company where checked=? order by no)A)) where rn between ? and ?";
+			sql = "select * from (select rownum rn,A.* from (select * from company where checked=? order by no)A) where rn between ? and ?";
 			return jdbcTemplate.query(sql, compmapper, chk, sno, eno);
 		}
 	}

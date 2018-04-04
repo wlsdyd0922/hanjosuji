@@ -12,7 +12,6 @@ public interface NormalMDao {
 	boolean register(NormalMDto nmdto);
 	boolean edit(NormalMDto nmdto);
 	public boolean face(String savename, String email);
-	boolean drop(NormalMDto nmdto);
 	String getEmail(NormalMDto nmdto);
 	String getPw(NormalMDto nmdto);
 	NormalMDto info(String email);
@@ -23,4 +22,5 @@ public interface NormalMDao {
 	List<NormalMDto> adminList();
 	String getCompany(String email);
 	boolean member_delete(String email, String pw);
+	int Chkaccount(NormalMDto nmdto);
 }

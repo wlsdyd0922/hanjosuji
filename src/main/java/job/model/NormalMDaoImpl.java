@@ -92,14 +92,16 @@ public class NormalMDaoImpl implements NormalMDao{
 	}
 	
 	@Override
-	public boolean drop(NormalMDto nmdto) {
-		String sql = "delete NormalM where email=? and pw=?";
-		return jdbcTemplate.update(sql,nmdto.getEmail(),nmdto.getPw())>0;
-	}
-	@Override
 	public String getEmail(NormalMDto nmdto) {
-		String sql = "select email from NormalM where name=? and phone=?";
-		Object[] args = new Object[] {nmdto.getName(),nmdto.getPhone()};
+		String sql = null;
+		Object[] args = null;
+		if(nmdto.getCompany()==null) {
+			sql = "select email from NormalM where name=? and phone=?";
+			args = new Object[] {nmdto.getName(),nmdto.getPhone()};
+		}else {
+			sql = "select email from NormalM where name=? and phone=? and company=?";
+			args = new Object[] {nmdto.getName(),nmdto.getPhone(),nmdto.getCompany()};
+		}
 		return jdbcTemplate.queryForObject(sql,args,String.class);	
 	}
 	@Override
@@ -131,6 +133,19 @@ public class NormalMDaoImpl implements NormalMDao{
 		String sql = "select * from NormalM where admin='관리자' order by email";
 		return jdbcTemplate.query(sql, mapper);
 	}
+	@Override
+	public int Chkaccount(NormalMDto nmdto) {
+		String sql = "select count(*) from NormalM where email=? and name=? and phone=? and pwquiz=? and pwans=?";
+		Object[] args = new Object[] {
+				nmdto.getEmail(),
+				nmdto.getName(),
+				nmdto.getPhone(),
+				nmdto.getPwquiz(),
+				nmdto.getPwans()
+				};
+		return jdbcTemplate.queryForObject(sql,args,Integer.class);
+	}
+	
 	@Override
 	public Integer ChkSameId(String email) {
 		String sql = "select count(*) from NormalM where email=?";

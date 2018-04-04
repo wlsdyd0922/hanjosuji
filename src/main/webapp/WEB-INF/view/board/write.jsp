@@ -12,19 +12,7 @@
 			<div class="container-20">제목</div>
 			<div class="container-80">
 				<input class="form-input-full" type="text" name="title">
-			</div>
-		</div>
-		<div class="div-2">
-			<div class="container-20">회사명</div>
-			<div class="container-80">
-				<select name="company">
-					<option value="">=== 선택해주세요 ===</option>
-					<option value="kgitbank">kgitbank</option>
-					<option value="samsung">samsung</option>
-					<option value="LG">LG</option>
-					<!-- value="self"이면 getParameter company1 받기-->
-					<option value="self">직접입력하기</option>
-				</select> <input class="form-input-full" type="text" name="company1">
+				<input type="hidden" name="company" value="${company}">
 			</div>
 		</div>
 		<div class="div-2">

@@ -20,14 +20,16 @@ public interface BoardDao {
 
 	boolean delete(BoardDto bdto);
 
-	List<BoardDto> getList();
+	List<BoardDto> otherList(String company, int no);
 
 	void insert(BoardDto bdto);
 
 	boolean emplEnd(BoardDto bdto);
 
-	
-
 	List<BoardDto> searchList(String company, String location, String industry, String type, String career,
 			String empltype);
+
+	int getCount(String sort, String search);
+
+	List<BoardDto> getList(int start, int end);
 }
