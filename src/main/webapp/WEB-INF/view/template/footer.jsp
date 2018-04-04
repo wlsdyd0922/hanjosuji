@@ -8,7 +8,7 @@
 </main>
 
 <!-- 입사 지원시 -->
-<c:if test="${not empty loginFlag }">
+	<form action="${pageContext.request.contextPath}/member/apply" method="post">
 	<div id="mask"></div>
 	<div id="pop" class="padding">
 		<div style="color: white">
@@ -22,31 +22,46 @@
 				<div class="container-100 padding">
 					<div class="div-main">
 						<div>
-							<input type="text" class="form-input-full font-medium"
+							<input type="text" class="form-input-full font-medium" name="resume_name"
 								placeholder="이력서 이름을 입력해주세요">
 						</div>
 						<div class="padding font-medium">
-							<!-- 이력서 존재시-->
-							이력서 <span class="icono-checkCircle" style="color: lightblue"></span>
-							<!-- 이력서 미존재시 -->
-							<span class="icono-plusCircle" style="color: lightblue"
-								onclick="location.href='${pageContext.request.contextPath}/member/edit_resume'"></span>
-
+						이력서
+							<c:choose>
+								<c:when test="${not empty rdto.career}">
+									<!-- 이력서 존재시-->
+									 <span class="icono-checkCircle" style="color: lightblue"></span>
+								</c:when>
+								<c:otherwise>
+									<!-- 이력서 미존재시 -->
+									<span class="icono-plusCircle" style="color: lightblue"
+									onclick="location.href='${pageContext.request.contextPath}/member/edit_resume'"></span>
+								</c:otherwise>
+							</c:choose>
+							자기소개서 
+							<c:choose>
+								<c:when test="${not empty rdto.pr1}">
 							<!-- 자소서 존재시-->
-							자기소개서 <span class="icono-checkCircle" style="color: lightblue"></span>
+							<span class="icono-checkCircle" style="color: lightblue"></span>
+								</c:when>
+								<c:otherwise>
 							<!-- 자소서 미존재시 -->
 							<span class="icono-plusCircle" style="color: lightblue"
 								onclick="location.href='${pageContext.request.contextPath}/member/edit_introduction_paper'"></span>
+								</c:otherwise>
+							</c:choose>
 						</div>
 					</div>
 				</div>
 				<div>
-					<button class="btn btn-primary btn-lg">지원하기</button>
+					<input type="hidden" name=no value="${bdto.no}">
+					<input type="submit" class="btn btn-primary btn-lg" value="지원하기">
 				</div>
 			</div>
+			
 		</div>
 	</div>
-</c:if>
+	</form>
 
 </body>
 

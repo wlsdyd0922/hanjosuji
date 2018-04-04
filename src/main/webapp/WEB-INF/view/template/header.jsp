@@ -49,7 +49,7 @@
 			<img src="${pageContext.request.contextPath}/img/logo.png">
 		</a>
 	</header> <!-- 메뉴 영역 -->
-	<nav class="menu input-lg border">
+	<nav class="menu border">
 		<div class="div-2 container-1000 out-align-center">
 			<div class="container-70">
 				<a href="${pageContext.request.contextPath }" class="left"><i
@@ -88,7 +88,7 @@
 			<div class="container-30 in-align-right">
 				<c:choose>
 					<c:when test="${loginFlag }">
-						<img src="${pageContext.request.contextPath }/img/noone.jpg" class="height-100"> 
+<%-- 						<img src="${pageContext.request.contextPath }/img/noone.jpg" class="height-100">  --%>
 							유저 : ${sessionScope.accept}
 							   <a href="${pageContext.request.contextPath }/member/notes" class="rright">쪽지함(${notes_count})</a>
                         <a href="${pageContext.request.contextPath }/member/logout" class="rright">로그아웃</a>

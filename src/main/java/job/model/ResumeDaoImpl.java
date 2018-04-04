@@ -43,6 +43,31 @@ public class ResumeDaoImpl implements ResumeDao {
 		};
 		jdbcTemplate.update(sql, args);
 	}
+	@Override
+	public void apply(ResumeDto rdto) {
+		String sql = "insert into resume values(?,0,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		Object[] args = {
+			rdto.getTitle(),
+			rdto.getFavdivision(),
+			rdto.getFavregion(),
+			rdto.getWorkingstatus(),
+			rdto.getCareer(),
+			rdto.getEdu(),
+			rdto.getSalary(),
+			rdto.getPr1(),
+			rdto.getPr2(),
+			rdto.getPr3(),
+			rdto.getPr4(),
+			rdto.getPortfolio(),
+			rdto.getCerti(),
+			rdto.getPrize(),
+			rdto.getEmail(),
+			rdto.getBoardno()
+		};
+		jdbcTemplate.update(sql, args);
+		
+	}
+	
 
 	private RowMapper<ResumeDto> mapper = (rs, idx) -> {
 		return new ResumeDto(rs);

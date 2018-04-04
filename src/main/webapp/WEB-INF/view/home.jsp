@@ -10,10 +10,19 @@
 
 	<div class="simple_banner_wrap banner03" data-nav-type="prev_next">
 		<ul>
-			<li><a href="#"><img src="img/background.jpg"></a></li>
-			<li><a href="#"><img src="img/logo.png"></a></li>
-			<li><a href="#"><img src="img/noone.jpg"></a></li>
-			<li><a href="#"><img src="img/grade_img.png"></a></li>
+			<li><a href="#"><img src="img/ad1.gif" width=100% height=100%></a></li>
+			<li><a href="#"><img src="img/ad2.png" width=100% height=100%></a></li>
+			<li><a href="#"><img src="img/ad3.jpg" width=100% height=100%></a></li>
+			<li><a href="#"><img src="img/ad4.gif" width=100% height=100%></a></li>
+			<li><a href="#"><img src="img/ad5.jpg" width=100% height=100%></a></li>
+			<li><a href="#"><img src="img/ad6.png" width=100% height=100%></a></li>
+			<li><a href="#"><img src="img/ad7.gif" width=100% height=100%></a></li>
+			<li><a href="#"><img src="img/ad8.jpg" width=100% height=100%></a></li>
+			<li><a href="#"><img src="img/ad9.png" width=100% height=100%></a></li>
+			<li><a href="#"><img src="img/ad10.jpg" width=100% height=100%></a></li>
+			<li><a href="#"><img src="img/ad11.png" width=100% height=100%></a></li>
+			<li><a href="#"><img src="img/ad12.png" width=100% height=100%></a></li>
+
 		</ul>
 	</div>
 
@@ -117,34 +126,46 @@
 	</div>
 </form>
 	<div class="container-70 div-main out-align-center">
-	<table class = "table"  style="margin: auto;">
+	<table class = "table-noline"  style="margin: auto;">
 	<tbody>
 		<c:forEach var="bdto" items="${list}" varStatus="status">
 			<tr>
-				<td rowspan="2" class = "td">
-					<a href="${pageContext.request.contextPath }/company/employment_information?no=${bdto.no}" >${bdto.title}</a>
+				<td rowspan="2" class = "td padding">
+					<div class="background_white height-120px">
+						<a href="${pageContext.request.contextPath }/company/employment_information?no=${bdto.no}" >${bdto.title}</a>
+					</div>
 				</td>
-				<td>
-					<label>${bdto.department}</label>
+				<td class="padding">
+					<div class="background_white empty-row">
+						<label>${bdto.department}</label>
+					</div>
 				</td>
-				<td>
-					<label>${bdto.career}</label>
+				<td class="padding">
+					<div class="background_white empty-row">
+						<label>${bdto.career}</label>
+					</div>
 				</td>
-				<td rowspan="2">
-					<a id="company_name" href="${pageContext.request.contextPath }/company/companyreview?company=${bdto.company}">${bdto.company}</a>
+				<td rowspan="2" class="padding">
+					<div class="background_white height-120px">
+						<a id="company_name" href="${pageContext.request.contextPath }/company/companyreview?company=${bdto.company}">${bdto.company}</a>
+					</div>
 				</td>
 			</tr>
 			
 			<tr>
-				<td>
-					<label>에듀 : ${bdto.edu}</label>
+				<td class="padding">
+					<div class="background_white empty-row">
+						<label>에듀 : ${bdto.edu}</label>
+					</div>
 				</td>
-				<td>
-					<label>${bdto.empltype}</label>
+				<td class="padding">
+					<div class="background_white empty-row">
+						<label>${bdto.empltype}</label>
+					</div>
 				</td>
 			</tr>
 			<tr>
-				<td colspan="4"></td>
+				<td colspan="4" class="padding"></td>
 			</tr>
 		</c:forEach>
 		</tbody>

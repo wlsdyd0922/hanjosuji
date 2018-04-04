@@ -71,7 +71,6 @@
 				</div>
 				<div class="div-main padding">
 					<div class="div-2 rest-area border-bottom-lightblue font-medium">
-						<div class="container-20 in-align-center">번호</div>
 						<div class="container-40 in-align-center">지원직무</div>
 						<div class="container-30 in-align-center">지원자</div>
 						<div class="container-20 in-align-center">지원일자</div>
@@ -79,7 +78,6 @@
 					</div>
 					<!-- 여기서 부터 for문-->
 					<div class="div-2 rest-area font-small">
-						<div class="container-20 in-align-center">1</div>
 						<div class="container-40 in-align-center">2</div>
 						<div class="container-30 in-align-center">3</div>
 						<div class="container-20 in-align-center">4</div>
@@ -87,15 +85,7 @@
 							<a href="${pageContext.request.contextPath}/company/check_application">5</a>
 						</div>
 					</div>
-					<div class="div-2 rest-area font-small">
-						<div class="container-20 in-align-center">1</div>
-						<div class="container-40 in-align-center">2</div>
-						<div class="container-30 in-align-center">3</div>
-						<div class="container-20 in-align-center">4</div>
-						<div class="container-20 in-align-center">
-							<a href="${pageContext.request.contextPath}/company/check_application">5</a>
-						</div>
-					</div>
+					
 					<!-- for문 끝-->
 				</div>
 			</div>
