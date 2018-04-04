@@ -2,9 +2,10 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <jsp:include page="/WEB-INF/view/template/header.jsp"></jsp:include>
-<form action="${pageContext.request.contextPath}/company/check_application">
+<form action="${pageContext.request.contextPath}/company/check_application" method="post">
 	<div class="container-1000 out-align-center">
 		<h1>"${nmdto.name}" 지원자</h1>
+		
 		<hr class="style-one">
 		<div class="padding div-2">
 			<div class="padding container-100 div-2">
@@ -24,6 +25,10 @@
 					<div class="rest-area div-2">
 						<div class="padding container-30 input-lg">이메일</div>
 						<div class="padding container-70 font-small">${nmdto.email}</div>
+						<input type="hidden" name="email" value="${nmdto.email }">
+						<input type="hidden" name="name" value="${nmdto.name }">
+						<input type="hidden" name="company" value="${param.company}">
+						<input type="hidden" name="sender" value="${param.sender}">
 					</div>
 					<div class="rest-area div-2">
 						<div class="padding container-30 input-lg">전화번호</div>
@@ -88,8 +93,7 @@
 		</div>
 		<div class="myrow in-align-center">
 			<input type="submit" class="button shape-circle" value="합격">
-			<input type="button" class="button shape-circle" value="불합격">
-			<input type="button" class="button shape-circle" value="뒤로가기">
+			<input type="button" class="button shape-circle" value="뒤로가기" onclick="history.back()">
 		</div>
 	</div>
 </form>

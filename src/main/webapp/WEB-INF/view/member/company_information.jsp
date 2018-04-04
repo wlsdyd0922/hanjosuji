@@ -83,7 +83,7 @@
 						<div class="container-40 in-align-center">${list.favdivision}</div>
 						<div class="container-30 in-align-center">${list.email}</div>
 						<div class="container-20 in-align-center">
-							<a href="${pageContext.request.contextPath}/company/check_application?no=${list.boardno}">이력서확인</a>
+							<a href="${pageContext.request.contextPath}/company/check_application?company=${cdto.name }&&sender=${nmdto.email }&&no=${list.boardno}">이력서확인</a>
 						</div>
 					</div>
 					</c:forEach>
