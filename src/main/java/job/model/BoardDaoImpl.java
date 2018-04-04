@@ -51,7 +51,11 @@ public class BoardDaoImpl implements BoardDao{
 	//채용공고 전체 리스트
 	@Override
 	public List<BoardDto> getList(int start, int end) {
-		String sql = "select * from (select rownum rn,A.* from (select * from hireboard order by reg desc)A) where rn between ? and ?";
+		String sql = "select * from ("
+				+ "select rownum rn,A.* from ("
+				+ "select * from hireboard order by reg desc"
+				+ ")A"
+				+ ") where rn between ? and ?";
 		return jdbcTemplate.query(sql, mapper,start,end);
 	}
 	@Override

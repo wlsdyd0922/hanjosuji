@@ -3,6 +3,8 @@ package job.controller;
 import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,17 +15,21 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import job.bean.AdminDto;
 import job.bean.BoardDto;
+import job.bean.ResumeDto;
 import job.model.BoardDaoImpl;
+import job.model.ResumeDaoImpl;
 
 @Controller
 public class HomeController {
 	@Autowired 
 	private BoardDaoImpl boardDao;
+	@Autowired
+	private ResumeDaoImpl rdao;
 	
 	private Logger log = LoggerFactory.getLogger(getClass());
 	
 	@RequestMapping("home")
-	public String home(Model model,@RequestParam(required = false, defaultValue = "1") int pageno,
+	public String home(HttpServletRequest request, Model model,@RequestParam(required = false, defaultValue = "1") int pageno,
 			@RequestParam(required = false) String sort,
 			@RequestParam(required = false) String search) throws IOException {
 		AdminDto adto = new AdminDto();
@@ -55,6 +61,9 @@ public class HomeController {
 		}
 		adto.setPageno(pageno);
 		
+		String email = (String)request.getSession().getAttribute("accept");
+		ResumeDto rdto = rdao.searchTarget(email);
+		model.addAttribute("rdto",rdto);
 		
 		List<BoardDto> list = boardDao.getList(adto.getStartdata(),adto.getEnddata());
 		model.addAttribute("list", list);

@@ -4,11 +4,20 @@
 
 a {
     text-decoration: none;
-    color: black;
+    color:black;
 }
 
 a:hover {
-    color: blue;
+	text-decoration: none;
+    color: black;
+}
+.a{
+	text-decoration:none;
+	color:#86A5FF;
+}
+.a:hover{
+	text-decoration:none;
+	color:#483D8B;
 }
 
 /* 배경화면 */
@@ -21,15 +30,16 @@ a:hover {
 /* 테이블 스타일 */
 
 .table {
-    border: 1px solid black;
-    border-collapse: collapse;
-    width: 100%;
+    border: 1px solid #f4f7f7;
+    width: 60%;
+    height:50px;
+    margin:auto;
+    text-align:center;
 }
 
 .table th,
 table td {
-    border: 1px solid black;
-    padding: 5px;
+/*     border: 1px solid #f4f7f7; */
     text-align: center;
 }
 
@@ -141,6 +151,11 @@ table td {
 .form-btn1 {
     font-size: 23px;
 }
+.apply-btn{
+	background-color:#B8D7FF;
+	color:white;
+	height:60px;
+}
 
 /* 영역 스타일 */
 
@@ -160,13 +175,16 @@ main {
     background-color: #FFFFFF;
 }
 
-.height-120px{
-	height: 120px;
+.height-60px{
+	line-height: 60px;
+}
+.height-20px{
+	height: 20px;
 }
 
 
 .border-white {
-    border: 1px solid white;
+    border: 1px solid #dedcee;
 }
 
 .border-circle{

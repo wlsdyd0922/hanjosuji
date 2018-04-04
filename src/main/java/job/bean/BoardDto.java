@@ -37,6 +37,7 @@ public class BoardDto {
 		setContents(rs.getString("contents"));
 		setCompany(rs.getString("company"));
 		setReg(rs.getString("reg"));
+		setEdu(rs.getString("edu"));
 		setDepartment(rs.getString("department"));
 		setLocation(rs.getString("location"));
 	}

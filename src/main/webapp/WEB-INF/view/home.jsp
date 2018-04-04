@@ -2,32 +2,34 @@
 	pageEncoding="UTF-8"%>
 <jsp:include page="/WEB-INF/view/template/header.jsp"></jsp:include>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix = "fn" uri = "http://java.sun.com/jsp/jstl/functions"  %>
+
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/css/sliding.css">
 <script src="${pageContext.request.contextPath}/js/sliding.js"></script>
 <form action="${pageContext.request.contextPath }/company/companylist"
 	method="post">
 
+
+	<div class="container-60 out-align-center border">
 	<div class="simple_banner_wrap banner03" data-nav-type="prev_next">
 		<ul>
-			<li><a href="#"><img src="img/ad1.gif" width=100% height=100%></a></li>
-			<li><a href="#"><img src="img/ad2.png" width=100% height=100%></a></li>
-			<li><a href="#"><img src="img/ad3.jpg" width=100% height=100%></a></li>
-			<li><a href="#"><img src="img/ad4.gif" width=100% height=100%></a></li>
-			<li><a href="#"><img src="img/ad5.jpg" width=100% height=100%></a></li>
-			<li><a href="#"><img src="img/ad6.png" width=100% height=100%></a></li>
-			<li><a href="#"><img src="img/ad7.gif" width=100% height=100%></a></li>
-			<li><a href="#"><img src="img/ad8.jpg" width=100% height=100%></a></li>
-			<li><a href="#"><img src="img/ad9.png" width=100% height=100%></a></li>
-			<li><a href="#"><img src="img/ad10.jpg" width=100% height=100%></a></li>
-			<li><a href="#"><img src="img/ad11.png" width=100% height=100%></a></li>
-			<li><a href="#"><img src="img/ad12.png" width=100% height=100%></a></li>
+			<li><a href="#"><img src="img/ad1.gif" width=100% height=70%></a></li>
+			<li><a href="#"><img src="img/ad2.png" width=100% height=70%></a></li>
+			<li><a href="#"><img src="img/ad3.jpg" width=100% height=70%></a></li>
+			<li><a href="#"><img src="img/ad4.gif" width=100% height=70%></a></li>
+			<li><a href="#"><img src="img/ad5.jpg" width=100% height=70%></a></li>
+			<li><a href="#"><img src="img/ad6.png" width=100% height=70%></a></li>
+			<li><a href="#"><img src="img/ad7.gif" width=100% height=70%></a></li>
+			<li><a href="#"><img src="img/ad8.jpg" width=100% height=70%></a></li>
+			<li><a href="#"><img src="img/ad9.png" width=100% height=70%></a></li>
+			<li><a href="#"><img src="img/ad10.jpg" width=100% height=70%></a></li>
+			<li><a href="#"><img src="img/ad11.png" width=100% height=70%></a></li>
+			<li><a href="#"><img src="img/ad12.png" width=100% height=70%></a></li>
 
 		</ul>
 	</div>
-
-	<div class="container-60 out-align-center border">
-		<div class="myrow in-align-center border div-main"
+		<div class="myrow in-align-center border-white div-main"
 			style="height: 200px;">
 			<div class="myrow div-2 input-lg" style="height: 80%">
 				<div class="container-100 div-main">
@@ -126,46 +128,40 @@
 	</div>
 </form>
 	<div class="container-70 div-main out-align-center">
-	<table class = "table-noline"  style="margin: auto;">
+	<table class = "table">
 	<tbody>
 		<c:forEach var="bdto" items="${list}" varStatus="status">
 			<tr>
-				<td rowspan="2" class = "td padding">
-					<div class="background_white height-120px">
-						<a href="${pageContext.request.contextPath }/company/employment_information?no=${bdto.no}" >${bdto.title}</a>
+				<td rowspan="2">
+					<div class="background_white height-60px">
+						<a class="a" href="${pageContext.request.contextPath }/company/employment_information?no=${bdto.no}" >${bdto.title}</a>
 					</div>
 				</td>
-				<td class="padding">
-					<div class="background_white empty-row">
-						<label>${bdto.department}</label>
+				<td rowspan="2">
+					<div class="background_white height-60px">
+						${bdto.department} | ${bdto.edu}
 					</div>
 				</td>
-				<td class="padding">
-					<div class="background_white empty-row">
-						<label>${bdto.career}</label>
+				<td rowspan="2">
+					<div class="background_white height-60px">
+						${bdto.career} | ${bdto.empltype}
 					</div>
 				</td>
-				<td rowspan="2" class="padding">
-					<div class="background_white height-120px">
-						<a id="company_name" href="${pageContext.request.contextPath }/company/companyreview?company=${bdto.company}">${bdto.company}</a>
+				<td rowspan="2">
+					<div class="background_white height-60px">
+						<a class="a" id="company_name" href="${pageContext.request.contextPath }/company/companyreview?company=${bdto.company}">${fn:toUpperCase(bdto.company)}</a>
 					</div>
 				</td>
+				
+				
 			</tr>
 			
 			<tr>
-				<td class="padding">
-					<div class="background_white empty-row">
-						<label>에듀 : ${bdto.edu}</label>
+				<td>
+					<div class="background_white height-20px">
+						<button class="form-btn-full font-medium btn apply-btn openMask">지원하기</button>
 					</div>
 				</td>
-				<td class="padding">
-					<div class="background_white empty-row">
-						<label>${bdto.empltype}</label>
-					</div>
-				</td>
-			</tr>
-			<tr>
-				<td colspan="4" class="padding"></td>
 			</tr>
 		</c:forEach>
 		</tbody>

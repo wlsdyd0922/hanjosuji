@@ -12,6 +12,7 @@ public interface ResumeDao {
 	void apply(ResumeDto rdto);
 	
 	List<ResumeDto> getList(String author);
+	List<ResumeDto> applyList(int no);
 	ResumeDto searchTarget(String author);
 	boolean delete(ResumeDto rdto);
 	boolean edit(ResumeDto rdto);

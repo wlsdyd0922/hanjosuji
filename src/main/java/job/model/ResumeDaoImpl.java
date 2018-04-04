@@ -178,4 +178,9 @@ public class ResumeDaoImpl implements ResumeDao {
 		String sql = "UPDATE resume SET COUNT = (SELECT nvl(COUNT, 0) + 1 FROM resume WHERE email= ?) WHERE email=?";
 		return jdbcTemplate.update(sql, rdto.getEmail(), rdto.getEmail())>0;
 	}
+	@Override
+	public List<ResumeDto> applyList(int no) {
+		String sql = "select * from resume where boardno=?";
+		return jdbcTemplate.query(sql, mapper,no);
+	}
 }

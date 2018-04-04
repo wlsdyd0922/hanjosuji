@@ -73,19 +73,18 @@
 					<div class="div-2 rest-area border-bottom-lightblue font-medium">
 						<div class="container-40 in-align-center">지원직무</div>
 						<div class="container-30 in-align-center">지원자</div>
-						<div class="container-20 in-align-center">지원일자</div>
 						<div class="container-20 in-align-center">보기</div>
 					</div>
 					<!-- 여기서 부터 for문-->
+					<c:forEach var="list" items="${list}">
 					<div class="div-2 rest-area font-small">
-						<div class="container-40 in-align-center">2</div>
-						<div class="container-30 in-align-center">3</div>
-						<div class="container-20 in-align-center">4</div>
+						<div class="container-40 in-align-center">${list.department}</div>
+						<div class="container-30 in-align-center">${list.email}</div>
 						<div class="container-20 in-align-center">
 							<a href="${pageContext.request.contextPath}/company/check_application">5</a>
 						</div>
 					</div>
-					
+					</c:forEach>
 					<!-- for문 끝-->
 				</div>
 			</div>
