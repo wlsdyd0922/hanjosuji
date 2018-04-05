@@ -94,7 +94,7 @@ public class CompanyController {
 		
 		String email = (String)request.getSession().getAttribute("accept");
 		
-		List<BoardDto> list2 = boardDao.searchList(keyword,favRegion,favSort,foam_of_company,career,foam_of_employment,level_of_education);
+		List<BoardDto> list2 = boardDao.searchList(keyword,favRegion,favSort,foam_of_company,career,foam_of_employment,level_of_education,adto.getStartdata(),adto.getEnddata());
 		
 		log.debug("email={}",email);
 		List<LikesDto> likeList = likesDao.searchList(email);
@@ -105,7 +105,7 @@ public class CompanyController {
 		request.setAttribute("isLiked", isLiked);
 		request.setAttribute("list2", list2);
 		request.setAttribute("likeList", likeList);
-		
+		request.setAttribute("adto", adto);
 		request.setAttribute("favSort", favSort);
 		request.setAttribute("level_of_education", level_of_education);
 		request.setAttribute("career", career);

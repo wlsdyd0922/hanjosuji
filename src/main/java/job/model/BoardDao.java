@@ -31,10 +31,10 @@ public interface BoardDao {
 
 	List<BoardDto> getList(int start, int end);
 
+	List<BoardDto> searchList(String company, String location, String industry, String type, String career,
+			String empltype, String level_of_education, int i, int j);
+
 	int getCount(String company, String location, String industry, String type, String career, String empltype,
 			String level_of_education);
-
-	List<BoardDto> searchList(String company, String location, String industry, String type, String career,
-			String empltype, String level_of_education);
 
 }

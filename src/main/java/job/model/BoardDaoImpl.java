@@ -72,7 +72,7 @@ public class BoardDaoImpl implements BoardDao {
 		
 		BoardSqlCreater bsc = new BoardSqlCreater();
 		String sql = bsc.sqlCreate(company, location, industry, type, career, empltype, level_of_education);
-		sql = "select count(*) from (" + sql + ")";
+		sql = "select count(*) from (" + sql+")";
 		if (!compF && !locF && !industryF && !typeF && !careerF && !empltypeF && !eduF) {
 			return jdbcTemplate.queryForObject(sql, Integer.class);
 		} else {
@@ -90,7 +90,7 @@ public class BoardDaoImpl implements BoardDao {
 
 	@Override
 	public List<BoardDto> searchList(String company, String location, String industry, String type, String career,
-			String empltype, String level_of_education) {
+			String empltype, String level_of_education, int start, int end) {
 		boolean compF = company != null && !company.equals("");
 		boolean locF = location != null && !location.equals("");
 		boolean industryF = industry != null && !industry.equals("");
@@ -101,12 +101,14 @@ public class BoardDaoImpl implements BoardDao {
 
 		BoardSqlCreater bsc = new BoardSqlCreater();
 		String sql = bsc.sqlCreate(company, location, industry, type, career, empltype, level_of_education);
+		sql = "select rownum rn,A* from ("+sql+")A where rn between ? and ?";
+		log.debug(sql);
 
 		if (!compF && !locF && !industryF && !typeF && !careerF && !empltypeF && !eduF) {
-			return jdbcTemplate.query(sql, mapper);
+			return jdbcTemplate.query(sql, mapper,start,end);
 		} else {
 			List<String> list = bsc.createOb(company, location, industry, type, career, empltype, level_of_education);
-			return jdbcTemplate.query(sql, mapper, list.toArray());
+			return jdbcTemplate.query(sql, mapper, list.toArray(),start,end);
 		}
 
 		// company:키워드검색,location:위치, industry:직군, type:대기업/중소기업, career:신입경력
