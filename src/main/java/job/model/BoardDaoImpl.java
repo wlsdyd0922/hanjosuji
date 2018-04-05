@@ -51,6 +51,9 @@ public class BoardDaoImpl implements BoardDao {
 	private RowMapper<BoardDto> mapper = (rs, idx) -> {
 		return new BoardDto(rs);
 	};
+	private RowMapper<BoardDto> mapper1 = (rs, idx) -> {
+		return new BoardDto(rs,1);
+	};
 
 	// 채용공고 전체 리스트
 	@Override
@@ -76,7 +79,7 @@ public class BoardDaoImpl implements BoardDao {
 		if (!compF && !locF && !industryF && !typeF && !careerF && !empltypeF && !eduF) {
 			return jdbcTemplate.queryForObject(sql, Integer.class);
 		} else {
-			List<String> list = bsc.createOb(company, location, industry, type, career, empltype, level_of_education);
+			List<Object> list = bsc.createOb(company, location, industry, type, career, empltype, level_of_education);
 			return jdbcTemplate.queryForObject(sql, Integer.class, list.toArray());
 		}
 		// ,company, location, industry, type, career, empltype
@@ -101,32 +104,16 @@ public class BoardDaoImpl implements BoardDao {
 
 		BoardSqlCreater bsc = new BoardSqlCreater();
 		String sql = bsc.sqlCreate(company, location, industry, type, career, empltype, level_of_education);
-		sql = "select * from (select rownum rn,A* from ("+sql+")A) where rn between ? and ?";
+		sql = "select * from (select rownum rn, A.* from ("+sql+")A) where rn between ? and ?";
 		log.debug(sql);
-//		select * from (
-//				select rownum rn,A.* from (
-//				select b.no, a.name, a.industry, a.ceo, a.birth, a.website, a.employee, a.type, a.sales, a.addrloc, a.addr2loc, a.imgname, a.imgencoding, a.regcode from company a full outer join hireboard b on a.name=b.company 
-//				)A) where rn between 10 and 15
-
 		if (!compF && !locF && !industryF && !typeF && !careerF && !empltypeF && !eduF) {
-			return jdbcTemplate.query(sql, mapper,start,end);
+			return jdbcTemplate.query(sql, mapper1,start,end);
 		} else {
-			List<String> list = bsc.createOb(company, location, industry, type, career, empltype, level_of_education);
-			return jdbcTemplate.query(sql, mapper, list.toArray(),start,end);
+			List<Object> list = bsc.createOb(company, location, industry, type, career, empltype, level_of_education);
+			list.add(start);
+			list.add(end);
+			return jdbcTemplate.query(sql, mapper1, list.toArray());
 		}
-
-		// company:키워드검색,location:위치, industry:직군, type:대기업/중소기업, career:신입경력
-		// empltype: 고용형태
-		// String sql = "select b.*, a.name, a.industry, a.ceo, a.birth, a.website,
-		// a.employee,"
-		// + " a.type, a.sales, a.addrloc, a.addr2loc, a.imgname, a.imgencoding,
-		// a.regcode "
-		// + "from company a full outer join hireboard b on a.name=b.company "
-		// + "where upper(b.title) like '%'||upper(?)||'%' or b.location = ? "
-		// + " and a.industry like '%'||?||'%' and a.type like '%'||?||'%' and"
-		// + " b.career like '%'||?||'%' and b.empltype like '%'||?||'%'";
-		// String sql = "select * from hireboard where upper(company) like
-		// '%'||upper(?)||'%' order by reg desc";
 	}
 
 	@Override

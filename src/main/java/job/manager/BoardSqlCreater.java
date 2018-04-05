@@ -3,12 +3,17 @@ package job.manager;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class BoardSqlCreater {
+	private Logger log = LoggerFactory.getLogger(getClass());
 	public String sqlCreate(String company, String location, String industry, String type, String career,
 			String empltype, String level_of_education) {
-		String sql = "select b.*, a.name, a.industry, a.ceo, a.birth, a.website, a.employee,"
-				+ " a.type, a.sales, a.addrloc, a.addr2loc, a.imgname, a.imgencoding, a.regcode "
-				+ "from company a full outer join hireboard b on a.name=b.company";
+		
+
+		String sql = "select b.no,b.title,b.career,b.empltype,b.company,b.department,b.edu,b.location,a.name, a.industry, a.employee, a.type from company a inner join hireboard b on a.name=b.company";
+
 		boolean compF = company != null && !company.equals("");
 		boolean locF = location != null && !location.equals("");
 		boolean industryF = industry != null && !industry.equals("");
@@ -65,7 +70,7 @@ public class BoardSqlCreater {
 		return sql;
 	}
 
-	public List<String> createOb(String company, String location, String industry, String type, String career,
+	public List<Object> createOb(String company, String location, String industry, String type, String career,
 			String empltype, String level_of_education) {
 		boolean compF = company != null && !company.equals("");
 		boolean locF = location != null && !location.equals("");
@@ -74,7 +79,7 @@ public class BoardSqlCreater {
 		boolean careerF = career != null && !career.equals("");
 		boolean empltypeF = empltype != null && !empltype.equals("");
 		boolean eduF = level_of_education != null && !level_of_education.equals("");
-		List<String> list = new ArrayList<>();
+		List<Object> list = new ArrayList<>();
 		if (compF || locF || industryF || typeF || careerF || empltypeF || eduF) {
 			if (compF) {
 				list.add(company);

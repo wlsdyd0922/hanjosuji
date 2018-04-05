@@ -41,6 +41,17 @@ public class BoardDto {
 		setDepartment(rs.getString("department"));
 		setLocation(rs.getString("location"));
 	}
+	public BoardDto(ResultSet rs, int i) throws SQLException {
+		setNo(rs.getInt("no"));
+		setTitle(rs.getString("title"));
+		setDepartment(rs.getString("department"));
+		setEdu(rs.getString("edu"));
+		setCareer(rs.getString("career"));
+		setEmpltype(rs.getString("empltype"));
+		setCompany(rs.getString("company"));
+		setLocation(rs.getString("location"));
+	}
+
 	public int getEmployee() {
 		return employee;
 	}
