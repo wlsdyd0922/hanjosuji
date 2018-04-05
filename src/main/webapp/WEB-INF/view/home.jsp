@@ -128,35 +128,28 @@
 	<tbody>
 		<c:forEach var="bdto" items="${list}" varStatus="status">
 			<tr>
-				<td rowspan="2">
+				<td>
 					<div class="background_white height-60px">
 						<a class="a" href="${pageContext.request.contextPath }/company/employment_information?no=${bdto.no}" >${bdto.title}</a>
 					</div>
 				</td>
 	
-				<td rowspan="2" class="td">
+				<td class="td">
 					<div class="background_white height-60px">
 						${bdto.department} | ${bdto.edu}
 					</div>
 				</td>
-				<td rowspan="2" class="td">
+				<td class="td">
 					<div class="background_white height-60px">
 						${bdto.career} | ${bdto.empltype}
 					</div>
 				</td>
-				<td rowspan="2">
+				<td>
 					<div class="background_white height-60px">
 						<a class="a" id="company_name" href="${pageContext.request.contextPath }/company/companyreview?company=${bdto.company}">${fn:toUpperCase(bdto.company)}</a>
 					</div>
 				</td>		
-			</tr>
-			
-			<tr>
-				<td>
-					<div class="background_white height-20px">
-						<button class="form-btn-full font-medium btn apply-btn openMask">지원하기</button>
-					</div>
-				</td>
+
 			</tr>
 		</c:forEach>
 		</tbody>
