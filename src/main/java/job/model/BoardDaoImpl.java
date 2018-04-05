@@ -101,8 +101,12 @@ public class BoardDaoImpl implements BoardDao {
 
 		BoardSqlCreater bsc = new BoardSqlCreater();
 		String sql = bsc.sqlCreate(company, location, industry, type, career, empltype, level_of_education);
-		sql = "select rownum rn,A* from ("+sql+")A where rn between ? and ?";
+		sql = "select * from (select rownum rn,A* from ("+sql+")A) where rn between ? and ?";
 		log.debug(sql);
+//		select * from (
+//				select rownum rn,A.* from (
+//				select b.no, a.name, a.industry, a.ceo, a.birth, a.website, a.employee, a.type, a.sales, a.addrloc, a.addr2loc, a.imgname, a.imgencoding, a.regcode from company a full outer join hireboard b on a.name=b.company 
+//				)A) where rn between 10 and 15
 
 		if (!compF && !locF && !industryF && !typeF && !careerF && !empltypeF && !eduF) {
 			return jdbcTemplate.query(sql, mapper,start,end);
