@@ -63,7 +63,7 @@
 			<div class="container-30">
 				<select name="career" class="container-100 input-lg">
 					<option value="신입">신입</option>
-					<option value="2년 이하">2년이하</option>
+					<option value="2년이하">2년이하</option>
 					<option value="3~5년">3~5년</option>
 					<option value="6년이상">6년이상</option>
 					<option value="경력무관">경력무관</option>
