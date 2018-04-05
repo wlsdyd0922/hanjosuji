@@ -14,13 +14,11 @@ $(document).ready(function() {
 			dataType : 'json',
 			success : function(data) {
 				if(id){
-					console.log("dada",data)
 					if($.trim(data) == 0){
 						$("#checkMsg").html('<p style="color:blue">이 아이디는 사용이 가능합니다.</p>');
 					}else{
 						$("#checkMsg").html('<p style="color:red">이 아이디는 사용중 입니다.</p>');
 						$("input[name=email]").css("border-color","deeppink");
-						console.log("들어옴")
 						id=false;
 					}
 				}else{
@@ -32,7 +30,6 @@ $(document).ready(function() {
 	
 	//아이디 글자 확인..(추후 email로 regex 변경)
 	$("input[name=email]").on("input",function(){
-		console.log("id", id)
 		var regex = /^\w{6,15}$/;
 		if(!$(this).val()){
 			$(this).css("border-color","#ccc");
@@ -60,7 +57,6 @@ $(document).ready(function() {
 	// 비번확인 이벤트
 	$("input[name=pw_again]").on("input", function() {
 		var pw = $("input[name=pw]").val();
-
 		if (pw === $(this).val()) {
 			$(this).css("border-color", "deepskyblue");
 			pwa = true;
@@ -114,17 +110,8 @@ $(document).ready(function() {
 			 $("input[name=pw_again]").val(SHA256($("input[name=pw_again]").val()));
 			 
 			 $("input[name=pwans]").val(SHA256($("input[name=pwans]").val()));
-			 
-			 console.log("모두 통과");
 			 return true;
 		 }else{
-			 console.log(id)
-			 console.log(pw)
-			 console.log(pwa)
-			 console.log(phone)
-			 console.log(ans)
-			 console.log(name)
-			 
 			 console.log("불가능");
 			 return false;
 		 }

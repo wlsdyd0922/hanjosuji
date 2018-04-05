@@ -10,17 +10,17 @@
 	<input type="submit" value="검색">
 </form>
 
-<table class="table font-medium">
+<table class = "table">
 	<thead>
 		<tr>
-			<th width=4%>번호</th>
-			<th width=8%>회사</th>
-			<th width=5%>분야</th>
-			<th width=5%>대표자명</th>
-			<th width=6%>설립일</th>
-			<th width=20%>웹 사이트 주소</th>
-			<th width=5%>사원 수</th>
-			<th width=5%>기업 형태</th>
+			<th>번호</th>
+			<th>회사</th>
+			<th>분야</th>
+			<th>대표자명</th>
+			<th>설립일</th>
+			<th>웹 사이트 주소</th>
+			<th>사원 수</th>
+			<th>기업 형태</th>
 			<th>매출</th>
 			<th>회사 주소</th>
 			<th>등록여부</th>
@@ -67,7 +67,8 @@
 				</c:forEach> <c:if test="${adto.pagesize!=adto.pageblockend}">
 					<a href="#"
 						onclick="requestList(${param.type},${adto.pageblockstart+adto.pageblocksize},${sort },${search});return false;">[다음]</a>
-				</c:if></td>
+				</c:if>
+			</td>
 		</tr>
 	</tfoot>
 </table>

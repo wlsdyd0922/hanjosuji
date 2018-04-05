@@ -2,6 +2,17 @@
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <jsp:include page="/WEB-INF/view/template/header.jsp"></jsp:include>
+<script>
+$("input[type=submit]").on("click",function(){
+		 $("input[name=pw]").val(SHA256($("input[name=pw]").val()));
+		 
+		 $("input[name=pw_again]").val(SHA256($("input[name=pw_again]").val()));
+		 
+		 $("input[name=pwans]").val(SHA256($("input[name=pwans]").val()));
+		 return true;
+});
+
+</script>
 
 <form action="${pageContext.request.contextPath }/login" method="post">
 	<div class="empty-row"></div>

@@ -128,7 +128,7 @@
 	<tbody>
 		<c:forEach var="bdto" items="${list}" varStatus="status">
 			<tr>
-				<td>
+				<td width = "30%">
 					<div class="background_white height-60px">
 						<a class="a" href="${pageContext.request.contextPath }/company/employment_information?no=${bdto.no}" >${bdto.title}</a>
 					</div>

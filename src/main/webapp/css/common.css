@@ -28,7 +28,6 @@ a:hover {
         }*/
 
 /* 테이블 스타일 */
-
 .table {
     border: 1px solid #f4f7f7;
     width: 100%;
@@ -39,9 +38,8 @@ a:hover {
 
 .table th,
 table td {
-/*     border: 1px solid #f4f7f7; */
+    border: 1px solid #f4f7f7;
     text-align: center;
-    width:30%;
 }
 .table .td{
 	text-align:center;
