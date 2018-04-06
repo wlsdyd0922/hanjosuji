@@ -53,7 +53,6 @@ function requestList(type, page,sort,search){
 			search = field.value;
 		}
     });
-	console.log(sort,search);
 	$.ajax({
 //		url:"${pageContext.request.contextPath}/admin/compacceptboard_part",
 		url:"compacceptboard_part",

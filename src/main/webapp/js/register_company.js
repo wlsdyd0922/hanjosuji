@@ -112,7 +112,6 @@ $(document).ready(function() {
 			 $("input[name=pwans]").val(SHA256($("input[name=pwans]").val()));
 			 return true;
 		 }else{
-			 console.log("불가능");
 			 return false;
 		 }
 	 });
