@@ -4,6 +4,7 @@
 <script src="${pageContext.request.contextPath}/js/search_company.js"></script>
 <!-- 입력값에 따른 css 변화.js -->
 <script src="${pageContext.request.contextPath}/js/sha256.js"></script>
+<script src="${pageContext.request.contextPath}/js/login.js"></script>
 <script src="${pageContext.request.contextPath}/js/register_personal.js"></script>
 <form action="${pageContext.request.contextPath }/findmember/change_pw_personal" method="post">
 	<div class="empty-row"></div>

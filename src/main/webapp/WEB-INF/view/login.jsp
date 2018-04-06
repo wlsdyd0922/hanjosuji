@@ -2,22 +2,10 @@
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <jsp:include page="/WEB-INF/view/template/header.jsp"></jsp:include>
-<script>
-$(document).ready(function() {
-	$("input[type=submit]").on("submit", function(){
-		$("input[name=pw]").val(SHA256($("input[name=pw]").val()));
-		console.log($("input[name=pw]").val());
-		 
-		$("input[name=pw_again]").val(SHA256($("input[name=pw_again]").val()));
-		 
-		$("input[name=pwans]").val(SHA256($("input[name=pwans]").val()));
-		return false;
-	});
-});
+<script src="${pageContext.request.contextPath}/js/sha256.js"></script>
+<script src="${pageContext.request.contextPath}/js/login.js"></script>
 
-</script>
-
-<form action="${pageContext.request.contextPath }/login" method="post">
+<form class = "asdasd" action="${pageContext.request.contextPath }/login" method="post">
 	<div class="empty-row"></div>
 	<div class="container-500 out-align-center">
 		<div class="myrow input-group input-group-lg">
@@ -51,14 +39,15 @@ $(document).ready(function() {
 			 type="submit" value="로그인">
 		</div>
 		<hr>
+	</div>
+</form>
 		<div class="myrow">
 			<input class="btn btn-primary btn-lg form-btn-full"
 			type="button" value="회원가입" onclick="location.href = '${pageContext.request.contextPath }/register/register_choose'">
 		</div>
 		<div class="myrow font-medium">&copy;WorkSpace Corp. All rights
 			reserved.</div>
-	</div>
+
 	<div class="empty-row"></div>
 	<div class="empty-row"></div>
-</form>
 <jsp:include page="/WEB-INF/view/template/footer.jsp"></jsp:include>

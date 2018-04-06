@@ -33,7 +33,6 @@ public class LogInController {
 		if (request.getSession().getAttribute("accept") != null) {
 			request.getSession().invalidate(); // 기존값을 제거해 준다.
 		}
-		NMdto.setPw(new SHA256().On(NMdto.getPw()));
 		Cookie ck = new Cookie("rememberId", NMdto.getEmail());
 		if (NMdto.isRememberId()) {
 			ck.setMaxAge(4 * 7 * 24 * 60 * 60);
