@@ -92,10 +92,7 @@ public class FindController {
 	
 	@RequestMapping(value = "change_pw_personal", method = RequestMethod.POST)
 	public String change_pw_personal_post(String email,String pw, HttpServletRequest request) {
-		System.out.println(email);
-		System.out.println(pw);
-		String password = new SHA256().On(pw);
-		nmdao.pwupdate(password, email);
+		nmdao.pwupdate(pw, email);
 		return "redirect:/login";
 	}
 	
@@ -106,10 +103,7 @@ public class FindController {
 	
 	@RequestMapping(value = "change_pw_company", method = RequestMethod.POST)
 	public String change_pw_company_post(String email,String pw, HttpServletRequest request) {
-		System.out.println(email);
-		System.out.println(pw);
-		String password = new SHA256().On(pw);
-		nmdao.pwupdate(password, email);
+		nmdao.pwupdate(pw, email);
 		return "redirect:/login";
 	}
 
