@@ -56,7 +56,6 @@ public class RegisterController {
 	//일반 멤버 회원가입 처리
 	@RequestMapping(value="register_personal",method=RequestMethod.POST)
 	public String RegisterPersonal(NormalMDto mdto, HttpServletRequest request) throws Exception {
-		mdto.setPw(new SHA256().On(mdto.getPw()));
 		//DB연결..
 		if(!nmdao.register(mdto)) {
 			throw new Exception("회원가입 실패");
@@ -72,9 +71,7 @@ public class RegisterController {
 	
 	@RequestMapping(value = "register_company",method = RequestMethod.POST)
 	public String RegisterCompany(NormalMDto nmdto,HttpServletRequest request) {
-		String sha = new SHA256().On(nmdto.getPw());
 		log.debug(nmdto.getEmail());
-		log.debug(sha);
 		log.debug(nmdto.getPhone());
 		log.debug(nmdto.getName());
 		log.debug(nmdto.getPwquiz());

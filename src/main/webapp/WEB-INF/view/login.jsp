@@ -3,13 +3,16 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <jsp:include page="/WEB-INF/view/template/header.jsp"></jsp:include>
 <script>
-$("input[type=submit]").on("click",function(){
-		 $("input[name=pw]").val(SHA256($("input[name=pw]").val()));
+$(document).ready(function() {
+	$("input[type=submit]").on("submit", function(){
+		$("input[name=pw]").val(SHA256($("input[name=pw]").val()));
+		console.log($("input[name=pw]").val());
 		 
-		 $("input[name=pw_again]").val(SHA256($("input[name=pw_again]").val()));
+		$("input[name=pw_again]").val(SHA256($("input[name=pw_again]").val()));
 		 
-		 $("input[name=pwans]").val(SHA256($("input[name=pwans]").val()));
-		 return true;
+		$("input[name=pwans]").val(SHA256($("input[name=pwans]").val()));
+		return false;
+	});
 });
 
 </script>
