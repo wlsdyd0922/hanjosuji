@@ -77,7 +77,6 @@ public class ReviewController {
 	@RequestMapping(value="company/review_detail",method=RequestMethod.POST)
 	public String review_detail(ReviewDto rdto, HttpSession session) {
 		ReviewDto rdto2 = (ReviewDto)session.getAttribute("review");
-		log.debug("company:",rdto2.getCompany());
 		rdto.setCompany(rdto2.getCompany());
 		rdto.setStatus(rdto2.getStatus());
 		rdto.setType(rdto2.getType());
@@ -92,21 +91,4 @@ public class ReviewController {
 	public String information(ReviewDto rdto) {
 		return "company/review_info";
 	}
-	/*
-	@RequestMapping("company/review_list")
-	public String reviewList(HttpServletRequest request) {
-		int no = 26;
-		if(request.getParameter("no")!=null && request.getParameter("no")!="") {
-			no = Integer.parseInt(request.getParameter("no"));
-		}
-		System.out.println("no:"+no);
-		ReviewDto rdto = reviewDao.loadReview(no);
-		request.setAttribute("rdto", rdto);
-		System.out.println("company:"+rdto.getCompany());
-		System.out.println("recommend:"+rdto.getRecommend());
-		System.out.println("가입일:"+rdto.getReg());
-		System.out.println("no:"+rdto.getNo());
-		return "company/review_list";
-	}
-	*/
 }

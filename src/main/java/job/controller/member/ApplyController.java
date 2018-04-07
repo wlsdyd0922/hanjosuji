@@ -22,13 +22,11 @@ public class ApplyController {
 	@RequestMapping("member/apply")
 	public String apply(HttpServletRequest request) {
 		int no = Integer.parseInt(request.getParameter("no"));
-		System.out.println("게시판번호!!:"+no);
 		return "redirect:/";
 	}
 	@RequestMapping(value="member/apply", method=RequestMethod.POST)
 	public String apply(HttpServletRequest request,ResumeDto rdto) {
 		String name = request.getParameter("resume_name");		//이력서 제목
-		System.out.println("게시판번호:"+Integer.parseInt(request.getParameter("no")));
 		int no = Integer.parseInt(request.getParameter("no"));	//게시판 번호
 		//세션 불러와서 이력서 정보 조회
 		String email = (String)request.getSession().getAttribute("accept");

@@ -3,7 +3,14 @@
 <jsp:include page="/WEB-INF/view/template/header.jsp"></jsp:include>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix = "fn" uri = "http://java.sun.com/jsp/jstl/functions"  %>
-
+<script>
+	function apply(data_value){
+		wrapWindowByMask();
+		$("#pop").fadeIn();
+		$("#no").attr("value",data_value);
+		console.log($("#no").val());
+	}
+</script>
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/css/sliding.css">
 <script src="${pageContext.request.contextPath}/js/sliding.js"></script>
@@ -128,18 +135,18 @@
 	<tbody>
 		<c:forEach var="bdto" items="${list}" varStatus="status">
 			<tr>
-				<td width = "30%">
+				<td class="container-30">
 					<div class="background_white height-60px">
 						<a class="a" href="${pageContext.request.contextPath }/company/employment_information?no=${bdto.no}" >${bdto.title}</a>
 					</div>
 				</td>
 	
-				<td class="td">
+				<td class="container-30">
 					<div class="background_white height-60px">
 						${bdto.department} | ${bdto.edu}
 					</div>
 				</td>
-				<td class="td">
+				<td class="container-30">
 					<div class="background_white height-60px">
 						${bdto.career} | ${bdto.empltype}
 					</div>
@@ -149,7 +156,9 @@
 						<a class="a" id="company_name" href="${pageContext.request.contextPath }/company/companyreview?company=${bdto.company}">${fn:toUpperCase(bdto.company)}</a>
 					</div>
 				</td>		
-
+				<td class="container-10">
+					<button class="form-btn-full apply-btn" onclick=apply(${bdto.no })>지원</button>
+				</td>
 			</tr>
 		</c:forEach>
 		</tbody>
@@ -173,10 +182,10 @@
 	</tfoot>
 	</table>
 	</div>
-	<c:if test="${not empty accept }">
+<c:if test="${not empty accept }">
 <!-- 입사 지원시 -->
 <form action="${pageContext.request.contextPath}/member/apply" method="post">
-
+<input type="hidden" name="no" id="no">
 	<div id="mask"></div>
 	<div id="pop" class="padding">
 		<div style="color: white">

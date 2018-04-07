@@ -39,14 +39,14 @@
 			 type="submit" value="로그인">
 		</div>
 		<hr>
-	</div>
-</form>
 		<div class="myrow">
 			<input class="btn btn-primary btn-lg form-btn-full"
 			type="button" value="회원가입" onclick="location.href = '${pageContext.request.contextPath }/register/register_choose'">
 		</div>
 		<div class="myrow font-medium">&copy;WorkSpace Corp. All rights
 			reserved.</div>
+	</div>
+</form>
 
 	<div class="empty-row"></div>
 	<div class="empty-row"></div>

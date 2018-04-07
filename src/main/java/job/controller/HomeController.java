@@ -47,7 +47,6 @@ public class HomeController {
 		//모든 데이터의 개수
 		adto.setCount(boardDao.getCount(keyword,favRegion,favSort,foam_of_company,career,foam_of_employment,level_of_education));
 		//총 페이지 수
-		log.debug(String.valueOf(adto.getCount()));
 		adto.setPagesize(adto.getCount() / adto.getPagedatasize());
 		//한 블록당 보여줄 페이지 개수
 		adto.setPageblocksize(5);

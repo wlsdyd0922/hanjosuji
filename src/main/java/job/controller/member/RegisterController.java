@@ -71,13 +71,6 @@ public class RegisterController {
 	
 	@RequestMapping(value = "register_company",method = RequestMethod.POST)
 	public String RegisterCompany(NormalMDto nmdto,HttpServletRequest request) {
-		log.debug(nmdto.getEmail());
-		log.debug(nmdto.getPhone());
-		log.debug(nmdto.getName());
-		log.debug(nmdto.getPwquiz());
-		log.debug(nmdto.getPwans());
-		log.debug(nmdto.getCompany());
-		log.debug(nmdto.getGrade());
 		nmdao.register(nmdto);
 		return "redirect:/";
 	}
@@ -85,7 +78,6 @@ public class RegisterController {
 	@RequestMapping("compsearch")
 	@ResponseBody      
 	public String CompSearch(String compname) {
-		log.debug("CompSearch({})", compname);
 		return "register/register_company";
 	}
 	
@@ -120,23 +112,11 @@ public class RegisterController {
 		return "register/find_company";
 	}
 	
-//	@RequestMapping(value="find_company",method=RequestMethod.POST)
-//	public String register_newcompany(HttpServletRequest request) {
-//		String name = request.getParameter("company_name");
-//		List<CompanyDto> list = adminDao.nameList(name);
-//		if(list.isEmpty()) {
-//			log.debug("리스트없음");
-//		}
-//		request.setAttribute("list", list);
-//		return "register/find_company";
-//	}
 	@RequestMapping("find_company_part")
 	public String find_company_part(HttpServletRequest request) {
 		String name = request.getParameter("company_name").toLowerCase();
-		System.out.println(name); 
 		List<CompanyDto> list = cdao.nameList(name);
 		if(list.isEmpty()) {
-			log.debug("리스트없음");
 			return "register/find_company_nok";
 		}
 		request.setAttribute("list", list);	
@@ -149,17 +129,10 @@ public class RegisterController {
 	
 	@RequestMapping(value="register_newcompany", method = RequestMethod.POST)
 	public String register_newcompany_post(MultipartHttpServletRequest mRequest,Model model) throws Exception {
-//		log.debug("드러옴");
-//		String aa = request.getParameter("name");
-//		log.debug(aa);
-//		MultipartFile file = request.getFile("file");
-//		log.debug(file.getOriginalFilename());
-		
 		CompanyDto cdto = new CompanyDto(mRequest);
 		MultipartFile file = mRequest.getFile("file");
 		String savename = UUID.randomUUID().toString();
 		String enctype = file.getContentType();
-		
 		
 		cdto.setImgencoding(enctype);
 		cdto.setImgname(savename);

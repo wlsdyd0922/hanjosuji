@@ -72,7 +72,6 @@ public class CompanyController {
 		adto.setEnddata(pageno * adto.getPagedatasize());
 		//모든 데이터의 개수
 		adto.setCount(boardDao.getCount(keyword,favRegion,favSort,foam_of_company,career,foam_of_employment,level_of_education));		//총 페이지 수
-		log.debug(String.valueOf(adto.getCount()));
 		adto.setPagesize(adto.getCount() / adto.getPagedatasize());
 		//한 블록당 보여줄 페이지 개수
 		adto.setPageblocksize(5);
@@ -96,12 +95,10 @@ public class CompanyController {
 		
 		List<BoardDto> list2 = boardDao.searchList(keyword,favRegion,favSort,foam_of_company,career,foam_of_employment,level_of_education,adto.getStartdata(),adto.getEnddata());
 		
-		log.debug("email={}",email);
 		List<LikesDto> likeList = likesDao.searchList(email);
 		LikesDto ldto = new LikesDto();
 
 		boolean isLiked = likesDao.isLiked(ldto);
-		System.out.println("결과 : " + isLiked);
 		request.setAttribute("isLiked", isLiked);
 		request.setAttribute("list2", list2);
 		request.setAttribute("likeList", likeList);

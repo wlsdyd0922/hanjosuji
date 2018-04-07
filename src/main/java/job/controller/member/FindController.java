@@ -65,7 +65,6 @@ public class FindController {
 	@ResponseBody
 	public String find_id_company(NormalMDto nmdto, HttpSession session, HttpServletRequest request) {
 		String email = nmdao.getEmail(nmdto);
-		System.out.println("email : " + email);
 		return email;
 	}
 	

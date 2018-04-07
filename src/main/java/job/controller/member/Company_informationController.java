@@ -37,7 +37,6 @@ public class Company_informationController {
 	@RequestMapping("member/company_information")
 	public String information(HttpServletRequest request, NormalMDto nmdto) {
 		String email = (String) request.getSession().getAttribute("accept");
-		System.out.println(email);
 		nmdto = nmdao.info(email);
 		request.setAttribute("nmdto", nmdto);
 		CompanyDto cdto = cdao.searchTarget(nmdto.getCompany());
@@ -51,7 +50,6 @@ public class Company_informationController {
 				if (bdto.getNo() == rdto.getBoardno()) {
 					List<ResumeDto> list = rdao.applyList(rdto.getBoardno());
 					for(ResumeDto r:list) {
-						System.out.println(r.getTitle());
 					}
 					request.setAttribute("list", list);
 				}

@@ -38,17 +38,10 @@ public class EditController {
 
 	@RequestMapping(value = "edit_personal", method = RequestMethod.POST)
 	public String EditPersonal1(NormalMDto nmdto,HttpServletRequest request) throws Exception {
-		log.debug("편집들어옴");
-		log.debug("email={}", nmdto.getEmail());
 		if (nmdto.getPw() == "") {
-			log.debug("pw={}", nmdto.getPw());
 		}else {
 			nmdto.setPw(new SHA256().On(nmdto.getPw()));
 		}
-		log.debug("phone={}", nmdto.getPhone());
-		log.debug("addr={}", nmdto.getAddr());
-		log.debug("addr2={}", nmdto.getAddr2());
-		log.debug("pwquiz={}", nmdto.getPwquiz());
 		
 		if(!nmdao.edit(nmdto)) {
 			throw new Exception("회원정보 변경 실패");
@@ -58,17 +51,6 @@ public class EditController {
 		return "redirect:/member/information";
 	}
 
-	// @RequestMapping("edit_company")
-	// public String EditCompany(HttpServletRequest request) {
-	// String company = (String) request.getSession().getAttribute("company");
-	// request.setAttribute("cdto", cdao.searchTarget(company));
-	// return "company/edit_compnay";
-	// }
-	// @RequestMapping(value="edit_company",method=RequestMethod.POST)
-	// public String EditCompany() {
-	// return "company/edit_compnay";
-	// }
-	
 	@RequestMapping("edit_resume")
 	public String EditDetailResume(HttpServletRequest request) {
 		String email = (String) request.getSession().getAttribute("accept");

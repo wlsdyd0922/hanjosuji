@@ -41,7 +41,6 @@ public class AdminController {
 		adto.setEnddata(pageno * adto.getPagedatasize());
 		adto.setStartdata((pageno - 1) * adto.getPagedatasize() + 1);
 		adto.setCount(addao.getCount(type,sort,search));
-		log.debug(String.valueOf(adto.getCount()));
 		adto.setPagesize(adto.getCount() / adto.getPagedatasize());
 		adto.setPageblocksize(5);
 		adto.setPageblockstart(((pageno - 1) / adto.getPageblocksize() * adto.getPageblocksize()) + 1);

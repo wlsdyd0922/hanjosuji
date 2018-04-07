@@ -156,6 +156,7 @@ table td {
 }
 .apply-btn{
 	background-color:#B8D7FF;
+	border-style:none;
 	color:white;
 	height:60px;
 }
