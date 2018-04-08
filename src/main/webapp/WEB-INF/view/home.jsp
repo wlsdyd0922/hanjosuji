@@ -8,7 +8,6 @@
 		wrapWindowByMask();
 		$("#pop").fadeIn();
 		$("#no").attr("value",data_value);
-		console.log($("#no").val());
 	}
 </script>
 <link rel="stylesheet" type="text/css"
@@ -157,7 +156,7 @@
 					</div>
 				</td>		
 				<td class="container-10">
-					<button class="form-btn-full apply-btn" onclick=apply(${bdto.no })>지원</button>
+					<button class="form-btn-full apply-btn" onclick=apply(${bdto.no })>지원하기</button>
 				</td>
 			</tr>
 		</c:forEach>

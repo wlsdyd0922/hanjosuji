@@ -29,11 +29,7 @@ public class CompanyInfoParSer {
 			String industry = document1.select(".category").text();
 			Elements info = document1.select(".info_item");
 			
-			log.debug(title);
-			log.debug(industry);
-			
 			for(Element b: info) {
-				log.debug(b.ownText());
 			}
 		}
 	}

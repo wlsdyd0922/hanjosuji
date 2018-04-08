@@ -105,7 +105,6 @@ public class BoardDaoImpl implements BoardDao {
 		BoardSqlCreater bsc = new BoardSqlCreater();
 		String sql = bsc.sqlCreate(company, location, industry, type, career, empltype, level_of_education);
 		sql = "select * from (select rownum rn, A.* from ("+sql+")A) where rn between ? and ?";
-		log.debug(sql);
 		if (!compF && !locF && !industryF && !typeF && !careerF && !empltypeF && !eduF) {
 			return jdbcTemplate.query(sql, mapper1,start,end);
 		} else {

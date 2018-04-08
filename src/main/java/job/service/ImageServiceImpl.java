@@ -34,7 +34,6 @@ public class ImageServiceImpl implements ImageService {
 		
 		String savename = UUID.randomUUID().toString();
 		String path = servletContext.getRealPath("/upload");
-		System.out.println(path);
 		String enctype = file.getContentType();
 
 		File dir = new File(path);

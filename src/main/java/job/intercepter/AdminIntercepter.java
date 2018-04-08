@@ -13,11 +13,6 @@ public class AdminIntercepter extends HandlerInterceptorAdapter{
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
 		String grade = (String) request.getSession().getAttribute("grade");
-		log.debug("등급={}",grade);
-//		if(grade.equals("관리자")) {
-//			response.sendRedirect(request.getContextPath()+"/login");
-//			return false;
-//		}
 		return super.preHandle(request, response, handler);
 	}
 }

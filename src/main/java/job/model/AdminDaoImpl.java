@@ -38,11 +38,9 @@ public class AdminDaoImpl implements AdminDao {
 	public List<CompanyDto> compAllList(int sno, int eno,String sort ,String search) {
 		String sql;
 		if(search != null && !search.equals("")) {
-			log.debug("체크검색목록");
 			sql = "select * from (select * from (select rownum rn,A.* from (select * from company where "+sort+" like '%'||?||'%' order by no)A)) where rn between ? and ?";
 			return jdbcTemplate.query(sql, compmapper, search,sno, eno);
 		}else {
-			log.debug("체크전체목록");
 			sql = "select * from (select * from (select rownum rn,A.* from (select * from company order by no)A)) where rn between ? and ?";
 			return jdbcTemplate.query(sql, compmapper, sno, eno);
 		}		
